@@ -1,0 +1,865 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="CAOPModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="ACCOMODATION_TYPES">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ACCOUNT_TYPES">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="APPLICANT_STATUSES">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NAME" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="ARMY_RANK_CODES">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CODE" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="AVERAGE_CASH_DEPOSITS">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NAME" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="AVERAGE_NON_CASH_DEPOSITS">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NAME" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="BASE_CATEGORIES">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NAME" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="BRANCHES">
+    <Key>
+      <PropertyRef Name="BRANCH_ID" />
+    </Key>
+    <Property Name="BRANCH_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="REGION_ID" Type="Int32" Nullable="false" />
+    <Property Name="NAME" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="BRANCH_CODE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="REGIONS" Relationship="Self.FK__BRANCHES__REGION__0D7A0286" FromRole="BRANCHES" ToRole="REGIONS" />
+  </EntityType>
+  <EntityType Name="BUSINESS_ACOUNTS">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NAME" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="BUSINESS_CUSTOMER_CLASSIFICATIONS">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NAME" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="BUSINESS_DETAIL">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="INFO_TYPE" Type="Int32" />
+    <NavigationProperty Name="INFO_TYPES_BDS" Relationship="Self.FK__BUSINESS___INFO___0E6E26BF" FromRole="BUSINESS_DETAIL" ToRole="INFO_TYPES_BDS" />
+  </EntityType>
+  <EntityType Name="CIF_TYPES">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CITIES">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NAME" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="CITIES_BUSINESS_DETAILS" Relationship="Self.FK__CITIES_BU__CITY___0F624AF8" FromRole="CITIES" ToRole="CITIES_BUSINESS_DETAILS" />
+    <NavigationProperty Name="HEAD_CONTACT_INFOS" Relationship="Self.FK__HEAD_CONTA__CITY__245D67DE" FromRole="CITIES" ToRole="HEAD_CONTACT_INFOS" />
+  </EntityType>
+  <EntityType Name="CITIES_BUSINESS_DETAILS">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NTN" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="CITY_ID" Type="Int32" />
+    <Property Name="CITY_NAME" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="CITIES" Relationship="Self.FK__CITIES_BU__CITY___0F624AF8" FromRole="CITIES_BUSINESS_DETAILS" ToRole="CITIES" />
+  </EntityType>
+  <EntityType Name="COSTUMER_DEALINGS">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="COUNTRIES">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="COUNTRIES_BUSINESS_DETAILS" Relationship="Self.FK__COUNTRIES__COUNT__17036CC0" FromRole="COUNTRIES" ToRole="COUNTRIES_BUSINESS_DETAILS" />
+    <NavigationProperty Name="COUNTRIES_BUSINESS_DETAILS1" Relationship="Self.FK__COUNTRIES__COUNT__17F790F9" FromRole="COUNTRIES" ToRole="COUNTRIES_BUSINESS_DETAILS" />
+    <NavigationProperty Name="HEAD_CONTACT_INFOS" Relationship="Self.FK__HEAD_CONT__COUNT__22751F6C" FromRole="COUNTRIES" ToRole="HEAD_CONTACT_INFOS" />
+  </EntityType>
+  <EntityType Name="COUNTRIES_BUSINESS_DETAILS">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NTN" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="COUNTRY_ID" Type="Int32" />
+    <Property Name="COUNTRY_NAME" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="COUNTRIES" Relationship="Self.FK__COUNTRIES__COUNT__17036CC0" FromRole="COUNTRIES_BUSINESS_DETAILS" ToRole="COUNTRIES" />
+    <NavigationProperty Name="COUNTRIES1" Relationship="Self.FK__COUNTRIES__COUNT__17F790F9" FromRole="COUNTRIES_BUSINESS_DETAILS" ToRole="COUNTRIES" />
+  </EntityType>
+  <EntityType Name="DISTRICTS">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NAME" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="HEAD_CONTACT_INFOS" Relationship="Self.FK__HEAD_CONT__DISTR__236943A5" FromRole="DISTRICTS" ToRole="HEAD_CONTACT_INFOS" />
+  </EntityType>
+  <EntityType Name="DOCUMENT_TYPES">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="DOCUMENT_TYPES_PRIMARY">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="EDUCATIONS">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="EMPLOYER_CODES">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CODE" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="EMPLOYMENT_DETAILS">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NAME" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="FREQUENCY_GROSS_SALES">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NAME" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="FTCA_CLASSIFICATIONS">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="FTCA_DOCUMENTATIONS">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="GENDERS">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="HEAD_CONTACT_INFOS">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ADDRESS" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="DISTRICT" Type="Int32" />
+    <Property Name="POBOX" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="CITY" Type="Int32" />
+    <Property Name="POSTAL_CODE" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="COUNTRY" Type="Int32" />
+    <Property Name="PHONE_OFFICE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="MOBILE_NO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="FAX_NO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="EMAIL" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="WEB" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="CITIES" Relationship="Self.FK__HEAD_CONTA__CITY__245D67DE" FromRole="HEAD_CONTACT_INFOS" ToRole="CITIES" />
+    <NavigationProperty Name="COUNTRIES" Relationship="Self.FK__HEAD_CONT__COUNT__22751F6C" FromRole="HEAD_CONTACT_INFOS" ToRole="COUNTRIES" />
+    <NavigationProperty Name="DISTRICTS" Relationship="Self.FK__HEAD_CONT__DISTR__236943A5" FromRole="HEAD_CONTACT_INFOS" ToRole="DISTRICTS" />
+  </EntityType>
+  <EntityType Name="IDENTITY_TYPES">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NAME" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="INFO_TYPES_BDS">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NAME" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="BUSINESS_DETAIL" Relationship="Self.FK__BUSINESS___INFO___0E6E26BF" FromRole="INFO_TYPES_BDS" ToRole="BUSINESS_DETAIL" />
+  </EntityType>
+  <EntityType Name="ISSUING_AGENCY">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NAME" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="MARTIAL_STATUSES">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="MONTHLY_TURNOVER_CREDITS">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="MONTHLY_TURNOVER_DEBITS">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="NATURE_BUSINESS">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NAME" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="NBP_BRANCH_INFORMATIONS">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="NBP_CATEGORIES">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NAME" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="OTHER_BANK_CODES">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PEPS">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Permissions">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Permission" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="REGIONS">
+    <Key>
+      <PropertyRef Name="REGION_ID" />
+    </Key>
+    <Property Name="REGION_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NAME" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="BRANCHES" Relationship="Self.FK__BRANCHES__REGION__0D7A0286" FromRole="REGIONS" ToRole="BRANCHES" />
+  </EntityType>
+  <EntityType Name="RELIGIONS">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="RESIDENT_TYPES">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ROLE_PERMISSIONS">
+    <Key>
+      <PropertyRef Name="ROLE_PERMISSION_ID" />
+    </Key>
+    <Property Name="ROLE_PERMISSION_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ROLE_ID" Type="Int32" Nullable="false" />
+    <Property Name="PERMISSION_ID" Type="Int32" Nullable="false" />
+    <Property Name="CREATE" Type="Boolean" Nullable="false" />
+    <Property Name="READ" Type="Boolean" Nullable="false" />
+    <Property Name="UPDATE" Type="Boolean" Nullable="false" />
+    <Property Name="DELETE" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ROLES">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Role" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="SBP_CATEGORIES">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NAME" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TITLES">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Transportation_Types">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="USA_FUNDSTRANSFERS">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="USA_RESIDENCE_CARDS">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="USA_TAXID_TYPES">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="USERS">
+    <Key>
+      <PropertyRef Name="USER_ID" />
+    </Key>
+    <Property Name="USER_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PARENT_ID" Type="Int32" Nullable="false" />
+    <Property Name="USER_NAME" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="DISPLAY_NAME" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="EMAIL" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="PASSWORD" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="DESIGNATION" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="USER_TYPE" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="USERS_PERMISSIONS" Relationship="Self.FK__USERS_PER__USER___32AB8735" FromRole="USERS" ToRole="USERS_PERMISSIONS" />
+    <NavigationProperty Name="USERS_ROLES" Relationship="Self.FK__USERS_ROL__USER___339FAB6E" FromRole="USERS" ToRole="USERS_ROLES" />
+  </EntityType>
+  <EntityType Name="USERS_PERMISSIONS">
+    <Key>
+      <PropertyRef Name="USER_PERMISSION_ID" />
+    </Key>
+    <Property Name="USER_PERMISSION_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="USER_ID" Type="Int32" Nullable="false" />
+    <Property Name="PERMISSION_ID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="USERS" Relationship="Self.FK__USERS_PER__USER___32AB8735" FromRole="USERS_PERMISSIONS" ToRole="USERS" />
+  </EntityType>
+  <EntityType Name="USERS_ROLES">
+    <Key>
+      <PropertyRef Name="USER_ROLE_ID" />
+    </Key>
+    <Property Name="USER_ROLE_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="USER_ID" Type="Int32" Nullable="false" />
+    <Property Name="ROLE_ID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="USERS" Relationship="Self.FK__USERS_ROL__USER___339FAB6E" FromRole="USERS_ROLES" ToRole="USERS" />
+  </EntityType>
+  <Association Name="FK__BRANCHES__REGION__0D7A0286">
+    <End Role="REGIONS" Type="Self.REGIONS" Multiplicity="1" />
+    <End Role="BRANCHES" Type="Self.BRANCHES" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="REGIONS">
+        <PropertyRef Name="REGION_ID" />
+      </Principal>
+      <Dependent Role="BRANCHES">
+        <PropertyRef Name="REGION_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__BUSINESS___INFO___0E6E26BF">
+    <End Role="INFO_TYPES_BDS" Type="Self.INFO_TYPES_BDS" Multiplicity="0..1" />
+    <End Role="BUSINESS_DETAIL" Type="Self.BUSINESS_DETAIL" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="INFO_TYPES_BDS">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="BUSINESS_DETAIL">
+        <PropertyRef Name="INFO_TYPE" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__CITIES_BU__CITY___0F624AF8">
+    <End Role="CITIES" Type="Self.CITIES" Multiplicity="0..1" />
+    <End Role="CITIES_BUSINESS_DETAILS" Type="Self.CITIES_BUSINESS_DETAILS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CITIES">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="CITIES_BUSINESS_DETAILS">
+        <PropertyRef Name="CITY_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__HEAD_CONTA__CITY__245D67DE">
+    <End Role="CITIES" Type="Self.CITIES" Multiplicity="0..1" />
+    <End Role="HEAD_CONTACT_INFOS" Type="Self.HEAD_CONTACT_INFOS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CITIES">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="HEAD_CONTACT_INFOS">
+        <PropertyRef Name="CITY" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__COUNTRIES__COUNT__17036CC0">
+    <End Role="COUNTRIES" Type="Self.COUNTRIES" Multiplicity="0..1" />
+    <End Role="COUNTRIES_BUSINESS_DETAILS" Type="Self.COUNTRIES_BUSINESS_DETAILS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="COUNTRIES">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="COUNTRIES_BUSINESS_DETAILS">
+        <PropertyRef Name="COUNTRY_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__COUNTRIES__COUNT__17F790F9">
+    <End Role="COUNTRIES" Type="Self.COUNTRIES" Multiplicity="0..1" />
+    <End Role="COUNTRIES_BUSINESS_DETAILS" Type="Self.COUNTRIES_BUSINESS_DETAILS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="COUNTRIES">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="COUNTRIES_BUSINESS_DETAILS">
+        <PropertyRef Name="COUNTRY_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__HEAD_CONT__COUNT__22751F6C">
+    <End Role="COUNTRIES" Type="Self.COUNTRIES" Multiplicity="0..1" />
+    <End Role="HEAD_CONTACT_INFOS" Type="Self.HEAD_CONTACT_INFOS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="COUNTRIES">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="HEAD_CONTACT_INFOS">
+        <PropertyRef Name="COUNTRY" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__HEAD_CONT__DISTR__236943A5">
+    <End Role="DISTRICTS" Type="Self.DISTRICTS" Multiplicity="0..1" />
+    <End Role="HEAD_CONTACT_INFOS" Type="Self.HEAD_CONTACT_INFOS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DISTRICTS">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="HEAD_CONTACT_INFOS">
+        <PropertyRef Name="DISTRICT" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__USERS_PER__USER___32AB8735">
+    <End Role="USERS" Type="Self.USERS" Multiplicity="1" />
+    <End Role="USERS_PERMISSIONS" Type="Self.USERS_PERMISSIONS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USERS">
+        <PropertyRef Name="USER_ID" />
+      </Principal>
+      <Dependent Role="USERS_PERMISSIONS">
+        <PropertyRef Name="USER_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__USERS_ROL__USER___339FAB6E">
+    <End Role="USERS" Type="Self.USERS" Multiplicity="1" />
+    <End Role="USERS_ROLES" Type="Self.USERS_ROLES" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USERS">
+        <PropertyRef Name="USER_ID" />
+      </Principal>
+      <Dependent Role="USERS_ROLES">
+        <PropertyRef Name="USER_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="ACCOMODATION_TYPES" EntityType="Self.ACCOMODATION_TYPES" />
+    <EntitySet Name="ACCOUNT_TYPES" EntityType="Self.ACCOUNT_TYPES" />
+    <EntitySet Name="APPLICANT_STATUSES" EntityType="Self.APPLICANT_STATUSES" />
+    <EntitySet Name="ARMY_RANK_CODES" EntityType="Self.ARMY_RANK_CODES" />
+    <EntitySet Name="AVERAGE_CASH_DEPOSITS" EntityType="Self.AVERAGE_CASH_DEPOSITS" />
+    <EntitySet Name="AVERAGE_NON_CASH_DEPOSITS" EntityType="Self.AVERAGE_NON_CASH_DEPOSITS" />
+    <EntitySet Name="BASE_CATEGORIES" EntityType="Self.BASE_CATEGORIES" />
+    <EntitySet Name="BRANCHES" EntityType="Self.BRANCHES" />
+    <EntitySet Name="BUSINESS_ACOUNTS" EntityType="Self.BUSINESS_ACOUNTS" />
+    <EntitySet Name="BUSINESS_CUSTOMER_CLASSIFICATIONS" EntityType="Self.BUSINESS_CUSTOMER_CLASSIFICATIONS" />
+    <EntitySet Name="BUSINESS_DETAIL" EntityType="Self.BUSINESS_DETAIL" />
+    <EntitySet Name="CIF_TYPES" EntityType="Self.CIF_TYPES" />
+    <EntitySet Name="CITIES" EntityType="Self.CITIES" />
+    <EntitySet Name="CITIES_BUSINESS_DETAILS" EntityType="Self.CITIES_BUSINESS_DETAILS" />
+    <EntitySet Name="COSTUMER_DEALINGS" EntityType="Self.COSTUMER_DEALINGS" />
+    <EntitySet Name="COUNTRIES" EntityType="Self.COUNTRIES" />
+    <EntitySet Name="COUNTRIES_BUSINESS_DETAILS" EntityType="Self.COUNTRIES_BUSINESS_DETAILS" />
+    <EntitySet Name="DISTRICTS" EntityType="Self.DISTRICTS" />
+    <EntitySet Name="DOCUMENT_TYPES" EntityType="Self.DOCUMENT_TYPES" />
+    <EntitySet Name="DOCUMENT_TYPES_PRIMARY" EntityType="Self.DOCUMENT_TYPES_PRIMARY" />
+    <EntitySet Name="EDUCATIONS" EntityType="Self.EDUCATIONS" />
+    <EntitySet Name="EMPLOYER_CODES" EntityType="Self.EMPLOYER_CODES" />
+    <EntitySet Name="EMPLOYMENT_DETAILS" EntityType="Self.EMPLOYMENT_DETAILS" />
+    <EntitySet Name="FREQUENCY_GROSS_SALES" EntityType="Self.FREQUENCY_GROSS_SALES" />
+    <EntitySet Name="FTCA_CLASSIFICATIONS" EntityType="Self.FTCA_CLASSIFICATIONS" />
+    <EntitySet Name="FTCA_DOCUMENTATIONS" EntityType="Self.FTCA_DOCUMENTATIONS" />
+    <EntitySet Name="GENDERS" EntityType="Self.GENDERS" />
+    <EntitySet Name="HEAD_CONTACT_INFOS" EntityType="Self.HEAD_CONTACT_INFOS" />
+    <EntitySet Name="IDENTITY_TYPES" EntityType="Self.IDENTITY_TYPES" />
+    <EntitySet Name="INFO_TYPES_BDS" EntityType="Self.INFO_TYPES_BDS" />
+    <EntitySet Name="ISSUING_AGENCY" EntityType="Self.ISSUING_AGENCY" />
+    <EntitySet Name="MARTIAL_STATUSES" EntityType="Self.MARTIAL_STATUSES" />
+    <EntitySet Name="MONTHLY_TURNOVER_CREDITS" EntityType="Self.MONTHLY_TURNOVER_CREDITS" />
+    <EntitySet Name="MONTHLY_TURNOVER_DEBITS" EntityType="Self.MONTHLY_TURNOVER_DEBITS" />
+    <EntitySet Name="NATURE_BUSINESS" EntityType="Self.NATURE_BUSINESS" />
+    <EntitySet Name="NBP_BRANCH_INFORMATIONS" EntityType="Self.NBP_BRANCH_INFORMATIONS" />
+    <EntitySet Name="NBP_CATEGORIES" EntityType="Self.NBP_CATEGORIES" />
+    <EntitySet Name="OTHER_BANK_CODES" EntityType="Self.OTHER_BANK_CODES" />
+    <EntitySet Name="PEPS" EntityType="Self.PEPS" />
+    <EntitySet Name="Permissions" EntityType="Self.Permissions" />
+    <EntitySet Name="REGIONS" EntityType="Self.REGIONS" />
+    <EntitySet Name="RELIGIONS" EntityType="Self.RELIGIONS" />
+    <EntitySet Name="RESIDENT_TYPES" EntityType="Self.RESIDENT_TYPES" />
+    <EntitySet Name="ROLE_PERMISSIONS" EntityType="Self.ROLE_PERMISSIONS" />
+    <EntitySet Name="ROLES" EntityType="Self.ROLES" />
+    <EntitySet Name="SBP_CATEGORIES" EntityType="Self.SBP_CATEGORIES" />
+    <EntitySet Name="TITLES" EntityType="Self.TITLES" />
+    <EntitySet Name="Transportation_Types" EntityType="Self.Transportation_Types" />
+    <EntitySet Name="USA_FUNDSTRANSFERS" EntityType="Self.USA_FUNDSTRANSFERS" />
+    <EntitySet Name="USA_RESIDENCE_CARDS" EntityType="Self.USA_RESIDENCE_CARDS" />
+    <EntitySet Name="USA_TAXID_TYPES" EntityType="Self.USA_TAXID_TYPES" />
+    <EntitySet Name="USERS" EntityType="Self.USERS" />
+    <EntitySet Name="USERS_PERMISSIONS" EntityType="Self.USERS_PERMISSIONS" />
+    <EntitySet Name="USERS_ROLES" EntityType="Self.USERS_ROLES" />
+    <AssociationSet Name="FK__BRANCHES__REGION__0D7A0286" Association="Self.FK__BRANCHES__REGION__0D7A0286">
+      <End Role="REGIONS" EntitySet="REGIONS" />
+      <End Role="BRANCHES" EntitySet="BRANCHES" />
+    </AssociationSet>
+    <AssociationSet Name="FK__BUSINESS___INFO___0E6E26BF" Association="Self.FK__BUSINESS___INFO___0E6E26BF">
+      <End Role="INFO_TYPES_BDS" EntitySet="INFO_TYPES_BDS" />
+      <End Role="BUSINESS_DETAIL" EntitySet="BUSINESS_DETAIL" />
+    </AssociationSet>
+    <AssociationSet Name="FK__CITIES_BU__CITY___0F624AF8" Association="Self.FK__CITIES_BU__CITY___0F624AF8">
+      <End Role="CITIES" EntitySet="CITIES" />
+      <End Role="CITIES_BUSINESS_DETAILS" EntitySet="CITIES_BUSINESS_DETAILS" />
+    </AssociationSet>
+    <AssociationSet Name="FK__HEAD_CONTA__CITY__245D67DE" Association="Self.FK__HEAD_CONTA__CITY__245D67DE">
+      <End Role="CITIES" EntitySet="CITIES" />
+      <End Role="HEAD_CONTACT_INFOS" EntitySet="HEAD_CONTACT_INFOS" />
+    </AssociationSet>
+    <AssociationSet Name="FK__COUNTRIES__COUNT__17036CC0" Association="Self.FK__COUNTRIES__COUNT__17036CC0">
+      <End Role="COUNTRIES" EntitySet="COUNTRIES" />
+      <End Role="COUNTRIES_BUSINESS_DETAILS" EntitySet="COUNTRIES_BUSINESS_DETAILS" />
+    </AssociationSet>
+    <AssociationSet Name="FK__COUNTRIES__COUNT__17F790F9" Association="Self.FK__COUNTRIES__COUNT__17F790F9">
+      <End Role="COUNTRIES" EntitySet="COUNTRIES" />
+      <End Role="COUNTRIES_BUSINESS_DETAILS" EntitySet="COUNTRIES_BUSINESS_DETAILS" />
+    </AssociationSet>
+    <AssociationSet Name="FK__HEAD_CONT__COUNT__22751F6C" Association="Self.FK__HEAD_CONT__COUNT__22751F6C">
+      <End Role="COUNTRIES" EntitySet="COUNTRIES" />
+      <End Role="HEAD_CONTACT_INFOS" EntitySet="HEAD_CONTACT_INFOS" />
+    </AssociationSet>
+    <AssociationSet Name="FK__HEAD_CONT__DISTR__236943A5" Association="Self.FK__HEAD_CONT__DISTR__236943A5">
+      <End Role="DISTRICTS" EntitySet="DISTRICTS" />
+      <End Role="HEAD_CONTACT_INFOS" EntitySet="HEAD_CONTACT_INFOS" />
+    </AssociationSet>
+    <AssociationSet Name="FK__USERS_PER__USER___32AB8735" Association="Self.FK__USERS_PER__USER___32AB8735">
+      <End Role="USERS" EntitySet="USERS" />
+      <End Role="USERS_PERMISSIONS" EntitySet="USERS_PERMISSIONS" />
+    </AssociationSet>
+    <AssociationSet Name="FK__USERS_ROL__USER___339FAB6E" Association="Self.FK__USERS_ROL__USER___339FAB6E">
+      <End Role="USERS" EntitySet="USERS" />
+      <End Role="USERS_ROLES" EntitySet="USERS_ROLES" />
+    </AssociationSet>
+    <EntitySet Name="COUNTRIES_TAX_MISCELLANEOUS_INFORMATION" EntityType="CAOPModel.COUNTRIES_TAX_MISCELLANEOUS_INFORMATION" />
+    <EntitySet Name="NATIONALITIES_BASIC_INFORMATION" EntityType="CAOPModel.NATIONALITIES_BASIC_INFORMATION" />
+    <EntitySet Name="USA_PHONE_NOS" EntityType="CAOPModel.USA_PHONE_NOS" />
+    <EntitySet Name="IDENTITIES" EntityType="CAOPModel.IDENTITIES" />
+    <EntitySet Name="BANKING_RELATIONSHPS" EntityType="CAOPModel.BANKING_RELATIONSHPS" />
+    <EntitySet Name="CONTACT_INFOS" EntityType="CAOPModel.CONTACT_INFOS" />
+    <EntitySet Name="EMPLOYMENT_INFORMATIONS" EntityType="CAOPModel.EMPLOYMENT_INFORMATIONS" />
+    <EntitySet Name="FATCAS" EntityType="CAOPModel.FATCAS" />
+    <EntitySet Name="MISCELLANEOUS_INFORMATIONS" EntityType="CAOPModel.MISCELLANEOUS_INFORMATIONS" />
+    <EntitySet Name="BASIC_INFORMATIONS" EntityType="CAOPModel.BASIC_INFORMATIONS" />
+    <EntitySet Name="DOCUMENTS_FATCA" EntityType="CAOPModel.DOCUMENTS_FATCA" />
+  </EntityContainer>
+  <EntityType Name="COUNTRIES_TAX_MISCELLANEOUS_INFORMATION">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="BI_ID" Type="Int32" />
+    <Property Name="COUNTRY_ID" Type="Int32" />
+    <Property Name="COUNTRY_NAME" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="NATIONALITIES_BASIC_INFORMATION">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="BI_ID" Type="Int32" />
+    <Property Name="COUNTRY_ID" Type="Int32" />
+    <Property Name="COUNTRY" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="USA_PHONE_NOS">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="IDENTITIES">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="BI_ID" Type="Int32" />
+    <Property Name="CNIC_DATE_ISSUE" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="EXPIRY_DATE" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="IDENTIFICATION_MARK" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="FAMILY_NO" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="TOKEN_NO" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="TOKEN_ISSUE_DATE" Type="DateTime" Precision="0" />
+    <Property Name="NTN" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="NIC_OLD" Type="String" MaxLength="13" FixedLength="false" Unicode="false" />
+    <Property Name="IDENTITY_TYPE" Type="Int32" />
+    <Property Name="IDENTITY_NO" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="COUNTRY_ISSUE" Type="Int32" />
+    <Property Name="OTHER_IDENTITY_ISSUE_DATE" Type="DateTime" Precision="0" />
+    <Property Name="PLACE_ISSUE" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="OTHER_IDENTITY_EXPIRY_DATE" Type="DateTime" Precision="0" />
+  </EntityType>
+  <EntityType Name="BANKING_RELATIONSHPS">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="BI_ID" Type="Int32" />
+    <Property Name="NBP_BRANCH_INFORMATION" Type="Int32" />
+    <Property Name="NBP_ACCOUNT_TYPE" Type="Int32" />
+    <Property Name="NBP_ACCOUNT_NUMBER" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="NBP_ACCOUNT_TITLE" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="NBP_RELATIONSHIP_SINCE" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="OTHER_BANK_CODE" Type="Int32" />
+    <Property Name="OTHER_BRANCH_NAME" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="OTHER_ACCOUNT_NUMBER" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="OTHER_ACCOUNT_TITLE" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="OTHER_RELATIONSHIP_SINCE" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="CONTACT_INFOS">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="BI_ID" Type="Int32" />
+    <Property Name="ADDRESS_PERMANENT" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="DISTRICT_PERMANENT" Type="Int32" />
+    <Property Name="POBOX_PERMANENT" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="CITY_PERMANENT" Type="Int32" />
+    <Property Name="POSTAL_CODE_PERMANENT" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="COUNTRY_PERMANENT" Type="Int32" />
+    <Property Name="ADDRESS_PRESENT" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="DISTRICT_PRESENT" Type="Int32" />
+    <Property Name="POBOX_PRESENT" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="CITY_PRESENT" Type="Int32" />
+    <Property Name="POSTAL_CODE_PRESENT" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="COUNTRY_PRESENT" Type="Int32" />
+    <Property Name="OFFICE_CONTACT" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="RESIDENCE_CONTACT" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="MOBILE_NO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="FAX_NO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="EMAIL" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="WEB" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="EMPLOYMENT_INFORMATIONS">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="BI_ID" Type="Int32" />
+    <Property Name="EMPLOYMENT_DETAIL" Type="Int32" />
+    <Property Name="DEPARTMENT" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="RETIRED" Type="Boolean" />
+    <Property Name="DESIGNATION" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="PF_NO" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="PPQ_NO" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="EMPLOYER_CODE" Type="Int32" />
+    <Property Name="EMPLOYER_BUSINESS_ADDRESS" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="ARMY_RANK_CODE" Type="Int32" />
+    <Property Name="COUNTRY_EMPLOYMENT" Type="Int32" />
+  </EntityType>
+  <EntityType Name="FATCAS">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="BI_ID" Type="Int32" />
+    <Property Name="RESIDENT" Type="Boolean" />
+    <Property Name="CITIZEN" Type="Boolean" />
+    <Property Name="BIRTH_USA" Type="Boolean" />
+    <Property Name="ADDRESS_USA" Type="Boolean" />
+    <Property Name="CONTACT_OFFICE" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="CONTACT_RESIDENCE" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="MOBNO" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="FAXNO" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="RESIDENCE_CARD" Type="Int32" />
+    <Property Name="FUND_TRANSFER" Type="Int32" />
+    <Property Name="FTCA_CLASSIFICATION" Type="Int32" />
+    <Property Name="US_TAXID" Type="Int32" />
+    <Property Name="TAXNO" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="USA_PHONE" Type="Int32" />
+  </EntityType>
+  <EntityType Name="MISCELLANEOUS_INFORMATIONS">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="BI_ID" Type="Int32" />
+    <Property Name="EDUCATION" Type="Int32" />
+    <Property Name="SOCIAL_STATUS" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="ACCOMODATION_TYPE" Type="Int32" />
+    <Property Name="ACCOMODATION_TYPE_DESCRIPTION" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="TRANSPORTATION_TYPE" Type="Int32" />
+    <Property Name="PEP" Type="Int32" />
+    <Property Name="PARDA_NASHEEN" Type="Boolean" />
+    <Property Name="MONTHLY_TURNOVER_DEBIT" Type="Int32" />
+    <Property Name="MONTHLY_TURNOVER_CREDIT" Type="Int32" />
+    <Property Name="AVERAGE_CASH_DEPOSIT" Type="Int32" />
+    <Property Name="AVERAGE_CASH_NON_DEPOSIT" Type="Int32" />
+    <Property Name="TOTAL_ASSET_VALUE" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="LIABILITIES" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="NET_WORTH" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="GROSS_SALE" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="FREQUENCY_GROSS_SALE" Type="Int32" />
+    <Property Name="BLIND_VISUALLY_IMPAIRED" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="BASIC_INFORMATIONS">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CIF_ENTRY_DATE" Type="DateTime" Precision="0" />
+    <Property Name="CIF_TYPE" Type="Int32" />
+    <Property Name="DOCUMENT_TYPE_PRIMARY" Type="Int32" />
+    <Property Name="CNIC" Type="String" MaxLength="13" FixedLength="false" Unicode="false" />
+    <Property Name="TITLE" Type="Int32" />
+    <Property Name="NAME" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="TITLE_FH" Type="Int32" />
+    <Property Name="NAME_FH" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="CNIC_FH" Type="String" MaxLength="13" FixedLength="false" Unicode="false" />
+    <Property Name="CIF_FH" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="NAME_MOTHER" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="CNIC_MOTHER" Type="String" MaxLength="13" FixedLength="false" Unicode="false" />
+    <Property Name="CNIC_MOTHER_OLD" Type="String" MaxLength="13" FixedLength="false" Unicode="false" />
+    <Property Name="DOB" Type="DateTime" Precision="0" />
+    <Property Name="POB" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="COB" Type="Int32" />
+    <Property Name="MARTIAL_STATUS" Type="Int32" />
+    <Property Name="GENDER" Type="Int32" />
+    <Property Name="RELIGION" Type="Int32" />
+    <Property Name="RESIDENT_TYPE" Type="Int32" />
+    <Property Name="MONTHLY_INCOME" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="COUNTRY_RESIDENCE" Type="Int32" />
+    <Property Name="COSTUMER_DEAL" Type="Int32" />
+    <Property Name="NAME_OFFICE" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="SALES_TAX_NO" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="NTN" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="ISSUING_AGENCY" Type="Int32" />
+    <Property Name="REG_NO" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="REG_DATE" Type="DateTime" Precision="0" />
+    <Property Name="COMMENCEMENT_NO" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="PAST_BUSS_EXP" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="ACCOUNT_NATURE" Type="Int32" />
+    <Property Name="CUSTOMER_CLASSIFICATION" Type="Int32" />
+    <Property Name="CIF_GROUP" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="NATURE_BUSINESS" Type="Int32" />
+    <Property Name="NATURE_BUSINESS_DESCRP" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="CATERGORY_NBP" Type="Int32" />
+    <Property Name="CATERGORY_SBP" Type="Int32" />
+    <Property Name="CATERGORY_BASE" Type="Int32" />
+    <Property Name="SHARE" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="APPLICANT_STATUS" Type="Int32" />
+    <Property Name="STATUS" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="UserId" Type="Int32" />
+  </EntityType>
+  <EntityType Name="DOCUMENTS_FATCA">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="BI_ID" Type="Int32" />
+    <Property Name="DOCUMENT_ID" Type="Int32" />
+    <Property Name="DOCUMENT_NAME" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+  </EntityType>
+</Schema>

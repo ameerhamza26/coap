@@ -1,0 +1,138 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Default.master.cs" Inherits="CAOP.MasterPages.Default" %>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AOS</title>
+    <link rel="shortcut icon" type="image/x-icon" href="Assets/images/hp.ico" />
+
+    <script src="<%= Page.ResolveUrl("~")%>Assets/js/html5shiv.min.js"></script>
+    <script src="<%= Page.ResolveUrl("~")%>Assets/js/respond.min.js"></script>
+    <script src="<%= Page.ResolveUrl("~")%>Assets/js/jquery-1.11.3.min.js"></script>
+<script src="<%= Page.ResolveUrl("~")%>Assets/js/jquery-migrate-1.2.1.min.js"></script>
+  <script src="<%= Page.ResolveUrl("~")%>Assets/js/myscript.js"></script>
+    <script src="<%= Page.ResolveUrl("~")%>Assets/js/jquery-ui.min.js"></script>
+  <script src="<%= Page.ResolveUrl("~")%>Assets/js/alert.js"></script>
+       <script src="<%= Page.ResolveUrl("~")%>Assets/js/script.js"></script>
+     <script src="<%= Page.ResolveUrl("~")%>Assets/js/script1.js"></script> 
+    <link href='<%= Page.ResolveUrl("~")%>Assets/css/fonts.css' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="<%= Page.ResolveUrl("~")%>Assets/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="<%= Page.ResolveUrl("~")%>Assets/css/bootstrap-theme.min.css" />
+    <link rel="stylesheet" href="<%= Page.ResolveUrl("~")%>Assets/css/style.css" />
+
+     <asp:ContentPlaceHolder ID="head" runat="server">
+        
+        </asp:ContentPlaceHolder>
+
+</head>
+<body>
+
+    <form id="form1" runat="server">
+
+   <div class="container">
+    <header id="header">
+        <div class="logo">
+            <a href="#"><img src="<%= Page.ResolveUrl("~")%>Assets/images/logo.png"  /></a>
+            ACCOUNT OPENING SYSTEM &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </div>
+        <div class="top-user-panel">
+            <div class="date">
+                 <asp:Label ID="lblDate" runat="server" Text="Curent Date"></asp:Label>
+            </div>
+            <table>
+                <tr>
+                    <td>User: </td> <td class="second">
+                        <asp:Label ID="lblUser" runat="server" Text="User-Name"></asp:Label></td>
+                    <td>Region: </td> <td> <asp:Label ID="lblRegion" runat="server" Text="Karachi"></asp:Label></td>
+                </tr>
+                <tr>
+                    <td>Branch: </td> <td class="second"><asp:Label ID="lblBranch" runat="server" Text="NBP"></asp:Label></td>
+                    <td>Role: </td> <td><asp:Label ID="lblRole" runat="server" Text="Branch Operator"></asp:Label></td>
+                </tr>
+            </table>
+        </div>
+        <nav class="menu">
+            <ul>
+               
+                 <li><a href="#" runat="server" id="Main" onserverclick="Main_ServerClick">HOME</a></li>
+                <li><a href="#" runat="server" id="Cifmenu" visible="false">CIF MENU</a>
+                    <ul>
+
+                        <li id="NewCif" runat="server" visible="false"><a href="#">ADD NEW CIF</a>
+                            <ul>
+                                <li><a href="<%= Page.ResolveUrl("~")%>Individual.aspx">INDIVIDUAL</a></li>
+                                <li><a href="<%= Page.ResolveUrl("~")%>Business.aspx">BUSINESS</a></li>
+                                <li><a href="<%= Page.ResolveUrl("~")%>Government.aspx">GOVERNMENT</a></li>
+                                <li><a href="<%= Page.ResolveUrl("~")%>Office.aspx">OFFICE</a></li>
+                                <li><a href="<%= Page.ResolveUrl("~")%>MinorCIF.aspx">MINOR</a></li>
+                               
+                            </ul>
+                        </li>
+                        <li id="PCif" runat="server" visible="false"><a href="<%= Page.ResolveUrl("~")%>PendingCIF.aspx">PENDING CIF</a></li>
+                        <li><a href="<%= Page.ResolveUrl("~")%>CifAccount.aspx">SUBMITTED CIF</a></li>
+                        <li><a href="<%= Page.ResolveUrl("~")%>SearchCif.aspx">SEARCH CIF RECORD</a></li>
+                        <li runat="server" id="EC" visible="false"><a href="<%= Page.ResolveUrl("~")%>ExistingCif/Existing.aspx">UPDATE EXISTING PROFILE CIF</a></li>
+                        <li runat="server" id="crmtagging" visible="false"><a href="<%= Page.ResolveUrl("~")%>CrmTaggingForms/CRMTagging.aspx">CRM TAGGING</a></li>
+                        
+                       
+                    </ul>
+                </li>
+                <li><a href="#" runat="server" id="accountmenu" visible="false">ACCOUNT MENU</a>
+                    <ul>
+                        <li id="NewAccount" runat="server" visible="false"><a href="Account_Individual.aspx">ADD ACCOUNTS</a>
+                              <ul>
+                                <li><a href="<%= Page.ResolveUrl("~")%>Account_Individual.aspx">INDIVIDUAL</a></li>
+                                <li><a href="<%= Page.ResolveUrl("~")%>Account_Business.aspx">ENTITY</a></li>
+                                <li style="display: none"><a href="<%= Page.ResolveUrl("~")%>Account_Government.aspx">GOVERNMENT</a></li>
+                            </ul>
+                        </li>
+                        <li id="PendingAccount" runat="server" visible="false"><a href="<%= Page.ResolveUrl("~")%>PendingAccounts.aspx">PENDING ACCOUNTS</a></li>
+                        <li ><a href="<%= Page.ResolveUrl("~")%>AccountList.aspx">SUBMITTED ACCOUNTS</a></li>
+                        <li id="LOTF" runat="server" visible="false" ><a href="<%= Page.ResolveUrl("~")%>LOT/LOT.aspx">PRINT LETTER OF THANKS</a></li>
+                        <li id="AOF" runat="server" visible="false" ><a href="<%= Page.ResolveUrl("~")%>AOF/AccountReport.aspx">PRINT ACCOUNT OPENING FORM</a></li>
+                        
+                    </ul>
+                </li>
+                <li>
+                    <a href="#" runat="server" id="usermenu" visible="false">USERS</a>
+                    <ul>
+                        
+                        <li><a href="<%= Page.ResolveUrl("~")%>UserForms/AddUser.aspx">ADD NEW USER</a></li>
+                        <li><a href="<%= Page.ResolveUrl("~")%>UserForms/Users.aspx">SEARCH AND EDIT USER</a></li>
+                    </ul>
+                </li>
+                 <li><a href="#">USER LINKS</a>
+                    <ul>
+                        <li><a id="A1" href="#" runat="server" onServerClick="Unnamed_ServerClick">LOGOUT</a></li>
+                        <li><a href="<%= Page.ResolveUrl("~")%>PasswordForms/ChangePassword.aspx">CHANGE PASSWORD</a></li>
+                    </ul>
+                </li>
+                
+            </ul>
+        </nav>
+    </header>
+         
+    
+    <div>
+        <asp:ContentPlaceHolder ID="Body" runat="server">
+        
+        </asp:ContentPlaceHolder>
+    </div>
+
+     <footer id="footer">
+        Copyright - National Bank of Pakistan.
+    </footer>
+</div><!-- container -->
+
+    </form>
+   
+
+<script src="<%= Page.ResolveUrl("~")%>Assets/js/jquery-2.1.1.min.js"></script>
+<script src="<%= Page.ResolveUrl("~")%>Assets/js/bootstrap.min.js"></script>
+<script src="<%= Page.ResolveUrl("~")%>Assets/js/jquery-ui.min.js"></script>
+<script src="<%= Page.ResolveUrl("~")%>Assets/js/jquery.validate.js"></script>
+<script src="<%= Page.ResolveUrl("~")%>Assets/js/custom.js"></script>
+
+</body>
+</html>

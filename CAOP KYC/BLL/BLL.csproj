@@ -1,0 +1,197 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{69B934A8-6174-4F87-857F-567033274057}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>BLL</RootNamespace>
+    <AssemblyName>BLL</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AccomodationTypes.cs" />
+    <Compile Include="AccOpen.cs" />
+    <Compile Include="AccountAddressInformation.cs" />
+    <Compile Include="AccountApplicantInformation.cs" />
+    <Compile Include="AccountAuthorizedPerson.cs" />
+    <Compile Include="AccountCertDepositInfo.cs" />
+    <Compile Include="AccountClass.cs" />
+    <Compile Include="AccountContactInfo.cs" />
+    <Compile Include="AccountGroup.cs" />
+    <Compile Include="AccountKnowYourCustomer.cs" />
+    <Compile Include="AccountModes.cs" />
+    <Compile Include="AccountNature.cs" />
+    <Compile Include="AccountNatureCurrency.cs" />
+    <Compile Include="AccountNexofKinInfo.cs" />
+    <Compile Include="AccountOpenType.cs" />
+    <Compile Include="AccountReview.cs" />
+    <Compile Include="AccountStatementFrequency.cs" />
+    <Compile Include="AccountType.cs" />
+    <Compile Include="AccountAuthorizedPersons.cs" />
+    <Compile Include="AddressVerified.cs" />
+    <Compile Include="ApplicantInformationCifs.cs" />
+    <Compile Include="ApplicantStatuses.cs" />
+    <Compile Include="ArmyRankCodes.cs" />
+    <Compile Include="AuthorityToOperate.cs" />
+    <Compile Include="AverageCashDeposit.cs" />
+    <Compile Include="AverageNonCashDeposit.cs" />
+    <Compile Include="BankingRelatationship.cs" />
+    <Compile Include="BaseCategories.cs" />
+    <Compile Include="BasicInformations.cs" />
+    <Compile Include="Branch.cs" />
+    <Compile Include="BusinessAcounts.cs" />
+    <Compile Include="BusinessCustomerClassification.cs" />
+    <Compile Include="BusinessDetail.cs" />
+    <Compile Include="BusinessType.cs" />
+    <Compile Include="CIF.cs" />
+    <Compile Include="CifCustomerType.cs" />
+    <Compile Include="CifReview.cs" />
+    <Compile Include="CifTypes.cs" />
+    <Compile Include="City.cs" />
+    <Compile Include="ConsumerSegment.cs" />
+    <Compile Include="ContactInfo.cs" />
+    <Compile Include="Country.cs" />
+    <Compile Include="CountryCode.cs" />
+    <Compile Include="Currency.cs" />
+    <Compile Include="CustomerDealings.cs" />
+    <Compile Include="CustomerType.cs" />
+    <Compile Include="DescriptionDocuments.cs" />
+    <Compile Include="DirectorStatus.cs" />
+    <Compile Include="District.cs" />
+    <Compile Include="Documents.cs" />
+    <Compile Include="DocumentsRequired.cs" />
+    <Compile Include="Education.cs" />
+    <Compile Include="Emails.cs" />
+    <Compile Include="EmployerCode.cs" />
+    <Compile Include="EmploymentDetail.cs" />
+    <Compile Include="EmploymentInfo.cs" />
+    <Compile Include="Enums.cs" />
+    <Compile Include="ExpectedCounterParties.cs" />
+    <Compile Include="E_Statement_Required.cs" />
+    <Compile Include="Fatca.cs" />
+    <Compile Include="FatcaClassification.cs" />
+    <Compile Include="FatcaDocumentation.cs" />
+    <Compile Include="FatcasTin.cs" />
+    <Compile Include="FrequencyGrossSale.cs" />
+    <Compile Include="Gender.cs" />
+    <Compile Include="GeographiesCounterParties.cs" />
+    <Compile Include="Gl_code.cs" />
+    <Compile Include="GovCifType.cs" />
+    <Compile Include="HeadContactInfo.cs" />
+    <Compile Include="Identity.cs" />
+    <Compile Include="IdentityType.cs" />
+    <Compile Include="InfoTypeBds.cs" />
+    <Compile Include="InstitutionType.cs" />
+    <Compile Include="IssuingAgency.cs" />
+    <Compile Include="Know_Customer_Transaction_mode.cs" />
+    <Compile Include="Know_Your_Customer_Relationship.cs" />
+    <Compile Include="KycBeneficialEntity.cs" />
+    <Compile Include="MartialStatus.cs" />
+    <Compile Include="MeansOfVerification.cs" />
+    <Compile Include="MiscellaneousInfo.cs" />
+    <Compile Include="ModeOfTransactions.cs" />
+    <Compile Include="MonthlyTurnOverCredit.cs" />
+    <Compile Include="MonthlyTurnOverDebit.cs" />
+    <Compile Include="NadraInfo.cs" />
+    <Compile Include="Nationality.cs" />
+    <Compile Include="NatureBusiness.cs" />
+    <Compile Include="NbpBranchInformation.cs" />
+    <Compile Include="NbpCategories.cs" />
+    <Compile Include="OperatingInstructions.cs" />
+    <Compile Include="OtherBankCodes.cs" />
+    <Compile Include="Pep.cs" />
+    <Compile Include="Permissions.cs" />
+    <Compile Include="PrimaryDocumentType.cs" />
+    <Compile Include="PrinciparRenewalOption.cs" />
+    <Compile Include="Products.cs" />
+    <Compile Include="ProfitPayment.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Province.cs" />
+    <Compile Include="PurposeOfAccount.cs" />
+    <Compile Include="RealBeneficiaryAccount.cs" />
+    <Compile Include="Region.cs" />
+    <Compile Include="Relationship.cs" />
+    <Compile Include="Religion.cs" />
+    <Compile Include="ResidentTypes.cs" />
+    <Compile Include="Role.cs" />
+    <Compile Include="SbpCategories.cs" />
+    <Compile Include="SearchCif.cs" />
+    <Compile Include="ServiceChargesExemptedCode.cs" />
+    <Compile Include="ShareHolderInformation.cs" />
+    <Compile Include="SicCodes.cs" />
+    <Compile Include="Sl_code.cs" />
+    <Compile Include="Sms_Alert_Required.cs" />
+    <Compile Include="SourceOfFunds.cs" />
+    <Compile Include="SubIndustry.cs" />
+    <Compile Include="Title.cs" />
+    <Compile Include="TransactionType.cs" />
+    <Compile Include="TransportationType.cs" />
+    <Compile Include="UsaFund.cs" />
+    <Compile Include="UsaPhone.cs" />
+    <Compile Include="UsaResidenceCard.cs" />
+    <Compile Include="UsaTaxType.cs" />
+    <Compile Include="User.cs" />
+    <Compile Include="WhoAuthorized.cs" />
+    <Compile Include="ZakatExemptionType.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DAL\DAL.csproj">
+      <Project>{833b80a0-4cd6-4860-baad-3e992a0fdafd}</Project>
+      <Name>DAL</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

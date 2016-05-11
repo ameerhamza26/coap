@@ -1,0 +1,556 @@
+/* @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,700); */
+
+body {
+    font-family: "Open Sans", sans-serif;
+    background: #d5d6d7;
+    font-size: 14px;
+}
+
+h1,h2,h3,h4,h5,h6, input, textarea, label {
+    font-family: "Open Sans", sans-serif;
+}
+
+h6 {
+    font-size: 14px;
+}
+
+h5 {
+    font-size: 16px;
+}
+
+h4 {
+    font-size: 18px;
+}
+
+h3 {
+    font-size: 24px;
+}
+
+h2 {
+    font-size: 28px;
+}
+
+h1 {
+    font-size: 32px;
+}
+
+.mt10 { margin-top: 10px; }
+.mb10 { margin-bottom: 10px; }
+.mr10 { margin-right: 10px; }
+.ml10 { margin-left: 10px; }
+
+/********* login page ********/
+
+body#login-page {
+    background: url("../images/login-bg.jpg") no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+div#GridRadioGroup label {
+    width: 30px;
+}
+
+body#login-page #login {
+    width: 100%;
+    height: 100%;
+}
+
+.login-wrapper {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    max-width: 457px;
+    height: 500px;
+    margin: auto;
+    background: url("../images/login-shadow.png") bottom center no-repeat;
+}
+
+.login-header {
+    font-size: 18px;
+    padding: 18px 0px 13px 0px;
+}
+
+.login-header .logo {
+    width: 45%;
+    position: relative;
+    float: left;
+    box-sizing: border-box;
+    background: #fabc00;
+    padding-left: 10px;
+    height: 52px;
+    -moz-border-top-left-radius: 5px;
+    -webkit-border-top-left-radius: 5px;
+    -o-border-top-left-radius: 5px;
+    border-top-left-radius: 5px;
+
+}
+
+.login-header .logo:after {
+    position: absolute;
+    content: "";
+    right: -52px;
+    top: 0px;
+    border-top: 52px solid #fabc00;
+    z-index: 999;
+    width: 52px;
+    height: 52px;
+    border-right: 52px solid transparent;
+}
+
+.login-header .logo img {
+    margin: -18px 0px -13px 0px;
+}
+
+.login-header .title {
+    width: 55%;
+    height: 52px;
+    float: right;
+    box-sizing: border-box;
+    background: #303030;
+    color: #fff;
+    text-align: right;
+    padding-right: 10px;
+    -moz-border-top-right-radius: 5px;
+    -webkit-border-top-right-radius: 5px;
+    -o-border-top-right-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+.login-header .title h3 {
+    position: relative;
+    margin: 0px;
+    line-height: 48px;
+    font-size: 18px;
+}
+
+.login-header .title h3:after {
+    content: "";
+    width: 12px;
+    height: 14px;
+    position: absolute;
+    right: -16px;
+    top: 17px;
+    background: #fabc00;
+}
+
+.login-content {
+    background: #fefefe url('../images/login-content-bg.jpg');
+    bakcgound-size: contain;
+    width: 100%;
+    height: 435px;
+    box-sizing: border-box;
+    padding: 60px 80px 20px;
+    -moz-border-bottom-right-radius: 5px;
+    -webkit-border-bottom-right-radius: 5px;
+    -o-border-bottom-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+
+    -moz-border-bottom-left-radius: 5px;
+    -webkit-border-bottom-left-radius: 5px;
+    -o-border-bottom-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+.login-content label {
+    font-weight: normal;
+    font-size: 12px;
+}
+
+.login-content input[type=radio] {
+    margin-top: 2px;
+}
+
+.login-content h4 {
+    font-size: 14px;
+}
+
+.login-content .form-group h4 {
+    margin-top: 16px;
+}
+
+/*************** form elements *******************/
+
+.w100p {
+    width: 100%;
+}
+
+.btn-primary {
+    border: 1px solid #fabc00;
+    background: #fabc00;
+    color: #0f0f0f;
+}
+
+.btn-primary:hover, .btn-primary:active, .btn-primary:focus, .btn-primary:active:focus {
+    border: 1px solid #0f0f0f;
+    background-color: #0f0f0f;
+    color: #fff;
+    outline: 0px;
+}
+
+
+/*************** header *******************/
+
+#header {
+    margin-top: 30px;
+}
+
+#header .logo {
+    position: relative;
+    width: 40%;
+    float: left;
+    background: #fabc00;
+    -webkit-border-top-left-radius: 5px;
+    -moz-border-top-left-radius: 5px;
+    -o-border-top-left-radius: 5px;
+    border-top-left-radius: 5px;
+    text-align: right;
+    font-weight: bold;
+    padding: 21px;
+    font-size: 20px;
+    line-height: 20px;
+    color: #553;
+}
+
+#header .logo:after {
+    position: absolute;
+    content: "";
+    width: 22px;
+    height: 102px;
+    z-index: 9999;
+    right: -52px;
+    top: 0px;
+    border-top: 93px solid #fabc00;
+    border-right: 52px solid transparent;
+}
+
+#header .logo img {
+    float: left;
+    margin: -18px 0px -14px 15px;
+
+}
+
+.top-user-panel {
+    width: 60%;
+    height: 92px;
+    padding: 14px;
+    background-color: #3c3c3c;
+    color: #fff;
+    float: right;
+    text-align: right;
+}
+
+.top-user-panel span {
+    position: relative;
+    margin-right: 12px;
+    margin-left: 22px;
+}
+
+.top-user-panel span:before {
+    content: '';
+    position: absolute;
+    width: 2px;
+    height: 70%;
+    left: -14px;
+    top: 3px;
+    border-right: 1px solid #ccc;
+}
+
+.top-user-panel table {
+    clear: both;
+    float: left;
+    margin-left: 30px;
+}
+.top-user-panel table td {
+    padding: 4px;
+    text-align: left;
+}
+
+.top-user-panel table td.second {
+    padding-right: 28px;
+}
+
+.menu {
+    clear: both;
+    position: relative;
+    width: 100%;
+    height: 52px;
+    float: right;
+    padding-left: 40px;
+    background: #666;
+    border-top: 3px solid #626262;
+}
+
+.menu:before {
+    position: absolute;
+    left: -7px;
+    top: 17px;
+    content: "";
+    width: 15px;
+    height: 15px;
+    background: #fabc00;
+}
+
+.menu ul {
+    margin: 0px;
+    padding: 0px;
+    float: left;
+    list-style-type: none;
+}
+
+.menu ul li {
+    position: relative;
+    margin: 0px;
+
+    float: left;
+}
+
+.menu ul li > ul {
+    display: none;
+}
+
+.menu ul li:hover > ul {
+    display: block;
+    position: absolute;
+    z-index: 9999;
+    top: 52px;
+    left: 0px;
+    margin: 0px;
+    padding: 0px;
+    background: #666;
+    font-size: 12px;
+}
+
+.menu ul li:hover > ul li {
+    width: 100%;
+    border-top: 1px solid #575757;
+}
+
+.menu ul li:hover > ul li:first-child {
+    border-top: 5px solid transparent;
+    margin-top: -5px;
+}
+
+.menu ul li:hover > ul li a {
+    display: block;
+}
+
+.menu ul li a {
+    display: inline-block;
+    padding: 15px;
+    color: #fff;
+    white-space: nowrap;
+}
+.menu ul li a:hover {
+    text-decoration: none;
+    color: #fabc00;
+}
+
+.menu ul li:hover > ul li > ul {
+    display: none;
+}
+
+.menu ul li:hover > ul li:hover > ul {
+    positon: absolute;
+    left: 100%;
+    top: 0px;
+    display: block;
+    background: #494949;
+}
+
+.menu ul li:hover > ul li:hover > ul li:first-child:before {
+    content: "";
+    width: 10px;
+    height: 15px;
+    background: #494949;
+    top: 35%;
+    left: -10px;
+    z-index: 9999;
+    position: absolute;
+}
+
+.subnav {
+    clear: both;
+    text-align: left;
+    background: #757575;
+    color: #fff;
+    padding: 15px 31px;
+    border-top: 2px solid #999;
+}
+
+.subnav ul {
+    list-style-type: none;
+    margin: 0px;
+    padding: 0px;
+}
+
+.subnav ul li {
+    width: 45%;
+    float: left;
+    margin: 3px 0px;
+    padding: 2px 5px;
+    background: #666;
+    border-left: 4px solid #fabc00;
+}
+
+.subnav ul li:nth-child(even) {
+    margin-left: 7px;
+}
+
+.subnav ul li span {
+    position: relative;
+    display: inline-block;
+    width: 120px;
+}
+
+.subnav ul li span:after {
+    position: absolute;
+    top: -7px;
+    right: 5px;
+    content: "";
+    display: block;
+    border-right: 5px solid #757575;
+    height: 150%;
+}
+
+.subnav a {
+    color: #fff;
+}
+
+.subnav a:hover {
+    color: #fabc00;
+}
+
+/****************** content *********************/
+.content {
+    clear: both;
+    background: #fff;
+    min-height: 400px;
+    padding: 20px 31px 20px;
+}
+
+/***************** tabs *************************/
+.nav-menu {
+    border: 1px solid #dedede;
+    border-bottom: 3px solid #dedede;
+}
+
+.nav-menu>li {
+    border-bottom: 1px solid #ccc;
+}
+
+.nav-menu>li.active {
+    border-bottom: 3px solid #fabc00;
+}
+
+.nav-menu>li.active a, .nav-menu>li.active a:focus, .nav-menu>li.active a, .nav-menu>li.active a:hover {
+    background: #3c3c3c;
+    color: #fff;
+    border-radius: 0px;
+}
+
+.nav-menu>li a {
+    background: none;
+    border: 0px;
+    margin: 0px;
+    padding: 10px 30px;
+    color: #3c3c3c;
+}
+
+.nav-menu>li a:hover {
+    border-radius: 0px;
+    background: none;
+    color: #fabc00;
+    border: 0px;
+}
+
+.tab-content {
+    padding: 10px;
+}
+
+.nav-menu>li.active>a, .nav-menu>li.active>a:focus, .nav-menu>li.active>a:hover {
+    border: none;
+}
+
+/***************** forms ***********************/
+
+.tab-content .form-group {
+
+}
+
+.tab-content .form-group label {
+    width: 200px;
+}
+
+#sectiona h3, #sectionb h3, #sectionc h3, #sectiond h3 {
+    margin-top: -15px;
+}
+
+.form-control:focus {
+    outline: 1px solid #ccc;
+    border-color: #d0d0d0;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.06),0 0 8px rgba(155,155,155,.4);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.06),0 0 8px rgba(100,100,100,.4);
+
+    -webkit-border-radius: 7px;
+    -moz-border-radius: 7px;
+    -o-border-radius: 7px;
+    border-radius: 7px;
+}
+
+.btn:focus, .btn:active, .btn:active:focus {
+    outline: 0px;
+}
+
+.error {
+    color: #da652c;
+}
+
+
+/***************** footer ***********************/
+
+footer {
+    background: #303030;
+    padding: 15px 30px;
+    color: #fff;
+    text-align: right;
+    font-size: 12px;
+}
+
+/***************** Media ***********************/
+
+@media screen and (max-width: 1999px) {
+
+}
+
+@media screen and (max-width: 991px) {
+    .login-content {
+        padding: 60px 50px 20px;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    body#login-page {
+        min-width: 320px;
+        width: 320px;
+    }
+    body#login-page #login .login-wrapper {
+        width: 100%;
+        padding: 10px;
+        box-sizing: border-box;
+
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .login-content .radio-inline, .login-content .radio-inline+.radio-inline {
+        width: 50%;
+        float: left;
+        margin-left: 0px;
+        margin-bottom: 10px;
+    }
+}

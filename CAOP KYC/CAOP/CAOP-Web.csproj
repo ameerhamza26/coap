@@ -1,0 +1,616 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{87723F2B-AD2D-4C2A-B2F6-085FB86A3D4F}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CAOP</RootNamespace>
+    <AssemblyName>CAOP</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <UseGlobalApplicationHostFile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AjaxControlToolkit">
+      <HintPath>H:\AOS\AOF\bin\AjaxControlToolkit.dll</HintPath>
+    </Reference>
+    <Reference Include="AspNet.ScriptManager.jQuery">
+      <HintPath>H:\AOS\AOF\bin\AspNet.ScriptManager.jQuery.dll</HintPath>
+    </Reference>
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.ReportSource, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Shared, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Web, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.ReportViewer.Common, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.ReportViewer.2012.Runtime.11.0.3452.0\lib\Microsoft.ReportViewer.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.ProcessingObjectModel, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.ReportViewer.2012.Runtime.11.0.3452.0\lib\Microsoft.ReportViewer.ProcessingObjectModel.DLL</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WebForms, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.ReportViewer.2012.Runtime.11.0.3452.0\lib\Microsoft.ReportViewer.WebForms.DLL</HintPath>
+    </Reference>
+    <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="AccountList.aspx" />
+    <Content Include="Account_Business.aspx" />
+    <Content Include="Account_Government.aspx" />
+    <Content Include="Account_Individual.aspx" />
+    <Content Include="AOF\AccountReport.aspx" />
+    <Content Include="Assets\css\bootstrap-theme.css.map" />
+    <Content Include="Assets\css\bootstrap.css.map" />
+    <Content Include="Assets\css\fonts.css" />
+    <Content Include="Assets\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Assets\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Assets\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Assets\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="Assets\images\hp.ico" />
+    <Content Include="Assets\js\alert.js" />
+    <Content Include="Assets\js\bootbox.min.js" />
+    <Content Include="Assets\js\bs.pagination.js" />
+    <Content Include="Assets\js\jquery-1.11.3.min.js" />
+    <Content Include="Assets\js\jquery-migrate-1.2.1.min.js" />
+    <Content Include="Assets\js\jquery.quicksearch.js" />
+    <Content Include="Assets\js\myscript.js" />
+    <Content Include="Assets\js\script.js" />
+    <Content Include="Assets\js\script1.js" />
+    <Content Include="BioMetric.aspx" />
+    <Content Include="Business.aspx" />
+    <Content Include="CifAccount.aspx" />
+    <Content Include="CrmTaggingForms\CRMTagging.aspx" />
+    <Content Include="ExistingCif\Existing.aspx" />
+    <Content Include="Government.aspx" />
+    <Content Include="Individual.aspx" />
+    <Content Include="LOT\LOT.aspx" />
+    <Content Include="Main.aspx" />
+    <Content Include="MinorCIF.aspx" />
+    <Content Include="NextOfKin.aspx" />
+    <Content Include="Office.aspx" />
+    <Content Include="Oops.aspx" />
+    <Content Include="packages.config" />
+    <Content Include="MasterPages\Default.Master" />
+    <Content Include="DataSets\dsAOF.xsc">
+      <DependentUpon>dsAOF.xsd</DependentUpon>
+    </Content>
+    <Content Include="AOF\AOFDataSet.xsc">
+      <DependentUpon>AOFDataSet.xsd</DependentUpon>
+    </Content>
+    <None Include="AOF\AOFDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>AOFDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="AOF\AOFDataSet.xss">
+      <DependentUpon>AOFDataSet.xsd</DependentUpon>
+    </Content>
+    <Content Include="AOF\Report.rdlc" />
+    <None Include="DataSets\dsAOF.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsAOF.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="DataSets\dsAOF.xss">
+      <DependentUpon>dsAOF.xsd</DependentUpon>
+    </Content>
+    <None Include="Properties\PublishProfiles\Hamza.pubxml" />
+    <None Include="Properties\PublishProfiles\MATEEN.pubxml" />
+    <Content Include="PasswordForms\ChangePassword.aspx" />
+    <Content Include="PasswordForms\FirstLoginPassword.aspx" />
+    <Content Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </Content>
+    <Content Include="UserForms\AddUser.aspx" />
+    <Content Include="UserForms\ChangeUserPass.aspx" />
+    <Content Include="UserForms\EditUser.aspx" />
+    <Content Include="UserForms\Users.aspx" />
+    <None Include="Web References\RISK\GetRisk.wsdl" />
+    <None Include="Web References\RISK\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <Content Include="Web References\JavaWebReferenceTagging\ProfileConnector.wsdl" />
+    <Content Include="Web References\JavaWebReferenceTaggingIslamic\ProfileConnectorIslamic.wsdl" />
+    <None Include="Web References\CustomerInquiry\ProfileConnectorTest.wsdl" />
+    <None Include="Web References\CustomerInquiry\ProfileConnectorTest.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="Web References\CustomerInquiry\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </Content>
+    <None Include="Web References\JavaWebReferenceTaggingIslamic\ProfileConnectorIslamic.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="Web References\JavaWebReferenceTaggingIslamic\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </Content>
+    <None Include="Web References\JavaWebReferenceTagging\ProfileConnector.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="Web References\JavaWebReferenceTagging\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </Content>
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Assets\css\bootstrap-theme.min.css" />
+    <Content Include="Assets\css\bootstrap.min.css" />
+    <Content Include="Assets\css\font-import-code.txt" />
+    <Content Include="Assets\css\style.css" />
+    <Content Include="Assets\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Assets\images\login-bg.jpg" />
+    <Content Include="Assets\images\login-content-bg.jpg" />
+    <Content Include="Assets\images\login-shadow.png" />
+    <Content Include="Assets\images\logo.png" />
+    <Content Include="Assets\images\subnav-bg.gif" />
+    <Content Include="Assets\js\bootstrap.js" />
+    <Content Include="Assets\js\bootstrap.min.js" />
+    <Content Include="Assets\js\custom.js" />
+    <Content Include="Assets\js\html5shiv.min.js" />
+    <Content Include="Assets\js\jquery-2.1.1.min.js" />
+    <Content Include="Assets\js\jquery-ui.min.js" />
+    <Content Include="Assets\js\npm.js" />
+    <Content Include="Assets\js\respond.min.js" />
+    <Content Include="Login.aspx" />
+    <Content Include="PendingAccounts.aspx" />
+    <Content Include="PendingCIF.aspx" />
+    <Content Include="ReportIndividual.aspx" />
+    <Content Include="SearchAccount.aspx" />
+    <Content Include="SearchCif.aspx" />
+    <Content Include="test.asmx" />
+    <Content Include="UserControls\ReviewControl.ascx" />
+    <None Include="Web References\RISK\GetRisk.disco" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AccountList.aspx.cs">
+      <DependentUpon>AccountList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AccountList.aspx.designer.cs">
+      <DependentUpon>AccountList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Account_Business.aspx.cs">
+      <DependentUpon>Account_Business.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account_Business.aspx.designer.cs">
+      <DependentUpon>Account_Business.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Account_Government.aspx.cs">
+      <DependentUpon>Account_Government.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account_Government.aspx.designer.cs">
+      <DependentUpon>Account_Government.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Account_Individual.aspx.cs">
+      <DependentUpon>Account_Individual.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account_Individual.aspx.designer.cs">
+      <DependentUpon>Account_Individual.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AOF\AccountReport.aspx.cs">
+      <DependentUpon>AccountReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AOF\AccountReport.aspx.designer.cs">
+      <DependentUpon>AccountReport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AOF\AOFDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AOFDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="BioMetric.aspx.cs">
+      <DependentUpon>BioMetric.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BioMetric.aspx.designer.cs">
+      <DependentUpon>BioMetric.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Business.aspx.cs">
+      <DependentUpon>Business.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Business.aspx.designer.cs">
+      <DependentUpon>Business.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CifAccount.aspx.cs">
+      <DependentUpon>CifAccount.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CifAccount.aspx.designer.cs">
+      <DependentUpon>CifAccount.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CrmTaggingForms\CRMTagging.aspx.cs">
+      <DependentUpon>CRMTagging.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CrmTaggingForms\CRMTagging.aspx.designer.cs">
+      <DependentUpon>CRMTagging.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CrmTaggingForms\clsDataBaseSql.cs" />
+    <Compile Include="CrmTaggingForms\clsParameters.cs" />
+    <Compile Include="CrmTaggingForms\clsUtility.cs" />
+    <Compile Include="DataSets\dsAOF.cs">
+      <DependentUpon>dsAOF.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSets\dsAOF.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsAOF.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="ExistingCif\Existing.aspx.cs">
+      <DependentUpon>Existing.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ExistingCif\Existing.aspx.designer.cs">
+      <DependentUpon>Existing.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ExistingCif\ProfileCif.cs" />
+    <Compile Include="Government.aspx.cs">
+      <DependentUpon>Government.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Government.aspx.designer.cs">
+      <DependentUpon>Government.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Individual.aspx.cs">
+      <DependentUpon>Individual.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Individual.aspx.designer.cs">
+      <DependentUpon>Individual.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ListExtensions.cs" />
+    <Compile Include="Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="LOT\LOT.aspx.cs">
+      <DependentUpon>LOT.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="LOT\LOT.aspx.designer.cs">
+      <DependentUpon>LOT.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="LOT\SQLHelper.cs" />
+    <Compile Include="Main.aspx.cs">
+      <DependentUpon>Main.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Main.aspx.designer.cs">
+      <DependentUpon>Main.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MasterPages\Default.Master.cs">
+      <DependentUpon>Default.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MasterPages\Default.Master.designer.cs">
+      <DependentUpon>Default.Master</DependentUpon>
+    </Compile>
+    <Compile Include="MinorCIF.aspx.cs">
+      <DependentUpon>MinorCIF.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MinorCIF.aspx.designer.cs">
+      <DependentUpon>MinorCIF.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="NextOfKin.aspx.cs">
+      <DependentUpon>NextOfKin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="NextOfKin.aspx.designer.cs">
+      <DependentUpon>NextOfKin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Office.aspx.cs">
+      <DependentUpon>Office.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Office.aspx.designer.cs">
+      <DependentUpon>Office.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Oops.aspx.cs">
+      <DependentUpon>Oops.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Oops.aspx.designer.cs">
+      <DependentUpon>Oops.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PasswordForms\ChangePassword.aspx.cs">
+      <DependentUpon>ChangePassword.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PasswordForms\ChangePassword.aspx.designer.cs">
+      <DependentUpon>ChangePassword.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PasswordForms\FirstLoginPassword.aspx.cs">
+      <DependentUpon>FirstLoginPassword.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PasswordForms\FirstLoginPassword.aspx.designer.cs">
+      <DependentUpon>FirstLoginPassword.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PendingAccounts.aspx.cs">
+      <DependentUpon>PendingAccounts.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PendingAccounts.aspx.designer.cs">
+      <DependentUpon>PendingAccounts.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PendingCIF.aspx.cs">
+      <DependentUpon>PendingCIF.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PendingCIF.aspx.designer.cs">
+      <DependentUpon>PendingCIF.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="ReportIndividual.aspx.cs">
+      <DependentUpon>ReportIndividual.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ReportIndividual.aspx.designer.cs">
+      <DependentUpon>ReportIndividual.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SearchAccount.aspx.cs">
+      <DependentUpon>SearchAccount.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SearchAccount.aspx.designer.cs">
+      <DependentUpon>SearchAccount.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SearchCif.aspx.cs">
+      <DependentUpon>SearchCif.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SearchCif.aspx.designer.cs">
+      <DependentUpon>SearchCif.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="test.asmx.cs">
+      <DependentUpon>test.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="UserControls\ReviewControl.ascx.cs">
+      <DependentUpon>ReviewControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\ReviewControl.ascx.designer.cs">
+      <DependentUpon>ReviewControl.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserForms\AddUser.aspx.cs">
+      <DependentUpon>AddUser.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserForms\AddUser.aspx.designer.cs">
+      <DependentUpon>AddUser.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UserForms\ChangeUserPass.aspx.cs">
+      <DependentUpon>ChangeUserPass.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserForms\ChangeUserPass.aspx.designer.cs">
+      <DependentUpon>ChangeUserPass.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UserForms\EditUser.aspx.cs">
+      <DependentUpon>EditUser.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserForms\EditUser.aspx.designer.cs">
+      <DependentUpon>EditUser.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UserForms\Users.aspx.cs">
+      <DependentUpon>Users.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserForms\Users.aspx.designer.cs">
+      <DependentUpon>Users.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\CustomerInquiry\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\JavaWebReferenceTaggingIslamic\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\JavaWebReferenceTagging\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\RISK\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BioMetricClasses\BioMetricClasses.csproj">
+      <Project>{b2fd920a-6d5d-486e-b336-e8330e41785b}</Project>
+      <Name>BioMetricClasses</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BLL\BLL.csproj">
+      <Project>{69b934a8-6174-4f87-857f-567033274057}</Project>
+      <Name>BLL</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="AOF\AOFBusiness.rdlc" />
+    <EmbeddedResource Include="AOF\AOFIndividual.rdlc" />
+    <EmbeddedResource Include="LOT\LOT.rdlc" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferences Include="Web References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferenceUrl Include="http://10.1.6.171/RiskRating/GetRisk.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\RISK\</RelPath>
+      <UpdateFromURL>http://10.1.6.171/RiskRating/GetRisk.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>CAOP_RISK_GetRisk</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://10.1.6.171:8080/ProfileConnectorWS/ProfileConnectorTest%3fwsdl">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\CustomerInquiry\</RelPath>
+      <UpdateFromURL>http://10.1.6.171:8080/ProfileConnectorWS/ProfileConnectorTest%3fwsdl</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>CAOP_CustomerInquiry_ProfileConnectorTest</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://10.11.5.205:9090/ProfileConnectorWS/ProfileConnector%3fwsdl">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\JavaWebReferenceTagging\</RelPath>
+      <UpdateFromURL>http://10.11.5.205:9090/ProfileConnectorWS/ProfileConnector%3fwsdl</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>CAOP_JavaWebReferenceTagging_ProfileConnector</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://10.11.5.205:9090/ProfileConnectorWS/ProfileConnectorIslamic%3fwsdl">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\JavaWebReferenceTaggingIslamic\</RelPath>
+      <UpdateFromURL>http://10.11.5.205:9090/ProfileConnectorWS/ProfileConnectorIslamic%3fwsdl</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>CAOP_JavaWebReferenceTaggingIslamic_ProfileConnectorIslamic</CachedSettingsPropName>
+    </WebReferenceUrl>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
+  </ItemGroup>
+  <ItemGroup />
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>23679</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:23679/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

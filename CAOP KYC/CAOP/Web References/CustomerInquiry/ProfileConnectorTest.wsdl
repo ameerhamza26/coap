@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:wsp="http://www.w3.org/ns/ws-policy" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:tns="http://ProfileConnector.com/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsp1_2="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" name="ProfileConnectorTest" targetNamespace="http://ProfileConnector.com/" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <types>
+    <xsd:schema>
+      <xsd:import schemaLocation="http://10.1.6.171:8080/ProfileConnectorWS/ProfileConnectorTest?xsd=1" namespace="http://ProfileConnector.com/" />
+    </xsd:schema>
+  </types>
+  <message name="GetScalarData">
+    <part name="parameters" element="tns:GetScalarData" />
+  </message>
+  <message name="GetScalarDataResponse">
+    <part name="parameters" element="tns:GetScalarDataResponse" />
+  </message>
+  <message name="Exception">
+    <part name="fault" element="tns:Exception" />
+  </message>
+  <message name="GetXMLData">
+    <part name="parameters" element="tns:GetXMLData" />
+  </message>
+  <message name="GetXMLDataResponse">
+    <part name="parameters" element="tns:GetXMLDataResponse" />
+  </message>
+  <message name="GetBalanceData">
+    <part name="parameters" element="tns:GetBalanceData" />
+  </message>
+  <message name="GetBalanceDataResponse">
+    <part name="parameters" element="tns:GetBalanceDataResponse" />
+  </message>
+  <message name="InserUpdateData">
+    <part name="parameters" element="tns:InserUpdateData" />
+  </message>
+  <message name="InserUpdateDataResponse">
+    <part name="parameters" element="tns:InserUpdateDataResponse" />
+  </message>
+  <message name="CallMRPC29">
+    <part name="parameters" element="tns:CallMRPC29" />
+  </message>
+  <message name="CallMRPC29Response">
+    <part name="parameters" element="tns:CallMRPC29Response" />
+  </message>
+  <message name="CallMRPC">
+    <part name="parameters" element="tns:CallMRPC" />
+  </message>
+  <message name="CallMRPCResponse">
+    <part name="parameters" element="tns:CallMRPCResponse" />
+  </message>
+  <message name="CreateCustomerMRPC">
+    <part name="parameters" element="tns:CreateCustomerMRPC" />
+  </message>
+  <message name="CreateCustomerMRPCResponse">
+    <part name="parameters" element="tns:CreateCustomerMRPCResponse" />
+  </message>
+  <message name="CreateDepositAccountMRPC">
+    <part name="parameters" element="tns:CreateDepositAccountMRPC" />
+  </message>
+  <message name="CreateDepositAccountMRPCResponse">
+    <part name="parameters" element="tns:CreateDepositAccountMRPCResponse" />
+  </message>
+  <message name="CIFEnquiryCNIC">
+    <part name="parameters" element="tns:CIFEnquiryCNIC" />
+  </message>
+  <message name="CIFEnquiryCNICResponse">
+    <part name="parameters" element="tns:CIFEnquiryCNICResponse" />
+  </message>
+  <message name="CIFEnquiryCIFNo">
+    <part name="parameters" element="tns:CIFEnquiryCIFNo" />
+  </message>
+  <message name="CIFEnquiryCIFNoResponse">
+    <part name="parameters" element="tns:CIFEnquiryCIFNoResponse" />
+  </message>
+  <message name="CallMRPCTrx">
+    <part name="parameters" element="tns:CallMRPCTrx" />
+  </message>
+  <message name="CallMRPCTrxResponse">
+    <part name="parameters" element="tns:CallMRPCTrxResponse" />
+  </message>
+  <portType name="ProfileConnectorTest">
+    <operation name="GetScalarData">
+      <input wsam:Action="http://ProfileConnector.com/ProfileConnectorTest/GetScalarDataRequest" message="tns:GetScalarData" />
+      <output wsam:Action="http://ProfileConnector.com/ProfileConnectorTest/GetScalarDataResponse" message="tns:GetScalarDataResponse" />
+      <fault wsam:Action="http://ProfileConnector.com/ProfileConnectorTest/GetScalarData/Fault/Exception" name="Exception" message="tns:Exception" />
+    </operation>
+    <operation name="GetXMLData">
+      <input wsam:Action="http://ProfileConnector.com/ProfileConnectorTest/GetXMLDataRequest" message="tns:GetXMLData" />
+      <output wsam:Action="http://ProfileConnector.com/ProfileConnectorTest/GetXMLDataResponse" message="tns:GetXMLDataResponse" />
+      <fault wsam:Action="http://ProfileConnector.com/ProfileConnectorTest/GetXMLData/Fault/Exception" name="Exception" message="tns:Exception" />
+    </operation>
+    <operation name="GetBalanceData">
+      <input wsam:Action="http://ProfileConnector.com/ProfileConnectorTest/GetBalanceDataRequest" message="tns:GetBalanceData" />
+      <output wsam:Action="http://ProfileConnector.com/ProfileConnectorTest/GetBalanceDataResponse" message="tns:GetBalanceDataResponse" />
+      <fault wsam:Action="http://ProfileConnector.com/ProfileConnectorTest/GetBalanceData/Fault/Exception" name="Exception" message="tns:Exception" />
+    </operation>
+    <operation name="InserUpdateData">
+      <input wsam:Action="http://ProfileConnector.com/ProfileConnectorTest/InserUpdateDataRequest" message="tns:InserUpdateData" />
+      <output wsam:Action="http://ProfileConnector.com/ProfileConnectorTest/InserUpdateDataResponse" message="tns:InserUpdateDataResponse" />
+      <fault wsam:Action="http://ProfileConnector.com/ProfileConnectorTest/InserUpdateData/Fault/Exception" name="Exception" message="tns:Exception" />
+    </operation>
+    <operation name="CallMRPC29">
+      <input wsam:Action="http://ProfileConnector.com/ProfileConnectorTest/CallMRPC29Request" message="tns:CallMRPC29" />
+      <output wsam:Action="http://ProfileConnector.com/ProfileConnectorTest/CallMRPC29Response" message="tns:CallMRPC29Response" />
+      <fault wsam:Action="http://ProfileConnector.com/ProfileConnectorTest/CallMRPC29/Fault/Exception" name="Exception" message="tns:Exception" />
+    </operation>
+    <operation name="CallMRPC">
+      <input wsam:Action="http://ProfileConnector.com/ProfileConnectorTest/CallMRPCRequest" message="tns:CallMRPC" />
+      <output wsam:Action="http://ProfileConnector.com/ProfileConnectorTest/CallMRPCResponse" message="tns:CallMRPCResponse" />
+      <fault wsam:Action="http://ProfileConnector.com/ProfileConnectorTest/CallMRPC/Fault/Exception" name="Exception" message="tns:Exception" />
+    </operation>
+    <operation name="CreateCustomerMRPC">
+      <input wsam:Action="http://ProfileConnector.com/ProfileConnectorTest/CreateCustomerMRPCRequest" message="tns:CreateCustomerMRPC" />
+      <output wsam:Action="http://ProfileConnector.com/ProfileConnectorTest/CreateCustomerMRPCResponse" message="tns:CreateCustomerMRPCResponse" />
+      <fault wsam:Action="http://ProfileConnector.com/ProfileConnectorTest/CreateCustomerMRPC/Fault/Exception" name="Exception" message="tns:Exception" />
+    </operation>
+    <operation name="CreateDepositAccountMRPC">
+      <input wsam:Action="http://ProfileConnector.com/ProfileConnectorTest/CreateDepositAccountMRPCRequest" message="tns:CreateDepositAccountMRPC" />
+      <output wsam:Action="http://ProfileConnector.com/ProfileConnectorTest/CreateDepositAccountMRPCResponse" message="tns:CreateDepositAccountMRPCResponse" />
+      <fault wsam:Action="http://ProfileConnector.com/ProfileConnectorTest/CreateDepositAccountMRPC/Fault/Exception" name="Exception" message="tns:Exception" />
+    </operation>
+    <operation name="CIFEnquiryCNIC">
+      <input wsam:Action="http://ProfileConnector.com/ProfileConnectorTest/CIFEnquiryCNICRequest" message="tns:CIFEnquiryCNIC" />
+      <output wsam:Action="http://ProfileConnector.com/ProfileConnectorTest/CIFEnquiryCNICResponse" message="tns:CIFEnquiryCNICResponse" />
+      <fault wsam:Action="http://ProfileConnector.com/ProfileConnectorTest/CIFEnquiryCNIC/Fault/Exception" name="Exception" message="tns:Exception" />
+    </operation>
+    <operation name="CIFEnquiryCIFNo">
+      <input wsam:Action="http://ProfileConnector.com/ProfileConnectorTest/CIFEnquiryCIFNoRequest" message="tns:CIFEnquiryCIFNo" />
+      <output wsam:Action="http://ProfileConnector.com/ProfileConnectorTest/CIFEnquiryCIFNoResponse" message="tns:CIFEnquiryCIFNoResponse" />
+      <fault wsam:Action="http://ProfileConnector.com/ProfileConnectorTest/CIFEnquiryCIFNo/Fault/Exception" name="Exception" message="tns:Exception" />
+    </operation>
+    <operation name="CallMRPCTrx">
+      <input wsam:Action="http://ProfileConnector.com/ProfileConnectorTest/CallMRPCTrxRequest" message="tns:CallMRPCTrx" />
+      <output wsam:Action="http://ProfileConnector.com/ProfileConnectorTest/CallMRPCTrxResponse" message="tns:CallMRPCTrxResponse" />
+      <fault wsam:Action="http://ProfileConnector.com/ProfileConnectorTest/CallMRPCTrx/Fault/Exception" name="Exception" message="tns:Exception" />
+    </operation>
+  </portType>
+  <binding name="ProfileConnectorTestPortBinding" type="tns:ProfileConnectorTest">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <operation name="GetScalarData">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="Exception">
+        <soap:fault use="literal" name="Exception" namespace="" />
+      </fault>
+    </operation>
+    <operation name="GetXMLData">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="Exception">
+        <soap:fault use="literal" name="Exception" namespace="" />
+      </fault>
+    </operation>
+    <operation name="GetBalanceData">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="Exception">
+        <soap:fault use="literal" name="Exception" namespace="" />
+      </fault>
+    </operation>
+    <operation name="InserUpdateData">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="Exception">
+        <soap:fault use="literal" name="Exception" namespace="" />
+      </fault>
+    </operation>
+    <operation name="CallMRPC29">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="Exception">
+        <soap:fault use="literal" name="Exception" namespace="" />
+      </fault>
+    </operation>
+    <operation name="CallMRPC">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="Exception">
+        <soap:fault use="literal" name="Exception" namespace="" />
+      </fault>
+    </operation>
+    <operation name="CreateCustomerMRPC">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="Exception">
+        <soap:fault use="literal" name="Exception" namespace="" />
+      </fault>
+    </operation>
+    <operation name="CreateDepositAccountMRPC">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="Exception">
+        <soap:fault use="literal" name="Exception" namespace="" />
+      </fault>
+    </operation>
+    <operation name="CIFEnquiryCNIC">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="Exception">
+        <soap:fault use="literal" name="Exception" namespace="" />
+      </fault>
+    </operation>
+    <operation name="CIFEnquiryCIFNo">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="Exception">
+        <soap:fault use="literal" name="Exception" namespace="" />
+      </fault>
+    </operation>
+    <operation name="CallMRPCTrx">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="Exception">
+        <soap:fault use="literal" name="Exception" namespace="" />
+      </fault>
+    </operation>
+  </binding>
+  <service name="ProfileConnectorTest">
+    <port name="ProfileConnectorTestPort" binding="tns:ProfileConnectorTestPortBinding">
+      <soap:address location="http://10.1.6.171:8080/ProfileConnectorWS/ProfileConnectorTest" />
+    </port>
+  </service>
+</definitions>

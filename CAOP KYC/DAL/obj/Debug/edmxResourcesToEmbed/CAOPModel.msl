@@ -1,0 +1,685 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="CAOPModelStoreContainer" CdmEntityContainer="Entities">
+    <EntitySetMapping Name="ACCOMODATION_TYPES">
+      <EntityTypeMapping TypeName="CAOPModel.ACCOMODATION_TYPES">
+        <MappingFragment StoreEntitySet="ACCOMODATION_TYPES">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ACCOUNT_TYPES">
+      <EntityTypeMapping TypeName="CAOPModel.ACCOUNT_TYPES">
+        <MappingFragment StoreEntitySet="ACCOUNT_TYPES">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="APPLICANT_STATUSES">
+      <EntityTypeMapping TypeName="CAOPModel.APPLICANT_STATUSES">
+        <MappingFragment StoreEntitySet="APPLICANT_STATUSES">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="NAME" ColumnName="NAME" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ARMY_RANK_CODES">
+      <EntityTypeMapping TypeName="CAOPModel.ARMY_RANK_CODES">
+        <MappingFragment StoreEntitySet="ARMY_RANK_CODES">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="CODE" ColumnName="CODE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AVERAGE_CASH_DEPOSITS">
+      <EntityTypeMapping TypeName="CAOPModel.AVERAGE_CASH_DEPOSITS">
+        <MappingFragment StoreEntitySet="AVERAGE_CASH_DEPOSITS">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="NAME" ColumnName="NAME" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AVERAGE_NON_CASH_DEPOSITS">
+      <EntityTypeMapping TypeName="CAOPModel.AVERAGE_NON_CASH_DEPOSITS">
+        <MappingFragment StoreEntitySet="AVERAGE_NON_CASH_DEPOSITS">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="NAME" ColumnName="NAME" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BASE_CATEGORIES">
+      <EntityTypeMapping TypeName="CAOPModel.BASE_CATEGORIES">
+        <MappingFragment StoreEntitySet="BASE_CATEGORIES">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="NAME" ColumnName="NAME" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BRANCHES">
+      <EntityTypeMapping TypeName="CAOPModel.BRANCHES">
+        <MappingFragment StoreEntitySet="BRANCHES">
+          <ScalarProperty Name="BRANCH_ID" ColumnName="BRANCH_ID" />
+          <ScalarProperty Name="REGION_ID" ColumnName="REGION_ID" />
+          <ScalarProperty Name="NAME" ColumnName="NAME" />
+          <ScalarProperty Name="BRANCH_CODE" ColumnName="BRANCH_CODE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BUSINESS_ACOUNTS">
+      <EntityTypeMapping TypeName="CAOPModel.BUSINESS_ACOUNTS">
+        <MappingFragment StoreEntitySet="BUSINESS_ACOUNTS">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="NAME" ColumnName="NAME" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BUSINESS_CUSTOMER_CLASSIFICATIONS">
+      <EntityTypeMapping TypeName="CAOPModel.BUSINESS_CUSTOMER_CLASSIFICATIONS">
+        <MappingFragment StoreEntitySet="BUSINESS_CUSTOMER_CLASSIFICATIONS">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="NAME" ColumnName="NAME" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BUSINESS_DETAIL">
+      <EntityTypeMapping TypeName="CAOPModel.BUSINESS_DETAIL">
+        <MappingFragment StoreEntitySet="BUSINESS_DETAIL">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="INFO_TYPE" ColumnName="INFO_TYPE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CIF_TYPES">
+      <EntityTypeMapping TypeName="CAOPModel.CIF_TYPES">
+        <MappingFragment StoreEntitySet="CIF_TYPES">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CITIES">
+      <EntityTypeMapping TypeName="CAOPModel.CITIES">
+        <MappingFragment StoreEntitySet="CITIES">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="NAME" ColumnName="NAME" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CITIES_BUSINESS_DETAILS">
+      <EntityTypeMapping TypeName="CAOPModel.CITIES_BUSINESS_DETAILS">
+        <MappingFragment StoreEntitySet="CITIES_BUSINESS_DETAILS">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="NTN" ColumnName="NTN" />
+          <ScalarProperty Name="CITY_ID" ColumnName="CITY_ID" />
+          <ScalarProperty Name="CITY_NAME" ColumnName="CITY_NAME" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="COSTUMER_DEALINGS">
+      <EntityTypeMapping TypeName="CAOPModel.COSTUMER_DEALINGS">
+        <MappingFragment StoreEntitySet="COSTUMER_DEALINGS">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="COUNTRIES">
+      <EntityTypeMapping TypeName="CAOPModel.COUNTRIES">
+        <MappingFragment StoreEntitySet="COUNTRIES">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="COUNTRIES_BUSINESS_DETAILS">
+      <EntityTypeMapping TypeName="CAOPModel.COUNTRIES_BUSINESS_DETAILS">
+        <MappingFragment StoreEntitySet="COUNTRIES_BUSINESS_DETAILS">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="NTN" ColumnName="NTN" />
+          <ScalarProperty Name="COUNTRY_ID" ColumnName="COUNTRY_ID" />
+          <ScalarProperty Name="COUNTRY_NAME" ColumnName="COUNTRY_NAME" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DISTRICTS">
+      <EntityTypeMapping TypeName="CAOPModel.DISTRICTS">
+        <MappingFragment StoreEntitySet="DISTRICTS">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="NAME" ColumnName="NAME" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DOCUMENT_TYPES">
+      <EntityTypeMapping TypeName="CAOPModel.DOCUMENT_TYPES">
+        <MappingFragment StoreEntitySet="DOCUMENT_TYPES">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DOCUMENT_TYPES_PRIMARY">
+      <EntityTypeMapping TypeName="CAOPModel.DOCUMENT_TYPES_PRIMARY">
+        <MappingFragment StoreEntitySet="DOCUMENT_TYPES_PRIMARY">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EDUCATIONS">
+      <EntityTypeMapping TypeName="CAOPModel.EDUCATIONS">
+        <MappingFragment StoreEntitySet="EDUCATIONS">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EMPLOYER_CODES">
+      <EntityTypeMapping TypeName="CAOPModel.EMPLOYER_CODES">
+        <MappingFragment StoreEntitySet="EMPLOYER_CODES">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="CODE" ColumnName="CODE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EMPLOYMENT_DETAILS">
+      <EntityTypeMapping TypeName="CAOPModel.EMPLOYMENT_DETAILS">
+        <MappingFragment StoreEntitySet="EMPLOYMENT_DETAILS">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="NAME" ColumnName="NAME" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FREQUENCY_GROSS_SALES">
+      <EntityTypeMapping TypeName="CAOPModel.FREQUENCY_GROSS_SALES">
+        <MappingFragment StoreEntitySet="FREQUENCY_GROSS_SALES">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="NAME" ColumnName="NAME" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FTCA_CLASSIFICATIONS">
+      <EntityTypeMapping TypeName="CAOPModel.FTCA_CLASSIFICATIONS">
+        <MappingFragment StoreEntitySet="FTCA_CLASSIFICATIONS">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FTCA_DOCUMENTATIONS">
+      <EntityTypeMapping TypeName="CAOPModel.FTCA_DOCUMENTATIONS">
+        <MappingFragment StoreEntitySet="FTCA_DOCUMENTATIONS">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GENDERS">
+      <EntityTypeMapping TypeName="CAOPModel.GENDERS">
+        <MappingFragment StoreEntitySet="GENDERS">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HEAD_CONTACT_INFOS">
+      <EntityTypeMapping TypeName="CAOPModel.HEAD_CONTACT_INFOS">
+        <MappingFragment StoreEntitySet="HEAD_CONTACT_INFOS">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="ADDRESS" ColumnName="ADDRESS" />
+          <ScalarProperty Name="DISTRICT" ColumnName="DISTRICT" />
+          <ScalarProperty Name="POBOX" ColumnName="POBOX" />
+          <ScalarProperty Name="CITY" ColumnName="CITY" />
+          <ScalarProperty Name="POSTAL_CODE" ColumnName="POSTAL_CODE" />
+          <ScalarProperty Name="COUNTRY" ColumnName="COUNTRY" />
+          <ScalarProperty Name="PHONE_OFFICE" ColumnName="PHONE_OFFICE" />
+          <ScalarProperty Name="MOBILE_NO" ColumnName="MOBILE_NO" />
+          <ScalarProperty Name="FAX_NO" ColumnName="FAX_NO" />
+          <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+          <ScalarProperty Name="WEB" ColumnName="WEB" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="IDENTITY_TYPES">
+      <EntityTypeMapping TypeName="CAOPModel.IDENTITY_TYPES">
+        <MappingFragment StoreEntitySet="IDENTITY_TYPES">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="NAME" ColumnName="NAME" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="INFO_TYPES_BDS">
+      <EntityTypeMapping TypeName="CAOPModel.INFO_TYPES_BDS">
+        <MappingFragment StoreEntitySet="INFO_TYPES_BDS">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="NAME" ColumnName="NAME" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ISSUING_AGENCY">
+      <EntityTypeMapping TypeName="CAOPModel.ISSUING_AGENCY">
+        <MappingFragment StoreEntitySet="ISSUING_AGENCY">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="NAME" ColumnName="NAME" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MARTIAL_STATUSES">
+      <EntityTypeMapping TypeName="CAOPModel.MARTIAL_STATUSES">
+        <MappingFragment StoreEntitySet="MARTIAL_STATUSES">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MONTHLY_TURNOVER_CREDITS">
+      <EntityTypeMapping TypeName="CAOPModel.MONTHLY_TURNOVER_CREDITS">
+        <MappingFragment StoreEntitySet="MONTHLY_TURNOVER_CREDITS">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MONTHLY_TURNOVER_DEBITS">
+      <EntityTypeMapping TypeName="CAOPModel.MONTHLY_TURNOVER_DEBITS">
+        <MappingFragment StoreEntitySet="MONTHLY_TURNOVER_DEBITS">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NATURE_BUSINESS">
+      <EntityTypeMapping TypeName="CAOPModel.NATURE_BUSINESS">
+        <MappingFragment StoreEntitySet="NATURE_BUSINESS">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="NAME" ColumnName="NAME" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NBP_BRANCH_INFORMATIONS">
+      <EntityTypeMapping TypeName="CAOPModel.NBP_BRANCH_INFORMATIONS">
+        <MappingFragment StoreEntitySet="NBP_BRANCH_INFORMATIONS">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NBP_CATEGORIES">
+      <EntityTypeMapping TypeName="CAOPModel.NBP_CATEGORIES">
+        <MappingFragment StoreEntitySet="NBP_CATEGORIES">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="NAME" ColumnName="NAME" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OTHER_BANK_CODES">
+      <EntityTypeMapping TypeName="CAOPModel.OTHER_BANK_CODES">
+        <MappingFragment StoreEntitySet="OTHER_BANK_CODES">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PEPS">
+      <EntityTypeMapping TypeName="CAOPModel.PEPS">
+        <MappingFragment StoreEntitySet="PEPS">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Permissions">
+      <EntityTypeMapping TypeName="CAOPModel.Permissions">
+        <MappingFragment StoreEntitySet="Permissions">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Permission" ColumnName="Permission" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="REGIONS">
+      <EntityTypeMapping TypeName="CAOPModel.REGIONS">
+        <MappingFragment StoreEntitySet="REGIONS">
+          <ScalarProperty Name="REGION_ID" ColumnName="REGION_ID" />
+          <ScalarProperty Name="NAME" ColumnName="NAME" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RELIGIONS">
+      <EntityTypeMapping TypeName="CAOPModel.RELIGIONS">
+        <MappingFragment StoreEntitySet="RELIGIONS">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RESIDENT_TYPES">
+      <EntityTypeMapping TypeName="CAOPModel.RESIDENT_TYPES">
+        <MappingFragment StoreEntitySet="RESIDENT_TYPES">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ROLE_PERMISSIONS">
+      <EntityTypeMapping TypeName="CAOPModel.ROLE_PERMISSIONS">
+        <MappingFragment StoreEntitySet="ROLE_PERMISSIONS">
+          <ScalarProperty Name="ROLE_PERMISSION_ID" ColumnName="ROLE_PERMISSION_ID" />
+          <ScalarProperty Name="ROLE_ID" ColumnName="ROLE_ID" />
+          <ScalarProperty Name="PERMISSION_ID" ColumnName="PERMISSION_ID" />
+          <ScalarProperty Name="CREATE" ColumnName="CREATE" />
+          <ScalarProperty Name="READ" ColumnName="READ" />
+          <ScalarProperty Name="UPDATE" ColumnName="UPDATE" />
+          <ScalarProperty Name="DELETE" ColumnName="DELETE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ROLES">
+      <EntityTypeMapping TypeName="CAOPModel.ROLES">
+        <MappingFragment StoreEntitySet="ROLES">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Role" ColumnName="Role" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SBP_CATEGORIES">
+      <EntityTypeMapping TypeName="CAOPModel.SBP_CATEGORIES">
+        <MappingFragment StoreEntitySet="SBP_CATEGORIES">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="NAME" ColumnName="NAME" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TITLES">
+      <EntityTypeMapping TypeName="CAOPModel.TITLES">
+        <MappingFragment StoreEntitySet="TITLES">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Transportation_Types">
+      <EntityTypeMapping TypeName="CAOPModel.Transportation_Types">
+        <MappingFragment StoreEntitySet="Transportation_Types">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="USA_FUNDSTRANSFERS">
+      <EntityTypeMapping TypeName="CAOPModel.USA_FUNDSTRANSFERS">
+        <MappingFragment StoreEntitySet="USA_FUNDSTRANSFERS">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="USA_RESIDENCE_CARDS">
+      <EntityTypeMapping TypeName="CAOPModel.USA_RESIDENCE_CARDS">
+        <MappingFragment StoreEntitySet="USA_RESIDENCE_CARDS">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="USA_TAXID_TYPES">
+      <EntityTypeMapping TypeName="CAOPModel.USA_TAXID_TYPES">
+        <MappingFragment StoreEntitySet="USA_TAXID_TYPES">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="USERS">
+      <EntityTypeMapping TypeName="CAOPModel.USERS">
+        <MappingFragment StoreEntitySet="USERS">
+          <ScalarProperty Name="USER_ID" ColumnName="USER_ID" />
+          <ScalarProperty Name="PARENT_ID" ColumnName="PARENT_ID" />
+          <ScalarProperty Name="USER_NAME" ColumnName="USER_NAME" />
+          <ScalarProperty Name="DISPLAY_NAME" ColumnName="DISPLAY_NAME" />
+          <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+          <ScalarProperty Name="PASSWORD" ColumnName="PASSWORD" />
+          <ScalarProperty Name="DESIGNATION" ColumnName="DESIGNATION" />
+          <ScalarProperty Name="USER_TYPE" ColumnName="USER_TYPE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="USERS_PERMISSIONS">
+      <EntityTypeMapping TypeName="CAOPModel.USERS_PERMISSIONS">
+        <MappingFragment StoreEntitySet="USERS_PERMISSIONS">
+          <ScalarProperty Name="USER_PERMISSION_ID" ColumnName="USER_PERMISSION_ID" />
+          <ScalarProperty Name="USER_ID" ColumnName="USER_ID" />
+          <ScalarProperty Name="PERMISSION_ID" ColumnName="PERMISSION_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="USERS_ROLES">
+      <EntityTypeMapping TypeName="CAOPModel.USERS_ROLES">
+        <MappingFragment StoreEntitySet="USERS_ROLES">
+          <ScalarProperty Name="USER_ROLE_ID" ColumnName="USER_ROLE_ID" />
+          <ScalarProperty Name="USER_ID" ColumnName="USER_ID" />
+          <ScalarProperty Name="ROLE_ID" ColumnName="ROLE_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="COUNTRIES_TAX_MISCELLANEOUS_INFORMATION">
+      <EntityTypeMapping TypeName="CAOPModel.COUNTRIES_TAX_MISCELLANEOUS_INFORMATION">
+        <MappingFragment StoreEntitySet="COUNTRIES_TAX_MISCELLANEOUS_INFORMATION">
+          <ScalarProperty Name="COUNTRY_NAME" ColumnName="COUNTRY_NAME" />
+          <ScalarProperty Name="COUNTRY_ID" ColumnName="COUNTRY_ID" />
+          <ScalarProperty Name="BI_ID" ColumnName="BI_ID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NATIONALITIES_BASIC_INFORMATION">
+      <EntityTypeMapping TypeName="CAOPModel.NATIONALITIES_BASIC_INFORMATION">
+        <MappingFragment StoreEntitySet="NATIONALITIES_BASIC_INFORMATION">
+          <ScalarProperty Name="COUNTRY" ColumnName="COUNTRY" />
+          <ScalarProperty Name="COUNTRY_ID" ColumnName="COUNTRY_ID" />
+          <ScalarProperty Name="BI_ID" ColumnName="BI_ID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="USA_PHONE_NOS">
+      <EntityTypeMapping TypeName="CAOPModel.USA_PHONE_NOS">
+        <MappingFragment StoreEntitySet="USA_PHONE_NOS">
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="IDENTITIES">
+      <EntityTypeMapping TypeName="CAOPModel.IDENTITIES">
+        <MappingFragment StoreEntitySet="IDENTITIES">
+          <ScalarProperty Name="OTHER_IDENTITY_EXPIRY_DATE" ColumnName="OTHER_IDENTITY_EXPIRY_DATE" />
+          <ScalarProperty Name="PLACE_ISSUE" ColumnName="PLACE_ISSUE" />
+          <ScalarProperty Name="OTHER_IDENTITY_ISSUE_DATE" ColumnName="OTHER_IDENTITY_ISSUE_DATE" />
+          <ScalarProperty Name="COUNTRY_ISSUE" ColumnName="COUNTRY_ISSUE" />
+          <ScalarProperty Name="IDENTITY_NO" ColumnName="IDENTITY_NO" />
+          <ScalarProperty Name="IDENTITY_TYPE" ColumnName="IDENTITY_TYPE" />
+          <ScalarProperty Name="NIC_OLD" ColumnName="NIC_OLD" />
+          <ScalarProperty Name="NTN" ColumnName="NTN" />
+          <ScalarProperty Name="TOKEN_ISSUE_DATE" ColumnName="TOKEN_ISSUE_DATE" />
+          <ScalarProperty Name="TOKEN_NO" ColumnName="TOKEN_NO" />
+          <ScalarProperty Name="FAMILY_NO" ColumnName="FAMILY_NO" />
+          <ScalarProperty Name="IDENTIFICATION_MARK" ColumnName="IDENTIFICATION_MARK" />
+          <ScalarProperty Name="EXPIRY_DATE" ColumnName="EXPIRY_DATE" />
+          <ScalarProperty Name="CNIC_DATE_ISSUE" ColumnName="CNIC_DATE_ISSUE" />
+          <ScalarProperty Name="BI_ID" ColumnName="BI_ID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BANKING_RELATIONSHPS">
+      <EntityTypeMapping TypeName="CAOPModel.BANKING_RELATIONSHPS">
+        <MappingFragment StoreEntitySet="BANKING_RELATIONSHPS">
+          <ScalarProperty Name="OTHER_RELATIONSHIP_SINCE" ColumnName="OTHER_RELATIONSHIP_SINCE" />
+          <ScalarProperty Name="OTHER_ACCOUNT_TITLE" ColumnName="OTHER_ACCOUNT_TITLE" />
+          <ScalarProperty Name="OTHER_ACCOUNT_NUMBER" ColumnName="OTHER_ACCOUNT_NUMBER" />
+          <ScalarProperty Name="OTHER_BRANCH_NAME" ColumnName="OTHER_BRANCH_NAME" />
+          <ScalarProperty Name="OTHER_BANK_CODE" ColumnName="OTHER_BANK_CODE" />
+          <ScalarProperty Name="NBP_RELATIONSHIP_SINCE" ColumnName="NBP_RELATIONSHIP_SINCE" />
+          <ScalarProperty Name="NBP_ACCOUNT_TITLE" ColumnName="NBP_ACCOUNT_TITLE" />
+          <ScalarProperty Name="NBP_ACCOUNT_NUMBER" ColumnName="NBP_ACCOUNT_NUMBER" />
+          <ScalarProperty Name="NBP_ACCOUNT_TYPE" ColumnName="NBP_ACCOUNT_TYPE" />
+          <ScalarProperty Name="NBP_BRANCH_INFORMATION" ColumnName="NBP_BRANCH_INFORMATION" />
+          <ScalarProperty Name="BI_ID" ColumnName="BI_ID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CONTACT_INFOS">
+      <EntityTypeMapping TypeName="CAOPModel.CONTACT_INFOS">
+        <MappingFragment StoreEntitySet="CONTACT_INFOS">
+          <ScalarProperty Name="WEB" ColumnName="WEB" />
+          <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+          <ScalarProperty Name="FAX_NO" ColumnName="FAX_NO" />
+          <ScalarProperty Name="MOBILE_NO" ColumnName="MOBILE_NO" />
+          <ScalarProperty Name="RESIDENCE_CONTACT" ColumnName="RESIDENCE_CONTACT" />
+          <ScalarProperty Name="OFFICE_CONTACT" ColumnName="OFFICE_CONTACT" />
+          <ScalarProperty Name="COUNTRY_PRESENT" ColumnName="COUNTRY_PRESENT" />
+          <ScalarProperty Name="POSTAL_CODE_PRESENT" ColumnName="POSTAL_CODE_PRESENT" />
+          <ScalarProperty Name="CITY_PRESENT" ColumnName="CITY_PRESENT" />
+          <ScalarProperty Name="POBOX_PRESENT" ColumnName="POBOX_PRESENT" />
+          <ScalarProperty Name="DISTRICT_PRESENT" ColumnName="DISTRICT_PRESENT" />
+          <ScalarProperty Name="ADDRESS_PRESENT" ColumnName="ADDRESS_PRESENT" />
+          <ScalarProperty Name="COUNTRY_PERMANENT" ColumnName="COUNTRY_PERMANENT" />
+          <ScalarProperty Name="POSTAL_CODE_PERMANENT" ColumnName="POSTAL_CODE_PERMANENT" />
+          <ScalarProperty Name="CITY_PERMANENT" ColumnName="CITY_PERMANENT" />
+          <ScalarProperty Name="POBOX_PERMANENT" ColumnName="POBOX_PERMANENT" />
+          <ScalarProperty Name="DISTRICT_PERMANENT" ColumnName="DISTRICT_PERMANENT" />
+          <ScalarProperty Name="ADDRESS_PERMANENT" ColumnName="ADDRESS_PERMANENT" />
+          <ScalarProperty Name="BI_ID" ColumnName="BI_ID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EMPLOYMENT_INFORMATIONS">
+      <EntityTypeMapping TypeName="CAOPModel.EMPLOYMENT_INFORMATIONS">
+        <MappingFragment StoreEntitySet="EMPLOYMENT_INFORMATIONS">
+          <ScalarProperty Name="COUNTRY_EMPLOYMENT" ColumnName="COUNTRY_EMPLOYMENT" />
+          <ScalarProperty Name="ARMY_RANK_CODE" ColumnName="ARMY_RANK_CODE" />
+          <ScalarProperty Name="EMPLOYER_BUSINESS_ADDRESS" ColumnName="EMPLOYER_BUSINESS_ADDRESS" />
+          <ScalarProperty Name="EMPLOYER_CODE" ColumnName="EMPLOYER_CODE" />
+          <ScalarProperty Name="PPQ_NO" ColumnName="PPQ_NO" />
+          <ScalarProperty Name="PF_NO" ColumnName="PF_NO" />
+          <ScalarProperty Name="DESIGNATION" ColumnName="DESIGNATION" />
+          <ScalarProperty Name="RETIRED" ColumnName="RETIRED" />
+          <ScalarProperty Name="DEPARTMENT" ColumnName="DEPARTMENT" />
+          <ScalarProperty Name="EMPLOYMENT_DETAIL" ColumnName="EMPLOYMENT_DETAIL" />
+          <ScalarProperty Name="BI_ID" ColumnName="BI_ID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FATCAS">
+      <EntityTypeMapping TypeName="CAOPModel.FATCAS">
+        <MappingFragment StoreEntitySet="FATCAS">
+          <ScalarProperty Name="USA_PHONE" ColumnName="USA_PHONE" />
+          <ScalarProperty Name="TAXNO" ColumnName="TAXNO" />
+          <ScalarProperty Name="US_TAXID" ColumnName="US_TAXID" />
+          <ScalarProperty Name="FTCA_CLASSIFICATION" ColumnName="FTCA_CLASSIFICATION" />
+          <ScalarProperty Name="FUND_TRANSFER" ColumnName="FUND_TRANSFER" />
+          <ScalarProperty Name="RESIDENCE_CARD" ColumnName="RESIDENCE_CARD" />
+          <ScalarProperty Name="FAXNO" ColumnName="FAXNO" />
+          <ScalarProperty Name="MOBNO" ColumnName="MOBNO" />
+          <ScalarProperty Name="CONTACT_RESIDENCE" ColumnName="CONTACT_RESIDENCE" />
+          <ScalarProperty Name="CONTACT_OFFICE" ColumnName="CONTACT_OFFICE" />
+          <ScalarProperty Name="ADDRESS_USA" ColumnName="ADDRESS_USA" />
+          <ScalarProperty Name="BIRTH_USA" ColumnName="BIRTH_USA" />
+          <ScalarProperty Name="CITIZEN" ColumnName="CITIZEN" />
+          <ScalarProperty Name="RESIDENT" ColumnName="RESIDENT" />
+          <ScalarProperty Name="BI_ID" ColumnName="BI_ID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MISCELLANEOUS_INFORMATIONS">
+      <EntityTypeMapping TypeName="CAOPModel.MISCELLANEOUS_INFORMATIONS">
+        <MappingFragment StoreEntitySet="MISCELLANEOUS_INFORMATIONS">
+          <ScalarProperty Name="BLIND_VISUALLY_IMPAIRED" ColumnName="BLIND_VISUALLY_IMPAIRED" />
+          <ScalarProperty Name="FREQUENCY_GROSS_SALE" ColumnName="FREQUENCY_GROSS_SALE" />
+          <ScalarProperty Name="GROSS_SALE" ColumnName="GROSS_SALE" />
+          <ScalarProperty Name="NET_WORTH" ColumnName="NET_WORTH" />
+          <ScalarProperty Name="LIABILITIES" ColumnName="LIABILITIES" />
+          <ScalarProperty Name="TOTAL_ASSET_VALUE" ColumnName="TOTAL_ASSET_VALUE" />
+          <ScalarProperty Name="AVERAGE_CASH_NON_DEPOSIT" ColumnName="AVERAGE_CASH_NON_DEPOSIT" />
+          <ScalarProperty Name="AVERAGE_CASH_DEPOSIT" ColumnName="AVERAGE_CASH_DEPOSIT" />
+          <ScalarProperty Name="MONTHLY_TURNOVER_CREDIT" ColumnName="MONTHLY_TURNOVER_CREDIT" />
+          <ScalarProperty Name="MONTHLY_TURNOVER_DEBIT" ColumnName="MONTHLY_TURNOVER_DEBIT" />
+          <ScalarProperty Name="PARDA_NASHEEN" ColumnName="PARDA_NASHEEN" />
+          <ScalarProperty Name="PEP" ColumnName="PEP" />
+          <ScalarProperty Name="TRANSPORTATION_TYPE" ColumnName="TRANSPORTATION_TYPE" />
+          <ScalarProperty Name="ACCOMODATION_TYPE_DESCRIPTION" ColumnName="ACCOMODATION_TYPE_DESCRIPTION" />
+          <ScalarProperty Name="ACCOMODATION_TYPE" ColumnName="ACCOMODATION_TYPE" />
+          <ScalarProperty Name="SOCIAL_STATUS" ColumnName="SOCIAL_STATUS" />
+          <ScalarProperty Name="EDUCATION" ColumnName="EDUCATION" />
+          <ScalarProperty Name="BI_ID" ColumnName="BI_ID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BASIC_INFORMATIONS">
+      <EntityTypeMapping TypeName="CAOPModel.BASIC_INFORMATIONS">
+        <MappingFragment StoreEntitySet="BASIC_INFORMATIONS">
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+          <ScalarProperty Name="APPLICANT_STATUS" ColumnName="APPLICANT_STATUS" />
+          <ScalarProperty Name="SHARE" ColumnName="SHARE" />
+          <ScalarProperty Name="CATERGORY_BASE" ColumnName="CATERGORY_BASE" />
+          <ScalarProperty Name="CATERGORY_SBP" ColumnName="CATERGORY_SBP" />
+          <ScalarProperty Name="CATERGORY_NBP" ColumnName="CATERGORY_NBP" />
+          <ScalarProperty Name="NATURE_BUSINESS_DESCRP" ColumnName="NATURE_BUSINESS_DESCRP" />
+          <ScalarProperty Name="NATURE_BUSINESS" ColumnName="NATURE_BUSINESS" />
+          <ScalarProperty Name="CIF_GROUP" ColumnName="CIF_GROUP" />
+          <ScalarProperty Name="CUSTOMER_CLASSIFICATION" ColumnName="CUSTOMER_CLASSIFICATION" />
+          <ScalarProperty Name="ACCOUNT_NATURE" ColumnName="ACCOUNT_NATURE" />
+          <ScalarProperty Name="PAST_BUSS_EXP" ColumnName="PAST_BUSS_EXP" />
+          <ScalarProperty Name="COMMENCEMENT_NO" ColumnName="COMMENCEMENT_NO" />
+          <ScalarProperty Name="REG_DATE" ColumnName="REG_DATE" />
+          <ScalarProperty Name="REG_NO" ColumnName="REG_NO" />
+          <ScalarProperty Name="ISSUING_AGENCY" ColumnName="ISSUING_AGENCY" />
+          <ScalarProperty Name="NTN" ColumnName="NTN" />
+          <ScalarProperty Name="SALES_TAX_NO" ColumnName="SALES_TAX_NO" />
+          <ScalarProperty Name="NAME_OFFICE" ColumnName="NAME_OFFICE" />
+          <ScalarProperty Name="COSTUMER_DEAL" ColumnName="COSTUMER_DEAL" />
+          <ScalarProperty Name="COUNTRY_RESIDENCE" ColumnName="COUNTRY_RESIDENCE" />
+          <ScalarProperty Name="MONTHLY_INCOME" ColumnName="MONTHLY_INCOME" />
+          <ScalarProperty Name="RESIDENT_TYPE" ColumnName="RESIDENT_TYPE" />
+          <ScalarProperty Name="RELIGION" ColumnName="RELIGION" />
+          <ScalarProperty Name="GENDER" ColumnName="GENDER" />
+          <ScalarProperty Name="MARTIAL_STATUS" ColumnName="MARTIAL_STATUS" />
+          <ScalarProperty Name="COB" ColumnName="COB" />
+          <ScalarProperty Name="POB" ColumnName="POB" />
+          <ScalarProperty Name="DOB" ColumnName="DOB" />
+          <ScalarProperty Name="CNIC_MOTHER_OLD" ColumnName="CNIC_MOTHER_OLD" />
+          <ScalarProperty Name="CNIC_MOTHER" ColumnName="CNIC_MOTHER" />
+          <ScalarProperty Name="NAME_MOTHER" ColumnName="NAME_MOTHER" />
+          <ScalarProperty Name="CIF_FH" ColumnName="CIF_FH" />
+          <ScalarProperty Name="CNIC_FH" ColumnName="CNIC_FH" />
+          <ScalarProperty Name="NAME_FH" ColumnName="NAME_FH" />
+          <ScalarProperty Name="TITLE_FH" ColumnName="TITLE_FH" />
+          <ScalarProperty Name="NAME" ColumnName="NAME" />
+          <ScalarProperty Name="TITLE" ColumnName="TITLE" />
+          <ScalarProperty Name="CNIC" ColumnName="CNIC" />
+          <ScalarProperty Name="DOCUMENT_TYPE_PRIMARY" ColumnName="DOCUMENT_TYPE_PRIMARY" />
+          <ScalarProperty Name="CIF_TYPE" ColumnName="CIF_TYPE" />
+          <ScalarProperty Name="CIF_ENTRY_DATE" ColumnName="CIF_ENTRY_DATE" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DOCUMENTS_FATCA">
+      <EntityTypeMapping TypeName="CAOPModel.DOCUMENTS_FATCA">
+        <MappingFragment StoreEntitySet="DOCUMENTS_FATCA">
+          <ScalarProperty Name="DOCUMENT_NAME" ColumnName="DOCUMENT_NAME" />
+          <ScalarProperty Name="DOCUMENT_ID" ColumnName="DOCUMENT_ID" />
+          <ScalarProperty Name="BI_ID" ColumnName="BI_ID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

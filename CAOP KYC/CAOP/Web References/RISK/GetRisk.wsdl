@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="GetRiskScore">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="BrCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CustomerIdNumber" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CNIC" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CustomerType" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CustomerTitle" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CustomerFirstName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CustomerMiddleName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CustomerLastName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="LegalName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="InstituteName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="InstituteStartDate" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Gender" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="DateOfBirth" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Industry" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="TaxIdentifierFormat" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="TaxIdentificationNumber" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Occupation" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CustomerCreationDate" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ResidenceCountry" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="PrimaryCitznCountry" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SecondryCitznCountry" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="DocumetsVerifiedFlag" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Jurisdiction" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CountryOfRelationship" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="RelationType" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="AddressType" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="AddressLine1" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="AddressLine2" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="AddressLine3" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="AddressLine4" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="AddressLine5" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="AddressLine6" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="City" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="State" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Region" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="PostalCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="AddressCountry" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="PhoneType" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Zmobile" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="HPH" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="BPH" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="PhoneExtension" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SourceType" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Currency" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Role" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="RelationDefn" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ParentCustomerNumber" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ServiceCall" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetRiskScoreResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetRiskScoreResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="string" nillable="true" type="s:string" />
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetRiskScoreSoapIn">
+    <wsdl:part name="parameters" element="tns:GetRiskScore" />
+  </wsdl:message>
+  <wsdl:message name="GetRiskScoreSoapOut">
+    <wsdl:part name="parameters" element="tns:GetRiskScoreResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetRiskScoreHttpGetIn">
+    <wsdl:part name="BrCode" type="s:string" />
+    <wsdl:part name="CustomerIdNumber" type="s:string" />
+    <wsdl:part name="CNIC" type="s:string" />
+    <wsdl:part name="CustomerType" type="s:string" />
+    <wsdl:part name="CustomerTitle" type="s:string" />
+    <wsdl:part name="CustomerFirstName" type="s:string" />
+    <wsdl:part name="CustomerMiddleName" type="s:string" />
+    <wsdl:part name="CustomerLastName" type="s:string" />
+    <wsdl:part name="LegalName" type="s:string" />
+    <wsdl:part name="InstituteName" type="s:string" />
+    <wsdl:part name="InstituteStartDate" type="s:string" />
+    <wsdl:part name="Gender" type="s:string" />
+    <wsdl:part name="DateOfBirth" type="s:string" />
+    <wsdl:part name="Industry" type="s:string" />
+    <wsdl:part name="TaxIdentifierFormat" type="s:string" />
+    <wsdl:part name="TaxIdentificationNumber" type="s:string" />
+    <wsdl:part name="Occupation" type="s:string" />
+    <wsdl:part name="CustomerCreationDate" type="s:string" />
+    <wsdl:part name="ResidenceCountry" type="s:string" />
+    <wsdl:part name="PrimaryCitznCountry" type="s:string" />
+    <wsdl:part name="SecondryCitznCountry" type="s:string" />
+    <wsdl:part name="DocumetsVerifiedFlag" type="s:string" />
+    <wsdl:part name="Jurisdiction" type="s:string" />
+    <wsdl:part name="CountryOfRelationship" type="s:string" />
+    <wsdl:part name="RelationType" type="s:string" />
+    <wsdl:part name="AddressType" type="s:string" />
+    <wsdl:part name="AddressLine1" type="s:string" />
+    <wsdl:part name="AddressLine2" type="s:string" />
+    <wsdl:part name="AddressLine3" type="s:string" />
+    <wsdl:part name="AddressLine4" type="s:string" />
+    <wsdl:part name="AddressLine5" type="s:string" />
+    <wsdl:part name="AddressLine6" type="s:string" />
+    <wsdl:part name="City" type="s:string" />
+    <wsdl:part name="State" type="s:string" />
+    <wsdl:part name="Region" type="s:string" />
+    <wsdl:part name="PostalCode" type="s:string" />
+    <wsdl:part name="AddressCountry" type="s:string" />
+    <wsdl:part name="PhoneType" type="s:string" />
+    <wsdl:part name="Zmobile" type="s:string" />
+    <wsdl:part name="HPH" type="s:string" />
+    <wsdl:part name="BPH" type="s:string" />
+    <wsdl:part name="PhoneExtension" type="s:string" />
+    <wsdl:part name="SourceType" type="s:string" />
+    <wsdl:part name="Currency" type="s:string" />
+    <wsdl:part name="Role" type="s:string" />
+    <wsdl:part name="RelationDefn" type="s:string" />
+    <wsdl:part name="ParentCustomerNumber" type="s:string" />
+    <wsdl:part name="ServiceCall" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetRiskScoreHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetRiskScoreHttpPostIn">
+    <wsdl:part name="BrCode" type="s:string" />
+    <wsdl:part name="CustomerIdNumber" type="s:string" />
+    <wsdl:part name="CNIC" type="s:string" />
+    <wsdl:part name="CustomerType" type="s:string" />
+    <wsdl:part name="CustomerTitle" type="s:string" />
+    <wsdl:part name="CustomerFirstName" type="s:string" />
+    <wsdl:part name="CustomerMiddleName" type="s:string" />
+    <wsdl:part name="CustomerLastName" type="s:string" />
+    <wsdl:part name="LegalName" type="s:string" />
+    <wsdl:part name="InstituteName" type="s:string" />
+    <wsdl:part name="InstituteStartDate" type="s:string" />
+    <wsdl:part name="Gender" type="s:string" />
+    <wsdl:part name="DateOfBirth" type="s:string" />
+    <wsdl:part name="Industry" type="s:string" />
+    <wsdl:part name="TaxIdentifierFormat" type="s:string" />
+    <wsdl:part name="TaxIdentificationNumber" type="s:string" />
+    <wsdl:part name="Occupation" type="s:string" />
+    <wsdl:part name="CustomerCreationDate" type="s:string" />
+    <wsdl:part name="ResidenceCountry" type="s:string" />
+    <wsdl:part name="PrimaryCitznCountry" type="s:string" />
+    <wsdl:part name="SecondryCitznCountry" type="s:string" />
+    <wsdl:part name="DocumetsVerifiedFlag" type="s:string" />
+    <wsdl:part name="Jurisdiction" type="s:string" />
+    <wsdl:part name="CountryOfRelationship" type="s:string" />
+    <wsdl:part name="RelationType" type="s:string" />
+    <wsdl:part name="AddressType" type="s:string" />
+    <wsdl:part name="AddressLine1" type="s:string" />
+    <wsdl:part name="AddressLine2" type="s:string" />
+    <wsdl:part name="AddressLine3" type="s:string" />
+    <wsdl:part name="AddressLine4" type="s:string" />
+    <wsdl:part name="AddressLine5" type="s:string" />
+    <wsdl:part name="AddressLine6" type="s:string" />
+    <wsdl:part name="City" type="s:string" />
+    <wsdl:part name="State" type="s:string" />
+    <wsdl:part name="Region" type="s:string" />
+    <wsdl:part name="PostalCode" type="s:string" />
+    <wsdl:part name="AddressCountry" type="s:string" />
+    <wsdl:part name="PhoneType" type="s:string" />
+    <wsdl:part name="Zmobile" type="s:string" />
+    <wsdl:part name="HPH" type="s:string" />
+    <wsdl:part name="BPH" type="s:string" />
+    <wsdl:part name="PhoneExtension" type="s:string" />
+    <wsdl:part name="SourceType" type="s:string" />
+    <wsdl:part name="Currency" type="s:string" />
+    <wsdl:part name="Role" type="s:string" />
+    <wsdl:part name="RelationDefn" type="s:string" />
+    <wsdl:part name="ParentCustomerNumber" type="s:string" />
+    <wsdl:part name="ServiceCall" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetRiskScoreHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:portType name="GetRiskSoap">
+    <wsdl:operation name="GetRiskScore">
+      <wsdl:input message="tns:GetRiskScoreSoapIn" />
+      <wsdl:output message="tns:GetRiskScoreSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="GetRiskHttpGet">
+    <wsdl:operation name="GetRiskScore">
+      <wsdl:input message="tns:GetRiskScoreHttpGetIn" />
+      <wsdl:output message="tns:GetRiskScoreHttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="GetRiskHttpPost">
+    <wsdl:operation name="GetRiskScore">
+      <wsdl:input message="tns:GetRiskScoreHttpPostIn" />
+      <wsdl:output message="tns:GetRiskScoreHttpPostOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="GetRiskSoap" type="tns:GetRiskSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetRiskScore">
+      <soap:operation soapAction="http://tempuri.org/GetRiskScore" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="GetRiskSoap12" type="tns:GetRiskSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetRiskScore">
+      <soap12:operation soapAction="http://tempuri.org/GetRiskScore" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="GetRiskHttpGet" type="tns:GetRiskHttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="GetRiskScore">
+      <http:operation location="/GetRiskScore" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="GetRiskHttpPost" type="tns:GetRiskHttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="GetRiskScore">
+      <http:operation location="/GetRiskScore" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="GetRisk">
+    <wsdl:port name="GetRiskSoap" binding="tns:GetRiskSoap">
+      <soap:address location="http://10.1.6.171/RiskRating/GetRisk.asmx" />
+    </wsdl:port>
+    <wsdl:port name="GetRiskSoap12" binding="tns:GetRiskSoap12">
+      <soap12:address location="http://10.1.6.171/RiskRating/GetRisk.asmx" />
+    </wsdl:port>
+    <wsdl:port name="GetRiskHttpGet" binding="tns:GetRiskHttpGet">
+      <http:address location="http://10.1.6.171/RiskRating/GetRisk.asmx" />
+    </wsdl:port>
+    <wsdl:port name="GetRiskHttpPost" binding="tns:GetRiskHttpPost">
+      <http:address location="http://10.1.6.171/RiskRating/GetRisk.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,1784 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="AOSModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="ACCOMODATION_TYPES">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ACCOUNT_AUTHORIZED_PERSONS">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BI_ID" Type="int" />
+    <Property Name="CIF_NO" Type="nvarchar" MaxLength="50" />
+    <Property Name="NAME" Type="nvarchar" MaxLength="50" />
+    <Property Name="CNIC" Type="nvarchar" MaxLength="13" />
+    <Property Name="APPLICANT_IN_NEGATIVE_LIST" Type="bit" />
+    <Property Name="POWER_OF_ATTORNY" Type="bit" />
+    <Property Name="SIGNATURE_AUTHORITY" Type="bit" />
+    <Property Name="APPLICANT_STATUS" Type="nvarchar" MaxLength="50" />
+    <Property Name="UPDATED_DATE" Type="datetime" />
+  </EntityType>
+  <EntityType Name="ACCOUNT_CLASS">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="CLS" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="ACCOUNT_CONTACT_INFO">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BI_ID" Type="int" />
+    <Property Name="CIF_NO" Type="nvarchar" MaxLength="50" />
+    <Property Name="NAME" Type="nvarchar" MaxLength="50" />
+    <Property Name="NATIONAL_TAXNO" Type="nvarchar" MaxLength="50" />
+    <Property Name="SALES_TAXNO" Type="nvarchar" MaxLength="50" />
+    <Property Name="REGISTRATION_NO" Type="nvarchar" MaxLength="50" />
+    <Property Name="REGISTRATION_ISSUING_AGENCY" Type="int" />
+    <Property Name="NATURE_OF_BUSINESS" Type="int" />
+    <Property Name="COUNTRY" Type="int" />
+    <Property Name="CITY" Type="int" />
+    <Property Name="BUILDING" Type="nvarchar" MaxLength="100" />
+    <Property Name="FLOOR" Type="nvarchar" MaxLength="100" />
+    <Property Name="STREET" Type="nvarchar" MaxLength="100" />
+    <Property Name="DISTRICT" Type="nvarchar" MaxLength="100" />
+    <Property Name="PO_BOX" Type="nvarchar" MaxLength="50" />
+    <Property Name="POSTAL_CODE" Type="nvarchar" MaxLength="50" />
+    <Property Name="TEL_OFFICE" Type="nvarchar" MaxLength="50" />
+    <Property Name="MOBILE_NO" Type="nvarchar" MaxLength="50" />
+    <Property Name="FAX_NO" Type="nvarchar" MaxLength="50" />
+    <Property Name="SMS_ALERT_REQUIRED" Type="int" />
+    <Property Name="WEB_ADDRESS_URL" Type="nvarchar" MaxLength="50" />
+    <Property Name="EMAIL" Type="bit" />
+    <Property Name="GROUP_CIF_NO" Type="nvarchar" MaxLength="50" />
+    <Property Name="GROUP_NAME" Type="nvarchar" MaxLength="50" />
+    <Property Name="REQUIRED_ESTATEMENT" Type="bit" />
+    <Property Name="TEL_RESIDENCE" Type="nvarchar" MaxLength="50" />
+    <Property Name="UPDATED_DATE" Type="datetime" />
+    <Property Name="PROVINCE" Type="int" />
+  </EntityType>
+  <EntityType Name="ACCOUNT_DELTE_LOG">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TEMP_AC_NO" Type="varchar" MaxLength="10" />
+    <Property Name="BRANCH_CODE" Type="varchar" MaxLength="5" />
+    <Property Name="CNIC" Type="varchar" MaxLength="18" />
+    <Property Name="ACCOUNT_TITLE" Type="varchar" MaxLength="30" />
+    <Property Name="INITIAL_DEPOSIT" Type="varchar" MaxLength="10" />
+    <Property Name="ACCOUNT_MODE" Type="int" />
+    <Property Name="ACCOUNT_TYPE" Type="int" />
+    <Property Name="ACCOUNT_ENTRY_DATE" Type="date" />
+    <Property Name="CREATED_USER" Type="int" />
+    <Property Name="DELETED_USER" Type="int" />
+  </EntityType>
+  <EntityType Name="ACCOUNT_GROUP">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="CLS" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="GRP" Type="varchar" MaxLength="100" />
+    <Property Name="DESCRIPTION" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="ACCOUNT_MODES">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="NAME" Type="varchar" MaxLength="100" />
+    <Property Name="GRP" Type="varchar" MaxLength="100" />
+    <Property Name="PROFILECODE" Type="varchar" MaxLength="50" />
+    <Property Name="TYPE" Type="varchar" MaxLength="20" />
+    <Property Name="CATEGORY" Type="varchar" MaxLength="5" />
+  </EntityType>
+  <EntityType Name="ACCOUNT_NATURE_CURRENCY">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="CNIC_VERIFIED" Type="bit" />
+    <Property Name="ACCOUNT_ENTRY_DATE" Type="date" />
+    <Property Name="GL_CODE" Type="int" />
+    <Property Name="SL_CODE" Type="int" />
+    <Property Name="ACCOUNT_TYPE" Type="int" />
+    <Property Name="CURRENCY" Type="int" />
+    <Property Name="ACCOUNT_NUMBER" Type="nvarchar" MaxLength="50" />
+    <Property Name="ACCOUNT_TITLE" Type="nvarchar" MaxLength="50" />
+    <Property Name="INITIAL_DEPOSIT" Type="nvarchar" MaxLength="50" />
+    <Property Name="ACCOUNT_MODE" Type="bit" />
+    <Property Name="MINOR_ACCOUNT" Type="bit" />
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ACCOUNT_OPEN_TYPE" Type="int" />
+    <Property Name="STATUS" Type="nvarchar" MaxLength="50" />
+    <Property Name="USERID" Type="int" />
+    <Property Name="LAST_UPDATED" Type="datetime" />
+    <Property Name="PRODUCT" Type="int" />
+    <Property Name="PROFILE_ACCOUNT_NO" Type="varchar" MaxLength="12" />
+    <Property Name="ACCOUNT_MODE_DETAIL" Type="int" />
+    <Property Name="PROFILE_STATUS" Type="varchar" MaxLength="15" />
+    <Property Name="PROFILE_CREATION_DATE" Type="datetime" />
+    <Property Name="BRANCH_CODE" Type="varchar" MaxLength="4" />
+    <Property Name="IBAN" Type="varchar" MaxLength="30" />
+  </EntityType>
+  <EntityType Name="ACCOUNT_OPEN_TYPE">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NAME" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="ACCOUNT_REVIEW">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BID" Type="int" Nullable="false" />
+    <Property Name="TAB" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="FNAME" Type="varchar" MaxLength="40" Nullable="false" />
+    <Property Name="FID" Type="varchar" MaxLength="60" Nullable="false" />
+    <Property Name="DATEC" Type="datetime" Nullable="false" />
+    <Property Name="USERID" Type="int" Nullable="false" />
+    <Property Name="ACTIVE" Type="bit" Nullable="false" />
+    <Property Name="COMMENT" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="ACCOUNT_STATEMENT_FREQUENCY">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="NAME" Type="nchar" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="ACCOUNT_TYPES">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="TYPE" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="CLS" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="GRP" Type="varchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ADDRESS_INFORMATION">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BI_ID" Type="int" />
+    <Property Name="COUNTRY" Type="int" />
+    <Property Name="CITY" Type="int" />
+    <Property Name="BUILDING_SUITE" Type="varchar" MaxLength="100" />
+    <Property Name="STREET" Type="varchar" MaxLength="100" />
+    <Property Name="FLOOR" Type="varchar" MaxLength="100" />
+    <Property Name="DISTRICT" Type="varchar" MaxLength="100" />
+    <Property Name="PO_BOX" Type="varchar" MaxLength="100" />
+    <Property Name="POSTAL_CODE" Type="varchar" MaxLength="100" />
+    <Property Name="TEL_OFFICE" Type="nvarchar" MaxLength="50" />
+    <Property Name="TEL_RESIDENCE" Type="nvarchar" MaxLength="50" />
+    <Property Name="MOBILE_NO" Type="nvarchar" MaxLength="50" />
+    <Property Name="FAX_NO" Type="nvarchar" MaxLength="50" />
+    <Property Name="SMS_ALERT_REQUIRED" Type="int" />
+    <Property Name="EMAIL" Type="bit" />
+    <Property Name="UPDATED_TIME" Type="datetime" />
+    <Property Name="PROVINCE" Type="int" />
+  </EntityType>
+  <EntityType Name="ADDRESS_VERIFIED">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NAME" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="APPLICANT_INFORMATION">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BI_ID" Type="int" />
+    <Property Name="CUSTOMER_CIF_NO" Type="nvarchar" MaxLength="50" />
+    <Property Name="CUSTOMER_NAME" Type="nvarchar" MaxLength="50" />
+    <Property Name="CUSTOMER_CNIC" Type="varchar" MaxLength="40" />
+    <Property Name="IS_PRIMARY_ACCOUNT_HOLDER" Type="int" />
+    <Property Name="ACCOUNT_IN_NEGATIVE_LIST" Type="int" />
+    <Property Name="POWER_OF_ATTORNY" Type="int" />
+    <Property Name="SIGNATURE_AUTHORITY" Type="int" />
+    <Property Name="APPLICANT_STATUS" Type="int" />
+    <Property Name="RELATIONSHIP_NOT_PRIMARY" Type="int" />
+    <Property Name="RELATIONSHIP_DETAIL" Type="nvarchar" MaxLength="50" />
+    <Property Name="INVESTMENT_SHARE" Type="nvarchar" MaxLength="50" />
+    <Property Name="UPDATED_DATE" Type="datetime" />
+  </EntityType>
+  <EntityType Name="APPLICANT_INFORMATION_CIFS">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BI_ID" Type="int" Nullable="false" />
+    <Property Name="CUSTOMER_CIF_NO" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="IS_PRIMARY_ACCOUNT_HOLDER" Type="int" Nullable="false" />
+    <Property Name="POWER_OF_ATTORNY" Type="int" Nullable="false" />
+    <Property Name="SIGNATURE_AUTHORITY" Type="int" Nullable="false" />
+    <Property Name="INVESTMENT_SHARE" Type="varchar" MaxLength="100" />
+    <Property Name="APPLICANT_STATUS" Type="varchar" MaxLength="100" />
+    <Property Name="CUSTOMER_NAME" Type="nvarchar" MaxLength="100" />
+    <Property Name="CUSTOMER_IDENTITY" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="APPLICANT_STATUSES">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NAME" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="APPLICANT_STATUSES_BUSINESS">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NAME" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="ARMY_RANK_CODES">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CODE" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="AUTHORITY_TO_OPERATE">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="NAME" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="AVERAGE_CASH_DEPOSITS">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="NAME" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="AVERAGE_NON_CASH_DEPOSITS">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="NAME" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="BANKING_RELATIONSHPS">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BI_ID" Type="int" />
+    <Property Name="NBP_BRANCH_INFORMATION" Type="int" />
+    <Property Name="NBP_ACCOUNT_TYPE" Type="int" />
+    <Property Name="NBP_ACCOUNT_NUMBER" Type="varchar" MaxLength="100" />
+    <Property Name="NBP_ACCOUNT_TITLE" Type="varchar" MaxLength="100" />
+    <Property Name="NBP_RELATIONSHIP_SINCE" Type="varchar" MaxLength="100" />
+    <Property Name="OTHER_BANK_CODE" Type="int" />
+    <Property Name="OTHER_BRANCH_NAME" Type="varchar" MaxLength="100" />
+    <Property Name="OTHER_ACCOUNT_NUMBER" Type="varchar" MaxLength="100" />
+    <Property Name="OTHER_ACCOUNT_TITLE" Type="varchar" MaxLength="100" />
+    <Property Name="OTHER_RELATIONSHIP_SINCE" Type="varchar" MaxLength="100" />
+    <Property Name="UPDATED_DATE" Type="datetime" />
+  </EntityType>
+  <EntityType Name="BASE_CATEGORIES">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="NAME" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="ProfileCode" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="BASIC_INFORMATIONS">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CIF_ENTRY_DATE" Type="date" />
+    <Property Name="CIF_TYPE" Type="int" />
+    <Property Name="DOCUMENT_TYPE_PRIMARY" Type="int" />
+    <Property Name="CNIC" Type="nvarchar" MaxLength="40" />
+    <Property Name="TITLE" Type="int" />
+    <Property Name="NAME" Type="nvarchar" MaxLength="100" />
+    <Property Name="TITLE_FH" Type="int" />
+    <Property Name="NAME_FH" Type="nvarchar" MaxLength="100" />
+    <Property Name="CNIC_FH" Type="nvarchar" MaxLength="40" />
+    <Property Name="CIF_FH" Type="varchar" MaxLength="100" />
+    <Property Name="NAME_MOTHER" Type="varchar" MaxLength="100" />
+    <Property Name="CNIC_MOTHER" Type="nvarchar" MaxLength="40" />
+    <Property Name="CNIC_MOTHER_OLD" Type="nvarchar" MaxLength="40" />
+    <Property Name="DOB" Type="varchar" MaxLength="30" />
+    <Property Name="POB" Type="nvarchar" MaxLength="100" />
+    <Property Name="COB" Type="int" />
+    <Property Name="MARTIAL_STATUS" Type="int" />
+    <Property Name="GENDER" Type="int" />
+    <Property Name="RELIGION" Type="int" />
+    <Property Name="RESIDENT_TYPE" Type="int" />
+    <Property Name="MONTHLY_INCOME" Type="varchar" MaxLength="100" />
+    <Property Name="COUNTRY_RESIDENCE" Type="int" />
+    <Property Name="COSTUMER_DEAL" Type="int" />
+    <Property Name="NAME_OFFICE" Type="varchar" MaxLength="100" />
+    <Property Name="SALES_TAX_NO" Type="varchar" MaxLength="100" />
+    <Property Name="NTN" Type="varchar" MaxLength="100" />
+    <Property Name="ISSUING_AGENCY" Type="int" />
+    <Property Name="REG_NO" Type="varchar" MaxLength="100" />
+    <Property Name="REG_DATE" Type="varchar" MaxLength="30" />
+    <Property Name="COMMENCEMENT_DATE" Type="varchar" MaxLength="30" />
+    <Property Name="PAST_BUSS_EXP" Type="varchar" MaxLength="200" />
+    <Property Name="ACCOUNT_NATURE" Type="int" />
+    <Property Name="CUSTOMER_CLASSIFICATION" Type="int" />
+    <Property Name="CIF_GROUP" Type="varchar" MaxLength="100" />
+    <Property Name="NATURE_BUSINESS" Type="int" />
+    <Property Name="NATURE_BUSINESS_DESCRP" Type="varchar" MaxLength="100" />
+    <Property Name="CATERGORY_NBP" Type="int" />
+    <Property Name="CATERGORY_SBP" Type="int" />
+    <Property Name="CATERGORY_BASE" Type="int" />
+    <Property Name="SHARE" Type="varchar" MaxLength="100" />
+    <Property Name="APPLICANT_STATUS" Type="int" />
+    <Property Name="STATUS" Type="varchar" MaxLength="30" />
+    <Property Name="UserId" Type="int" />
+    <Property Name="SHARE_HOLDER_FILLED" Type="bit" />
+    <Property Name="LAST_UPDATED" Type="datetime" />
+    <Property Name="COUNTRY_INCORPORATION" Type="int" />
+    <Property Name="FIRST_NAME" Type="nvarchar" MaxLength="100" />
+    <Property Name="MIDDLE_NAME" Type="nvarchar" MaxLength="100" />
+    <Property Name="LAST_NAME" Type="nvarchar" MaxLength="100" />
+    <Property Name="BUSINESS_TYPE" Type="int" />
+    <Property Name="INSTITUTION_TYPE" Type="int" />
+    <Property Name="SIC_CODE" Type="int" />
+    <Property Name="SUB_INDUSTRY" Type="int" />
+    <Property Name="DOCUMENT_VERIFIED" Type="bit" />
+    <Property Name="RISK_CATEGORY" Type="varchar" MaxLength="50" />
+    <Property Name="RISK_SCORE" Type="varchar" MaxLength="50" />
+    <Property Name="PROFILE_CIF_NO" Type="varchar" MaxLength="30" />
+    <Property Name="PROFILE_STATUS" Type="varchar" MaxLength="15" />
+    <Property Name="PROFILE_CREATION_DATE" Type="datetime" />
+    <Property Name="BRANCH_CODE" Type="varchar" MaxLength="4" />
+    <Property Name="CUSTOMER_TYPE" Type="int" />
+    <Property Name="GOV_TYPE" Type="int" />
+    <Property Name="WHO_NAME" Type="varchar" MaxLength="30" />
+    <Property Name="WHO_DESIG" Type="varchar" MaxLength="30" />
+  </EntityType>
+  <EntityType Name="BRANCHES">
+    <Key>
+      <PropertyRef Name="BRANCH_ID" />
+    </Key>
+    <Property Name="BRANCH_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="REGION_ID" Type="int" Nullable="false" />
+    <Property Name="NAME" Type="varchar" MaxLength="200" />
+    <Property Name="BRANCH_CODE" Type="varchar" MaxLength="50" />
+    <Property Name="CATEGORY_ID" Type="int" />
+    <Property Name="AREA" Type="varchar" MaxLength="50" />
+    <Property Name="ServiceCenterCode" Type="char" MaxLength="3" />
+  </EntityType>
+  <EntityType Name="BUSINESS_ACOUNTS">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="NAME" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="UPDATED_DATE" Type="datetime" />
+    <Property Name="ProfileCode" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="BUSINESS_CUSTOMER_CLASSIFICATIONS">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="NAME" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="ZBIZSEG" Type="varchar" MaxLength="30" />
+  </EntityType>
+  <EntityType Name="BUSINESS_DETAIL">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="INFO_TYPE" Type="int" />
+    <Property Name="INFO_DESC" Type="varchar" MaxLength="300" />
+    <Property Name="BI_ID" Type="int" />
+    <Property Name="UPDATED_DATE" Type="datetime" />
+    <Property Name="MAIN_BUSINESS_ACTIVITY" Type="varchar" MaxLength="100" />
+    <Property Name="MOJOR_SUPPLIERS" Type="varchar" MaxLength="100" />
+    <Property Name="MAIN_CUSTOMERS" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="BUSINESS_TYPE">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="ZBIZSEG" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="ZBIZTYP" Type="varchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CERTIFICATE_DEPOSIT_INFO">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BI_ID" Type="int" />
+    <Property Name="EXPIRY_DATE" Type="varchar" MaxLength="100" />
+    <Property Name="CERTIFICATE_PERIOD" Type="nvarchar" MaxLength="50" />
+    <Property Name="AUTO_ROLL_ON_EXPIRY" Type="bit" />
+    <Property Name="SPECIAL_INSTR_ANY" Type="nvarchar" MaxLength="50" />
+    <Property Name="PROFIT_ACCOUNT_NUMBER" Type="nvarchar" MaxLength="50" />
+    <Property Name="TRANSACTION_TYPE" Type="int" />
+    <Property Name="CHEQUE_PREFIX" Type="nvarchar" MaxLength="50" />
+    <Property Name="CHEQUE_NUMBER" Type="nvarchar" MaxLength="50" />
+    <Property Name="CERTIFICATE_NUMBER" Type="nvarchar" MaxLength="50" />
+    <Property Name="CERTIFCATE_AMOUNT" Type="nvarchar" MaxLength="50" />
+    <Property Name="PROFIT_ACCOUNT_TYPE" Type="int" />
+    <Property Name="UPDATED_DATE" Type="datetime" />
+    <Property Name="PRINCIPAL_RENEWAL_OPTION" Type="int" />
+    <Property Name="MARK_UP_RATE" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'AOS.dbo.CIF_CUSTOMER_TYPE' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="CIF_CUSTOMER_TYPE">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="NAME" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="CIF_REVIEW">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BID" Type="int" Nullable="false" />
+    <Property Name="TAB" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="FNAME" Type="varchar" MaxLength="40" Nullable="false" />
+    <Property Name="FID" Type="varchar" MaxLength="60" Nullable="false" />
+    <Property Name="DATEC" Type="datetime" Nullable="false" />
+    <Property Name="USERID" Type="int" Nullable="false" />
+    <Property Name="ACTIVE" Type="bit" Nullable="false" />
+    <Property Name="COMMENT" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="CIF_TYPES">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CITIES">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="NAME" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="ProfileCode" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="CITIES_BUSINESS_DETAILS">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BI_ID" Type="int" />
+    <Property Name="CITY_ID" Type="int" />
+    <Property Name="CITY_NAME" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="CONSUMER_SEGMENTS">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="ProfileCode" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="CONTACT_INFOS">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BI_ID" Type="int" />
+    <Property Name="CITY_PERMANENT" Type="int" />
+    <Property Name="CITY_PRESENT" Type="int" />
+    <Property Name="OFFICE_CONTACT" Type="varchar" MaxLength="50" />
+    <Property Name="RESIDENCE_CONTACT" Type="varchar" MaxLength="50" />
+    <Property Name="MOBILE_NO" Type="varchar" MaxLength="50" />
+    <Property Name="FAX_NO" Type="varchar" MaxLength="50" />
+    <Property Name="EMAIL" Type="varchar" MaxLength="50" />
+    <Property Name="WEB" Type="varchar" MaxLength="50" />
+    <Property Name="UPDATED_DATE" Type="datetime" />
+    <Property Name="COUNTRY_CODE" Type="int" />
+    <Property Name="STREET" Type="varchar" MaxLength="100" />
+    <Property Name="BIULDING_SUITE" Type="nvarchar" MaxLength="100" />
+    <Property Name="FLOOR" Type="nvarchar" MaxLength="100" />
+    <Property Name="DISTRICT" Type="nvarchar" MaxLength="100" />
+    <Property Name="POST_OFFICE" Type="varchar" MaxLength="100" />
+    <Property Name="POSTAL_CODE" Type="varchar" MaxLength="100" />
+    <Property Name="COUNTRY_CODE_PRE" Type="int" />
+    <Property Name="STREET_PRE" Type="varchar" MaxLength="100" />
+    <Property Name="BIULDING_SUITE_PRE" Type="nvarchar" MaxLength="100" />
+    <Property Name="FLOOR_PRE" Type="nvarchar" MaxLength="100" />
+    <Property Name="DISTRICT_PRE" Type="nvarchar" MaxLength="100" />
+    <Property Name="POST_OFFICE_PRE" Type="varchar" MaxLength="100" />
+    <Property Name="POSTAL_CODE_PRE" Type="varchar" MaxLength="100" />
+    <Property Name="PROVINCE" Type="int" />
+    <Property Name="PROVINCE_PRE" Type="int" />
+    <Property Name="CP_NAME" Type="varchar" MaxLength="25" />
+    <Property Name="CP_DESIGNATION" Type="varchar" MaxLength="25" />
+    <Property Name="CP_CNIC" Type="varchar" MaxLength="25" />
+    <Property Name="CP_CNIC_EXPIRY" Type="varchar" MaxLength="25" />
+    <Property Name="CP_NTN" Type="varchar" MaxLength="25" />
+  </EntityType>
+  <EntityType Name="COSTUMER_DEALINGS">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="COUNTRIES">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="ProfileCode" Type="char" MaxLength="2" />
+  </EntityType>
+  <EntityType Name="COUNTRIES_BUSINESS_DETAILS">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BI_ID" Type="int" />
+    <Property Name="COUNTRY_ID" Type="int" />
+    <Property Name="COUNTRY_NAME" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="COUNTRIES_TAX_MISCELLANEOUS_INFORMATION">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BI_ID" Type="int" />
+    <Property Name="COUNTRY_ID" Type="int" />
+    <Property Name="COUNTRY_NAME" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="COUNTRY_CODES">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NAME" Type="varchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CURRENCY">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="NAME" Type="nchar" MaxLength="100" />
+    <Property Name="ProfileCode" Type="char" MaxLength="5" />
+  </EntityType>
+  <EntityType Name="CUSTOMER_TYPE">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NAME" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'AOS.dbo.CUSTOMER_TYPE_BUSINESS' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="CUSTOMER_TYPE_BUSINESS">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="NAME" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="Description_Documents">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="SERIAL_NO" Type="nvarchar" MaxLength="150" />
+    <Property Name="Descr" Type="nvarchar" MaxLength="4000" />
+  </EntityType>
+  <EntityType Name="Description_Documents_Business">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="SERIAL_NO" Type="nvarchar" MaxLength="50" />
+    <Property Name="Descr" Type="nvarchar" MaxLength="4000" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'AOS.dbo.DIRECTOR_STATUS' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="DIRECTOR_STATUS">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="NAME" Type="varchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="DISTRICTS">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NAME" Type="varchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="DOCUMENT_REQUIRED">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BI_ID" Type="int" />
+    <Property Name="DESCRIPTION" Type="bit" />
+    <Property Name="UPDATED_DATE" Type="datetime" />
+  </EntityType>
+  <EntityType Name="DOCUMENT_TYPES">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="DOCUMENT_TYPES_PRIMARY">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="DOCUMENTS">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Documents" Type="int" />
+    <Property Name="BI_ID" Type="int" />
+    <Property Name="value" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="DOCUMENTS_FATCA">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BI_ID" Type="int" />
+    <Property Name="DOCUMENT_ID" Type="int" />
+    <Property Name="DOCUMENT_NAME" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="E_STATEMENT_REQUIRED">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NAME" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="EDUCATION">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NAME" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="EDUCATIONS">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="EMAILS">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EMAIL" Type="nvarchar" MaxLength="50" />
+    <Property Name="REQUIRED_ESTATEMEN" Type="bit" />
+    <Property Name="BI_ID" Type="int" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6013: The table/view 'AOS.dbo.EMPLOYER_CODE' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="EMPLOYER_CODE">
+          <Property Name="ID" Type="int" />
+          <Property Name="ZEMPGRP" Type="varchar" MaxLength="10" />
+          <Property Name="ZEMPSUBG" Type="varchar" MaxLength="10" />
+          <Property Name="ZEMPNO" Type="varchar" MaxLength="50" />
+          <Property Name="Name" Type="varchar(max)" />
+        </EntityType>-->
+  <EntityType Name="EMPLOYER_CODES">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="CODE" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6013: The table/view 'AOS.dbo.EMPLOYER_GROUP' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="EMPLOYER_GROUP">
+          <Property Name="ID" Type="int" />
+          <Property Name="Name" Type="varchar" MaxLength="100" />
+          <Property Name="ZEMPGRP" Type="varchar" MaxLength="10" />
+        </EntityType>-->
+  <!--Errors Found During Generation:
+warning 6013: The table/view 'AOS.dbo.EMPLOYER_SUB_GROUP' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="EMPLOYER_SUB_GROUP">
+          <Property Name="ID" Type="int" />
+          <Property Name="Name" Type="varchar" MaxLength="200" />
+          <Property Name="ZEMPGRP" Type="varchar" MaxLength="10" />
+          <Property Name="ZEMPSUBG" Type="varchar" MaxLength="10" />
+        </EntityType>-->
+  <EntityType Name="EMPLOYMENT_DETAILS">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="NAME" Type="varchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="EMPLOYMENT_INFORMATIONS">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BI_ID" Type="int" />
+    <Property Name="EMPLOYMENT_DETAIL" Type="int" />
+    <Property Name="DEPARTMENT" Type="varchar" MaxLength="100" />
+    <Property Name="RETIRED" Type="bit" />
+    <Property Name="DESIGNATION" Type="varchar" MaxLength="100" />
+    <Property Name="PF_NO" Type="varchar" MaxLength="100" />
+    <Property Name="PPQ_NO" Type="varchar" MaxLength="100" />
+    <Property Name="EMPLOYER_CODE" Type="int" />
+    <Property Name="EMPLOYER_BUSINESS_ADDRESS" Type="varchar" MaxLength="200" />
+    <Property Name="ARMY_RANK_CODE" Type="int" />
+    <Property Name="COUNTRY_EMPLOYMENT" Type="int" />
+    <Property Name="UPDATED_TIME" Type="datetime" />
+    <Property Name="CONSUMER_SEGMENT" Type="int" />
+    <Property Name="EMPLOYMENT_DETAIL_OTHER_DESCRIPTION" Type="varchar" MaxLength="60" />
+    <Property Name="EMPLOYER_DESC" Type="varchar" MaxLength="80" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'AOS.dbo.EXPECTED_COUNTER_PARTIES' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="EXPECTED_COUNTER_PARTIES">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="NAME" Type="varchar" MaxLength="30" />
+  </EntityType>
+  <EntityType Name="FATCAS">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BI_ID" Type="int" />
+    <Property Name="RESIDENT" Type="bit" />
+    <Property Name="CITIZEN" Type="bit" />
+    <Property Name="BIRTH_USA" Type="bit" />
+    <Property Name="ADDRESS_USA" Type="bit" />
+    <Property Name="CONTACT_OFFICE" Type="varchar" MaxLength="100" />
+    <Property Name="CONTACT_RESIDENCE" Type="varchar" MaxLength="100" />
+    <Property Name="MOBNO" Type="varchar" MaxLength="100" />
+    <Property Name="FAXNO" Type="varchar" MaxLength="100" />
+    <Property Name="RESIDENCE_CARD" Type="int" />
+    <Property Name="FUND_TRANSFER" Type="int" />
+    <Property Name="FTCA_CLASSIFICATION" Type="int" />
+    <Property Name="US_TAXID" Type="int" />
+    <Property Name="TAXNO" Type="varchar" MaxLength="100" />
+    <Property Name="USA_PHONE" Type="int" />
+    <Property Name="UPDATED_TIME" Type="datetime" />
+    <Property Name="TYPE_TIN" Type="int" />
+    <Property Name="TIN" Type="varchar" MaxLength="100" />
+    <Property Name="FATCA_DOCUMENTATION_DATE" Type="datetime" />
+    <Property Name="NAME_US" Type="varchar" MaxLength="100" />
+    <Property Name="COUNTRY_CODE" Type="int" />
+    <Property Name="BIULDING_SUITE" Type="varchar" MaxLength="100" />
+    <Property Name="STREET" Type="varchar" MaxLength="100" />
+    <Property Name="FLOOR" Type="varchar" MaxLength="100" />
+    <Property Name="DISTRICT" Type="varchar" MaxLength="100" />
+    <Property Name="POBOX" Type="varchar" MaxLength="100" />
+    <Property Name="POSTAL_CODE" Type="varchar" MaxLength="100" />
+    <Property Name="CITY" Type="int" />
+    <Property Name="COUNTRY_INCORP" Type="int" />
+    <Property Name="COUNTRY_BUSINESS" Type="int" />
+  </EntityType>
+  <EntityType Name="FATCAS_TINS">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="FREQUENCY_GROSS_SALES">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="NAME" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="FTCA_CLASSIFICATIONS">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="FTCA_DOCUMENTATIONS">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="GENDERS">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="ProfileCode" Type="varchar" MaxLength="20" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'AOS.dbo.GEOGRAPHIES_COUNTER_PARTIES' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="GEOGRAPHIES_COUNTER_PARTIES">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="NAME" Type="varchar" MaxLength="30" />
+  </EntityType>
+  <EntityType Name="GL_CODE">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NAME" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="GOV_CIF_TYPE">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="HEAD_CONTACT_INFOS">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ADDRESS" Type="varchar" MaxLength="200" />
+    <Property Name="DISTRICT" Type="int" />
+    <Property Name="POBOX" Type="varchar" MaxLength="100" />
+    <Property Name="CITY" Type="int" />
+    <Property Name="POSTAL_CODE" Type="varchar" MaxLength="100" />
+    <Property Name="COUNTRY" Type="int" />
+    <Property Name="PHONE_OFFICE" Type="varchar" MaxLength="50" />
+    <Property Name="MOBILE_NO" Type="varchar" MaxLength="50" />
+    <Property Name="FAX_NO" Type="varchar" MaxLength="50" />
+    <Property Name="EMAIL" Type="varchar" MaxLength="50" />
+    <Property Name="WEB" Type="varchar" MaxLength="50" />
+    <Property Name="BI_ID" Type="int" />
+    <Property Name="UPDATED_TIME" Type="datetime" />
+    <Property Name="COUNTRY_CODE" Type="int" />
+    <Property Name="BIULDING_SUITE" Type="varchar" MaxLength="100" />
+    <Property Name="STREET" Type="varchar" MaxLength="100" />
+    <Property Name="FLOOR" Type="varchar" MaxLength="100" />
+    <Property Name="DISTRICT_HEAD" Type="varchar" MaxLength="100" />
+    <Property Name="COUNTRY_CODE_REG" Type="int" />
+    <Property Name="BIULDING_SUITE_REG" Type="varchar" MaxLength="100" />
+    <Property Name="STREET_REG" Type="varchar" MaxLength="100" />
+    <Property Name="FLOOR_REG" Type="varchar" MaxLength="100" />
+    <Property Name="DISTRICT_REG" Type="varchar" MaxLength="100" />
+    <Property Name="POBOX_REG" Type="varchar" MaxLength="100" />
+    <Property Name="POSTAL_REG_CODE" Type="varchar" MaxLength="100" />
+    <Property Name="CITY_REG" Type="int" />
+    <Property Name="PROVINCE" Type="int" />
+    <Property Name="PROVINCE_REG" Type="int" />
+  </EntityType>
+  <EntityType Name="IDENTITIES">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BI_ID" Type="int" />
+    <Property Name="CNIC_DATE_ISSUE" Type="varchar" MaxLength="50" />
+    <Property Name="EXPIRY_DATE" Type="varchar" MaxLength="50" />
+    <Property Name="IDENTIFICATION_MARK" Type="varchar" MaxLength="100" />
+    <Property Name="FAMILY_NO" Type="varchar" MaxLength="100" />
+    <Property Name="TOKEN_NO" Type="varchar" MaxLength="100" />
+    <Property Name="TOKEN_ISSUE_DATE" Type="date" />
+    <Property Name="NTN" Type="varchar" MaxLength="100" />
+    <Property Name="NIC_OLD" Type="nvarchar" MaxLength="40" />
+    <Property Name="IDENTITY_TYPE" Type="int" />
+    <Property Name="IDENTITY_NO" Type="varchar" MaxLength="100" />
+    <Property Name="COUNTRY_ISSUE" Type="int" />
+    <Property Name="OTHER_IDENTITY_ISSUE_DATE" Type="varchar" MaxLength="50" />
+    <Property Name="PLACE_ISSUE" Type="varchar" MaxLength="100" />
+    <Property Name="OTHER_IDENTITY_EXPIRY_DATE" Type="varchar" MaxLength="50" />
+    <Property Name="UPDATED_TIME" Type="datetime" />
+    <Property Name="COUNTRY_ISSUE_CNIC" Type="int" />
+    <Property Name="PLACE_ISSUE_CNIC" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="IDENTITY_TYPES">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="NAME" Type="varchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="INFO_TYPES_BDS">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NAME" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="INSTITUTION_TYPE">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ISSUING_AGENCY">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NAME" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="ProfileCode" Type="varchar" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="KNOW_CUSTOMER_TRANSACTIONS_MODE">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BI_ID" Type="int" />
+    <Property Name="MODE_OF_TRANSACTIONS" Type="int" />
+  </EntityType>
+  <EntityType Name="KNOW_YOUR_CUSTOMER">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BI_ID" Type="int" />
+    <Property Name="CUSTOMER_TYPE" Type="int" />
+    <Property Name="DESCRIPTION_IF_REFFERED" Type="nvarchar" MaxLength="50" />
+    <Property Name="EDUCATION" Type="int" />
+    <Property Name="PURPOSE_OF_ACCOUNT" Type="int" />
+    <Property Name="DESCRIPTION_IF_OTHER" Type="nvarchar" MaxLength="50" />
+    <Property Name="SOURCE_OF_FUNDS" Type="int" />
+    <Property Name="DESCRIPTION_OF_SOURCE" Type="nvarchar" MaxLength="50" />
+    <Property Name="SERVICE_CHARGES_EXEMPTED" Type="bit" />
+    <Property Name="SERVICE_CHARGES_EXEMPTED_CODE" Type="int" />
+    <Property Name="REASON_IF_EXEMPTED" Type="nvarchar" MaxLength="50" />
+    <Property Name="EXPECTED_MONTHLY_INCOME" Type="nvarchar" MaxLength="50" />
+    <Property Name="MODE_OF_TRANSACTIONS" Type="bit" />
+    <Property Name="OTHER_MODE_OF_TRANSACTIONS" Type="nvarchar" MaxLength="50" />
+    <Property Name="MAX_TRANS_AMOUNT_DR" Type="nvarchar" MaxLength="50" />
+    <Property Name="MAX_TRANS_AMOUNT_CR" Type="nvarchar" MaxLength="50" />
+    <Property Name="RELATIONSHIP_MANAGER" Type="int" />
+    <Property Name="OCCUPATION_VERIFIED" Type="bit" />
+    <Property Name="ADDRESS_VERIFIED" Type="int" />
+    <Property Name="MEANS_OF_VERIFICATION" Type="int" />
+    <Property Name="MEANS_OF_VERI_OTHER" Type="nvarchar" MaxLength="50" />
+    <Property Name="IS_VERI_SATISFACTORY" Type="bit" />
+    <Property Name="DETAIL_IF_NOT_SATISFACTORY" Type="nvarchar" MaxLength="50" />
+    <Property Name="COUNTRY_HOME_REMITTANCE" Type="int" />
+    <Property Name="REAL_BENEFICIARY_ACCOUNT" Type="int" />
+    <Property Name="NAME_OTHER" Type="nvarchar" MaxLength="50" />
+    <Property Name="CNIC_OTHER" Type="nvarchar" MaxLength="50" />
+    <Property Name="RELATIONSHIP_WITH_ACCOUNTHOLDER" Type="int" />
+    <Property Name="RELATIONSHIP_DETAIL_OTHER" Type="nvarchar" MaxLength="50" />
+    <Property Name="UPDATED_DATE" Type="datetime" />
+    <Property Name="BENEFICIAL_ADDRESS" Type="varchar" MaxLength="60" />
+    <Property Name="BENEFICIAL_NATIONALITY" Type="int" />
+    <Property Name="BENEFICIAL_RESIDENCE" Type="int" />
+    <Property Name="BENEFICIAL_RESIDENCE_DESC" Type="varchar" MaxLength="60" />
+    <Property Name="BENEFICIAL_IDENTITY" Type="int" />
+    <Property Name="BENEFICIAL_IDENTITY_EXPIRY" Type="varchar" MaxLength="20" />
+    <Property Name="BENEFICIAL_SOURCE_OF_FUND" Type="int" />
+    <Property Name="NODT" Type="varchar" MaxLength="30" />
+    <Property Name="PEDT" Type="varchar" MaxLength="30" />
+    <Property Name="NOCT" Type="varchar" MaxLength="30" />
+    <Property Name="PECT" Type="varchar" MaxLength="30" />
+  </EntityType>
+  <EntityType Name="KNOW_YOUR_CUSTOMER_RELATIONSHIP">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NAME" Type="varchar" MaxLength="40" />
+  </EntityType>
+  <EntityType Name="KYC_BENEFICIAL_ENTITY">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BID" Type="int" />
+    <Property Name="NAME" Type="varchar" MaxLength="20" />
+    <Property Name="IDENTITY_DOCUMENT" Type="varchar" MaxLength="20" />
+    <Property Name="IDENTITY_NUMBER" Type="varchar" MaxLength="20" />
+    <Property Name="EXPIRY_DATE" Type="varchar" MaxLength="10" />
+    <Property Name="POB" Type="varchar" MaxLength="20" />
+    <Property Name="US" Type="varchar" MaxLength="6" />
+    <Property Name="OWNERSHIP" Type="varchar" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="KYC_EXPECTED_COUNTER_PARTIES">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EXPECTED_CP" Type="int" />
+    <Property Name="BID" Type="int" />
+  </EntityType>
+  <EntityType Name="KYC_GEOGRAPHIES_COUNTER_PARTIES">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="GEOGRAPHIES_CP" Type="int" />
+    <Property Name="BID" Type="int" />
+  </EntityType>
+  <EntityType Name="KYC_PURPOSE_OF_AC">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BID" Type="int" Nullable="false" />
+    <Property Name="PURPOSE_OF_AC" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="KYC_SOURCE_OF_FUND">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BID" Type="int" Nullable="false" />
+    <Property Name="SOURCE_OF_FUND" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="MARTIAL_STATUSES">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="MEANS_OF_VERIFICATION">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NAME" Type="nvarchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="MISCELLANEOUS_INFORMATIONS">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BI_ID" Type="int" />
+    <Property Name="EDUCATION" Type="int" />
+    <Property Name="SOCIAL_STATUS" Type="varchar" MaxLength="100" />
+    <Property Name="ACCOMODATION_TYPE" Type="int" />
+    <Property Name="ACCOMODATION_TYPE_DESCRIPTION" Type="varchar" MaxLength="100" />
+    <Property Name="TRANSPORTATION_TYPE" Type="int" />
+    <Property Name="PEP" Type="int" />
+    <Property Name="PARDA_NASHEEN" Type="bit" />
+    <Property Name="MONTHLY_TURNOVER_DEBIT" Type="int" />
+    <Property Name="MONTHLY_TURNOVER_CREDIT" Type="int" />
+    <Property Name="AVERAGE_CASH_DEPOSIT" Type="int" />
+    <Property Name="AVERAGE_CASH_NON_DEPOSIT" Type="int" />
+    <Property Name="TOTAL_ASSET_VALUE" Type="varchar" MaxLength="100" />
+    <Property Name="LIABILITIES" Type="varchar" MaxLength="100" />
+    <Property Name="NET_WORTH" Type="varchar" MaxLength="100" />
+    <Property Name="GROSS_SALE" Type="varchar" MaxLength="100" />
+    <Property Name="FREQUENCY_GROSS_SALE" Type="int" />
+    <Property Name="BLIND_VISUALLY_IMPAIRED" Type="bit" />
+    <Property Name="UPDATED_TIME" Type="datetime" />
+    <Property Name="PEP_NATURE_SINGLE" Type="bit" />
+    <Property Name="PEP_RELATIONSHIP" Type="varchar" MaxLength="50" />
+    <Property Name="PEP_DESC" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="MODE_OF_TRANSACTIONS">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="NAME" Type="nchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="MONTHLY_TURNOVER_CREDITS">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="MONTHLY_TURNOVER_DEBITS">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="NADRA_INFO">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CNIC" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="DATETIME" Type="datetime" Nullable="false" />
+    <Property Name="NAME" Type="nvarchar" MaxLength="100" />
+    <Property Name="FH_NAME" Type="nvarchar" MaxLength="100" />
+    <Property Name="PRESENT_ADDRESS" Type="nvarchar" MaxLength="250" />
+    <Property Name="PERMANENT_ADDRESS" Type="nvarchar" MaxLength="250" />
+    <Property Name="DOB" Type="varchar" MaxLength="12" />
+    <Property Name="BIRTH_PLACE" Type="nvarchar" MaxLength="100" />
+    <Property Name="EXPIRYDATE" Type="varchar" MaxLength="25" />
+    <Property Name="STATUSCODE" Type="varchar" MaxLength="3" Nullable="false" />
+    <Property Name="SESSION_ID" Type="varchar" MaxLength="20" />
+    <Property Name="PICTURE" Type="varchar(max)" />
+    <Property Name="FINGER_INDEX" Type="varchar" MaxLength="30" />
+    <Property Name="CONTACTNO_PROVIDED" Type="varchar" MaxLength="20" />
+    <Property Name="USERID" Type="int" />
+    <Property Name="BRANCH_CODE" Type="varchar" MaxLength="5" />
+    <Property Name="CARD_TYPE" Type="varchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="NATIONALITIES_BASIC_INFORMATION">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BI_ID" Type="int" />
+    <Property Name="COUNTRY_ID" Type="int" />
+    <Property Name="COUNTRY" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="NATURE_BUSINESS">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="NAME" Type="varchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="NATURE_BUSINESS_GOV">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NAME" Type="varchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="NBP_BRANCH_INFORMATIONS">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="NBP_CATEGORIES">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="NAME" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="ProfileCode" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="NEXT_OF_KIN_INFO">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BI_ID" Type="int" />
+    <Property Name="NEXT_OF_KIN" Type="nvarchar" MaxLength="50" />
+    <Property Name="NEXT_OF_KIN_NAME" Type="nvarchar" MaxLength="50" />
+    <Property Name="NEXT_OF_KIN_CNIC" Type="varchar" MaxLength="40" />
+    <Property Name="RELATIONSHIP" Type="int" />
+    <Property Name="RELATIONSHIP_DETAIL" Type="nvarchar" MaxLength="50" />
+    <Property Name="UPDATED_DATE" Type="datetime" />
+    <Property Name="COUNTRY" Type="int" />
+    <Property Name="CITY" Type="int" />
+    <Property Name="BUILDING" Type="varchar" MaxLength="100" />
+    <Property Name="STREET" Type="varchar" MaxLength="100" />
+    <Property Name="FLOOR" Type="varchar" MaxLength="100" />
+    <Property Name="DISTRICT" Type="varchar" MaxLength="100" />
+    <Property Name="POST_OFFICE" Type="varchar" MaxLength="100" />
+    <Property Name="POSTAL_CODE" Type="varchar" MaxLength="100" />
+    <Property Name="RESIDENCE_CONTACT" Type="varchar" MaxLength="100" />
+    <Property Name="OFFICE_NO" Type="varchar" MaxLength="100" />
+    <Property Name="MOB_NO" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="OPERATING_INSTRUCTIONS">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BI_ID" Type="int" />
+    <Property Name="AUTHORITY_TO_OPERATE" Type="int" />
+    <Property Name="DESCRIPTION_IF_OTHER" Type="nvarchar" MaxLength="50" />
+    <Property Name="ZAKAT_DEDUCTION" Type="bit" />
+    <Property Name="ZAKAT_EXEMPTION_TYPE" Type="int" />
+    <Property Name="EXEMPTION_REASON_DETAIL" Type="nvarchar" MaxLength="50" />
+    <Property Name="ACCOUNT_STATEMENT_FREQUENCY" Type="int" />
+    <Property Name="DESCRIPTION_IF_HOLD_MAIL" Type="nvarchar" MaxLength="50" />
+    <Property Name="ATM_CARD_REQUIRED" Type="bit" />
+    <Property Name="CUSTOMER_NAME_ON_ATMCARD" Type="nvarchar" MaxLength="50" />
+    <Property Name="E_STATEMENT_REQUIRED" Type="int" />
+    <Property Name="MOBILE_BANKING_REQUIRED" Type="bit" />
+    <Property Name="MOBILE_NO" Type="nvarchar" MaxLength="50" />
+    <Property Name="IBT_ALLOWED" Type="bit" />
+    <Property Name="IS_PROFIT_APPLICABLE" Type="bit" />
+    <Property Name="IS_FED_EXEMPTED" Type="bit" />
+    <Property Name="EXPIRY_DATE_EXEMPTED" Type="varchar" MaxLength="50" />
+    <Property Name="APPLICABLE_PROFIT_RATE" Type="nvarchar" MaxLength="50" />
+    <Property Name="PROFIT_PAYMENT" Type="int" />
+    <Property Name="WHT_DEDUCTED_ON_PROFIT" Type="bit" />
+    <Property Name="EXPIRY_DATE_PROFIT" Type="varchar" MaxLength="50" />
+    <Property Name="WHT_DEDUCTED_ON_TRANSACTION" Type="bit" />
+    <Property Name="EXPIRY_DATE_TRANSACTION" Type="varchar" MaxLength="50" />
+    <Property Name="SPECIAL_PROFIT_VALUE" Type="nvarchar" MaxLength="50" />
+    <Property Name="UPDATED_DATE" Type="datetime" />
+  </EntityType>
+  <EntityType Name="OTHER_BANK_CODES">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PEPS">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Permissions">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Permission" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PRINCIPAL_RENEWAL_OPTION">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="PRODUCTS">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NAME" Type="varchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PROFIT_PAYMENT">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NAME" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="PROVINCES">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PURPOSE_OF_ACCOUNT">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NAME" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'AOS.dbo.PURPOSE_OF_ACCOUNT_BUSINESS' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="PURPOSE_OF_ACCOUNT_BUSINESS">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="NAME" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="REAL_BENEFICIARY_ACCOUNT">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NAME" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="REGIONS">
+    <Key>
+      <PropertyRef Name="REGION_ID" />
+    </Key>
+    <Property Name="REGION_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NAME" Type="varchar" MaxLength="40" Nullable="false" />
+  </EntityType>
+  <EntityType Name="RELATIONSHIP">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NAME" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="RELIGIONS">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="RESIDENT_TYPES">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ROLE_PERMISSIONS">
+    <Key>
+      <PropertyRef Name="ROLE_PERMISSION_ID" />
+    </Key>
+    <Property Name="ROLE_PERMISSION_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ROLE_ID" Type="int" Nullable="false" />
+    <Property Name="PERMISSION_ID" Type="int" Nullable="false" />
+    <Property Name="CREATE" Type="bit" Nullable="false" />
+    <Property Name="READ" Type="bit" Nullable="false" />
+    <Property Name="UPDATE" Type="bit" Nullable="false" />
+    <Property Name="DELETE" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ROLES">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Role" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="SBP_CATEGORIES">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="NAME" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="ProfileCode" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="SERVICE_CHARGES_EXEMPTED_CODE">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="NAME" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="SHAREHOLDER_INFORMATION">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BID" Type="int" />
+    <Property Name="NAME" Type="varchar" MaxLength="40" />
+    <Property Name="ADDRESS" Type="varchar" MaxLength="120" />
+    <Property Name="IDENTITY_TYPE" Type="varchar" MaxLength="40" />
+    <Property Name="IDENTITY_TYPE_VALUE" Type="int" />
+    <Property Name="IDENTITY_NO" Type="varchar" MaxLength="30" />
+    <Property Name="IDENTITY_EXPIRY_DATE" Type="varchar" MaxLength="10" />
+    <Property Name="RESIDENCE_PHONE" Type="varchar" MaxLength="30" />
+    <Property Name="OFFICE_PHONE" Type="varchar" MaxLength="30" />
+    <Property Name="MOBILE_NO" Type="varchar" MaxLength="20" />
+    <Property Name="FAX_NO" Type="varchar" MaxLength="30" />
+    <Property Name="EMAIL" Type="varchar" MaxLength="30" />
+    <Property Name="NO_SHARES" Type="varchar" MaxLength="20" />
+    <Property Name="AMOUNT_SHARES" Type="varchar" MaxLength="20" />
+    <Property Name="SHAREHOLDER_PERCENTAGE" Type="varchar" MaxLength="10" />
+    <Property Name="NET_WORTH" Type="varchar" MaxLength="20" />
+    <Property Name="DIRECTOR_STATUS" Type="varchar" MaxLength="30" />
+    <Property Name="DIRECTOR_STATUS_VALUE" Type="int" />
+  </EntityType>
+  <EntityType Name="SIC_CODES">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="SIC" Type="varchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SL_CODE">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NAME" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="SMS_ALERT_REQUIRED">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NAME" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="SOURCE_OF_FUNDS">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NAME" Type="nvarchar" MaxLength="50" />
+    <Property Name="ProfileCode" Type="int" />
+  </EntityType>
+  <EntityType Name="SOURCE_OF_FUNDS_BUSINESS">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NAME" Type="nvarchar" MaxLength="50" />
+    <Property Name="ProfileCode" Type="int" />
+  </EntityType>
+  <EntityType Name="STATUS_LOG">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="USERID" Type="int" />
+    <Property Name="BID" Type="int" />
+    <Property Name="LOG_TYPE" Type="varchar" MaxLength="20" />
+    <Property Name="OLD_STATUS" Type="varchar" MaxLength="40" />
+    <Property Name="NEW_STATUS" Type="varchar" MaxLength="40" />
+    <Property Name="LOG_DATETIME" Type="datetime" />
+  </EntityType>
+  <EntityType Name="SUB_INDUSTRY">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="SIC" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="ZSICSUB" Type="varchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6013: The table/view 'AOS.dbo.TEMP_SRVC' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="TEMP_SRVC">
+          <Property Name="BRANCH_CODE" Type="varchar" MaxLength="50" />
+          <Property Name="ServiceCenterCode" Type="char" MaxLength="3" />
+        </EntityType>-->
+  <EntityType Name="TITLES">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TRANSACTIONS_TYPE">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="NAME" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Transportation_Types">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="USA_FUNDSTRANSFERS">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="USA_PHONE_NOS">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="USA_RESIDENCE_CARDS">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="USA_TAXID_TYPES">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="USERS">
+    <Key>
+      <PropertyRef Name="USER_ID" />
+    </Key>
+    <Property Name="USER_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PARENT_ID" Type="int" Nullable="false" />
+    <Property Name="USER_NAME" Type="varchar" MaxLength="40" Nullable="false" />
+    <Property Name="DISPLAY_NAME" Type="varchar" MaxLength="40" Nullable="false" />
+    <Property Name="EMAIL" Type="varchar" MaxLength="40" Nullable="false" />
+    <Property Name="PASSWORD" Type="varchar" MaxLength="40" Nullable="false" />
+    <Property Name="DESIGNATION" Type="varchar" MaxLength="40" Nullable="false" />
+    <Property Name="USER_TYPE" Type="varchar" MaxLength="40" Nullable="false" />
+    <Property Name="SAPID" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="CREATED_BY" Type="int" />
+    <Property Name="CREATED_DATETIME" Type="datetime" />
+    <Property Name="UPDATED_BY" Type="int" />
+    <Property Name="UPDATED_DATETIME" Type="datetime" />
+    <Property Name="FIRST_LOGIN" Type="bit" />
+    <Property Name="ACTIVE" Type="bit" />
+  </EntityType>
+  <EntityType Name="USERS_PERMISSIONS">
+    <Key>
+      <PropertyRef Name="USER_PERMISSION_ID" />
+    </Key>
+    <Property Name="USER_PERMISSION_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="USER_ID" Type="int" Nullable="false" />
+    <Property Name="PERMISSION_ID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="USERS_ROLES">
+    <Key>
+      <PropertyRef Name="USER_ROLE_ID" />
+    </Key>
+    <Property Name="USER_ROLE_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="USER_ID" Type="int" Nullable="false" />
+    <Property Name="ROLE_ID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="WHO_AUTHORIZED">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CIF_NO" Type="int" Nullable="false" />
+    <Property Name="REFERENCE_DOCUMENT_NO" Type="varchar" MaxLength="100" />
+    <Property Name="REFERENCE_DOCUMENT_DATE" Type="varchar" MaxLength="100" />
+    <Property Name="BI_ID" Type="int" />
+    <Property Name="NAME" Type="nvarchar" MaxLength="50" />
+    <Property Name="IDENTITY_NO" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="ZAKAT_EXEMPTION_TYPE">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="NAME" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <Association Name="FK__BRANCHES__REGION__13F1F5EB">
+    <End Role="REGIONS" Type="Self.REGIONS" Multiplicity="1" />
+    <End Role="BRANCHES" Type="Self.BRANCHES" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="REGIONS">
+        <PropertyRef Name="REGION_ID" />
+      </Principal>
+      <Dependent Role="BRANCHES">
+        <PropertyRef Name="REGION_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__USERS_PER__USER___14E61A24">
+    <End Role="USERS" Type="Self.USERS" Multiplicity="1" />
+    <End Role="USERS_PERMISSIONS" Type="Self.USERS_PERMISSIONS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USERS">
+        <PropertyRef Name="USER_ID" />
+      </Principal>
+      <Dependent Role="USERS_PERMISSIONS">
+        <PropertyRef Name="USER_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__USERS_ROL__USER___15DA3E5D">
+    <End Role="USERS" Type="Self.USERS" Multiplicity="1" />
+    <End Role="USERS_ROLES" Type="Self.USERS_ROLES" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USERS">
+        <PropertyRef Name="USER_ID" />
+      </Principal>
+      <Dependent Role="USERS_ROLES">
+        <PropertyRef Name="USER_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="AOSModelStoreContainer">
+    <EntitySet Name="ACCOMODATION_TYPES" EntityType="Self.ACCOMODATION_TYPES" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ACCOUNT_AUTHORIZED_PERSONS" EntityType="Self.ACCOUNT_AUTHORIZED_PERSONS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ACCOUNT_CLASS" EntityType="Self.ACCOUNT_CLASS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ACCOUNT_CONTACT_INFO" EntityType="Self.ACCOUNT_CONTACT_INFO" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ACCOUNT_DELTE_LOG" EntityType="Self.ACCOUNT_DELTE_LOG" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ACCOUNT_GROUP" EntityType="Self.ACCOUNT_GROUP" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ACCOUNT_MODES" EntityType="Self.ACCOUNT_MODES" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ACCOUNT_NATURE_CURRENCY" EntityType="Self.ACCOUNT_NATURE_CURRENCY" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ACCOUNT_OPEN_TYPE" EntityType="Self.ACCOUNT_OPEN_TYPE" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ACCOUNT_REVIEW" EntityType="Self.ACCOUNT_REVIEW" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ACCOUNT_STATEMENT_FREQUENCY" EntityType="Self.ACCOUNT_STATEMENT_FREQUENCY" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ACCOUNT_TYPES" EntityType="Self.ACCOUNT_TYPES" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ADDRESS_INFORMATION" EntityType="Self.ADDRESS_INFORMATION" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ADDRESS_VERIFIED" EntityType="Self.ADDRESS_VERIFIED" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="APPLICANT_INFORMATION" EntityType="Self.APPLICANT_INFORMATION" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="APPLICANT_INFORMATION_CIFS" EntityType="Self.APPLICANT_INFORMATION_CIFS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="APPLICANT_STATUSES" EntityType="Self.APPLICANT_STATUSES" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="APPLICANT_STATUSES_BUSINESS" EntityType="Self.APPLICANT_STATUSES_BUSINESS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ARMY_RANK_CODES" EntityType="Self.ARMY_RANK_CODES" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AUTHORITY_TO_OPERATE" EntityType="Self.AUTHORITY_TO_OPERATE" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AVERAGE_CASH_DEPOSITS" EntityType="Self.AVERAGE_CASH_DEPOSITS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AVERAGE_NON_CASH_DEPOSITS" EntityType="Self.AVERAGE_NON_CASH_DEPOSITS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="BANKING_RELATIONSHPS" EntityType="Self.BANKING_RELATIONSHPS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="BASE_CATEGORIES" EntityType="Self.BASE_CATEGORIES" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="BASIC_INFORMATIONS" EntityType="Self.BASIC_INFORMATIONS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="BRANCHES" EntityType="Self.BRANCHES" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="BUSINESS_ACOUNTS" EntityType="Self.BUSINESS_ACOUNTS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="BUSINESS_CUSTOMER_CLASSIFICATIONS" EntityType="Self.BUSINESS_CUSTOMER_CLASSIFICATIONS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="BUSINESS_DETAIL" EntityType="Self.BUSINESS_DETAIL" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="BUSINESS_TYPE" EntityType="Self.BUSINESS_TYPE" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CERTIFICATE_DEPOSIT_INFO" EntityType="Self.CERTIFICATE_DEPOSIT_INFO" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CIF_REVIEW" EntityType="Self.CIF_REVIEW" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CIF_TYPES" EntityType="Self.CIF_TYPES" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CITIES" EntityType="Self.CITIES" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CITIES_BUSINESS_DETAILS" EntityType="Self.CITIES_BUSINESS_DETAILS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CONSUMER_SEGMENTS" EntityType="Self.CONSUMER_SEGMENTS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CONTACT_INFOS" EntityType="Self.CONTACT_INFOS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="COSTUMER_DEALINGS" EntityType="Self.COSTUMER_DEALINGS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="COUNTRIES" EntityType="Self.COUNTRIES" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="COUNTRIES_BUSINESS_DETAILS" EntityType="Self.COUNTRIES_BUSINESS_DETAILS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="COUNTRIES_TAX_MISCELLANEOUS_INFORMATION" EntityType="Self.COUNTRIES_TAX_MISCELLANEOUS_INFORMATION" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="COUNTRY_CODES" EntityType="Self.COUNTRY_CODES" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CURRENCY" EntityType="Self.CURRENCY" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CUSTOMER_TYPE" EntityType="Self.CUSTOMER_TYPE" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Description_Documents" EntityType="Self.Description_Documents" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Description_Documents_Business" EntityType="Self.Description_Documents_Business" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DISTRICTS" EntityType="Self.DISTRICTS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DOCUMENT_REQUIRED" EntityType="Self.DOCUMENT_REQUIRED" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DOCUMENT_TYPES" EntityType="Self.DOCUMENT_TYPES" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DOCUMENT_TYPES_PRIMARY" EntityType="Self.DOCUMENT_TYPES_PRIMARY" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DOCUMENTS" EntityType="Self.DOCUMENTS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DOCUMENTS_FATCA" EntityType="Self.DOCUMENTS_FATCA" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="E_STATEMENT_REQUIRED" EntityType="Self.E_STATEMENT_REQUIRED" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="EDUCATION" EntityType="Self.EDUCATION" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="EDUCATIONS" EntityType="Self.EDUCATIONS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="EMAILS" EntityType="Self.EMAILS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="EMPLOYER_CODES" EntityType="Self.EMPLOYER_CODES" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="EMPLOYMENT_DETAILS" EntityType="Self.EMPLOYMENT_DETAILS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="EMPLOYMENT_INFORMATIONS" EntityType="Self.EMPLOYMENT_INFORMATIONS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FATCAS" EntityType="Self.FATCAS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FATCAS_TINS" EntityType="Self.FATCAS_TINS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FREQUENCY_GROSS_SALES" EntityType="Self.FREQUENCY_GROSS_SALES" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FTCA_CLASSIFICATIONS" EntityType="Self.FTCA_CLASSIFICATIONS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FTCA_DOCUMENTATIONS" EntityType="Self.FTCA_DOCUMENTATIONS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="GENDERS" EntityType="Self.GENDERS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="GL_CODE" EntityType="Self.GL_CODE" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="GOV_CIF_TYPE" EntityType="Self.GOV_CIF_TYPE" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="HEAD_CONTACT_INFOS" EntityType="Self.HEAD_CONTACT_INFOS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="IDENTITIES" EntityType="Self.IDENTITIES" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="IDENTITY_TYPES" EntityType="Self.IDENTITY_TYPES" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="INFO_TYPES_BDS" EntityType="Self.INFO_TYPES_BDS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="INSTITUTION_TYPE" EntityType="Self.INSTITUTION_TYPE" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ISSUING_AGENCY" EntityType="Self.ISSUING_AGENCY" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="KNOW_CUSTOMER_TRANSACTIONS_MODE" EntityType="Self.KNOW_CUSTOMER_TRANSACTIONS_MODE" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="KNOW_YOUR_CUSTOMER" EntityType="Self.KNOW_YOUR_CUSTOMER" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="KNOW_YOUR_CUSTOMER_RELATIONSHIP" EntityType="Self.KNOW_YOUR_CUSTOMER_RELATIONSHIP" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="KYC_BENEFICIAL_ENTITY" EntityType="Self.KYC_BENEFICIAL_ENTITY" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="KYC_EXPECTED_COUNTER_PARTIES" EntityType="Self.KYC_EXPECTED_COUNTER_PARTIES" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="KYC_GEOGRAPHIES_COUNTER_PARTIES" EntityType="Self.KYC_GEOGRAPHIES_COUNTER_PARTIES" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="KYC_PURPOSE_OF_AC" EntityType="Self.KYC_PURPOSE_OF_AC" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="KYC_SOURCE_OF_FUND" EntityType="Self.KYC_SOURCE_OF_FUND" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MARTIAL_STATUSES" EntityType="Self.MARTIAL_STATUSES" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MEANS_OF_VERIFICATION" EntityType="Self.MEANS_OF_VERIFICATION" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MISCELLANEOUS_INFORMATIONS" EntityType="Self.MISCELLANEOUS_INFORMATIONS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MODE_OF_TRANSACTIONS" EntityType="Self.MODE_OF_TRANSACTIONS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MONTHLY_TURNOVER_CREDITS" EntityType="Self.MONTHLY_TURNOVER_CREDITS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MONTHLY_TURNOVER_DEBITS" EntityType="Self.MONTHLY_TURNOVER_DEBITS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="NADRA_INFO" EntityType="Self.NADRA_INFO" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="NATIONALITIES_BASIC_INFORMATION" EntityType="Self.NATIONALITIES_BASIC_INFORMATION" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="NATURE_BUSINESS" EntityType="Self.NATURE_BUSINESS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="NATURE_BUSINESS_GOV" EntityType="Self.NATURE_BUSINESS_GOV" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="NBP_BRANCH_INFORMATIONS" EntityType="Self.NBP_BRANCH_INFORMATIONS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="NBP_CATEGORIES" EntityType="Self.NBP_CATEGORIES" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="NEXT_OF_KIN_INFO" EntityType="Self.NEXT_OF_KIN_INFO" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="OPERATING_INSTRUCTIONS" EntityType="Self.OPERATING_INSTRUCTIONS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="OTHER_BANK_CODES" EntityType="Self.OTHER_BANK_CODES" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PEPS" EntityType="Self.PEPS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Permissions" EntityType="Self.Permissions" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PRINCIPAL_RENEWAL_OPTION" EntityType="Self.PRINCIPAL_RENEWAL_OPTION" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PRODUCTS" EntityType="Self.PRODUCTS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PROFIT_PAYMENT" EntityType="Self.PROFIT_PAYMENT" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PROVINCES" EntityType="Self.PROVINCES" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PURPOSE_OF_ACCOUNT" EntityType="Self.PURPOSE_OF_ACCOUNT" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="REAL_BENEFICIARY_ACCOUNT" EntityType="Self.REAL_BENEFICIARY_ACCOUNT" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="REGIONS" EntityType="Self.REGIONS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="RELATIONSHIP" EntityType="Self.RELATIONSHIP" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="RELIGIONS" EntityType="Self.RELIGIONS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="RESIDENT_TYPES" EntityType="Self.RESIDENT_TYPES" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ROLE_PERMISSIONS" EntityType="Self.ROLE_PERMISSIONS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ROLES" EntityType="Self.ROLES" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SBP_CATEGORIES" EntityType="Self.SBP_CATEGORIES" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SERVICE_CHARGES_EXEMPTED_CODE" EntityType="Self.SERVICE_CHARGES_EXEMPTED_CODE" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SHAREHOLDER_INFORMATION" EntityType="Self.SHAREHOLDER_INFORMATION" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SIC_CODES" EntityType="Self.SIC_CODES" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SL_CODE" EntityType="Self.SL_CODE" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SMS_ALERT_REQUIRED" EntityType="Self.SMS_ALERT_REQUIRED" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SOURCE_OF_FUNDS" EntityType="Self.SOURCE_OF_FUNDS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SOURCE_OF_FUNDS_BUSINESS" EntityType="Self.SOURCE_OF_FUNDS_BUSINESS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="STATUS_LOG" EntityType="Self.STATUS_LOG" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SUB_INDUSTRY" EntityType="Self.SUB_INDUSTRY" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TITLES" EntityType="Self.TITLES" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TRANSACTIONS_TYPE" EntityType="Self.TRANSACTIONS_TYPE" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Transportation_Types" EntityType="Self.Transportation_Types" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="USA_FUNDSTRANSFERS" EntityType="Self.USA_FUNDSTRANSFERS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="USA_PHONE_NOS" EntityType="Self.USA_PHONE_NOS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="USA_RESIDENCE_CARDS" EntityType="Self.USA_RESIDENCE_CARDS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="USA_TAXID_TYPES" EntityType="Self.USA_TAXID_TYPES" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="USERS" EntityType="Self.USERS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="USERS_PERMISSIONS" EntityType="Self.USERS_PERMISSIONS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="USERS_ROLES" EntityType="Self.USERS_ROLES" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="WHO_AUTHORIZED" EntityType="Self.WHO_AUTHORIZED" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ZAKAT_EXEMPTION_TYPE" EntityType="Self.ZAKAT_EXEMPTION_TYPE" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CIF_CUSTOMER_TYPE" EntityType="Self.CIF_CUSTOMER_TYPE" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [CIF_CUSTOMER_TYPE].[ID] AS [ID], 
+    [CIF_CUSTOMER_TYPE].[NAME] AS [NAME]
+    FROM [dbo].[CIF_CUSTOMER_TYPE] AS [CIF_CUSTOMER_TYPE]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="CUSTOMER_TYPE_BUSINESS" EntityType="Self.CUSTOMER_TYPE_BUSINESS" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [CUSTOMER_TYPE_BUSINESS].[ID] AS [ID], 
+    [CUSTOMER_TYPE_BUSINESS].[NAME] AS [NAME]
+    FROM [dbo].[CUSTOMER_TYPE_BUSINESS] AS [CUSTOMER_TYPE_BUSINESS]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="DIRECTOR_STATUS" EntityType="Self.DIRECTOR_STATUS" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [DIRECTOR_STATUS].[ID] AS [ID], 
+    [DIRECTOR_STATUS].[NAME] AS [NAME]
+    FROM [dbo].[DIRECTOR_STATUS] AS [DIRECTOR_STATUS]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="EXPECTED_COUNTER_PARTIES" EntityType="Self.EXPECTED_COUNTER_PARTIES" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [EXPECTED_COUNTER_PARTIES].[ID] AS [ID], 
+    [EXPECTED_COUNTER_PARTIES].[NAME] AS [NAME]
+    FROM [dbo].[EXPECTED_COUNTER_PARTIES] AS [EXPECTED_COUNTER_PARTIES]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="GEOGRAPHIES_COUNTER_PARTIES" EntityType="Self.GEOGRAPHIES_COUNTER_PARTIES" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [GEOGRAPHIES_COUNTER_PARTIES].[ID] AS [ID], 
+    [GEOGRAPHIES_COUNTER_PARTIES].[NAME] AS [NAME]
+    FROM [dbo].[GEOGRAPHIES_COUNTER_PARTIES] AS [GEOGRAPHIES_COUNTER_PARTIES]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="PURPOSE_OF_ACCOUNT_BUSINESS" EntityType="Self.PURPOSE_OF_ACCOUNT_BUSINESS" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [PURPOSE_OF_ACCOUNT_BUSINESS].[ID] AS [ID], 
+    [PURPOSE_OF_ACCOUNT_BUSINESS].[NAME] AS [NAME]
+    FROM [dbo].[PURPOSE_OF_ACCOUNT_BUSINESS] AS [PURPOSE_OF_ACCOUNT_BUSINESS]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="FK__BRANCHES__REGION__13F1F5EB" Association="Self.FK__BRANCHES__REGION__13F1F5EB">
+      <End Role="REGIONS" EntitySet="REGIONS" />
+      <End Role="BRANCHES" EntitySet="BRANCHES" />
+    </AssociationSet>
+    <AssociationSet Name="FK__USERS_PER__USER___14E61A24" Association="Self.FK__USERS_PER__USER___14E61A24">
+      <End Role="USERS" EntitySet="USERS" />
+      <End Role="USERS_PERMISSIONS" EntitySet="USERS_PERMISSIONS" />
+    </AssociationSet>
+    <AssociationSet Name="FK__USERS_ROL__USER___15DA3E5D" Association="Self.FK__USERS_ROL__USER___15DA3E5D">
+      <End Role="USERS" EntitySet="USERS" />
+      <End Role="USERS_ROLES" EntitySet="USERS_ROLES" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

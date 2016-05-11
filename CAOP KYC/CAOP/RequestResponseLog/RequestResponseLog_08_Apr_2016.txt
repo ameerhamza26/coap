@@ -1,0 +1,45 @@
+4/8/2016 8:59:01 PM ---- Account Tagging Request (acn)3034979282
+4/8/2016 8:59:30 PM ---- Account Tagging Request (acn)3034979282
+4/8/2016 8:59:30 PM ---- Account Tagging Response (acn)3034979282
+4/8/2016 8:59:30 PM ---- Account Tagging Request (acn)3034979282
+4/8/2016 8:59:30 PM ---- Account Tagging Response (acn)3034979282
+4/8/2016 8:59:37 PM ---- Account Tagging Request (acn)3034979282
+4/8/2016 8:59:37 PM ---- Account Tagging Response (acn)3034979282
+4/8/2016 8:59:37 PM ---- Account Tagging Request (acn)3034979282
+4/8/2016 8:59:37 PM ---- Account Tagging Response (acn)3034979282
+4/8/2016 8:59:38 PM ---- Account Tagging Request (CIF)3034979282
+4/8/2016 8:59:38 PM ---- Account Tagging Response (CIF)3034979282
+4/8/2016 8:59:38 PM ---- insertDataBulkCopy Request3034979282
+4/8/2016 8:59:43 PM ---- insertDataBulkCopy Response3034979282
+4/8/2016 9:04:47 PM ---- Account Tagging Request (acn)3034979282
+4/8/2016 9:04:48 PM ---- Account Tagging Response (acn)3034979282
+4/8/2016 9:04:48 PM ---- Account Tagging Request (acn)3034979282
+4/8/2016 9:04:48 PM ---- Account Tagging Response (acn)3034979282
+4/8/2016 9:04:48 PM ---- Account Tagging Request (CIF)3034979282
+4/8/2016 9:04:48 PM ---- Account Tagging Response (CIF)3034979282
+4/8/2016 9:04:48 PM ---- insertDataBulkCopy Request3034979282
+4/8/2016 9:04:49 PM ---- insertDataBulkCopy Response3034979282
+4/8/2016 9:05:16 PM ---- Account Tagging Request (acn)3034979282
+4/8/2016 9:05:16 PM ---- Account Tagging Response (acn)3034979282
+4/8/2016 9:05:16 PM ---- Account Tagging Request (acn)3034979282
+4/8/2016 9:05:16 PM ---- Account Tagging Response (acn)3034979282
+4/8/2016 9:05:16 PM ---- Account Tagging Request (CIF)3034979282
+4/8/2016 9:05:16 PM ---- Account Tagging Response (CIF)3034979282
+4/8/2016 9:05:16 PM ---- insertDataBulkCopy Request3034979282
+4/8/2016 9:05:17 PM ---- insertDataBulkCopy Response3034979282
+4/8/2016 9:05:43 PM ---- Account Tagging Request (acn)3034979282
+4/8/2016 9:05:43 PM ---- Account Tagging Response (acn)3034979282
+4/8/2016 9:05:43 PM ---- Account Tagging Request (acn)3034979282
+4/8/2016 9:05:43 PM ---- Account Tagging Response (acn)3034979282
+4/8/2016 9:05:43 PM ---- Account Tagging Request (CIF)3034979282
+4/8/2016 9:05:43 PM ---- Account Tagging Response (CIF)3034979282
+4/8/2016 9:05:43 PM ---- insertDataBulkCopy Request3034979282
+4/8/2016 9:05:45 PM ---- insertDataBulkCopy Response3034979282
+4/8/2016 9:06:00 PM ---- Account Tagging Request (acn)3034979282
+4/8/2016 9:06:00 PM ---- Account Tagging Response (acn)3034979282
+4/8/2016 9:06:00 PM ---- Account Tagging Request (acn)3034979282
+4/8/2016 9:06:00 PM ---- Account Tagging Response (acn)3034979282
+4/8/2016 9:06:00 PM ---- Account Tagging Request (CIF)3034979282
+4/8/2016 9:06:00 PM ---- Account Tagging Response (CIF)3034979282
+4/8/2016 9:06:00 PM ---- insertDataBulkCopy Request3034979282
+4/8/2016 9:06:02 PM ---- insertDataBulkCopy Response3034979282

@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:wsp="http://www.w3.org/ns/ws-policy" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:tns="http://ProfileConnector.com/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsp1_2="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" name="ProfileConnector" targetNamespace="http://ProfileConnector.com/" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <types>
+    <xsd:schema>
+      <xsd:import schemaLocation="http://10.11.5.205:9090/ProfileConnectorWS/ProfileConnector?xsd=1" namespace="http://ProfileConnector.com/" />
+    </xsd:schema>
+  </types>
+  <message name="GetXMLData">
+    <part name="parameters" element="tns:GetXMLData" />
+  </message>
+  <message name="GetXMLDataResponse">
+    <part name="parameters" element="tns:GetXMLDataResponse" />
+  </message>
+  <message name="Exception">
+    <part name="fault" element="tns:Exception" />
+  </message>
+  <message name="GetScalarData">
+    <part name="parameters" element="tns:GetScalarData" />
+  </message>
+  <message name="GetScalarDataResponse">
+    <part name="parameters" element="tns:GetScalarDataResponse" />
+  </message>
+  <message name="GetBalanceData">
+    <part name="parameters" element="tns:GetBalanceData" />
+  </message>
+  <message name="GetBalanceDataResponse">
+    <part name="parameters" element="tns:GetBalanceDataResponse" />
+  </message>
+  <message name="InserUpdateData">
+    <part name="parameters" element="tns:InserUpdateData" />
+  </message>
+  <message name="InserUpdateDataResponse">
+    <part name="parameters" element="tns:InserUpdateDataResponse" />
+  </message>
+  <portType name="ProfileConnector">
+    <operation name="GetXMLData">
+      <input wsam:Action="http://ProfileConnector.com/ProfileConnector/GetXMLDataRequest" message="tns:GetXMLData" />
+      <output wsam:Action="http://ProfileConnector.com/ProfileConnector/GetXMLDataResponse" message="tns:GetXMLDataResponse" />
+      <fault wsam:Action="http://ProfileConnector.com/ProfileConnector/GetXMLData/Fault/Exception" name="Exception" message="tns:Exception" />
+    </operation>
+    <operation name="GetScalarData">
+      <input wsam:Action="http://ProfileConnector.com/ProfileConnector/GetScalarDataRequest" message="tns:GetScalarData" />
+      <output wsam:Action="http://ProfileConnector.com/ProfileConnector/GetScalarDataResponse" message="tns:GetScalarDataResponse" />
+      <fault wsam:Action="http://ProfileConnector.com/ProfileConnector/GetScalarData/Fault/Exception" name="Exception" message="tns:Exception" />
+    </operation>
+    <operation name="GetBalanceData">
+      <input wsam:Action="http://ProfileConnector.com/ProfileConnector/GetBalanceDataRequest" message="tns:GetBalanceData" />
+      <output wsam:Action="http://ProfileConnector.com/ProfileConnector/GetBalanceDataResponse" message="tns:GetBalanceDataResponse" />
+      <fault wsam:Action="http://ProfileConnector.com/ProfileConnector/GetBalanceData/Fault/Exception" name="Exception" message="tns:Exception" />
+    </operation>
+    <operation name="InserUpdateData">
+      <input wsam:Action="http://ProfileConnector.com/ProfileConnector/InserUpdateDataRequest" message="tns:InserUpdateData" />
+      <output wsam:Action="http://ProfileConnector.com/ProfileConnector/InserUpdateDataResponse" message="tns:InserUpdateDataResponse" />
+      <fault wsam:Action="http://ProfileConnector.com/ProfileConnector/InserUpdateData/Fault/Exception" name="Exception" message="tns:Exception" />
+    </operation>
+  </portType>
+  <binding name="ProfileConnectorPortBinding" type="tns:ProfileConnector">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <operation name="GetXMLData">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="Exception">
+        <soap:fault use="literal" name="Exception" namespace="" />
+      </fault>
+    </operation>
+    <operation name="GetScalarData">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="Exception">
+        <soap:fault use="literal" name="Exception" namespace="" />
+      </fault>
+    </operation>
+    <operation name="GetBalanceData">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="Exception">
+        <soap:fault use="literal" name="Exception" namespace="" />
+      </fault>
+    </operation>
+    <operation name="InserUpdateData">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="Exception">
+        <soap:fault use="literal" name="Exception" namespace="" />
+      </fault>
+    </operation>
+  </binding>
+  <service name="ProfileConnector">
+    <port name="ProfileConnectorPort" binding="tns:ProfileConnectorPortBinding">
+      <soap:address location="http://10.11.5.205:9090/ProfileConnectorWS/ProfileConnector" />
+    </port>
+  </service>
+</definitions>

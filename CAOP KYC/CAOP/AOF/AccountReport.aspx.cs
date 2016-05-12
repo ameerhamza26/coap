@@ -381,7 +381,7 @@ namespace CAOP
                     ReportViewer1.LocalReport.DataSources.Clear();
                     ReportViewer1.LocalReport.DataSources.Add(new ReportDataSource("DataSet1", ds.Tables[0]));
 
-                    //ReportViewer1.LocalReport.DataSources.Add(new ReportDataSource("dsNOK", ds.Tables[3]));
+                    ReportViewer1.LocalReport.DataSources.Add(new ReportDataSource("dsNOK", ds.Tables[3]));
                     //ReportViewer1.LocalReport.DataSources.Add(new ReportDataSource("dsMI", ds.Tables[4]));
 
                     ReportViewer1.LocalReport.Refresh();

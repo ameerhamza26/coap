@@ -225,73 +225,79 @@ namespace CAOP
             Fatca f = new Fatca();
             if (f.GetFatcaIndividual(id))
             {
-
-                if (f.RESIDENT == true)
+                try
                 {
-                    PiListResident.Items.FindByText("Yes").Selected = true;
+                    //if (f.RESIDENT == true)
+                    //{
+                    //    PiListResident.Items.FindByText("Yes").Selected = true;
+                    //}
+                    //else
+                    //{
+                    //    PiListResident.Items.FindByText("No").Selected = true;
+
+                    //}
+
+                    //if (f.CITIZEN == true)
+                    //{
+                    //    PiListCitizen.Items.FindByText("Yes").Selected = true;
+                    //}
+                    //else
+                    //{
+
+                    //    PiListCitizen.Items.FindByText("No").Selected = true;
+                    //}
+
+
+                    //if (f.BIRTH_USA == true)
+                    //{
+                    //    PiListCountBirthUsa.Items.FindByText("Yes").Selected = true;
+
+                    //}
+                    //else
+                    //{
+                    //    PiListCountBirthUsa.Items.FindByText("No").Selected = true;
+
+                    //}
+
+                    //if (f.ADDRESS_USA == true)
+                    //{
+                    //    PiListAddCountUsa.Items.FindByText("Yes").Selected = true;
+
+                    //}
+                    //else
+                    //{
+                    //    PiListAddCountUsa.Items.FindByText("No").Selected = true;
+
+                    //}
+
+
+                    ListExtensions.SetDropdownValue(f.TYPE_TIN.ID, PiListTinType);
+                    PiTxtTin.Text = f.TIN;
+                    PiTxtFatcaDocumentDate.Text = f.FATCA_DOCUMENTATION_DATE.ToString(); ;
+                    ListExtensions.SetDropdownValue(f.USA_PHONE.ID, PiListPhoneNoUsa);
+                    PiContactOffice.Text = f.CONTACT_OFFICE;
+                    PiContactResidence.Text = f.CONTACT_RESIDENCE;
+                    PiMobileNo.Text = f.MOBNO;
+                    PiFaxNo.Text = f.FAXNO;
+
+                    ListExtensions.SetDropdownValue(f.RESIDENCE_CARD.ID, PiListResidenceCard);
+                    ListExtensions.SetDropdownValue(f.FUND_TRANSFER.ID, PiListTransferOfFundsUSA);
+                    ListExtensions.SetDropdownValue(f.FTCA_CLASSIFICATION.ID, PiListFatcaClass);
+                    ListExtensions.SetDropdownValue(f.US_TAXID.ID, PiListUsTaxIdType);
+                    PiTaxNo.Text = f.TAXNO;
+
+                    foreach (var i in f.FATCA_DOCUMENTS)
+                    {
+                        if (i.Name.Trim() != "N/A")
+                            PiListFatcaDocumentation.Items.FindByValue(i.ID.ToString()).Selected = true;
+                    }
+
+                    PiSubmitButton.Visible = false;
                 }
-                else
+                catch(Exception err)
                 {
-                    PiListResident.Items.FindByText("No").Selected = true;
 
                 }
-
-                if (f.CITIZEN == true)
-                {
-                    PiListCitizen.Items.FindByText("Yes").Selected = true;
-                }
-                else
-                {
-
-                    PiListCitizen.Items.FindByText("No").Selected = true;
-                }
-
-
-                if (f.BIRTH_USA == true)
-                {
-                    PiListCountBirthUsa.Items.FindByText("Yes").Selected = true;
-
-                }
-                else
-                {
-                    PiListCountBirthUsa.Items.FindByText("No").Selected = true;
-
-                }
-
-                if (f.ADDRESS_USA == true)
-                {
-                    PiListAddCountUsa.Items.FindByText("Yes").Selected = true;
-
-                }
-                else
-                {
-                    PiListAddCountUsa.Items.FindByText("No").Selected = true;
-
-                }
-
-
-                ListExtensions.SetDropdownValue(f.TYPE_TIN.ID, PiListTinType);
-                PiTxtTin.Text = f.TIN;
-                PiTxtFatcaDocumentDate.Text = f.FATCA_DOCUMENTATION_DATE.ToString(); ;
-                ListExtensions.SetDropdownValue(f.USA_PHONE.ID, PiListPhoneNoUsa);
-                PiContactOffice.Text = f.CONTACT_OFFICE;
-                PiContactResidence.Text = f.CONTACT_RESIDENCE;
-                PiMobileNo.Text = f.MOBNO;
-                PiFaxNo.Text = f.FAXNO;
-
-                ListExtensions.SetDropdownValue(f.RESIDENCE_CARD.ID, PiListResidenceCard);
-                ListExtensions.SetDropdownValue(f.FUND_TRANSFER.ID, PiListTransferOfFundsUSA);
-                ListExtensions.SetDropdownValue(f.FTCA_CLASSIFICATION.ID, PiListFatcaClass);
-                ListExtensions.SetDropdownValue(f.US_TAXID.ID, PiListUsTaxIdType);
-                PiTaxNo.Text = f.TAXNO;
-
-                foreach (var i in f.FATCA_DOCUMENTS)
-                {
-                    if (i.Name.Trim() != "N/A")
-                    PiListFatcaDocumentation.Items.FindByValue(i.ID.ToString()).Selected = true;
-                }
-
-                PiSubmitButton.Visible = false;
 
                 //PiResetButton.Visible = false;
 

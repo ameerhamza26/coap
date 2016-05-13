@@ -665,6 +665,22 @@
           <DataField>ECP</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
+        <Field Name="PECT">
+          <DataField>PECT</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="PEDT">
+          <DataField>PEDT</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="NOCT">
+          <DataField>NOCT</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="NODT">
+          <DataField>NODT</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
       </Fields>
       <rd:DataSetInfo>
         <rd:DataSetName>AOFDataSet</rd:DataSetName>
@@ -19583,7 +19599,7 @@ E-mail   __</Value>
                                   </Style>
                                 </TextRun>
                                 <TextRun>
-                                  <Value>=Fields!MONTHLY_TURNOVER_CREDIT.Value</Value>
+                                  <Value>=First(Fields!PECT.Value, "dsKYC")</Value>
                                   <Style>
                                     <FontStyle>Normal</FontStyle>
                                     <FontFamily>Calibri</FontFamily>
@@ -19656,7 +19672,7 @@ E-mail   __</Value>
                                   </Style>
                                 </TextRun>
                                 <TextRun>
-                                  <Value>  Rs. ____</Value>
+                                  <Value>  Rs. ___</Value>
                                   <Style>
                                     <FontStyle>Normal</FontStyle>
                                     <FontFamily>Calibri</FontFamily>
@@ -19667,7 +19683,7 @@ E-mail   __</Value>
                                   </Style>
                                 </TextRun>
                                 <TextRun>
-                                  <Value>=Fields!MONTHLY_TURNOVER_DEBIT.Value</Value>
+                                  <Value>=First(Fields!PEDT.Value, "dsKYC")</Value>
                                   <Style>
                                     <FontStyle>Normal</FontStyle>
                                     <FontFamily>Calibri</FontFamily>
@@ -19678,7 +19694,7 @@ E-mail   __</Value>
                                   </Style>
                                 </TextRun>
                                 <TextRun>
-                                  <Value>___      </Value>
+                                  <Value>____      </Value>
                                   <Style>
                                     <FontStyle>Normal</FontStyle>
                                     <FontFamily>Calibri</FontFamily>
@@ -19696,7 +19712,29 @@ E-mail   __</Value>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>Transaction Count for Turnover Credit _____                                                  </Value>
+                                  <Value>Transaction Count for Turnover Credit _</Value>
+                                  <Style>
+                                    <FontStyle>Normal</FontStyle>
+                                    <FontFamily>Calibri</FontFamily>
+                                    <FontSize>8pt</FontSize>
+                                    <FontWeight>Normal</FontWeight>
+                                    <TextDecoration>None</TextDecoration>
+                                    <Color>#000000</Color>
+                                  </Style>
+                                </TextRun>
+                                <TextRun>
+                                  <Value>=First(Fields!NOCT.Value, "dsKYC")</Value>
+                                  <Style>
+                                    <FontStyle>Normal</FontStyle>
+                                    <FontFamily>Calibri</FontFamily>
+                                    <FontSize>8pt</FontSize>
+                                    <FontWeight>Normal</FontWeight>
+                                    <TextDecoration>Underline</TextDecoration>
+                                    <Color>#000000</Color>
+                                  </Style>
+                                </TextRun>
+                                <TextRun>
+                                  <Value>____                                                  </Value>
                                   <Style>
                                     <FontStyle>Normal</FontStyle>
                                     <FontFamily>Calibri</FontFamily>
@@ -19714,7 +19752,29 @@ E-mail   __</Value>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>Transaction count for Turnover Debit _________</Value>
+                                  <Value>Transaction count for Turnover Debit ___</Value>
+                                  <Style>
+                                    <FontStyle>Normal</FontStyle>
+                                    <FontFamily>Calibri</FontFamily>
+                                    <FontSize>8pt</FontSize>
+                                    <FontWeight>Normal</FontWeight>
+                                    <TextDecoration>None</TextDecoration>
+                                    <Color>#000000</Color>
+                                  </Style>
+                                </TextRun>
+                                <TextRun>
+                                  <Value>=First(Fields!NODT.Value, "dsKYC")</Value>
+                                  <Style>
+                                    <FontStyle>Normal</FontStyle>
+                                    <FontFamily>Calibri</FontFamily>
+                                    <FontSize>8pt</FontSize>
+                                    <FontWeight>Normal</FontWeight>
+                                    <TextDecoration>Underline</TextDecoration>
+                                    <Color>#000000</Color>
+                                  </Style>
+                                </TextRun>
+                                <TextRun>
+                                  <Value>______</Value>
                                   <Style>
                                     <FontStyle>Normal</FontStyle>
                                     <FontFamily>Calibri</FontFamily>
@@ -22700,7 +22760,7 @@ E-mail   __</Value>
                                   </Style>
                                 </TextRun>
                                 <TextRun>
-                                  <Value>=IIF(Lookup(1,Fields!NUM.Value,Fields!Title.Value,"dsCIFOthers")="1",Lookup(1,Fields!NUM.Value,Fields!TitleName.Value,"dsCIFOthers"),"")</Value>
+                                  <Value>=IIF(Lookup(1,Fields!NUM.Value,Fields!Title.Value,"dsCIFOthers")="6",Lookup(1,Fields!NUM.Value,Fields!TitleName.Value,"dsCIFOthers"),"")</Value>
                                   <Style>
                                     <FontStyle>Normal</FontStyle>
                                     <FontFamily>Calibri</FontFamily>
@@ -27889,7 +27949,7 @@ E-mail   ______</Value>
                                   </Style>
                                 </TextRun>
                                 <TextRun>
-                                  <Value>=IIF(Lookup(1,Fields!NUM.Value,Fields!PARDA_NASHEEN.Value,"dsCIFOthers")&lt;&gt;"1",Chr(254),Chr(168))</Value>
+                                  <Value>=IIF((Lookup(1,Fields!NUM.Value,Fields!PARDA_NASHEEN.Value,"dsCIFOthers")&lt;&gt;"1")and(First(Fields!NO_OF_APPLICANTS.Value, "dsAOFI")&gt;1),Chr(254),Chr(168))</Value>
                                   <Style>
                                     <FontStyle>Normal</FontStyle>
                                     <FontFamily>Wingdings</FontFamily>
@@ -28169,7 +28229,7 @@ E-mail   ______</Value>
                                   </Style>
                                 </TextRun>
                                 <TextRun>
-                                  <Value>=Lookup(1,Fields!NUM.Value,Fields!MONTHLY_TURNOVER_CREDIT.Value,"dsCIFOthers")</Value>
+                                  <Value>=IIF(CInt(First(Fields!NO_OF_APPLICANTS.Value, "dsAOFI"))&gt;1,First(Fields!PECT.Value, "dsKYC"),"")</Value>
                                   <Style>
                                     <FontStyle>Normal</FontStyle>
                                     <FontFamily>Calibri</FontFamily>
@@ -28253,7 +28313,7 @@ E-mail   ______</Value>
                                   </Style>
                                 </TextRun>
                                 <TextRun>
-                                  <Value>=Lookup(1,Fields!NUM.Value,Fields!MONTHLY_TURNOVER_DEBIT.Value,"dsCIFOthers")</Value>
+                                  <Value>=IIF(CInt(First(Fields!NO_OF_APPLICANTS.Value, "dsAOFI"))&gt;1,First(Fields!PEDT.Value, "dsKYC"),"")</Value>
                                   <Style>
                                     <FontStyle>Normal</FontStyle>
                                     <FontFamily>Calibri</FontFamily>
@@ -28282,7 +28342,29 @@ E-mail   ______</Value>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>Transaction Count for Turnover Credit _____                                                  </Value>
+                                  <Value>Transaction Count for Turnover Credit __</Value>
+                                  <Style>
+                                    <FontStyle>Normal</FontStyle>
+                                    <FontFamily>Calibri</FontFamily>
+                                    <FontSize>8pt</FontSize>
+                                    <FontWeight>Normal</FontWeight>
+                                    <TextDecoration>None</TextDecoration>
+                                    <Color>#000000</Color>
+                                  </Style>
+                                </TextRun>
+                                <TextRun>
+                                  <Value>=IIF(CInt(First(Fields!NO_OF_APPLICANTS.Value, "dsAOFI"))&gt;1,First(Fields!NOCT.Value, "dsKYC"),"")</Value>
+                                  <Style>
+                                    <FontStyle>Normal</FontStyle>
+                                    <FontFamily>Calibri</FontFamily>
+                                    <FontSize>8pt</FontSize>
+                                    <FontWeight>Normal</FontWeight>
+                                    <TextDecoration>Underline</TextDecoration>
+                                    <Color>#000000</Color>
+                                  </Style>
+                                </TextRun>
+                                <TextRun>
+                                  <Value>___                                                  </Value>
                                   <Style>
                                     <FontStyle>Normal</FontStyle>
                                     <FontFamily>Calibri</FontFamily>
@@ -28300,7 +28382,29 @@ E-mail   ______</Value>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>Transaction count for Turnover Debit _________</Value>
+                                  <Value>Transaction count for Turnover Debit ___</Value>
+                                  <Style>
+                                    <FontStyle>Normal</FontStyle>
+                                    <FontFamily>Calibri</FontFamily>
+                                    <FontSize>8pt</FontSize>
+                                    <FontWeight>Normal</FontWeight>
+                                    <TextDecoration>None</TextDecoration>
+                                    <Color>#000000</Color>
+                                  </Style>
+                                </TextRun>
+                                <TextRun>
+                                  <Value>=IIF(CInt(First(Fields!NO_OF_APPLICANTS.Value, "dsAOFI"))&gt;1,First(Fields!NODT.Value, "dsKYC"),"")</Value>
+                                  <Style>
+                                    <FontStyle>Normal</FontStyle>
+                                    <FontFamily>Calibri</FontFamily>
+                                    <FontSize>8pt</FontSize>
+                                    <FontWeight>Normal</FontWeight>
+                                    <TextDecoration>Underline</TextDecoration>
+                                    <Color>#000000</Color>
+                                  </Style>
+                                </TextRun>
+                                <TextRun>
+                                  <Value>______</Value>
                                   <Style>
                                     <FontStyle>Normal</FontStyle>
                                     <FontFamily>Calibri</FontFamily>
@@ -34409,7 +34513,7 @@ E-mail   ______</Value>
                                   </Style>
                                 </TextRun>
                                 <TextRun>
-                                  <Value>=IIF(Lookup(2,Fields!NUM.Value,Fields!PARDA_NASHEEN.Value,"dsCIFOthers")&lt;&gt;"1",Chr(254),Chr(168))</Value>
+                                  <Value>=IIF((Lookup(2,Fields!NUM.Value,Fields!PARDA_NASHEEN.Value,"dsCIFOthers")&lt;&gt;"1")and(First(Fields!NO_OF_APPLICANTS.Value, "dsAOFI")&gt;2),Chr(254),Chr(168))</Value>
                                   <Style>
                                     <FontStyle>Normal</FontStyle>
                                     <FontFamily>Wingdings</FontFamily>
@@ -34689,7 +34793,7 @@ E-mail   ______</Value>
                                   </Style>
                                 </TextRun>
                                 <TextRun>
-                                  <Value>=Lookup(2,Fields!NUM.Value,Fields!MONTHLY_TURNOVER_CREDIT.Value,"dsCIFOthers")</Value>
+                                  <Value>=IIF(CInt(First(Fields!NO_OF_APPLICANTS.Value, "dsAOFI"))&gt;2,First(Fields!PECT.Value, "dsKYC"),"")</Value>
                                   <Style>
                                     <FontStyle>Normal</FontStyle>
                                     <FontFamily>Calibri</FontFamily>
@@ -34773,7 +34877,7 @@ E-mail   ______</Value>
                                   </Style>
                                 </TextRun>
                                 <TextRun>
-                                  <Value>=Lookup(2,Fields!NUM.Value,Fields!MONTHLY_TURNOVER_DEBIT.Value,"dsCIFOthers")</Value>
+                                  <Value>=IIF(CInt(First(Fields!NO_OF_APPLICANTS.Value, "dsAOFI"))&gt;2,First(Fields!PEDT.Value, "dsKYC"),"")</Value>
                                   <Style>
                                     <FontStyle>Normal</FontStyle>
                                     <FontFamily>Calibri</FontFamily>
@@ -34802,7 +34906,29 @@ E-mail   ______</Value>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>Transaction Count for Turnover Credit _____                                                  </Value>
+                                  <Value>Transaction Count for Turnover Credit __</Value>
+                                  <Style>
+                                    <FontStyle>Normal</FontStyle>
+                                    <FontFamily>Calibri</FontFamily>
+                                    <FontSize>8pt</FontSize>
+                                    <FontWeight>Normal</FontWeight>
+                                    <TextDecoration>None</TextDecoration>
+                                    <Color>#000000</Color>
+                                  </Style>
+                                </TextRun>
+                                <TextRun>
+                                  <Value>=IIF(CInt(First(Fields!NO_OF_APPLICANTS.Value, "dsAOFI"))&gt;2,First(Fields!NOCT.Value, "dsKYC"),"")</Value>
+                                  <Style>
+                                    <FontStyle>Normal</FontStyle>
+                                    <FontFamily>Calibri</FontFamily>
+                                    <FontSize>8pt</FontSize>
+                                    <FontWeight>Normal</FontWeight>
+                                    <TextDecoration>Underline</TextDecoration>
+                                    <Color>#000000</Color>
+                                  </Style>
+                                </TextRun>
+                                <TextRun>
+                                  <Value>___                                                  </Value>
                                   <Style>
                                     <FontStyle>Normal</FontStyle>
                                     <FontFamily>Calibri</FontFamily>
@@ -34820,7 +34946,29 @@ E-mail   ______</Value>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>Transaction count for Turnover Debit _________</Value>
+                                  <Value>Transaction count for Turnover Debit ___</Value>
+                                  <Style>
+                                    <FontStyle>Normal</FontStyle>
+                                    <FontFamily>Calibri</FontFamily>
+                                    <FontSize>8pt</FontSize>
+                                    <FontWeight>Normal</FontWeight>
+                                    <TextDecoration>None</TextDecoration>
+                                    <Color>#000000</Color>
+                                  </Style>
+                                </TextRun>
+                                <TextRun>
+                                  <Value>=IIF(CInt(First(Fields!NO_OF_APPLICANTS.Value, "dsAOFI"))&gt;2,First(Fields!NODT.Value, "dsKYC"),"")</Value>
+                                  <Style>
+                                    <FontStyle>Normal</FontStyle>
+                                    <FontFamily>Calibri</FontFamily>
+                                    <FontSize>8pt</FontSize>
+                                    <FontWeight>Normal</FontWeight>
+                                    <TextDecoration>Underline</TextDecoration>
+                                    <Color>#000000</Color>
+                                  </Style>
+                                </TextRun>
+                                <TextRun>
+                                  <Value>_____</Value>
                                   <Style>
                                     <FontStyle>Normal</FontStyle>
                                     <FontFamily>Calibri</FontFamily>
@@ -36975,7 +37123,7 @@ E-mail   ______</Value>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=IIF(((Lookup(2,Fields!NUM.Value,Fields!CITIZEN.Value,"dtFatcas")="1")or(Lookup(2,Fields!NUM.Value,Fields!RESIDENT.Value,"dtFatcas")="1")),Chr(254),Chr(168))</Value>
+                                  <Value>=IIF((((Lookup(2,Fields!NUM.Value,Fields!CITIZEN.Value,"dtFatcas")="1")or(Lookup(2,Fields!NUM.Value,Fields!RESIDENT.Value,"dtFatcas")="1")))and(Fields!NO_OF_APPLICANTS.Value&gt;1),Chr(254),Chr(168))</Value>
                                   <Style>
                                     <FontStyle>Normal</FontStyle>
                                     <FontFamily>Wingdings</FontFamily>
@@ -36997,7 +37145,7 @@ E-mail   ______</Value>
                                   </Style>
                                 </TextRun>
                                 <TextRun>
-                                  <Value>=IIF(((Lookup(2,Fields!NUM.Value,Fields!CITIZEN.Value,"dtFatcas")&lt;&gt;"1")and(Lookup(2,Fields!NUM.Value,Fields!RESIDENT.Value,"dtFatcas")&lt;&gt;"1")),Chr(254),Chr(168))</Value>
+                                  <Value>=IIF(((Lookup(2,Fields!NUM.Value,Fields!CITIZEN.Value,"dtFatcas")&lt;&gt;"1")and(Lookup(2,Fields!NUM.Value,Fields!RESIDENT.Value,"dtFatcas")&lt;&gt;"1"))and (Fields!NO_OF_APPLICANTS.Value&gt;1),Chr(254),Chr(168))</Value>
                                   <Style>
                                     <FontStyle>Normal</FontStyle>
                                     <FontFamily>Wingdings</FontFamily>
@@ -37047,7 +37195,7 @@ E-mail   ______</Value>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=IIF(((Lookup(3,Fields!NUM.Value,Fields!CITIZEN.Value,"dtFatcas")="1")or(Lookup(3,Fields!NUM.Value,Fields!RESIDENT.Value,"dtFatcas")="1")),Chr(254),Chr(168))</Value>
+                                  <Value>=IIF(((Lookup(3,Fields!NUM.Value,Fields!CITIZEN.Value,"dtFatcas")="1")or(Lookup(3,Fields!NUM.Value,Fields!RESIDENT.Value,"dtFatcas")="1"))and (Fields!NO_OF_APPLICANTS.Value&gt;2),Chr(254),Chr(168))</Value>
                                   <Style>
                                     <FontStyle>Normal</FontStyle>
                                     <FontFamily>Wingdings</FontFamily>
@@ -37069,7 +37217,7 @@ E-mail   ______</Value>
                                   </Style>
                                 </TextRun>
                                 <TextRun>
-                                  <Value>=IIF(((Lookup(3,Fields!NUM.Value,Fields!CITIZEN.Value,"dtFatcas")&lt;&gt;"1")and(Lookup(3,Fields!NUM.Value,Fields!RESIDENT.Value,"dtFatcas")&lt;&gt;"1")),Chr(254),Chr(168))</Value>
+                                  <Value>=IIF(((Lookup(3,Fields!NUM.Value,Fields!CITIZEN.Value,"dtFatcas")&lt;&gt;"1")and(Lookup(3,Fields!NUM.Value,Fields!RESIDENT.Value,"dtFatcas")&lt;&gt;"1"))and (Fields!NO_OF_APPLICANTS.Value&gt;2),Chr(254),Chr(168))</Value>
                                   <Style>
                                     <FontStyle>Normal</FontStyle>
                                     <FontFamily>Wingdings</FontFamily>
@@ -37461,7 +37609,7 @@ E-mail   ______</Value>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=IIF(Lookup(2,Fields!NUM.Value,Fields!BIRTH_USA.Value,"dtFatcas")="1",Chr(254),Chr(168))</Value>
+                                  <Value>=IIF((Lookup(2,Fields!NUM.Value,Fields!BIRTH_USA.Value,"dtFatcas")="1")and (Fields!NO_OF_APPLICANTS.Value&gt;1),Chr(254),Chr(168))</Value>
                                   <Style>
                                     <FontStyle>Normal</FontStyle>
                                     <FontFamily>Wingdings</FontFamily>
@@ -37483,7 +37631,7 @@ E-mail   ______</Value>
                                   </Style>
                                 </TextRun>
                                 <TextRun>
-                                  <Value>=IIF(Lookup(2,Fields!NUM.Value,Fields!BIRTH_USA.Value,"dtFatcas")&lt;&gt;"1",Chr(254),Chr(168))</Value>
+                                  <Value>=IIF((Lookup(2,Fields!NUM.Value,Fields!BIRTH_USA.Value,"dtFatcas")&lt;&gt;"1")and (Fields!NO_OF_APPLICANTS.Value&gt;1),Chr(254),Chr(168))</Value>
                                   <Style>
                                     <FontStyle>Normal</FontStyle>
                                     <FontFamily>Wingdings</FontFamily>
@@ -37533,7 +37681,7 @@ E-mail   ______</Value>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=IIF(Lookup(3,Fields!NUM.Value,Fields!BIRTH_USA.Value,"dtFatcas")="1",Chr(254),Chr(168))</Value>
+                                  <Value>=IIF((Lookup(3,Fields!NUM.Value,Fields!BIRTH_USA.Value,"dtFatcas")="1")and (Fields!NO_OF_APPLICANTS.Value&gt;2),Chr(254),Chr(168))</Value>
                                   <Style>
                                     <FontStyle>Normal</FontStyle>
                                     <FontFamily>Wingdings</FontFamily>
@@ -37555,7 +37703,7 @@ E-mail   ______</Value>
                                   </Style>
                                 </TextRun>
                                 <TextRun>
-                                  <Value>=IIF(Lookup(3,Fields!NUM.Value,Fields!BIRTH_USA.Value,"dtFatcas")&lt;&gt;"1",Chr(254),Chr(168))</Value>
+                                  <Value>=IIF((Lookup(3,Fields!NUM.Value,Fields!BIRTH_USA.Value,"dtFatcas")&lt;&gt;"1")and (Fields!NO_OF_APPLICANTS.Value&gt;2),Chr(254),Chr(168))</Value>
                                   <Style>
                                     <FontStyle>Normal</FontStyle>
                                     <FontFamily>Wingdings</FontFamily>
@@ -37718,7 +37866,7 @@ E-mail   ______</Value>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=IIF(((Lookup(2,Fields!NUM.Value,Fields!ADDRESS_USA.Value,"dtFatcas")="1")or(Lookup(2,Fields!NUM.Value,Fields!USA_PHONE.Value,"dtFatcas")="1")),Chr(254),Chr(168))</Value>
+                                  <Value>=IIF(((Lookup(2,Fields!NUM.Value,Fields!ADDRESS_USA.Value,"dtFatcas")="1")or(Lookup(2,Fields!NUM.Value,Fields!USA_PHONE.Value,"dtFatcas")="1"))and (Fields!NO_OF_APPLICANTS.Value&gt;1),Chr(254),Chr(168))</Value>
                                   <Style>
                                     <FontStyle>Normal</FontStyle>
                                     <FontFamily>Wingdings</FontFamily>
@@ -37740,7 +37888,7 @@ E-mail   ______</Value>
                                   </Style>
                                 </TextRun>
                                 <TextRun>
-                                  <Value>=IIF(((Lookup(2,Fields!NUM.Value,Fields!ADDRESS_USA.Value,"dtFatcas")&lt;&gt;"1")and(Lookup(2,Fields!NUM.Value,Fields!USA_PHONE.Value,"dtFatcas")&lt;&gt;"1")),Chr(254),Chr(168))</Value>
+                                  <Value>=IIF(((Lookup(2,Fields!NUM.Value,Fields!ADDRESS_USA.Value,"dtFatcas")&lt;&gt;"1")and(Lookup(2,Fields!NUM.Value,Fields!USA_PHONE.Value,"dtFatcas")&lt;&gt;"1"))and (Fields!NO_OF_APPLICANTS.Value&gt;1),Chr(254),Chr(168))</Value>
                                   <Style>
                                     <FontStyle>Normal</FontStyle>
                                     <FontFamily>Wingdings</FontFamily>
@@ -37790,7 +37938,7 @@ E-mail   ______</Value>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=IIF(((Lookup(3,Fields!NUM.Value,Fields!ADDRESS_USA.Value,"dtFatcas")="1")or(Lookup(3,Fields!NUM.Value,Fields!USA_PHONE.Value,"dtFatcas")="1")),Chr(254),Chr(168))</Value>
+                                  <Value>=IIF(((Lookup(3,Fields!NUM.Value,Fields!ADDRESS_USA.Value,"dtFatcas")="1")or(Lookup(3,Fields!NUM.Value,Fields!USA_PHONE.Value,"dtFatcas")="1"))and (Fields!NO_OF_APPLICANTS.Value&gt;2),Chr(254),Chr(168))</Value>
                                   <Style>
                                     <FontStyle>Normal</FontStyle>
                                     <FontFamily>Wingdings</FontFamily>
@@ -37812,7 +37960,7 @@ E-mail   ______</Value>
                                   </Style>
                                 </TextRun>
                                 <TextRun>
-                                  <Value>=IIF(((Lookup(3,Fields!NUM.Value,Fields!ADDRESS_USA.Value,"dtFatcas")&lt;&gt;"1")and(Lookup(3,Fields!NUM.Value,Fields!USA_PHONE.Value,"dtFatcas")&lt;&gt;"1")),Chr(254),Chr(168))</Value>
+                                  <Value>=IIF(((Lookup(3,Fields!NUM.Value,Fields!ADDRESS_USA.Value,"dtFatcas")&lt;&gt;"1")and(Lookup(3,Fields!NUM.Value,Fields!USA_PHONE.Value,"dtFatcas")&lt;&gt;"1"))and (Fields!NO_OF_APPLICANTS.Value&gt;2),Chr(254),Chr(168))</Value>
                                   <Style>
                                     <FontStyle>Normal</FontStyle>
                                     <FontFamily>Wingdings</FontFamily>
@@ -40369,7 +40517,7 @@ E-mail   ______</Value>
                                   </Style>
                                 </TextRun>
                                 <TextRun>
-                                  <Value>=IIF(((Lookup(2,Fields!NUM.Value,Fields!CITIZEN.Value,"dtFatcas")="1")or(Lookup(2,Fields!NUM.Value,Fields!RESIDENT.Value,"dtFatcas")="1")),Chr(254),Chr(168))</Value>
+                                  <Value>=IIF(((Lookup(2,Fields!NUM.Value,Fields!CITIZEN.Value,"dtFatcas")="1")or(Lookup(2,Fields!NUM.Value,Fields!RESIDENT.Value,"dtFatcas")="1"))and(Fields!NO_OF_APPLICANTS.Value&gt;1),Chr(254),Chr(168))</Value>
                                   <Style>
                                     <FontStyle>Normal</FontStyle>
                                     <FontFamily>Wingdings</FontFamily>
@@ -40418,7 +40566,7 @@ E-mail   ______</Value>
                                   </Style>
                                 </TextRun>
                                 <TextRun>
-                                  <Value>=IIF(((Lookup(3,Fields!NUM.Value,Fields!CITIZEN.Value,"dtFatcas")="1")or(Lookup(3,Fields!NUM.Value,Fields!RESIDENT.Value,"dtFatcas")="1")),Chr(254),Chr(168))</Value>
+                                  <Value>=IIF(((Lookup(3,Fields!NUM.Value,Fields!CITIZEN.Value,"dtFatcas")="1")or(Lookup(3,Fields!NUM.Value,Fields!RESIDENT.Value,"dtFatcas")="1"))and(Fields!NO_OF_APPLICANTS.Value&gt;2),Chr(254),Chr(168))</Value>
                                   <Style>
                                     <FontStyle>Normal</FontStyle>
                                     <FontFamily>Wingdings</FontFamily>
@@ -40654,7 +40802,7 @@ E-mail   ______</Value>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=IIF(((Lookup(2,Fields!NUM.Value,Fields!CITIZEN.Value,"dtFatcas")&lt;&gt;"1")or(Lookup(2,Fields!NUM.Value,Fields!RESIDENT.Value,"dtFatcas")&lt;&gt;"1")),Chr(254),Chr(168))</Value>
+                                  <Value>=IIF(((Lookup(2,Fields!NUM.Value,Fields!CITIZEN.Value,"dtFatcas")&lt;&gt;"1")and(Lookup(2,Fields!NUM.Value,Fields!RESIDENT.Value,"dtFatcas")&lt;&gt;"1"))and(Fields!NO_OF_APPLICANTS.Value&gt;1),Chr(254),Chr(168))</Value>
                                   <Style>
                                     <FontStyle>Normal</FontStyle>
                                     <FontFamily>Wingdings</FontFamily>
@@ -40703,7 +40851,7 @@ E-mail   ______</Value>
                                   </Style>
                                 </TextRun>
                                 <TextRun>
-                                  <Value>=IIF(((Lookup(3,Fields!NUM.Value,Fields!CITIZEN.Value,"dtFatcas")&lt;&gt;"1")or(Lookup(3,Fields!NUM.Value,Fields!RESIDENT.Value,"dtFatcas")&lt;&gt;"1")),Chr(254),Chr(168))</Value>
+                                  <Value>=IIF(((Lookup(3,Fields!NUM.Value,Fields!CITIZEN.Value,"dtFatcas")&lt;&gt;"1")and(Lookup(3,Fields!NUM.Value,Fields!RESIDENT.Value,"dtFatcas")&lt;&gt;"1"))and(Fields!NO_OF_APPLICANTS.Value&gt;2),Chr(254),Chr(168))</Value>
                                   <Style>
                                     <FontStyle>Normal</FontStyle>
                                     <FontFamily>Wingdings</FontFamily>

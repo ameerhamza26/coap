@@ -351,6 +351,7 @@ namespace CAOP
 
 
 
+
                     ReportViewer1.LocalReport.Refresh();
                 }
                 else if (AccountType == 2)

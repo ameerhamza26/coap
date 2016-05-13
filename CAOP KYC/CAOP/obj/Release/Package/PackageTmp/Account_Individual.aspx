@@ -280,7 +280,7 @@
 
                         <div class="form-group">
                             <label class="lblReview">Account Title: *</label>
-                            <asp:TextBox ID="AcAccountTitle" ClientIDMode="Static" CssClass="form-control" runat="server"></asp:TextBox>
+                            <asp:TextBox ID="AcAccountTitle" ClientIDMode="Static" CssClass="form-control" runat="server" MaxLength="40"></asp:TextBox>
                             <asp:RequiredFieldValidator Display="Dynamic" ID="AcValidatorAccountTitle" runat="server" ForeColor="Red" Font-Bold="true" ValidationGroup="AcValidationGroup" ControlToValidate="AcAccountTitle" ErrorMessage="Account Title is Required"></asp:RequiredFieldValidator>
 
                         </div>

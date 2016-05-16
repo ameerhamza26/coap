@@ -16077,7 +16077,29 @@
                                   </Style>
                                 </TextRun>
                                 <TextRun>
-                                  <Value>(Please mention)_______________</Value>
+                                  <Value>(Please mention)____</Value>
+                                  <Style>
+                                    <FontStyle>Italic</FontStyle>
+                                    <FontFamily>Jameel Noori Nastaleeq</FontFamily>
+                                    <FontSize>8pt</FontSize>
+                                    <FontWeight>Normal</FontWeight>
+                                    <TextDecoration>None</TextDecoration>
+                                    <Color>#000000</Color>
+                                  </Style>
+                                </TextRun>
+                                <TextRun>
+                                  <Value>=IIF(Fields!EmploymentDetail.Value="999",Fields!EMPLOYMENT_DETAIL_OTHER_DESCRIPTION.Value,"")</Value>
+                                  <Style>
+                                    <FontStyle>Normal</FontStyle>
+                                    <FontFamily>Calibri</FontFamily>
+                                    <FontSize>8pt</FontSize>
+                                    <FontWeight>Normal</FontWeight>
+                                    <TextDecoration>Underline</TextDecoration>
+                                    <Color>#000000</Color>
+                                  </Style>
+                                </TextRun>
+                                <TextRun>
+                                  <Value>_____</Value>
                                   <Style>
                                     <FontStyle>Italic</FontStyle>
                                     <FontFamily>Jameel Noori Nastaleeq</FontFamily>
@@ -24707,7 +24729,29 @@ E-mail   __</Value>
                                   </Style>
                                 </TextRun>
                                 <TextRun>
-                                  <Value>(Please mention)_______________</Value>
+                                  <Value>(Please mention)____</Value>
+                                  <Style>
+                                    <FontStyle>Italic</FontStyle>
+                                    <FontFamily>Jameel Noori Nastaleeq</FontFamily>
+                                    <FontSize>8pt</FontSize>
+                                    <FontWeight>Normal</FontWeight>
+                                    <TextDecoration>None</TextDecoration>
+                                    <Color>#000000</Color>
+                                  </Style>
+                                </TextRun>
+                                <TextRun>
+                                  <Value>=IIF(Lookup(1,Fields!NUM.Value,Fields!EmploymentDetail.Value,"dsCIFOthers")="999",Lookup(1,Fields!NUM.Value,Fields!EMPLOYMENT_DETAIL_OTHER_DESCRIPTION.Value,"dsCIFOthers"),"")</Value>
+                                  <Style>
+                                    <FontStyle>Normal</FontStyle>
+                                    <FontFamily>Calibri</FontFamily>
+                                    <FontSize>8pt</FontSize>
+                                    <FontWeight>Normal</FontWeight>
+                                    <TextDecoration>Underline</TextDecoration>
+                                    <Color>#000000</Color>
+                                  </Style>
+                                </TextRun>
+                                <TextRun>
+                                  <Value>___________</Value>
                                   <Style>
                                     <FontStyle>Italic</FontStyle>
                                     <FontFamily>Jameel Noori Nastaleeq</FontFamily>
@@ -31271,7 +31315,29 @@ E-mail   ______</Value>
                                   </Style>
                                 </TextRun>
                                 <TextRun>
-                                  <Value>(Please mention)_______________</Value>
+                                  <Value>(Please mention)___</Value>
+                                  <Style>
+                                    <FontStyle>Italic</FontStyle>
+                                    <FontFamily>Jameel Noori Nastaleeq</FontFamily>
+                                    <FontSize>8pt</FontSize>
+                                    <FontWeight>Normal</FontWeight>
+                                    <TextDecoration>None</TextDecoration>
+                                    <Color>#000000</Color>
+                                  </Style>
+                                </TextRun>
+                                <TextRun>
+                                  <Value>=IIF(Lookup(2,Fields!NUM.Value,Fields!EmploymentDetail.Value,"dsCIFOthers")="999",Lookup(2,Fields!NUM.Value,Fields!EMPLOYMENT_DETAIL_OTHER_DESCRIPTION.Value,"dsCIFOthers"),"")</Value>
+                                  <Style>
+                                    <FontStyle>Normal</FontStyle>
+                                    <FontFamily>Calibri</FontFamily>
+                                    <FontSize>8pt</FontSize>
+                                    <FontWeight>Normal</FontWeight>
+                                    <TextDecoration>Underline</TextDecoration>
+                                    <Color>#000000</Color>
+                                  </Style>
+                                </TextRun>
+                                <TextRun>
+                                  <Value>____________</Value>
                                   <Style>
                                     <FontStyle>Italic</FontStyle>
                                     <FontFamily>Jameel Noori Nastaleeq</FontFamily>
@@ -42464,7 +42530,7 @@ E-mail   ______</Value>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>    Compliance Officer’s  Name: ___________________________ Signature _________________________  Date ___________________________</Value>
+                                  <Value>    Branch Manager’s  Name: ___________________________ Signature _________________________  Date ___________________________</Value>
                                   <Style>
                                     <FontStyle>Normal</FontStyle>
                                     <FontFamily>Calibri</FontFamily>

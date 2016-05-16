@@ -136,10 +136,11 @@
       <DependentUpon>dsAOF.xsd</DependentUpon>
     </Content>
     <Content Include="AOF\Report.rdlc" />
+    <Content Include="AOF\AOFBusiness.rdlc" />
+    <Content Include="AOF\AOFIndividual.rdlc" />
     <Content Include="AOF\AOFDataSet.xsc">
       <DependentUpon>AOFDataSet.xsd</DependentUpon>
     </Content>
-    <Content Include="AOF\AOFBusiness.rdlc" />
     <None Include="AOF\AOFDataSet.xsd">
       <Generator>MSDataSetGenerator</Generator>
       <LastGenOutput>AOFDataSet.Designer.cs</LastGenOutput>
@@ -148,7 +149,6 @@
     <Content Include="AOF\AOFDataSet.xss">
       <DependentUpon>AOFDataSet.xsd</DependentUpon>
     </Content>
-    <Content Include="AOF\AOFIndividual.rdlc" />
     <None Include="DataSets\dsAOF.xsd">
       <Generator>MSDataSetGenerator</Generator>
       <LastGenOutput>dsAOF.Designer.cs</LastGenOutput>

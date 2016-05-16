@@ -349,9 +349,6 @@ namespace CAOP
                     ReportViewer1.LocalReport.DataSources.Add(new ReportDataSource("dsCIFOthers", ds.Tables[4]));
                     ReportViewer1.LocalReport.DataSources.Add(new ReportDataSource("dtFatcas", ds.Tables[5]));
 
-
-
-
                     ReportViewer1.LocalReport.Refresh();
                 }
                 else if (AccountType == 2)

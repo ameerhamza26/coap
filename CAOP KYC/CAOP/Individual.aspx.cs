@@ -1589,7 +1589,8 @@ namespace CAOP
             I1.OTHER_IDENTITY_ISSUE_DATE = OiDateIssue2.Text;
             I1.PLACE_ISSUE = OiPlaceOfIssue.Text;
             I1.OTHER_IDENTITY_EXPIRY_DATE = OiExpDate2.Text;
-            I1.COUNTRY_ISSUE_CNIC = new Country() { ID = Convert.ToInt32(OiListICIssue.SelectedValue) };
+            I1.COUNTRY_ISSUE_CNIC = new Country() { ID = ListExtensions.getSelectedValue(OiListICIssue), Name = OiListICIssue.SelectedItem.Text };
+
             I1.PLACE_ISSUE_CNIC = OiTxtPlaceIssueCnic.Text;
 
             I1.SaveIdentity();
@@ -2238,7 +2239,7 @@ namespace CAOP
             I1.OTHER_IDENTITY_ISSUE_DATE = OiDateIssue2.Text;
             I1.PLACE_ISSUE = OiPlaceOfIssue.Text;
             I1.OTHER_IDENTITY_EXPIRY_DATE = OiExpDate2.Text;
-            I1.COUNTRY_ISSUE_CNIC = new Country() { ID = Convert.ToInt32(I1.COUNTRY_ISSUE_CNIC) };
+            I1.COUNTRY_ISSUE_CNIC = new Country() { ID = ListExtensions.getSelectedValue(OiListICIssue), Name = OiListICIssue.SelectedItem.Text };
             I1.PLACE_ISSUE_CNIC = OiTxtPlaceIssueCnic.Text;
             I1.UpdateIdentity();
         }
@@ -2426,6 +2427,7 @@ namespace CAOP
             m.LIABILITIES = MiLiabilities.Text;
             m.NET_WORTH = MiNetWorth.Text;
             m.MiscellaneousInfoCountryTax = MiListCountryOfTax.Items.Cast<ListItem>().Where(i => i.Selected == true).Select(i => new Country { ID = Convert.ToInt32(i.Value), Name = i.Text }).ToList();
+
             m.UpdateIndividualMiscellaneousInfo();
         }
 

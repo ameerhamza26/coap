@@ -69,7 +69,7 @@
 
                         <div class="form-group">
                             <label  class="lblReview">Company / Business / Govt. Office Name: *</label>
-                            <asp:TextBox ID="BiCompany" ClientIDMode="Static" CssClass="form-control" runat="server"></asp:TextBox>
+                            <asp:TextBox ID="BiCompany" ClientIDMode="Static" CssClass="form-control" runat="server" MaxLength="40"></asp:TextBox>
                             <asp:RequiredFieldValidator Display="Dynamic" ID="BiRequiredFieldValidatorCompany" ValidationGroup="BiValidationGroup" runat="server" ControlToValidate="BiCompany" ForeColor="Red" Font-Bold="true" ErrorMessage="This Field is Required"></asp:RequiredFieldValidator>
                         </div>
 
@@ -94,7 +94,7 @@
 
                         <div class="form-group">
                             <label  class="lblReview">Registration No: *</label>
-                            <asp:TextBox ID="BiRegistrationNo" ClientIDMode="Static" AutoPostBack="true" CssClass="form-control" runat="server" OnTextChanged="BiRegistrationNo_TextChanged"></asp:TextBox>                                                     
+                            <asp:TextBox ID="BiRegistrationNo" MaxLength="15" ClientIDMode="Static" AutoPostBack="true" CssClass="form-control" runat="server" OnTextChanged="BiRegistrationNo_TextChanged"></asp:TextBox>                                                     
 							 <asp:RequiredFieldValidator  Display="Dynamic" ID="RequiredFieldValidatorReg" ValidationGroup="BiValidationGroup" runat="server" ControlToValidate="BiRegistrationNo" ForeColor="Red" Font-Bold="true" ErrorMessage="Registration No is Required"></asp:RequiredFieldValidator>
 							</ContentTemplate>
                             <%--<Triggers>

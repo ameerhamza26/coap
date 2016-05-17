@@ -56,5 +56,7 @@ namespace DAL
         public string PEDT { get; set; }
         public string NOCT { get; set; }
         public string PECT { get; set; }
+        public Nullable<int> RAC { get; set; }
+        public string RAC_DETAIL { get; set; }
     }
 }

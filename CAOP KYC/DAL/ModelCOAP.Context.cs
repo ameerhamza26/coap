@@ -22,7 +22,6 @@ namespace DAL
         public virtual DbSet<ACCOUNT_CONTACT_INFO> ACCOUNT_CONTACT_INFO { get; set; }
         public virtual DbSet<ACCOUNT_DELTE_LOG> ACCOUNT_DELTE_LOG { get; set; }
         public virtual DbSet<ACCOUNT_GROUP> ACCOUNT_GROUP { get; set; }
-        public virtual DbSet<ACCOUNT_MODES> ACCOUNT_MODES { get; set; }
         public virtual DbSet<ACCOUNT_NATURE_CURRENCY> ACCOUNT_NATURE_CURRENCY { get; set; }
         public virtual DbSet<ACCOUNT_OPEN_TYPE> ACCOUNT_OPEN_TYPE { get; set; }
         public virtual DbSet<ACCOUNT_REVIEW> ACCOUNT_REVIEW { get; set; }
@@ -120,6 +119,7 @@ namespace DAL
         public virtual DbSet<PROVINCES> PROVINCES { get; set; }
         public virtual DbSet<PURPOSE_OF_ACCOUNT> PURPOSE_OF_ACCOUNT { get; set; }
         public virtual DbSet<REAL_BENEFICIARY_ACCOUNT> REAL_BENEFICIARY_ACCOUNT { get; set; }
+        public virtual DbSet<REASON_ACCOUNT_OPENING> REASON_ACCOUNT_OPENING { get; set; }
         public virtual DbSet<REGIONS> REGIONS { get; set; }
         public virtual DbSet<RELATIONSHIP> RELATIONSHIP { get; set; }
         public virtual DbSet<RELIGIONS> RELIGIONS { get; set; }
@@ -154,5 +154,6 @@ namespace DAL
         public virtual DbSet<EXPECTED_COUNTER_PARTIES> EXPECTED_COUNTER_PARTIES { get; set; }
         public virtual DbSet<GEOGRAPHIES_COUNTER_PARTIES> GEOGRAPHIES_COUNTER_PARTIES { get; set; }
         public virtual DbSet<PURPOSE_OF_ACCOUNT_BUSINESS> PURPOSE_OF_ACCOUNT_BUSINESS { get; set; }
+        public virtual DbSet<ACCOUNT_MODES> ACCOUNT_MODES { get; set; }
     }
 }

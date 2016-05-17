@@ -1003,6 +1003,8 @@ warning 6002: The table/view 'AOS.dbo.GEOGRAPHIES_COUNTER_PARTIES' does not have
     <Property Name="PEDT" Type="varchar" MaxLength="30" />
     <Property Name="NOCT" Type="varchar" MaxLength="30" />
     <Property Name="PECT" Type="varchar" MaxLength="30" />
+    <Property Name="RAC" Type="int" />
+    <Property Name="RAC_DETAIL" Type="nvarchar" MaxLength="500" />
   </EntityType>
   <EntityType Name="KNOW_YOUR_CUSTOMER_RELATIONSHIP">
     <Key>
@@ -1308,6 +1310,13 @@ warning 6002: The table/view 'AOS.dbo.PURPOSE_OF_ACCOUNT_BUSINESS' does not have
     <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="NAME" Type="nvarchar" MaxLength="50" />
   </EntityType>
+  <EntityType Name="REASON_ACCOUNT_OPENING">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="200" />
+  </EntityType>
   <EntityType Name="REGIONS">
     <Key>
       <PropertyRef Name="REGION_ID" />
@@ -1563,19 +1572,7 @@ warning 6013: The table/view 'AOS.dbo.TEMP_SRVC' does not have a primary key def
     <Property Name="ID" Type="int" Nullable="false" />
     <Property Name="NAME" Type="nvarchar" MaxLength="50" />
   </EntityType>
-  <Association Name="FK__BRANCHES__REGION__13F1F5EB">
-    <End Role="REGIONS" Type="Self.REGIONS" Multiplicity="1" />
-    <End Role="BRANCHES" Type="Self.BRANCHES" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="REGIONS">
-        <PropertyRef Name="REGION_ID" />
-      </Principal>
-      <Dependent Role="BRANCHES">
-        <PropertyRef Name="REGION_ID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK__USERS_PER__USER___14E61A24">
+  <Association Name="FK__USERS_PER__USER___73BA3083">
     <End Role="USERS" Type="Self.USERS" Multiplicity="1" />
     <End Role="USERS_PERMISSIONS" Type="Self.USERS_PERMISSIONS" Multiplicity="*" />
     <ReferentialConstraint>
@@ -1587,7 +1584,7 @@ warning 6013: The table/view 'AOS.dbo.TEMP_SRVC' does not have a primary key def
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__USERS_ROL__USER___15DA3E5D">
+  <Association Name="FK__USERS_ROL__USER___74AE54BC">
     <End Role="USERS" Type="Self.USERS" Multiplicity="1" />
     <End Role="USERS_ROLES" Type="Self.USERS_ROLES" Multiplicity="*" />
     <ReferentialConstraint>
@@ -1704,6 +1701,7 @@ warning 6013: The table/view 'AOS.dbo.TEMP_SRVC' does not have a primary key def
     <EntitySet Name="PROVINCES" EntityType="Self.PROVINCES" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="PURPOSE_OF_ACCOUNT" EntityType="Self.PURPOSE_OF_ACCOUNT" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="REAL_BENEFICIARY_ACCOUNT" EntityType="Self.REAL_BENEFICIARY_ACCOUNT" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="REASON_ACCOUNT_OPENING" EntityType="Self.REASON_ACCOUNT_OPENING" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="REGIONS" EntityType="Self.REGIONS" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="RELATIONSHIP" EntityType="Self.RELATIONSHIP" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="RELIGIONS" EntityType="Self.RELIGIONS" Schema="dbo" store:Type="Tables" />
@@ -1768,15 +1766,11 @@ warning 6013: The table/view 'AOS.dbo.TEMP_SRVC' does not have a primary key def
     [PURPOSE_OF_ACCOUNT_BUSINESS].[NAME] AS [NAME]
     FROM [dbo].[PURPOSE_OF_ACCOUNT_BUSINESS] AS [PURPOSE_OF_ACCOUNT_BUSINESS]</DefiningQuery>
     </EntitySet>
-    <AssociationSet Name="FK__BRANCHES__REGION__13F1F5EB" Association="Self.FK__BRANCHES__REGION__13F1F5EB">
-      <End Role="REGIONS" EntitySet="REGIONS" />
-      <End Role="BRANCHES" EntitySet="BRANCHES" />
-    </AssociationSet>
-    <AssociationSet Name="FK__USERS_PER__USER___14E61A24" Association="Self.FK__USERS_PER__USER___14E61A24">
+    <AssociationSet Name="FK__USERS_PER__USER___73BA3083" Association="Self.FK__USERS_PER__USER___73BA3083">
       <End Role="USERS" EntitySet="USERS" />
       <End Role="USERS_PERMISSIONS" EntitySet="USERS_PERMISSIONS" />
     </AssociationSet>
-    <AssociationSet Name="FK__USERS_ROL__USER___15DA3E5D" Association="Self.FK__USERS_ROL__USER___15DA3E5D">
+    <AssociationSet Name="FK__USERS_ROL__USER___74AE54BC" Association="Self.FK__USERS_ROL__USER___74AE54BC">
       <End Role="USERS" EntitySet="USERS" />
       <End Role="USERS_ROLES" EntitySet="USERS_ROLES" />
     </AssociationSet>

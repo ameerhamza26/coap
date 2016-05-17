@@ -96,18 +96,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="ACCOUNT_MODES">
-      <EntityTypeMapping TypeName="AOSModel.ACCOUNT_MODES">
-        <MappingFragment StoreEntitySet="ACCOUNT_MODES">
-          <ScalarProperty Name="ID" ColumnName="ID" />
-          <ScalarProperty Name="NAME" ColumnName="NAME" />
-          <ScalarProperty Name="GRP" ColumnName="GRP" />
-          <ScalarProperty Name="PROFILECODE" ColumnName="PROFILECODE" />
-          <ScalarProperty Name="TYPE" ColumnName="TYPE" />
-          <ScalarProperty Name="CATEGORY" ColumnName="CATEGORY" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="ACCOUNT_NATURE_CURRENCY">
       <EntityTypeMapping TypeName="AOSModel.ACCOUNT_NATURE_CURRENCY">
         <MappingFragment StoreEntitySet="ACCOUNT_NATURE_CURRENCY">
@@ -1008,6 +996,8 @@
           <ScalarProperty Name="PEDT" ColumnName="PEDT" />
           <ScalarProperty Name="NOCT" ColumnName="NOCT" />
           <ScalarProperty Name="PECT" ColumnName="PECT" />
+          <ScalarProperty Name="RAC" ColumnName="RAC" />
+          <ScalarProperty Name="RAC_DETAIL" ColumnName="RAC_DETAIL" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -1335,6 +1325,14 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="REASON_ACCOUNT_OPENING">
+      <EntityTypeMapping TypeName="AOSModel.REASON_ACCOUNT_OPENING">
+        <MappingFragment StoreEntitySet="REASON_ACCOUNT_OPENING">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="REGIONS">
       <EntityTypeMapping TypeName="AOSModel.REGIONS">
         <MappingFragment StoreEntitySet="REGIONS">
@@ -1594,13 +1592,13 @@
     <EntitySetMapping Name="WHO_AUTHORIZED">
       <EntityTypeMapping TypeName="AOSModel.WHO_AUTHORIZED">
         <MappingFragment StoreEntitySet="WHO_AUTHORIZED">
-          <ScalarProperty Name="IDENTITY_NO" ColumnName="IDENTITY_NO" />
-          <ScalarProperty Name="NAME" ColumnName="NAME" />
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="CIF_NO" ColumnName="CIF_NO" />
           <ScalarProperty Name="REFERENCE_DOCUMENT_NO" ColumnName="REFERENCE_DOCUMENT_NO" />
           <ScalarProperty Name="REFERENCE_DOCUMENT_DATE" ColumnName="REFERENCE_DOCUMENT_DATE" />
           <ScalarProperty Name="BI_ID" ColumnName="BI_ID" />
+          <ScalarProperty Name="NAME" ColumnName="NAME" />
+          <ScalarProperty Name="IDENTITY_NO" ColumnName="IDENTITY_NO" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -1657,6 +1655,18 @@
         <MappingFragment StoreEntitySet="PURPOSE_OF_ACCOUNT_BUSINESS">
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="NAME" ColumnName="NAME" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ACCOUNT_MODES">
+      <EntityTypeMapping TypeName="AOSModel.ACCOUNT_MODES">
+        <MappingFragment StoreEntitySet="ACCOUNT_MODES">
+          <ScalarProperty Name="CATEGORY" ColumnName="CATEGORY" />
+          <ScalarProperty Name="TYPE" ColumnName="TYPE" />
+          <ScalarProperty Name="PROFILECODE" ColumnName="PROFILECODE" />
+          <ScalarProperty Name="GRP" ColumnName="GRP" />
+          <ScalarProperty Name="NAME" ColumnName="NAME" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

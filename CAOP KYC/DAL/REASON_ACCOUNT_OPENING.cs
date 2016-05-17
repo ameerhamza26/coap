@@ -12,14 +12,9 @@ namespace DAL
     using System;
     using System.Collections.Generic;
     
-    public partial class BRANCHES
+    public partial class REASON_ACCOUNT_OPENING
     {
-        public int BRANCH_ID { get; set; }
-        public int REGION_ID { get; set; }
-        public string NAME { get; set; }
-        public string BRANCH_CODE { get; set; }
-        public Nullable<int> CATEGORY_ID { get; set; }
-        public string AREA { get; set; }
-        public string ServiceCenterCode { get; set; }
+        public int ID { get; set; }
+        public string Name { get; set; }
     }
 }

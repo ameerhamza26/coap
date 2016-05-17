@@ -1202,6 +1202,17 @@
                             <asp:DropDownList ID="KnListSourceOfFund" ClientIDMode="Static" CssClass="form-control" runat="server" ></asp:DropDownList>
                              <asp:RequiredFieldValidator Enabled="false" InitialValue="0" Display="Dynamic" ID="RequiredFieldValidatorBSOF" ControlToValidate="KnListSourceOfFund" Font-Bold="true" ForeColor="Red" runat="server" ValidationGroup="KnValidationGroup" ErrorMessage="Source of Fund is Required" ></asp:RequiredFieldValidator>
                        </div>
+
+                       <div class="form-group">
+                            <label class="lblRAC">Reason of Opening Account with NBP: *</label>
+                            <asp:DropDownList ID="KnListRAC"  ClientIDMode="Static" CssClass="form-control" runat="server" AutoPostBack="true" OnSelectedIndexChanged="KnListRAC_SelectedIndexChanged"></asp:DropDownList>
+                             <asp:RequiredFieldValidator InitialValue="0" Display="Dynamic" ID="RequiredFieldValidatorRAC" ControlToValidate="KnListRAC" Font-Bold="true" ForeColor="Red" runat="server" ValidationGroup="KnValidationGroup" ErrorMessage="Reason of Opening Account with NBP is Required" ></asp:RequiredFieldValidator>
+                        </div>
+                        <div class="form-group">
+                            <label class="lblTxtRAC">Details (If Other):</label>
+                            <asp:TextBox ID="knTextRACDetail" ClientIDMode="Static" CssClass="form-control" runat="server" ></asp:TextBox>
+                             <asp:RequiredFieldValidator Enabled="false" Display="Dynamic" ID="RequiredFieldValidatorRACDetail" ControlToValidate="knTextRACDetail" Font-Bold="true" ForeColor="Red" runat="server" ValidationGroup="KnValidationGroup" ErrorMessage="Detail is Required"></asp:RequiredFieldValidator>
+                        </div>
                       
                       
                         

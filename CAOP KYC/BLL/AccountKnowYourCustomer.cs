@@ -14,6 +14,10 @@ namespace BLL
         public Nullable<int> BI_ID { get; set; }
         public CustomerType CUSTOMER_TYPE { get; set; }
         public string DESCRIPTION_IF_REFFERED { get; set; }
+
+        public Reason_Account_Opening RAC { get; set; }
+        public string RAC_DETAIL { get; set; }
+
         public Education EDUCATION { get; set; }
       //  public PurposeOfAccount PURPOSE_OF_ACCOUNT { get; set; }
 
@@ -72,6 +76,8 @@ namespace BLL
                 KNOW_YOUR_CUSTOMER k = new KNOW_YOUR_CUSTOMER();             
                 k.BI_ID = this.BI_ID;
                 k.CUSTOMER_TYPE = this.CUSTOMER_TYPE.ID;
+                k.RAC = this.RAC.ID;
+                k.RAC_DETAIL = this.RAC_DETAIL;
                 k.DESCRIPTION_IF_REFFERED = this.DESCRIPTION_IF_REFFERED;
                 k.EDUCATION = this.EDUCATION.ID;
               //  k.PURPOSE_OF_ACCOUNT = this.PURPOSE_OF_ACCOUNT.ID;
@@ -168,6 +174,8 @@ namespace BLL
                 KNOW_YOUR_CUSTOMER k = new KNOW_YOUR_CUSTOMER();
                 k.BI_ID = this.BI_ID;
                 k.CUSTOMER_TYPE = this.CUSTOMER_TYPE.ID;
+                k.RAC = this.RAC.ID;
+                k.RAC_DETAIL = this.RAC_DETAIL;
                 k.DESCRIPTION_IF_REFFERED = this.DESCRIPTION_IF_REFFERED;
                 k.EDUCATION = this.EDUCATION.ID;
                 k.DESCRIPTION_IF_OTHER = this.DESCRIPTION_IF_OTHER;
@@ -267,6 +275,8 @@ namespace BLL
                 KNOW_YOUR_CUSTOMER k = db.KNOW_YOUR_CUSTOMER.FirstOrDefault(b => b.BI_ID == this.BI_ID);
              
                 k.CUSTOMER_TYPE = this.CUSTOMER_TYPE.ID;
+                k.RAC = this.RAC.ID;
+                k.RAC_DETAIL = this.RAC_DETAIL;
                 k.DESCRIPTION_IF_REFFERED = this.DESCRIPTION_IF_REFFERED;
                 k.EDUCATION = this.EDUCATION.ID;
              //   k.PURPOSE_OF_ACCOUNT = this.PURPOSE_OF_ACCOUNT.ID;
@@ -368,6 +378,8 @@ namespace BLL
                 KNOW_YOUR_CUSTOMER k = db.KNOW_YOUR_CUSTOMER.FirstOrDefault(b => b.BI_ID == this.BI_ID);
 
                 k.CUSTOMER_TYPE = this.CUSTOMER_TYPE.ID;
+                k.RAC = this.RAC.ID;
+                k.RAC_DETAIL = this.RAC_DETAIL;
                 k.DESCRIPTION_IF_REFFERED = this.DESCRIPTION_IF_REFFERED;
                 k.EDUCATION = this.EDUCATION.ID;
                 k.DESCRIPTION_IF_OTHER = this.DESCRIPTION_IF_OTHER;
@@ -473,6 +485,8 @@ namespace BLL
                     var a = db.KNOW_YOUR_CUSTOMER.FirstOrDefault(c => c.BI_ID == id);
                     this.BI_ID = a.BI_ID;
                     this.CUSTOMER_TYPE = new CustomerType { ID = (int)a.CUSTOMER_TYPE };
+                    this.RAC = new Reason_Account_Opening { ID = (int?)a.RAC };
+                    this.RAC_DETAIL = a.RAC_DETAIL;
                     this.DESCRIPTION_IF_REFFERED = a.DESCRIPTION_IF_REFFERED;
                     this.EDUCATION = new Education { ID = (int)a.EDUCATION };
                   //  this.PURPOSE_OF_ACCOUNT = new PurposeOfAccount { ID = (int)a.PURPOSE_OF_ACCOUNT };

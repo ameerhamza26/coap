@@ -328,6 +328,13 @@ namespace CAOP
             PrimaryDocumentType pDoc = new PrimaryDocumentType();
             ExpectedCounterParties ECP = new ExpectedCounterParties();
             GeographiesCounterParties GCP = new GeographiesCounterParties();
+            Reason_Account_Opening rac = new Reason_Account_Opening();
+
+            KnListRAC.DataSource = rac.GetReason_Account_OpeningTypes();
+            KnListRAC.DataValueField = "ID";
+            KnListRAC.DataTextField = "Name";
+            KnListRAC.DataBind();
+            KnListRAC.Items.Insert(0, new ListItem("Select", "0"));
 
             KnListCustomerType.DataSource = c.GetCustomerType();
             KnListCustomerType.DataValueField = "ID";
@@ -800,6 +807,8 @@ namespace CAOP
             if (a.GetKnowYourCustomer(id))
             {
                 ListExtensions.SetDropdownValue(a.CUSTOMER_TYPE.ID, KnListCustomerType);
+                ListExtensions.SetDropdownValue(a.RAC.ID, KnListRAC);
+                knTextRACDetail.Text = a.RAC_DETAIL;
                 KnDescrIfRefered.Text = a.DESCRIPTION_IF_REFFERED;
                 ListExtensions.SetDropdownValue(a.EDUCATION.ID, KnListEducation);
               //  ListExtensions.SetDropdownValue(a.PURPOSE_OF_ACCOUNT.ID, KnListPurposeOfAccount);
@@ -854,6 +863,54 @@ namespace CAOP
                 KnDetailNotSatis.Text = a.DETAIL_IF_NOT_SATISFACTORY;
                 ListExtensions.SetDropdownValue(a.COUNTRY_HOME_REMITTANCE.ID, KnListCountHomeRemit);
                 ListExtensions.SetDropdownValue(a.REAL_BENEFICIARY_ACCOUNT.ID, KnListRealBenef);
+                if (KnListRealBenef.SelectedItem.Text == "OTHER")
+                {
+                    RequiredFieldValidatorBName.Enabled = true;
+                    RequiredFieldValidatorRelaWithAcc.Enabled = true;
+                    RequiredFieldValidatorBAddress.Enabled = true;
+                    RequiredFieldValidatorNationality.Enabled = true;
+                    RequiredFieldValidatorKnResidence.Enabled = true;
+                    RequiredFieldValidatorDocType.Enabled = true;
+                    RequiredFieldValidatorIdNumber.Enabled = true;
+                    RequiredFieldValidatorExpiry.Enabled = true;
+                    RequiredFieldValidatorBSOF.Enabled = true;
+                    KnNameOther.Enabled = true;
+                    KnListRelationAccountHolder.Enabled = true;
+                    KntxtAddress.Enabled = true;
+                    knNationality.Enabled = true;
+                    knListResidence.Enabled = true;
+                    KnTxtResOther.Enabled = true;
+                    knListDocType.Enabled = true;
+                    KnCnicOther.Enabled = true;
+                    KntxtExpiry.Enabled = true;
+                    KnListSourceOfFund.Enabled = true;
+                }
+                else
+                {
+
+                    RequiredFieldValidatorBName.Enabled = false;
+                    RequiredFieldValidatorRelaWithAcc.Enabled = false;
+                    RequiredFieldValidatorBAddress.Enabled = false;
+                    RequiredFieldValidatorNationality.Enabled = false;
+                    RequiredFieldValidatorKnResidence.Enabled = false;
+                    RequiredFieldValidatorDescResi.Enabled = false;
+                    RequiredFieldValidatorDocType.Enabled = false;
+                    RequiredFieldValidatorIdNumber.Enabled = false;
+                    RequiredFieldValidatorExpiry.Enabled = false;
+                    RequiredFieldValidatorBSOF.Enabled = false;
+                    KnNameOther.Enabled = false;
+                    KnListRelationAccountHolder.Enabled = false;
+                    KntxtAddress.Enabled = false;
+                    knNationality.Enabled = false;
+                    knListResidence.Enabled = false;
+                    KnTxtResOther.Enabled = false;
+                    knListDocType.Enabled = false;
+                    KnCnicOther.Enabled = false;
+                    KntxtExpiry.Enabled = false;
+                    KnListSourceOfFund.Enabled = false;
+
+
+                }
                 KnNameOther.Text = a.NAME_OTHER;
                 KnCnicOther.Text = a.CNIC_OTHER;
                 ListExtensions.SetDropdownValue(a.RELATIONSHIP_WITH_ACCOUNTHOLDER.ID, KnListRelationAccountHolder);
@@ -1842,6 +1899,8 @@ namespace CAOP
             AccountKnowYourCustomer a = new AccountKnowYourCustomer();
             a.BI_ID = Convert.ToInt32(Session["BID"]);
             a.CUSTOMER_TYPE = new CustomerType() { ID = Convert.ToInt32(KnListCustomerType.SelectedItem.Value), NAME = KnListCustomerType.SelectedItem.Text };
+            a.RAC = new Reason_Account_Opening() { ID = Convert.ToInt32(KnListRAC.SelectedItem.Value), Name = KnListRAC.SelectedItem.Text };
+            a.RAC_DETAIL = knTextRACDetail.Text;
             a.DESCRIPTION_IF_REFFERED = KnDescrIfRefered.Text;
             a.EDUCATION = new Education() { ID = Convert.ToInt32(KnListEducation.SelectedItem.Value), Name = KnListEducation.SelectedItem.Text };
            // a.PURPOSE_OF_ACCOUNT = new PurposeOfAccount() { ID = Convert.ToInt32(KnListPurposeOfAccount.SelectedItem.Value), NAME = KnListPurposeOfAccount.SelectedItem.Text };
@@ -2488,6 +2547,8 @@ namespace CAOP
             AccountKnowYourCustomer a = new AccountKnowYourCustomer();
             a.BI_ID = Convert.ToInt32(Session["BID"]);
             a.CUSTOMER_TYPE = new CustomerType() { ID = Convert.ToInt32(KnListCustomerType.SelectedItem.Value), NAME = KnListCustomerType.SelectedItem.Text };
+            a.RAC = new Reason_Account_Opening() { ID = Convert.ToInt32(KnListRAC.SelectedItem.Value), Name = KnListRAC.SelectedItem.Text };
+            a.RAC_DETAIL = knTextRACDetail.Text;
             a.DESCRIPTION_IF_REFFERED = KnDescrIfRefered.Text;
             a.EDUCATION = new Education() { ID = Convert.ToInt32(KnListEducation.SelectedItem.Value), Name = KnListEducation.SelectedItem.Text };
             a.PURPOSE_OF_ACCOUNT = KnListPurposeOfAccount.Items.Cast<ListItem>().Where(i => i.Selected == true).Select(i => Convert.ToInt32(i.Value)).ToList();
@@ -3306,9 +3367,20 @@ namespace CAOP
                 RequiredFieldValidatorIdNumber.Enabled = true;
                 RequiredFieldValidatorExpiry.Enabled = true;
                 RequiredFieldValidatorBSOF.Enabled = true;
+                KnNameOther.Enabled = true;
+                KnListRelationAccountHolder.Enabled = true;
+                KntxtAddress.Enabled = true;
+                knNationality.Enabled = true;
+                knListResidence.Enabled = true;
+                KnTxtResOther.Enabled = true;
+                knListDocType.Enabled = true;
+                KnCnicOther.Enabled = true;
+                KntxtExpiry.Enabled = true;
+                KnListSourceOfFund.Enabled = true;
             }
             else
             {
+                
                 RequiredFieldValidatorBName.Enabled = false;
                 RequiredFieldValidatorRelaWithAcc.Enabled = false;
                 RequiredFieldValidatorBAddress.Enabled = false;
@@ -3319,13 +3391,27 @@ namespace CAOP
                 RequiredFieldValidatorIdNumber.Enabled = false;
                 RequiredFieldValidatorExpiry.Enabled = false;
                 RequiredFieldValidatorBSOF.Enabled = false;
+                KnNameOther.Enabled = false;
+                KnListRelationAccountHolder.Enabled = false;
+                KntxtAddress.Enabled = false;
+                knNationality.Enabled = false;
+                knListResidence.Enabled = false;
+                KnTxtResOther.Enabled = false;
+                knListDocType.Enabled = false;
+                KnCnicOther.Enabled = false;
+                KntxtExpiry.Enabled = false;
+                KnListSourceOfFund.Enabled = false;
+
+
             }
         }
 
-
-
-      
-
-       
+        protected void KnListRAC_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (KnListRAC.SelectedItem.Value == "9")
+                RequiredFieldValidatorRACDetail.Enabled = true;
+            else
+                RequiredFieldValidatorRACDetail.Enabled = false;
+        }
     }
 }

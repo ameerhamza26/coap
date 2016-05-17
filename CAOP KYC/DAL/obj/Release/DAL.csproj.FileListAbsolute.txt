@@ -97,3 +97,14 @@ H:\CAOP KYC\DAL\bin\Release\EntityFramework.SqlServer.xml
 H:\CAOP KYC\DAL\obj\Release\DAL.csprojResolveAssemblyReference.cache
 H:\CAOP KYC\DAL\obj\Release\DAL.dll
 H:\CAOP KYC\DAL\obj\Release\DAL.pdb
+C:\Users\Ameer Hamza\Documents\GitHub\coap\CAOP KYC\DAL\bin\Release\DAL.dll.config
+C:\Users\Ameer Hamza\Documents\GitHub\coap\CAOP KYC\DAL\bin\Release\DAL.dll
+C:\Users\Ameer Hamza\Documents\GitHub\coap\CAOP KYC\DAL\bin\Release\DAL.pdb
+C:\Users\Ameer Hamza\Documents\GitHub\coap\CAOP KYC\DAL\bin\Release\Blun.ConfigurationManager.dll
+C:\Users\Ameer Hamza\Documents\GitHub\coap\CAOP KYC\DAL\bin\Release\EntityFramework.dll
+C:\Users\Ameer Hamza\Documents\GitHub\coap\CAOP KYC\DAL\bin\Release\EntityFramework.SqlServer.dll
+C:\Users\Ameer Hamza\Documents\GitHub\coap\CAOP KYC\DAL\bin\Release\EntityFramework.xml
+C:\Users\Ameer Hamza\Documents\GitHub\coap\CAOP KYC\DAL\bin\Release\EntityFramework.SqlServer.xml
+C:\Users\Ameer Hamza\Documents\GitHub\coap\CAOP KYC\DAL\obj\Release\DAL.csprojResolveAssemblyReference.cache
+C:\Users\Ameer Hamza\Documents\GitHub\coap\CAOP KYC\DAL\obj\Release\DAL.dll
+C:\Users\Ameer Hamza\Documents\GitHub\coap\CAOP KYC\DAL\obj\Release\DAL.pdb

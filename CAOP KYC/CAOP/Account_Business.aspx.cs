@@ -444,6 +444,8 @@ namespace CAOP
             if (a.GetKnowYourCustomer(id))
             {
                 ListExtensions.SetDropdownValue(a.CUSTOMER_TYPE.ID, KnListCustomerType);
+                ListExtensions.SetDropdownValue(a.RAC.ID, KnListRAC);
+                knTextRACDetail.Text = a.RAC_DETAIL;
                 KnDescrIfRefered.Text = a.DESCRIPTION_IF_REFFERED;
                 ListExtensions.SetDropdownValue(a.EDUCATION.ID, KnListEducation);
               //  ListExtensions.SetDropdownValue(a.PURPOSE_OF_ACCOUNT.ID, KnListPurposeOfAccount);
@@ -898,6 +900,14 @@ namespace CAOP
             PrimaryDocumentType pDoc = new PrimaryDocumentType();
             ExpectedCounterParties ECP = new ExpectedCounterParties();
             GeographiesCounterParties GCP = new GeographiesCounterParties();
+            Reason_Account_Opening rac = new Reason_Account_Opening();
+
+            KnListRAC.DataSource = rac.GetReason_Account_OpeningTypes();
+            KnListRAC.DataValueField = "ID";
+            KnListRAC.DataTextField = "Name";
+            KnListRAC.DataBind();
+            KnListRAC.Items.Insert(0, new ListItem("Select", "0"));
+
 
             KnListCustomerType.DataSource = c.GetCustomerTypeBusiness();
             KnListCustomerType.DataValueField = "ID";
@@ -1426,6 +1436,8 @@ namespace CAOP
                 AccountKnowYourCustomer a = new AccountKnowYourCustomer();
                 a.BI_ID = Convert.ToInt32(Session["BID"]);
                 a.CUSTOMER_TYPE = new CustomerType() { ID = Convert.ToInt32(KnListCustomerType.SelectedItem.Value), NAME = KnListCustomerType.SelectedItem.Text };
+                a.RAC = new Reason_Account_Opening() { ID = Convert.ToInt32(KnListRAC.SelectedItem.Value), Name = KnListRAC.SelectedItem.Text };
+                a.RAC_DETAIL = knTextRACDetail.Text;
                 a.DESCRIPTION_IF_REFFERED = KnDescrIfRefered.Text;
                 a.EDUCATION = new Education() { ID = Convert.ToInt32(KnListEducation.SelectedItem.Value), Name = KnListEducation.SelectedItem.Text };
                 //   a.PURPOSE_OF_ACCOUNT = new PurposeOfAccount() { ID = Convert.ToInt32(KnListPurposeOfAccount.SelectedItem.Value), NAME = KnListPurposeOfAccount.SelectedItem.Text };
@@ -2171,6 +2183,8 @@ namespace CAOP
                 AccountKnowYourCustomer a = new AccountKnowYourCustomer();
                 a.BI_ID = Convert.ToInt32(Session["BID"]);
                 a.CUSTOMER_TYPE = new CustomerType() { ID = Convert.ToInt32(KnListCustomerType.SelectedItem.Value), NAME = KnListCustomerType.SelectedItem.Text };
+                a.RAC = new Reason_Account_Opening() { ID = Convert.ToInt32(KnListRAC.SelectedItem.Value), Name = KnListRAC.SelectedItem.Text };
+                a.RAC_DETAIL = knTextRACDetail.Text;
                 a.DESCRIPTION_IF_REFFERED = KnDescrIfRefered.Text;
                 a.EDUCATION = new Education() { ID = Convert.ToInt32(KnListEducation.SelectedItem.Value), Name = KnListEducation.SelectedItem.Text };
                 //    a.PURPOSE_OF_ACCOUNT = new PurposeOfAccount() { ID = Convert.ToInt32(KnListPurposeOfAccount.SelectedItem.Value), NAME = KnListPurposeOfAccount.SelectedItem.Text };
@@ -2847,6 +2861,14 @@ namespace CAOP
             {
                 CustomValidatorBeneficial.Enabled = false;
             }
+        }
+
+        protected void KnListRAC_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (KnListRAC.SelectedItem.Value == "9")
+                RequiredFieldValidatorRACDetail.Enabled = true;
+            else
+                RequiredFieldValidatorRACDetail.Enabled = false;
         }
 
     }

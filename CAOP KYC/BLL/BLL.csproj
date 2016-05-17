@@ -151,6 +151,7 @@
     <Compile Include="Province.cs" />
     <Compile Include="PurposeOfAccount.cs" />
     <Compile Include="RealBeneficiaryAccount.cs" />
+    <Compile Include="Reason_Account_Opening.cs" />
     <Compile Include="Region.cs" />
     <Compile Include="Relationship.cs" />
     <Compile Include="Religion.cs" />

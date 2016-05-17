@@ -89,17 +89,6 @@
     <Property Name="GRP" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
     <Property Name="DESCRIPTION" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
   </EntityType>
-  <EntityType Name="ACCOUNT_MODES">
-    <Key>
-      <PropertyRef Name="ID" />
-    </Key>
-    <Property Name="ID" Type="Int32" Nullable="false" />
-    <Property Name="NAME" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-    <Property Name="GRP" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-    <Property Name="PROFILECODE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="TYPE" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-    <Property Name="CATEGORY" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
-  </EntityType>
   <EntityType Name="ACCOUNT_NATURE_CURRENCY">
     <Key>
       <PropertyRef Name="ID" />
@@ -379,7 +368,6 @@
     <Property Name="CATEGORY_ID" Type="Int32" />
     <Property Name="AREA" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="ServiceCenterCode" Type="String" MaxLength="3" FixedLength="true" Unicode="false" />
-    <NavigationProperty Name="REGIONS" Relationship="Self.FK__BRANCHES__REGION__13F1F5EB" FromRole="BRANCHES" ToRole="REGIONS" />
   </EntityType>
   <EntityType Name="BUSINESS_ACOUNTS">
     <Key>
@@ -935,6 +923,8 @@
     <Property Name="PEDT" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
     <Property Name="NOCT" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
     <Property Name="PECT" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="RAC" Type="Int32" />
+    <Property Name="RAC_DETAIL" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
   </EntityType>
   <EntityType Name="KNOW_YOUR_CUSTOMER_RELATIONSHIP">
     <Key>
@@ -1231,13 +1221,19 @@
     <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
   </EntityType>
+  <EntityType Name="REASON_ACCOUNT_OPENING">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+  </EntityType>
   <EntityType Name="REGIONS">
     <Key>
       <PropertyRef Name="REGION_ID" />
     </Key>
     <Property Name="REGION_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="NAME" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
-    <NavigationProperty Name="BRANCHES" Relationship="Self.FK__BRANCHES__REGION__13F1F5EB" FromRole="REGIONS" ToRole="BRANCHES" />
   </EntityType>
   <EntityType Name="RELATIONSHIP">
     <Key>
@@ -1445,8 +1441,8 @@
     <Property Name="UPDATED_DATETIME" Type="DateTime" Precision="3" />
     <Property Name="FIRST_LOGIN" Type="Boolean" />
     <Property Name="ACTIVE" Type="Boolean" />
-    <NavigationProperty Name="USERS_PERMISSIONS" Relationship="Self.FK__USERS_PER__USER___14E61A24" FromRole="USERS" ToRole="USERS_PERMISSIONS" />
-    <NavigationProperty Name="USERS_ROLES" Relationship="Self.FK__USERS_ROL__USER___15DA3E5D" FromRole="USERS" ToRole="USERS_ROLES" />
+    <NavigationProperty Name="USERS_PERMISSIONS" Relationship="Self.FK__USERS_PER__USER___73BA3083" FromRole="USERS" ToRole="USERS_PERMISSIONS" />
+    <NavigationProperty Name="USERS_ROLES" Relationship="Self.FK__USERS_ROL__USER___74AE54BC" FromRole="USERS" ToRole="USERS_ROLES" />
   </EntityType>
   <EntityType Name="USERS_PERMISSIONS">
     <Key>
@@ -1455,7 +1451,7 @@
     <Property Name="USER_PERMISSION_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="USER_ID" Type="Int32" Nullable="false" />
     <Property Name="PERMISSION_ID" Type="Int32" Nullable="false" />
-    <NavigationProperty Name="USERS" Relationship="Self.FK__USERS_PER__USER___14E61A24" FromRole="USERS_PERMISSIONS" ToRole="USERS" />
+    <NavigationProperty Name="USERS" Relationship="Self.FK__USERS_PER__USER___73BA3083" FromRole="USERS_PERMISSIONS" ToRole="USERS" />
   </EntityType>
   <EntityType Name="USERS_ROLES">
     <Key>
@@ -1464,7 +1460,7 @@
     <Property Name="USER_ROLE_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="USER_ID" Type="Int32" Nullable="false" />
     <Property Name="ROLE_ID" Type="Int32" Nullable="false" />
-    <NavigationProperty Name="USERS" Relationship="Self.FK__USERS_ROL__USER___15DA3E5D" FromRole="USERS_ROLES" ToRole="USERS" />
+    <NavigationProperty Name="USERS" Relationship="Self.FK__USERS_ROL__USER___74AE54BC" FromRole="USERS_ROLES" ToRole="USERS" />
   </EntityType>
   <EntityType Name="WHO_AUTHORIZED">
     <Key>
@@ -1527,19 +1523,7 @@
     <Property Name="ID" Type="Int32" Nullable="false" />
     <Property Name="NAME" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
   </EntityType>
-  <Association Name="FK__BRANCHES__REGION__13F1F5EB">
-    <End Role="REGIONS" Type="Self.REGIONS" Multiplicity="1" />
-    <End Role="BRANCHES" Type="Self.BRANCHES" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="REGIONS">
-        <PropertyRef Name="REGION_ID" />
-      </Principal>
-      <Dependent Role="BRANCHES">
-        <PropertyRef Name="REGION_ID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK__USERS_PER__USER___14E61A24">
+  <Association Name="FK__USERS_PER__USER___73BA3083">
     <End Role="USERS" Type="Self.USERS" Multiplicity="1" />
     <End Role="USERS_PERMISSIONS" Type="Self.USERS_PERMISSIONS" Multiplicity="*" />
     <ReferentialConstraint>
@@ -1551,7 +1535,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__USERS_ROL__USER___15DA3E5D">
+  <Association Name="FK__USERS_ROL__USER___74AE54BC">
     <End Role="USERS" Type="Self.USERS" Multiplicity="1" />
     <End Role="USERS_ROLES" Type="Self.USERS_ROLES" Multiplicity="*" />
     <ReferentialConstraint>
@@ -1570,7 +1554,6 @@
     <EntitySet Name="ACCOUNT_CONTACT_INFO" EntityType="Self.ACCOUNT_CONTACT_INFO" />
     <EntitySet Name="ACCOUNT_DELTE_LOG" EntityType="Self.ACCOUNT_DELTE_LOG" />
     <EntitySet Name="ACCOUNT_GROUP" EntityType="Self.ACCOUNT_GROUP" />
-    <EntitySet Name="ACCOUNT_MODES" EntityType="Self.ACCOUNT_MODES" />
     <EntitySet Name="ACCOUNT_NATURE_CURRENCY" EntityType="Self.ACCOUNT_NATURE_CURRENCY" />
     <EntitySet Name="ACCOUNT_OPEN_TYPE" EntityType="Self.ACCOUNT_OPEN_TYPE" />
     <EntitySet Name="ACCOUNT_REVIEW" EntityType="Self.ACCOUNT_REVIEW" />
@@ -1668,6 +1651,7 @@
     <EntitySet Name="PROVINCES" EntityType="Self.PROVINCES" />
     <EntitySet Name="PURPOSE_OF_ACCOUNT" EntityType="Self.PURPOSE_OF_ACCOUNT" />
     <EntitySet Name="REAL_BENEFICIARY_ACCOUNT" EntityType="Self.REAL_BENEFICIARY_ACCOUNT" />
+    <EntitySet Name="REASON_ACCOUNT_OPENING" EntityType="Self.REASON_ACCOUNT_OPENING" />
     <EntitySet Name="REGIONS" EntityType="Self.REGIONS" />
     <EntitySet Name="RELATIONSHIP" EntityType="Self.RELATIONSHIP" />
     <EntitySet Name="RELIGIONS" EntityType="Self.RELIGIONS" />
@@ -1702,17 +1686,25 @@
     <EntitySet Name="EXPECTED_COUNTER_PARTIES" EntityType="Self.EXPECTED_COUNTER_PARTIES" />
     <EntitySet Name="GEOGRAPHIES_COUNTER_PARTIES" EntityType="Self.GEOGRAPHIES_COUNTER_PARTIES" />
     <EntitySet Name="PURPOSE_OF_ACCOUNT_BUSINESS" EntityType="Self.PURPOSE_OF_ACCOUNT_BUSINESS" />
-    <AssociationSet Name="FK__BRANCHES__REGION__13F1F5EB" Association="Self.FK__BRANCHES__REGION__13F1F5EB">
-      <End Role="REGIONS" EntitySet="REGIONS" />
-      <End Role="BRANCHES" EntitySet="BRANCHES" />
-    </AssociationSet>
-    <AssociationSet Name="FK__USERS_PER__USER___14E61A24" Association="Self.FK__USERS_PER__USER___14E61A24">
+    <AssociationSet Name="FK__USERS_PER__USER___73BA3083" Association="Self.FK__USERS_PER__USER___73BA3083">
       <End Role="USERS" EntitySet="USERS" />
       <End Role="USERS_PERMISSIONS" EntitySet="USERS_PERMISSIONS" />
     </AssociationSet>
-    <AssociationSet Name="FK__USERS_ROL__USER___15DA3E5D" Association="Self.FK__USERS_ROL__USER___15DA3E5D">
+    <AssociationSet Name="FK__USERS_ROL__USER___74AE54BC" Association="Self.FK__USERS_ROL__USER___74AE54BC">
       <End Role="USERS" EntitySet="USERS" />
       <End Role="USERS_ROLES" EntitySet="USERS_ROLES" />
     </AssociationSet>
+    <EntitySet Name="ACCOUNT_MODES" EntityType="AOSModel.ACCOUNT_MODES" />
   </EntityContainer>
+  <EntityType Name="ACCOUNT_MODES">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="NAME" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="GRP" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="PROFILECODE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="TYPE" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="CATEGORY" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+  </EntityType>
 </Schema>

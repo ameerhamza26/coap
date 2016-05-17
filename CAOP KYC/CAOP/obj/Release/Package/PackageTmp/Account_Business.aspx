@@ -1393,6 +1393,17 @@
                              <asp:RequiredFieldValidator  Display="Dynamic" ID="RequiredFieldValidatorPOWN" ControlToValidate="KnTxtPercentageOwn" Font-Bold="true" ForeColor="Red" runat="server" ValidationGroup="ENTITY" ErrorMessage="Percentage Ownsership is Required" ></asp:RequiredFieldValidator>
                         </div>
 
+                        <div class="form-group">
+                            <label class="lblRAC">Reason of Opening Account with NBP: *</label>
+                            <asp:DropDownList ID="KnListRAC"  ClientIDMode="Static" CssClass="form-control" runat="server" AutoPostBack="true" OnSelectedIndexChanged="KnListRAC_SelectedIndexChanged"></asp:DropDownList>
+                             <asp:RequiredFieldValidator InitialValue="0" Display="Dynamic" ID="RequiredFieldValidatorRAC" ControlToValidate="KnListRAC" Font-Bold="true" ForeColor="Red" runat="server" ValidationGroup="ENTITY" ErrorMessage="Reason of Opening Account with NBP is Required" ></asp:RequiredFieldValidator>
+                        </div>
+                        <div class="form-group">
+                            <label class="lblTxtRAC">Details (If Other):</label>
+                            <asp:TextBox ID="knTextRACDetail" ClientIDMode="Static" CssClass="form-control" runat="server" ></asp:TextBox>
+                             <asp:RequiredFieldValidator Enabled="false" Display="Dynamic" ID="RequiredFieldValidatorRACDetail" ControlToValidate="knTextRACDetail" Font-Bold="true" ForeColor="Red" runat="server" ValidationGroup="ENTITY" ErrorMessage="Detail is Required"></asp:RequiredFieldValidator>
+                        </div>
+
                         <div class="row">
                             <div class="col-lg-12">
                                  <asp:GridView class="table" ShowHeaderWhenEmpty="true"    ID="GrdBeneficial" runat="server"  AutoGenerateColumns="false">
@@ -1446,6 +1457,7 @@
                              <asp:Button ID="BtnAddBGrid" Visible="false" runat="server" Style="float: right" Text="ADD" ValidationGroup="ENTITY" CssClass="btn btn-primary" OnClick="BtnAddBGrid_Click" />
                              <asp:CustomValidator Enabled="false" Display="Dynamic" Font-Bold="true" ForeColor="Red" ID="CustomValidatorBeneficial" ValidationGroup="KnValidationGroup" runat="server" ErrorMessage="Atleast one Beneficial Owner is required"  ClientValidationFunction="OneBeneficial" EnableClientScript="true" ></asp:CustomValidator>                       
                         </div>
+
                             </ContentTemplate>
                             </asp:UpdatePanel>
 

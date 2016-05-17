@@ -2227,6 +2227,42 @@ namespace CAOP {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidatorBSOF;
         
         /// <summary>
+        /// KnListRAC control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList KnListRAC;
+        
+        /// <summary>
+        /// RequiredFieldValidatorRAC control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidatorRAC;
+        
+        /// <summary>
+        /// knTextRACDetail control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox knTextRACDetail;
+        
+        /// <summary>
+        /// RequiredFieldValidatorRACDetail control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidatorRACDetail;
+        
+        /// <summary>
         /// KnSubmitButton control.
         /// </summary>
         /// <remarks>

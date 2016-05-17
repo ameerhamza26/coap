@@ -407,6 +407,9 @@
     <Compile Include="REAL_BENEFICIARY_ACCOUNT.cs">
       <DependentUpon>ModelCOAP.tt</DependentUpon>
     </Compile>
+    <Compile Include="REASON_ACCOUNT_OPENING.cs">
+      <DependentUpon>ModelCOAP.tt</DependentUpon>
+    </Compile>
     <Compile Include="REGIONS.cs">
       <DependentUpon>ModelCOAP.tt</DependentUpon>
     </Compile>

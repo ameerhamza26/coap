@@ -58,6 +58,7 @@ namespace BLL
                 newIdentity.EXPIRY_DATE = this.EXPIRY_DATE;
                 newIdentity.COUNTRY_ISSUE_CNIC = this.COUNTRY_ISSUE_CNIC.ID;
                 newIdentity.PLACE_ISSUE_CNIC = this.PLACE_ISSUE_CNIC.ToUpper();
+                newIdentity.OTHER_IDENTITY_EXPIRY_DATE = this.OTHER_IDENTITY_EXPIRY_DATE;
                 db.BASIC_INFORMATIONS.FirstOrDefault(b => b.ID == this.BI_ID).LAST_UPDATED = DateTime.Now;
                 
 
@@ -88,6 +89,7 @@ namespace BLL
                 newIdentity.EXPIRY_DATE = this.EXPIRY_DATE;
                 newIdentity.COUNTRY_ISSUE_CNIC = this.COUNTRY_ISSUE_CNIC.ID;
                 newIdentity.PLACE_ISSUE_CNIC = this.PLACE_ISSUE_CNIC.ToUpper();
+                newIdentity.OTHER_IDENTITY_EXPIRY_DATE = this.OTHER_IDENTITY_EXPIRY_DATE;
                 db.BASIC_INFORMATIONS.FirstOrDefault(b => b.ID == this.BI_ID).LAST_UPDATED = DateTime.Now;
 
                 db.SaveChanges();
@@ -119,6 +121,7 @@ namespace BLL
                     this.EXPIRY_DATE = Identity.EXPIRY_DATE;
                     this.COUNTRY_ISSUE_CNIC = new Country() { ID = Convert.ToInt32(Identity.COUNTRY_ISSUE_CNIC) };
                     this.PLACE_ISSUE_CNIC = Identity.PLACE_ISSUE_CNIC;
+                    this.OTHER_IDENTITY_EXPIRY_DATE = Identity.OTHER_IDENTITY_EXPIRY_DATE;
                     return true;
                 }
                 else

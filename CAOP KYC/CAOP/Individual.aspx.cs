@@ -288,7 +288,7 @@ namespace CAOP
 
                     foreach (var i in f.FATCA_DOCUMENTS)
                     {
-                        if (i.Name.Trim() != "N/A")
+                       // if (i.Name.Trim() != "N/A")
                             PiListFatcaDocumentation.Items.FindByValue(i.ID.ToString()).Selected = true;
                     }
 

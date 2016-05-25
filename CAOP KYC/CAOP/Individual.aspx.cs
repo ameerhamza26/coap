@@ -2639,7 +2639,7 @@ namespace CAOP
                 
             }
 
-            if (lstPrimaryDocumentType.SelectedItem.Text.Trim() == "CNIC")
+            if (lstPrimaryDocumentType.SelectedItem.Text.Trim() == "CNIC" || lstPrimaryDocumentType.SelectedItem.Text.Trim() == "NICOP")
             {
                 btnBioMetricVerify.Visible = true;
             }

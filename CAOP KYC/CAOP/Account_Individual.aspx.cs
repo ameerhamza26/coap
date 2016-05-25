@@ -1017,6 +1017,7 @@ namespace CAOP
                 SetRadioButton(o.ZAKAT_DEDUCTION, ZakatDeductionRadio1, ZakatDeductionRadio2);
                 ListExtensions.SetDropdownValue(o.ZAKAT_EXEMPTION_TYPE.ID, AuListZakatExemption);
                 AuExempReasonDetail.Text = o.EXEMPTION_REASON_DETAIL;
+                AuListAccountFrequenct.ClearSelection();
                 AuListAccountFrequenct.Items.FindByValue(o.ACCOUNT_STATEMENT_FREQUENCY.ID.ToString()).Selected = true;
                 AuDescrHoldMail.Text = o.DESCRIPTION_IF_HOLD_MAIL;
                 SetRadioButton(o.ATM_CARD_REQUIRED, AtmRequiredRadio1, AtmRequiredRadio2);

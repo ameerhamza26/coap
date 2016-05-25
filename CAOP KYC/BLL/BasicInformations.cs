@@ -523,7 +523,7 @@ namespace BLL
                     this.RESIDENT_TYPE = new ResidentType { ID = (int)BI.RESIDENT_TYPE };
                     this.MONTHLY_INCOME = BI.MONTHLY_INCOME;
                     this.COUNTRY_RESIDENCE = new Country { ID = BI.COUNTRY_RESIDENCE };
-                    this.CUSTOMER_DEAL = new CustomerDeal { ID = (int)BI.COSTUMER_DEAL };
+                    this.CUSTOMER_DEAL = new CustomerDeal { ID = (int?)BI.COSTUMER_DEAL };
                     this.DOCUMENT_VERIFIED = (bool) BI.DOCUMENT_VERIFIED;
                     this.CUSTOMER_TYPE = new CifCustomerType() { ID = BI.CUSTOMER_TYPE };
                     this.STATUS = "SAVED";

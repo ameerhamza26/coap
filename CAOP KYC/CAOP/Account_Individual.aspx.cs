@@ -2733,15 +2733,15 @@ namespace CAOP
 
             //GridViewRow g = (GridViewRow)b.NamingContainer;
             d.BI_ID = Convert.ToInt32(Session["BID"]);
-            if (num > 0)
-            {
+            //if (num > 0)
+            //{
                 d.DESCRIPTION = true;
 
-            }
-            else
-            {
-                d.DESCRIPTION = false;
-            }
+            //}
+            //else
+            //{
+            //    d.DESCRIPTION = false;
+            //}
 
             d.Update();
 

@@ -597,7 +597,7 @@
 
                         <div class="form-group">
                             <label  class="lblReview">Department:</label>
-                            <asp:TextBox ID="EiDepartment" CssClass="form-control" runat="server"></asp:TextBox>
+                            <asp:TextBox ID="EiDepartment" CssClass="form-control" runat="server" MaxLength="40"></asp:TextBox>
                         </div>
 
                         <div class="control-group">
@@ -611,7 +611,7 @@
 
                         <div class="form-group">
                             <label  class="lblReview">Designation:</label>
-                            <asp:TextBox ID="EiDesignation" CssClass="form-control" runat="server"></asp:TextBox>
+                            <asp:TextBox ID="EiDesignation" CssClass="form-control" runat="server" MaxLength="20"></asp:TextBox>
                         </div>
 
                         <div class="form-group" style="display: none">

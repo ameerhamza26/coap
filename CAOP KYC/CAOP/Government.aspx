@@ -69,7 +69,7 @@
 
                         <div class="form-group">
                             <label  class="lblReview">Company / Business / Govt. Office Name: *</label>
-                            <asp:TextBox ID="BiCompany" ClientIDMode="Static" CssClass="form-control" runat="server"></asp:TextBox>
+                            <asp:TextBox ID="BiCompany" ClientIDMode="Static" CssClass="form-control" runat="server" MaxLength="40"></asp:TextBox>
                             <asp:RequiredFieldValidator Display="Dynamic" ID="BiRequiredFieldValidatorCompany" ValidationGroup="BiValidationGroup" runat="server" ControlToValidate="BiCompany" ForeColor="Red" Font-Bold="true" ErrorMessage="This Field is Required"></asp:RequiredFieldValidator>
                         </div>
 

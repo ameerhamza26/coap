@@ -12,175 +12,184 @@ by editing this MSBuild file. In order to learn more about this please visit htt
   </PropertyGroup>
   <ItemGroup>
     <File Include="AccountList.aspx">
-      <publishTime>04/08/2016 20:34:22</publishTime>
+      <publishTime>05/30/2016 14:37:26</publishTime>
     </File>
     <File Include="AccountReport.aspx">
       <publishTime>04/01/2016 11:11:58</publishTime>
     </File>
     <File Include="Account_Business.aspx">
-      <publishTime>04/27/2016 15:47:47</publishTime>
+      <publishTime>05/30/2016 14:37:26</publishTime>
     </File>
     <File Include="Account_Government.aspx">
-      <publishTime>04/08/2016 14:16:53</publishTime>
+      <publishTime>05/30/2016 14:37:27</publishTime>
     </File>
     <File Include="Account_Individual.aspx">
-      <publishTime>04/28/2016 16:31:47</publishTime>
+      <publishTime>05/30/2016 14:37:27</publishTime>
     </File>
     <File Include="AOF/AccountReport.aspx">
-      <publishTime>04/21/2016 21:33:00</publishTime>
+      <publishTime>05/30/2016 14:37:26</publishTime>
+    </File>
+    <File Include="AOF/AOFBusiness.rdlc">
+      <publishTime>05/30/2016 14:37:26</publishTime>
     </File>
     <File Include="AOF/AOFDataSet.xsc">
-      <publishTime>04/26/2016 12:11:33</publishTime>
+      <publishTime>05/30/2016 14:37:26</publishTime>
     </File>
     <File Include="AOF/AOFDataSet.xss">
-      <publishTime>04/26/2016 12:11:30</publishTime>
+      <publishTime>05/30/2016 14:37:26</publishTime>
+    </File>
+    <File Include="AOF/AOFIndividual.rdlc">
+      <publishTime>05/30/2016 14:37:26</publishTime>
+    </File>
+    <File Include="AOF/Report.rdlc">
+      <publishTime>05/30/2016 14:37:26</publishTime>
     </File>
     <File Include="Assets/css/bootstrap-theme.css.map">
-      <publishTime>06/16/2015 04:12:48</publishTime>
+      <publishTime>05/30/2016 14:37:27</publishTime>
     </File>
     <File Include="Assets/css/bootstrap-theme.min.css">
-      <publishTime>11/24/2015 07:34:20</publishTime>
+      <publishTime>05/30/2016 14:37:27</publishTime>
     </File>
     <File Include="Assets/css/bootstrap.css.map">
-      <publishTime>06/16/2015 04:12:48</publishTime>
+      <publishTime>05/30/2016 14:37:27</publishTime>
     </File>
     <File Include="Assets/css/bootstrap.min.css">
-      <publishTime>11/24/2015 07:34:20</publishTime>
+      <publishTime>05/30/2016 14:37:27</publishTime>
     </File>
     <File Include="Assets/css/font-import-code.txt">
-      <publishTime>08/04/2015 02:22:48</publishTime>
+      <publishTime>05/30/2016 14:37:27</publishTime>
     </File>
     <File Include="Assets/css/fonts.css">
-      <publishTime>12/31/2015 07:45:28</publishTime>
+      <publishTime>05/30/2016 14:37:27</publishTime>
     </File>
     <File Include="Assets/css/style.css">
-      <publishTime>12/23/2015 08:06:10</publishTime>
+      <publishTime>05/30/2016 14:37:27</publishTime>
     </File>
     <File Include="Assets/fonts/glyphicons-halflings-regular.eot">
-      <publishTime>06/16/2015 03:56:18</publishTime>
+      <publishTime>05/30/2016 14:37:27</publishTime>
     </File>
     <File Include="Assets/fonts/glyphicons-halflings-regular.svg">
-      <publishTime>06/16/2015 03:56:18</publishTime>
+      <publishTime>05/30/2016 14:37:27</publishTime>
     </File>
     <File Include="Assets/fonts/glyphicons-halflings-regular.ttf">
-      <publishTime>06/16/2015 03:56:18</publishTime>
+      <publishTime>05/30/2016 14:37:27</publishTime>
     </File>
     <File Include="Assets/fonts/glyphicons-halflings-regular.woff">
-      <publishTime>06/16/2015 03:56:18</publishTime>
+      <publishTime>05/30/2016 14:37:27</publishTime>
     </File>
     <File Include="Assets/fonts/glyphicons-halflings-regular.woff2">
-      <publishTime>06/16/2015 03:56:18</publishTime>
+      <publishTime>05/30/2016 14:37:27</publishTime>
     </File>
     <File Include="Assets/images/hp.ico">
-      <publishTime>03/29/2016 11:43:42</publishTime>
+      <publishTime>05/30/2016 14:37:27</publishTime>
     </File>
     <File Include="Assets/images/login-bg.jpg">
-      <publishTime>11/26/2015 11:31:46</publishTime>
+      <publishTime>05/30/2016 14:37:27</publishTime>
     </File>
     <File Include="Assets/images/login-content-bg.jpg">
-      <publishTime>11/28/2015 13:10:06</publishTime>
+      <publishTime>05/30/2016 14:37:27</publishTime>
     </File>
     <File Include="Assets/images/login-shadow.png">
-      <publishTime>11/26/2015 12:22:34</publishTime>
+      <publishTime>05/30/2016 14:37:27</publishTime>
     </File>
     <File Include="Assets/images/logo.png">
-      <publishTime>12/04/2015 16:59:26</publishTime>
+      <publishTime>05/30/2016 14:37:27</publishTime>
     </File>
     <File Include="Assets/images/subnav-bg.gif">
-      <publishTime>11/28/2015 13:59:02</publishTime>
+      <publishTime>05/30/2016 14:37:27</publishTime>
     </File>
     <File Include="Assets/js/alert.js">
-      <publishTime>12/17/2015 23:06:10</publishTime>
+      <publishTime>05/30/2016 14:37:27</publishTime>
     </File>
     <File Include="Assets/js/bootbox.min.js">
-      <publishTime>12/16/2015 02:31:22</publishTime>
+      <publishTime>05/30/2016 14:37:27</publishTime>
     </File>
     <File Include="Assets/js/bootstrap.js">
-      <publishTime>06/16/2015 04:12:50</publishTime>
+      <publishTime>05/30/2016 14:37:27</publishTime>
     </File>
     <File Include="Assets/js/bootstrap.min.js">
-      <publishTime>11/24/2015 07:34:22</publishTime>
+      <publishTime>05/30/2016 14:37:27</publishTime>
     </File>
     <File Include="Assets/js/bs.pagination.js">
-      <publishTime>12/17/2015 22:37:44</publishTime>
+      <publishTime>05/30/2016 14:37:27</publishTime>
     </File>
     <File Include="Assets/js/custom.js">
-      <publishTime>12/06/2015 03:21:24</publishTime>
+      <publishTime>05/30/2016 14:37:27</publishTime>
     </File>
     <File Include="Assets/js/html5shiv.min.js">
-      <publishTime>06/21/2015 19:53:40</publishTime>
+      <publishTime>05/30/2016 14:37:27</publishTime>
     </File>
     <File Include="Assets/js/jquery-1.11.3.min.js">
-      <publishTime>12/31/2015 07:43:10</publishTime>
+      <publishTime>05/30/2016 14:37:27</publishTime>
     </File>
     <File Include="Assets/js/jquery-2.1.1.min.js">
-      <publishTime>09/08/2014 08:14:12</publishTime>
+      <publishTime>05/30/2016 14:37:27</publishTime>
     </File>
     <File Include="Assets/js/jquery-migrate-1.2.1.min.js">
-      <publishTime>12/31/2015 07:44:10</publishTime>
+      <publishTime>05/30/2016 14:37:27</publishTime>
     </File>
     <File Include="Assets/js/jquery-ui.min.js">
-      <publishTime>01/05/2015 12:54:52</publishTime>
+      <publishTime>05/30/2016 14:37:27</publishTime>
     </File>
     <File Include="Assets/js/jquery.quicksearch.js">
-      <publishTime>12/22/2015 22:14:58</publishTime>
+      <publishTime>05/30/2016 14:37:27</publishTime>
     </File>
     <File Include="Assets/js/myscript.js">
-      <publishTime>04/26/2016 20:43:42</publishTime>
+      <publishTime>05/30/2016 14:37:27</publishTime>
     </File>
     <File Include="Assets/js/npm.js">
-      <publishTime>06/16/2015 04:12:50</publishTime>
+      <publishTime>05/30/2016 14:37:27</publishTime>
     </File>
     <File Include="Assets/js/respond.min.js">
-      <publishTime>03/23/2015 01:25:04</publishTime>
+      <publishTime>05/30/2016 14:37:27</publishTime>
     </File>
     <File Include="Assets/js/script.js">
-      <publishTime>04/26/2016 23:32:36</publishTime>
+      <publishTime>05/30/2016 14:37:27</publishTime>
     </File>
     <File Include="Assets/js/script1.js">
-      <publishTime>04/26/2016 23:36:34</publishTime>
+      <publishTime>05/30/2016 14:37:27</publishTime>
     </File>
     <File Include="bin/AjaxControlToolkit.dll">
-      <publishTime>11/17/2015 10:50:36</publishTime>
+      <publishTime>05/30/2016 14:37:28</publishTime>
     </File>
     <File Include="bin/AspNet.ScriptManager.jQuery.dll">
-      <publishTime>10/13/2015 05:15:38</publishTime>
+      <publishTime>05/30/2016 14:37:29</publishTime>
     </File>
     <File Include="bin/BioMetricClasses.dll">
-      <publishTime>04/01/2016 10:25:26</publishTime>
+      <publishTime>05/31/2016 10:35:24</publishTime>
     </File>
     <File Include="bin/BLL.dll">
-      <publishTime>04/28/2016 21:26:12</publishTime>
+      <publishTime>05/31/2016 10:35:24</publishTime>
     </File>
     <File Include="bin/CAOP.dll">
-      <publishTime>04/28/2016 21:26:13</publishTime>
+      <publishTime>05/31/2016 10:35:26</publishTime>
     </File>
     <File Include="bin/CAOP.XmlSerializers.dll">
-      <publishTime>04/28/2016 21:26:14</publishTime>
+      <publishTime>05/31/2016 10:35:27</publishTime>
     </File>
     <File Include="bin/DAL.dll">
-      <publishTime>04/28/2016 17:54:47</publishTime>
+      <publishTime>05/31/2016 10:35:24</publishTime>
     </File>
     <File Include="bin/EntityFramework.dll">
-      <publishTime>12/02/2015 00:07:44</publishTime>
+      <publishTime>05/30/2016 14:37:33</publishTime>
     </File>
     <File Include="bin/EntityFramework.SqlServer.dll">
-      <publishTime>12/02/2015 00:07:44</publishTime>
+      <publishTime>05/30/2016 14:37:33</publishTime>
     </File>
     <File Include="bin/Microsoft.ReportViewer.Common.dll">
-      <publishTime>04/21/2016 14:53:51</publishTime>
+      <publishTime>05/30/2016 14:37:34</publishTime>
     </File>
     <File Include="bin/Microsoft.ReportViewer.ProcessingObjectModel.DLL">
-      <publishTime>04/21/2016 14:53:51</publishTime>
+      <publishTime>05/30/2016 14:37:34</publishTime>
     </File>
     <File Include="bin/Microsoft.ReportViewer.WebForms.DLL">
-      <publishTime>04/21/2016 14:53:51</publishTime>
+      <publishTime>05/30/2016 14:37:34</publishTime>
     </File>
     <File Include="BioMetric.aspx">
-      <publishTime>03/25/2016 10:49:10</publishTime>
+      <publishTime>05/30/2016 14:37:27</publishTime>
     </File>
     <File Include="Business.aspx">
-      <publishTime>04/27/2016 14:29:37</publishTime>
+      <publishTime>05/30/2016 14:37:27</publishTime>
     </File>
     <File Include="CAOPData.xsc">
       <publishTime>12/29/2015 20:59:22</publishTime>
@@ -195,67 +204,70 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>12/29/2015 20:59:22</publishTime>
     </File>
     <File Include="CifAccount.aspx">
-      <publishTime>04/27/2016 20:14:35</publishTime>
+      <publishTime>05/30/2016 14:37:27</publishTime>
     </File>
     <File Include="CrmTaggingForms/CRMTagging.aspx">
-      <publishTime>04/08/2016 21:05:56</publishTime>
+      <publishTime>05/30/2016 14:37:27</publishTime>
     </File>
     <File Include="Database/CAOP.sql">
       <publishTime>12/23/2015 07:16:37</publishTime>
     </File>
     <File Include="DataSets/dsAOF.xsc">
-      <publishTime>04/04/2016 15:01:26</publishTime>
+      <publishTime>05/30/2016 14:37:27</publishTime>
     </File>
     <File Include="DataSets/dsAOF.xss">
-      <publishTime>04/04/2016 15:01:26</publishTime>
+      <publishTime>05/30/2016 14:37:27</publishTime>
     </File>
     <File Include="DB/CAOP-db.sql">
       <publishTime>02/12/2016 06:50:39</publishTime>
     </File>
     <File Include="ExistingCif/Existing.aspx">
-      <publishTime>04/19/2016 11:11:41</publishTime>
+      <publishTime>05/30/2016 14:37:27</publishTime>
     </File>
     <File Include="Government.aspx">
-      <publishTime>04/28/2016 17:48:30</publishTime>
+      <publishTime>05/30/2016 14:37:27</publishTime>
     </File>
     <File Include="Individual.aspx">
-      <publishTime>04/27/2016 22:45:22</publishTime>
+      <publishTime>05/30/2016 14:37:28</publishTime>
     </File>
     <File Include="Login.aspx">
-      <publishTime>12/03/2015 23:18:28</publishTime>
+      <publishTime>05/30/2016 14:37:28</publishTime>
     </File>
     <File Include="LOT/LOT.aspx">
-      <publishTime>04/21/2016 15:00:09</publishTime>
+      <publishTime>05/30/2016 14:37:28</publishTime>
     </File>
     <File Include="Main.aspx">
-      <publishTime>03/29/2016 11:20:24</publishTime>
+      <publishTime>05/30/2016 14:37:28</publishTime>
     </File>
     <File Include="MasterPages/Default.Master">
-      <publishTime>04/28/2016 11:37:15</publishTime>
+      <publishTime>05/30/2016 18:08:00</publishTime>
+    </File>
+    <File Include="MinorCIF.aspx">
+      <publishTime>05/30/2016 14:37:28</publishTime>
     </File>
     <File Include="NextOfKin.aspx">
-      <publishTime>03/15/2016 16:38:14</publishTime>
+      <publishTime>05/30/2016 14:37:28</publishTime>
     </File>
     <File Include="Office.aspx">
-      <publishTime>04/28/2016 20:45:23</publishTime>
+      <publishTime>05/30/2016 14:37:28</publishTime>
     </File>
     <File Include="Oops.aspx">
-      <publishTime>04/04/2016 01:33:12</publishTime>
+      <publishTime>05/30/2016 14:37:28</publishTime>
     </File>
     <File Include="packages.config">
-      <publishTime>04/21/2016 14:59:13</publishTime>
+      <publishTime>05/30/2016 14:37:31</publishTime>
     </File>
     <File Include="PasswordForms/ChangePassword.aspx">
-      <publishTime>04/05/2016 12:00:54</publishTime>
+      <publishTime>05/30/2016 14:37:28</publishTime>
     </File>
     <File Include="PasswordForms/FirstLoginPassword.aspx">
-      <publishTime>04/04/2016 00:37:44</publishTime>
+      <publishTime>05/30/2016 14:37:28</publishTime>
     </File>
     <File Include="PendingAccounts.aspx">
-      <publishTime>04/04/2016 19:37:36</publishTime>
+      <publishTime>05/30/2016 14:37:28</publishTime>
     </File>
     <File Include="PendingCIF.aspx">
-      <publishTime>04/04/2016 15:44:46</publishTime>
+      <publishTime>05/30/2016 14:37:28</publishTime>
     </File>
     <File Include="Properties/Settings.settings">
       <publishTime>03/25/2016 13:51:44</publishTime>
@@ -264,46 +276,46 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>03/31/2016 10:23:12</publishTime>
     </File>
     <File Include="ReportIndividual.aspx">
-      <publishTime>12/29/2015 21:59:22</publishTime>
+      <publishTime>05/30/2016 14:37:28</publishTime>
     </File>
     <File Include="SearchAccount.aspx">
-      <publishTime>12/28/2015 05:13:54</publishTime>
+      <publishTime>05/30/2016 14:37:28</publishTime>
     </File>
     <File Include="SearchCif.aspx">
-      <publishTime>03/15/2016 14:56:36</publishTime>
+      <publishTime>05/30/2016 14:37:28</publishTime>
     </File>
     <File Include="test.asmx">
-      <publishTime>01/13/2016 23:31:44</publishTime>
+      <publishTime>05/30/2016 14:37:31</publishTime>
     </File>
     <File Include="UserControls/ReviewControl.ascx">
-      <publishTime>12/30/2015 03:37:22</publishTime>
+      <publishTime>05/30/2016 14:37:28</publishTime>
     </File>
     <File Include="UserForms/AddUser.aspx">
-      <publishTime>04/04/2016 21:03:02</publishTime>
+      <publishTime>05/30/2016 14:37:28</publishTime>
     </File>
     <File Include="UserForms/ChangeUserPass.aspx">
-      <publishTime>04/05/2016 11:41:54</publishTime>
+      <publishTime>05/30/2016 14:37:28</publishTime>
     </File>
     <File Include="UserForms/EditUser.aspx">
-      <publishTime>04/19/2016 12:28:44</publishTime>
+      <publishTime>05/30/2016 14:37:28</publishTime>
     </File>
     <File Include="UserForms/Users.aspx">
-      <publishTime>04/05/2016 11:29:56</publishTime>
+      <publishTime>05/30/2016 14:37:28</publishTime>
     </File>
     <File Include="Web References/CustomerInquiry/Reference.map">
-      <publishTime>04/06/2016 17:46:31</publishTime>
+      <publishTime>05/30/2016 14:37:28</publishTime>
     </File>
     <File Include="Web References/JavaWebReferenceTagging/ProfileConnector.wsdl">
-      <publishTime>04/05/2016 17:08:54</publishTime>
+      <publishTime>05/30/2016 14:37:28</publishTime>
     </File>
     <File Include="Web References/JavaWebReferenceTagging/Reference.map">
-      <publishTime>04/05/2016 17:08:56</publishTime>
+      <publishTime>05/30/2016 14:37:28</publishTime>
     </File>
     <File Include="Web References/JavaWebReferenceTaggingIslamic/ProfileConnectorIslamic.wsdl">
-      <publishTime>04/05/2016 17:09:46</publishTime>
+      <publishTime>05/30/2016 14:37:28</publishTime>
     </File>
     <File Include="Web References/JavaWebReferenceTaggingIslamic/Reference.map">
-      <publishTime>04/05/2016 17:09:46</publishTime>
+      <publishTime>05/30/2016 14:37:28</publishTime>
     </File>
     <File Include="Web References/RISK/GetRisk.disco">
       <publishTime>03/25/2016 13:51:46</publishTime>
@@ -315,7 +327,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>03/25/2016 13:51:46</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>04/28/2016 17:54:50</publishTime>
+      <publishTime>05/31/2016 10:35:27</publishTime>
     </File>
   </ItemGroup>
 </Project>

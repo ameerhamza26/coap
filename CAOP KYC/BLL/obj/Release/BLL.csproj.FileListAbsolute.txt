@@ -130,3 +130,15 @@ C:\Users\Ameer Hamza\Documents\GitHub\coap\CAOP KYC\BLL\bin\Release\EntityFramew
 C:\Users\Ameer Hamza\Documents\GitHub\coap\CAOP KYC\BLL\obj\Release\BLL.csprojResolveAssemblyReference.cache
 C:\Users\Ameer Hamza\Documents\GitHub\coap\CAOP KYC\BLL\obj\Release\BLL.dll
 C:\Users\Ameer Hamza\Documents\GitHub\coap\CAOP KYC\BLL\obj\Release\BLL.pdb
+E:\AOS\coap\CAOP KYC\BLL\bin\Release\BLL.dll.config
+E:\AOS\coap\CAOP KYC\BLL\bin\Release\BLL.dll
+E:\AOS\coap\CAOP KYC\BLL\bin\Release\BLL.pdb
+E:\AOS\coap\CAOP KYC\BLL\bin\Release\DAL.dll
+E:\AOS\coap\CAOP KYC\BLL\bin\Release\EntityFramework.dll
+E:\AOS\coap\CAOP KYC\BLL\bin\Release\EntityFramework.SqlServer.dll
+E:\AOS\coap\CAOP KYC\BLL\bin\Release\DAL.pdb
+E:\AOS\coap\CAOP KYC\BLL\bin\Release\EntityFramework.xml
+E:\AOS\coap\CAOP KYC\BLL\bin\Release\EntityFramework.SqlServer.xml
+E:\AOS\coap\CAOP KYC\BLL\obj\Release\BLL.csprojResolveAssemblyReference.cache
+E:\AOS\coap\CAOP KYC\BLL\obj\Release\BLL.dll
+E:\AOS\coap\CAOP KYC\BLL\obj\Release\BLL.pdb

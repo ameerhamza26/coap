@@ -7,3 +7,8 @@ H:\CAOP KYC\BioMetricClasses\bin\Release\BioMetricClasses.pdb
 H:\CAOP KYC\BioMetricClasses\obj\Release\BioMetricClasses.csprojResolveAssemblyReference.cache
 H:\CAOP KYC\BioMetricClasses\obj\Release\BioMetricClasses.dll
 H:\CAOP KYC\BioMetricClasses\obj\Release\BioMetricClasses.pdb
+E:\AOS\coap\CAOP KYC\BioMetricClasses\bin\Release\BioMetricClasses.dll
+E:\AOS\coap\CAOP KYC\BioMetricClasses\bin\Release\BioMetricClasses.pdb
+E:\AOS\coap\CAOP KYC\BioMetricClasses\obj\Release\BioMetricClasses.csprojResolveAssemblyReference.cache
+E:\AOS\coap\CAOP KYC\BioMetricClasses\obj\Release\BioMetricClasses.dll
+E:\AOS\coap\CAOP KYC\BioMetricClasses\obj\Release\BioMetricClasses.pdb

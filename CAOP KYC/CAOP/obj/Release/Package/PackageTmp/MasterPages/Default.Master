@@ -48,7 +48,7 @@
                 </tr>
                 <tr>
                     <td>Branch: </td> <td class="second"><asp:Label ID="lblBranch" runat="server" Text="NBP"></asp:Label></td>
-                    <td>Role: </td> <td><asp:Label ID="lblRole" runat="server" Text="Branch Operator"></asp:Label></td>
+                    <td>Role: </td> <td><asp:Label ID="lblRole" runat="server" Text=""></asp:Label></td>
                 </tr>
             </table>
         </div>

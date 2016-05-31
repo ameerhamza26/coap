@@ -209,3 +209,26 @@ C:\Users\Ameer Hamza\Documents\GitHub\coap\CAOP KYC\CAOP\obj\Release\CAOP-Web.cs
 C:\Users\Ameer Hamza\Documents\GitHub\coap\CAOP KYC\CAOP\obj\Release\CAOP.dll
 C:\Users\Ameer Hamza\Documents\GitHub\coap\CAOP KYC\CAOP\obj\Release\CAOP.pdb
 C:\Users\Ameer Hamza\Documents\GitHub\coap\CAOP KYC\CAOP\obj\Release\CAOP.XmlSerializers.dll
+E:\AOS\coap\CAOP KYC\CAOP\bin\CAOP.dll.config
+E:\AOS\coap\CAOP KYC\CAOP\bin\CAOP.dll
+E:\AOS\coap\CAOP KYC\CAOP\bin\CAOP.XmlSerializers.dll
+E:\AOS\coap\CAOP KYC\CAOP\bin\CAOP.pdb
+E:\AOS\coap\CAOP KYC\CAOP\bin\BioMetricClasses.dll
+E:\AOS\coap\CAOP KYC\CAOP\bin\BLL.dll
+E:\AOS\coap\CAOP KYC\CAOP\bin\EntityFramework.dll
+E:\AOS\coap\CAOP KYC\CAOP\bin\EntityFramework.SqlServer.dll
+E:\AOS\coap\CAOP KYC\CAOP\bin\Microsoft.ReportViewer.Common.dll
+E:\AOS\coap\CAOP KYC\CAOP\bin\Microsoft.ReportViewer.ProcessingObjectModel.DLL
+E:\AOS\coap\CAOP KYC\CAOP\bin\Microsoft.ReportViewer.WebForms.DLL
+E:\AOS\coap\CAOP KYC\CAOP\bin\DAL.dll
+E:\AOS\coap\CAOP KYC\CAOP\bin\BioMetricClasses.pdb
+E:\AOS\coap\CAOP KYC\CAOP\bin\BLL.pdb
+E:\AOS\coap\CAOP KYC\CAOP\bin\EntityFramework.xml
+E:\AOS\coap\CAOP KYC\CAOP\bin\EntityFramework.SqlServer.xml
+E:\AOS\coap\CAOP KYC\CAOP\bin\DAL.pdb
+E:\AOS\coap\CAOP KYC\CAOP\obj\Release\CAOP-Web.csprojResolveAssemblyReference.cache
+E:\AOS\coap\CAOP KYC\CAOP\obj\Release\RdlCompile.cache
+E:\AOS\coap\CAOP KYC\CAOP\obj\Release\RdlCompile.compiled
+E:\AOS\coap\CAOP KYC\CAOP\obj\Release\CAOP.dll
+E:\AOS\coap\CAOP KYC\CAOP\obj\Release\CAOP.pdb
+E:\AOS\coap\CAOP KYC\CAOP\obj\Release\CAOP.XmlSerializers.dll

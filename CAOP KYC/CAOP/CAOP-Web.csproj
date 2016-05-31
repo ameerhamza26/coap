@@ -311,6 +311,7 @@
     <Compile Include="CrmTaggingForms\clsUtility.cs" />
     <Compile Include="DataSets\dsAOF.cs">
       <DependentUpon>dsAOF.xsd</DependentUpon>
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="DataSets\dsAOF.Designer.cs">
       <AutoGen>True</AutoGen>

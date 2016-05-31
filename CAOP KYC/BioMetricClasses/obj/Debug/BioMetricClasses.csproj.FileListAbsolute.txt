@@ -13,3 +13,8 @@ C:\Users\Ameer Hamza\Documents\GitHub\coap\CAOP KYC\BioMetricClasses\bin\Debug\B
 C:\Users\Ameer Hamza\Documents\GitHub\coap\CAOP KYC\BioMetricClasses\obj\Debug\BioMetricClasses.csprojResolveAssemblyReference.cache
 C:\Users\Ameer Hamza\Documents\GitHub\coap\CAOP KYC\BioMetricClasses\obj\Debug\BioMetricClasses.dll
 C:\Users\Ameer Hamza\Documents\GitHub\coap\CAOP KYC\BioMetricClasses\obj\Debug\BioMetricClasses.pdb
+E:\AOS\coap\CAOP KYC\BioMetricClasses\bin\Debug\BioMetricClasses.dll
+E:\AOS\coap\CAOP KYC\BioMetricClasses\bin\Debug\BioMetricClasses.pdb
+E:\AOS\coap\CAOP KYC\BioMetricClasses\obj\Debug\BioMetricClasses.csprojResolveAssemblyReference.cache
+E:\AOS\coap\CAOP KYC\BioMetricClasses\obj\Debug\BioMetricClasses.dll
+E:\AOS\coap\CAOP KYC\BioMetricClasses\obj\Debug\BioMetricClasses.pdb

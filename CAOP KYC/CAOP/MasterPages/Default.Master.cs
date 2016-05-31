@@ -44,10 +44,15 @@ namespace CAOP.MasterPages
               lblRegion.Text = "";
 
           if (LogedUser.USER_TYPE == UserType.Branch)
+          {
               lblBranch.Text = LogedUser.Branch.NAME;
+              lblRole.Text = LogedUser.Role.Name.Replace("_", " ");
+          }
           else
               lblBranch.Text = "";
-          lblRole.Text = LogedUser.Role.Name.Replace("_"," ");
+
+          
+          
 
           SetRoles(LogedUser);
         }

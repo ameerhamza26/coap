@@ -69,6 +69,18 @@
           <Property Name="UPDATED_DATE" Type="datetime" />
           <Property Name="PROVINCE" Type="int" />
         </EntityType>
+        <EntityType Name="ACCOUNT_DEL_LOG">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TEMPORARY_ACOUNTNO" Type="varchar" MaxLength="20" />
+          <Property Name="ACCOUNT_TYPE" Type="varchar" MaxLength="30" />
+          <Property Name="ACCOUNT_TITLE" Type="varchar" MaxLength="50" />
+          <Property Name="ACCOUNT_NATURE" Type="varchar" MaxLength="50" />
+          <Property Name="DELETED_BY" Type="int" />
+          <Property Name="DELETE_DATETIME" Type="datetime" />
+        </EntityType>
         <EntityType Name="ACCOUNT_DELTE_LOG">
           <Key>
             <PropertyRef Name="ID" />
@@ -84,6 +96,7 @@
           <Property Name="ACCOUNT_ENTRY_DATE" Type="date" />
           <Property Name="CREATED_USER" Type="int" />
           <Property Name="DELETED_USER" Type="int" />
+          <Property Name="DELETE_DATETIME" Type="datetime" />
         </EntityType>
         <EntityType Name="ACCOUNT_GROUP">
           <Key>
@@ -132,6 +145,7 @@
           <Property Name="PROFILE_CREATION_DATE" Type="datetime" />
           <Property Name="BRANCH_CODE" Type="varchar" MaxLength="4" />
           <Property Name="IBAN" Type="varchar" MaxLength="30" />
+          <Property Name="ACCOUNT_PURPOSE" Type="int" />
         </EntityType>
         <EntityType Name="ACCOUNT_OPEN_TYPE">
           <Key>
@@ -139,6 +153,13 @@
           </Key>
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="NAME" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="ACCOUNT_PURPOSE">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="200" />
         </EntityType>
         <EntityType Name="ACCOUNT_REVIEW">
           <Key>
@@ -170,6 +191,7 @@
           <Property Name="TYPE" Type="varchar" MaxLength="100" Nullable="false" />
           <Property Name="CLS" Type="varchar" MaxLength="100" Nullable="false" />
           <Property Name="GRP" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="CIFTypeAllowed" Type="int" />
         </EntityType>
         <EntityType Name="ADDRESS_INFORMATION">
           <Key>
@@ -234,6 +256,7 @@
           <Property Name="APPLICANT_STATUS" Type="varchar" MaxLength="100" />
           <Property Name="CUSTOMER_NAME" Type="nvarchar" MaxLength="100" />
           <Property Name="CUSTOMER_IDENTITY" Type="nvarchar" MaxLength="100" />
+          <Property Name="NEG_LIST" Type="int" />
         </EntityType>
         <EntityType Name="APPLICANT_STATUSES">
           <Key>
@@ -372,6 +395,8 @@
           <Property Name="GOV_TYPE" Type="int" />
           <Property Name="WHO_NAME" Type="varchar" MaxLength="30" />
           <Property Name="WHO_DESIG" Type="varchar" MaxLength="30" />
+          <Property Name="CIF_OFFICER_CODE" Type="int" />
+          <Property Name="ISSUING_AGENCY_OTHER" Type="varchar" MaxLength="100" />
         </EntityType>
         <EntityType Name="BRANCHES">
           <Key>
@@ -445,6 +470,19 @@
           <Property Name="PRINCIPAL_RENEWAL_OPTION" Type="int" />
           <Property Name="MARK_UP_RATE" Type="nvarchar" MaxLength="50" />
         </EntityType>
+        <EntityType Name="ChangeLog">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ApplyTo" Type="numeric" Precision="5" Scale="0" Nullable="false" />
+          <Property Name="FieldName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="OldValue" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="NewValue" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="ChangedBy" Type="numeric" Precision="5" Scale="0" Nullable="false" />
+          <Property Name="Comments" Type="varchar" MaxLength="200" />
+          <Property Name="ChangeDate" Type="datetime" />
+        </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'AOS.dbo.CIF_CUSTOMER_TYPE' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="CIF_CUSTOMER_TYPE">
@@ -453,6 +491,19 @@ warning 6002: The table/view 'AOS.dbo.CIF_CUSTOMER_TYPE' does not have a primary
           </Key>
           <Property Name="ID" Type="int" Nullable="false" />
           <Property Name="NAME" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="CIF_DEL_LOG">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CIF_TYPE" Type="varchar" MaxLength="20" />
+          <Property Name="IDENTITY_TYPE" Type="varchar" MaxLength="30" />
+          <Property Name="IDENTITY_NO" Type="varchar" MaxLength="50" />
+          <Property Name="CUSTOMER_NAME" Type="varchar" MaxLength="50" />
+          <Property Name="OFFICE_NAME" Type="varchar" MaxLength="50" />
+          <Property Name="DELETED_BY" Type="int" />
+          <Property Name="DELETE_DATETIME" Type="datetime" />
         </EntityType>
         <EntityType Name="CIF_REVIEW">
           <Key>
@@ -704,15 +755,16 @@ warning 6002: The table/view 'AOS.dbo.DIRECTOR_STATUS' does not have a primary k
           <Property Name="REQUIRED_ESTATEMEN" Type="bit" />
           <Property Name="BI_ID" Type="int" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6013: The table/view 'AOS.dbo.EMPLOYER_CODE' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
         <EntityType Name="EMPLOYER_CODE">
-          <Property Name="ID" Type="int" />
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
           <Property Name="ZEMPGRP" Type="varchar" MaxLength="10" />
           <Property Name="ZEMPSUBG" Type="varchar" MaxLength="10" />
           <Property Name="ZEMPNO" Type="varchar" MaxLength="50" />
           <Property Name="Name" Type="varchar(max)" />
-        </EntityType>-->
+        </EntityType>
         <EntityType Name="EMPLOYER_CODES">
           <Key>
             <PropertyRef Name="ID" />
@@ -720,27 +772,30 @@ warning 6013: The table/view 'AOS.dbo.EMPLOYER_CODE' does not have a primary key
           <Property Name="ID" Type="int" Nullable="false" />
           <Property Name="CODE" Type="varchar" MaxLength="100" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6013: The table/view 'AOS.dbo.EMPLOYER_GROUP' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
         <EntityType Name="EMPLOYER_GROUP">
-          <Property Name="ID" Type="int" />
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
           <Property Name="Name" Type="varchar" MaxLength="100" />
           <Property Name="ZEMPGRP" Type="varchar" MaxLength="10" />
-        </EntityType>-->
-        <!--Errors Found During Generation:
-warning 6013: The table/view 'AOS.dbo.EMPLOYER_SUB_GROUP' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        </EntityType>
         <EntityType Name="EMPLOYER_SUB_GROUP">
-          <Property Name="ID" Type="int" />
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
           <Property Name="Name" Type="varchar" MaxLength="200" />
           <Property Name="ZEMPGRP" Type="varchar" MaxLength="10" />
           <Property Name="ZEMPSUBG" Type="varchar" MaxLength="10" />
-        </EntityType>-->
+        </EntityType>
         <EntityType Name="EMPLOYMENT_DETAILS">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="int" Nullable="false" />
           <Property Name="NAME" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="EMP_SUBG_MAND" Type="bit" />
         </EntityType>
         <EntityType Name="EMPLOYMENT_INFORMATIONS">
           <Key>
@@ -762,6 +817,9 @@ warning 6013: The table/view 'AOS.dbo.EMPLOYER_SUB_GROUP' does not have a primar
           <Property Name="CONSUMER_SEGMENT" Type="int" />
           <Property Name="EMPLOYMENT_DETAIL_OTHER_DESCRIPTION" Type="varchar" MaxLength="60" />
           <Property Name="EMPLOYER_DESC" Type="varchar" MaxLength="80" />
+          <Property Name="EMPLOYER_GROUP" Type="int" />
+          <Property Name="EMPLOYER_SUB_GROUP" Type="int" />
+          <Property Name="EMPLOYER_NUMBER" Type="int" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'AOS.dbo.EXPECTED_COUNTER_PARTIES' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -972,9 +1030,9 @@ warning 6002: The table/view 'AOS.dbo.GEOGRAPHIES_COUNTER_PARTIES' does not have
           <Property Name="DESCRIPTION_IF_REFFERED" Type="nvarchar" MaxLength="50" />
           <Property Name="EDUCATION" Type="int" />
           <Property Name="PURPOSE_OF_ACCOUNT" Type="int" />
-          <Property Name="DESCRIPTION_IF_OTHER" Type="nvarchar" MaxLength="50" />
+          <Property Name="DESCRIPTION_IF_OTHER" Type="varchar" MaxLength="200" />
           <Property Name="SOURCE_OF_FUNDS" Type="int" />
-          <Property Name="DESCRIPTION_OF_SOURCE" Type="nvarchar" MaxLength="50" />
+          <Property Name="DESCRIPTION_OF_SOURCE" Type="varchar" MaxLength="200" />
           <Property Name="SERVICE_CHARGES_EXEMPTED" Type="bit" />
           <Property Name="SERVICE_CHARGES_EXEMPTED_CODE" Type="int" />
           <Property Name="REASON_IF_EXEMPTED" Type="nvarchar" MaxLength="50" />
@@ -1010,6 +1068,8 @@ warning 6002: The table/view 'AOS.dbo.GEOGRAPHIES_COUNTER_PARTIES' does not have
           <Property Name="PECT" Type="varchar" MaxLength="30" />
           <Property Name="RAC" Type="int" />
           <Property Name="RAC_DETAIL" Type="nvarchar" MaxLength="500" />
+          <Property Name="ETCP_OTHER" Type="varchar" MaxLength="50" />
+          <Property Name="GICP_OTHER" Type="varchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="KNOW_YOUR_CUSTOMER_RELATIONSHIP">
           <Key>
@@ -1105,6 +1165,7 @@ warning 6002: The table/view 'AOS.dbo.GEOGRAPHIES_COUNTER_PARTIES' does not have
           <Property Name="PEP_NATURE_SINGLE" Type="bit" />
           <Property Name="PEP_RELATIONSHIP" Type="varchar" MaxLength="50" />
           <Property Name="PEP_DESC" Type="varchar" MaxLength="50" />
+          <Property Name="SOURCE_OF_FUND" Type="int" />
         </EntityType>
         <EntityType Name="MODE_OF_TRANSACTIONS">
           <Key>
@@ -1212,6 +1273,13 @@ warning 6002: The table/view 'AOS.dbo.GEOGRAPHIES_COUNTER_PARTIES' does not have
           <Property Name="OFFICE_NO" Type="varchar" MaxLength="100" />
           <Property Name="MOB_NO" Type="varchar" MaxLength="100" />
         </EntityType>
+        <EntityType Name="OFFICE_CODES">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NAME" Type="varchar" MaxLength="100" />
+        </EntityType>
         <EntityType Name="OPERATING_INSTRUCTIONS">
           <Key>
             <PropertyRef Name="ID" />
@@ -1315,6 +1383,8 @@ warning 6002: The table/view 'AOS.dbo.PURPOSE_OF_ACCOUNT_BUSINESS' does not have
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="NAME" Type="nvarchar" MaxLength="50" />
         </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'AOS.dbo.REASON_ACCOUNT_OPENING' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="REASON_ACCOUNT_OPENING">
           <Key>
             <PropertyRef Name="ID" />
@@ -1467,12 +1537,6 @@ warning 6002: The table/view 'AOS.dbo.PURPOSE_OF_ACCOUNT_BUSINESS' does not have
           <Property Name="SIC" Type="varchar" MaxLength="100" Nullable="false" />
           <Property Name="ZSICSUB" Type="varchar" MaxLength="100" Nullable="false" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6013: The table/view 'AOS.dbo.TEMP_SRVC' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
-        <EntityType Name="TEMP_SRVC">
-          <Property Name="BRANCH_CODE" Type="varchar" MaxLength="50" />
-          <Property Name="ServiceCenterCode" Type="char" MaxLength="3" />
-        </EntityType>-->
         <EntityType Name="TITLES">
           <Key>
             <PropertyRef Name="ID" />
@@ -1577,7 +1641,19 @@ warning 6013: The table/view 'AOS.dbo.TEMP_SRVC' does not have a primary key def
           <Property Name="ID" Type="int" Nullable="false" />
           <Property Name="NAME" Type="nvarchar" MaxLength="50" />
         </EntityType>
-        <Association Name="FK__USERS_PER__USER___73BA3083">
+        <Association Name="FK__BRANCHES__REGION__14E61A24">
+          <End Role="REGIONS" Type="Self.REGIONS" Multiplicity="1" />
+          <End Role="BRANCHES" Type="Self.BRANCHES" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="REGIONS">
+              <PropertyRef Name="REGION_ID" />
+            </Principal>
+            <Dependent Role="BRANCHES">
+              <PropertyRef Name="REGION_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__USERS_PER__USER___15DA3E5D">
           <End Role="USERS" Type="Self.USERS" Multiplicity="1" />
           <End Role="USERS_PERMISSIONS" Type="Self.USERS_PERMISSIONS" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1589,7 +1665,7 @@ warning 6013: The table/view 'AOS.dbo.TEMP_SRVC' does not have a primary key def
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__USERS_ROL__USER___74AE54BC">
+        <Association Name="FK__USERS_ROL__USER___16CE6296">
           <End Role="USERS" Type="Self.USERS" Multiplicity="1" />
           <End Role="USERS_ROLES" Type="Self.USERS_ROLES" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1606,11 +1682,13 @@ warning 6013: The table/view 'AOS.dbo.TEMP_SRVC' does not have a primary key def
           <EntitySet Name="ACCOUNT_AUTHORIZED_PERSONS" EntityType="Self.ACCOUNT_AUTHORIZED_PERSONS" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ACCOUNT_CLASS" EntityType="Self.ACCOUNT_CLASS" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ACCOUNT_CONTACT_INFO" EntityType="Self.ACCOUNT_CONTACT_INFO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ACCOUNT_DEL_LOG" EntityType="Self.ACCOUNT_DEL_LOG" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ACCOUNT_DELTE_LOG" EntityType="Self.ACCOUNT_DELTE_LOG" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ACCOUNT_GROUP" EntityType="Self.ACCOUNT_GROUP" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ACCOUNT_MODES" EntityType="Self.ACCOUNT_MODES" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ACCOUNT_NATURE_CURRENCY" EntityType="Self.ACCOUNT_NATURE_CURRENCY" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ACCOUNT_OPEN_TYPE" EntityType="Self.ACCOUNT_OPEN_TYPE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ACCOUNT_PURPOSE" EntityType="Self.ACCOUNT_PURPOSE" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ACCOUNT_REVIEW" EntityType="Self.ACCOUNT_REVIEW" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ACCOUNT_STATEMENT_FREQUENCY" EntityType="Self.ACCOUNT_STATEMENT_FREQUENCY" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ACCOUNT_TYPES" EntityType="Self.ACCOUNT_TYPES" Schema="dbo" store:Type="Tables" />
@@ -1633,6 +1711,8 @@ warning 6013: The table/view 'AOS.dbo.TEMP_SRVC' does not have a primary key def
           <EntitySet Name="BUSINESS_DETAIL" EntityType="Self.BUSINESS_DETAIL" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="BUSINESS_TYPE" EntityType="Self.BUSINESS_TYPE" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CERTIFICATE_DEPOSIT_INFO" EntityType="Self.CERTIFICATE_DEPOSIT_INFO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ChangeLog" EntityType="Self.ChangeLog" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CIF_DEL_LOG" EntityType="Self.CIF_DEL_LOG" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CIF_REVIEW" EntityType="Self.CIF_REVIEW" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CIF_TYPES" EntityType="Self.CIF_TYPES" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CITIES" EntityType="Self.CITIES" Schema="dbo" store:Type="Tables" />
@@ -1658,7 +1738,10 @@ warning 6013: The table/view 'AOS.dbo.TEMP_SRVC' does not have a primary key def
           <EntitySet Name="EDUCATION" EntityType="Self.EDUCATION" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="EDUCATIONS" EntityType="Self.EDUCATIONS" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="EMAILS" EntityType="Self.EMAILS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EMPLOYER_CODE" EntityType="Self.EMPLOYER_CODE" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="EMPLOYER_CODES" EntityType="Self.EMPLOYER_CODES" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EMPLOYER_GROUP" EntityType="Self.EMPLOYER_GROUP" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EMPLOYER_SUB_GROUP" EntityType="Self.EMPLOYER_SUB_GROUP" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="EMPLOYMENT_DETAILS" EntityType="Self.EMPLOYMENT_DETAILS" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="EMPLOYMENT_INFORMATIONS" EntityType="Self.EMPLOYMENT_INFORMATIONS" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="FATCAS" EntityType="Self.FATCAS" Schema="dbo" store:Type="Tables" />
@@ -1696,6 +1779,7 @@ warning 6013: The table/view 'AOS.dbo.TEMP_SRVC' does not have a primary key def
           <EntitySet Name="NBP_BRANCH_INFORMATIONS" EntityType="Self.NBP_BRANCH_INFORMATIONS" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="NBP_CATEGORIES" EntityType="Self.NBP_CATEGORIES" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="NEXT_OF_KIN_INFO" EntityType="Self.NEXT_OF_KIN_INFO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OFFICE_CODES" EntityType="Self.OFFICE_CODES" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="OPERATING_INSTRUCTIONS" EntityType="Self.OPERATING_INSTRUCTIONS" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="OTHER_BANK_CODES" EntityType="Self.OTHER_BANK_CODES" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PEPS" EntityType="Self.PEPS" Schema="dbo" store:Type="Tables" />
@@ -1706,7 +1790,6 @@ warning 6013: The table/view 'AOS.dbo.TEMP_SRVC' does not have a primary key def
           <EntitySet Name="PROVINCES" EntityType="Self.PROVINCES" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PURPOSE_OF_ACCOUNT" EntityType="Self.PURPOSE_OF_ACCOUNT" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="REAL_BENEFICIARY_ACCOUNT" EntityType="Self.REAL_BENEFICIARY_ACCOUNT" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="REASON_ACCOUNT_OPENING" EntityType="Self.REASON_ACCOUNT_OPENING" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="REGIONS" EntityType="Self.REGIONS" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="RELATIONSHIP" EntityType="Self.RELATIONSHIP" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="RELIGIONS" EntityType="Self.RELIGIONS" Schema="dbo" store:Type="Tables" />
@@ -1771,11 +1854,21 @@ warning 6013: The table/view 'AOS.dbo.TEMP_SRVC' does not have a primary key def
     [PURPOSE_OF_ACCOUNT_BUSINESS].[NAME] AS [NAME]
     FROM [dbo].[PURPOSE_OF_ACCOUNT_BUSINESS] AS [PURPOSE_OF_ACCOUNT_BUSINESS]</DefiningQuery>
           </EntitySet>
-          <AssociationSet Name="FK__USERS_PER__USER___73BA3083" Association="Self.FK__USERS_PER__USER___73BA3083">
+          <EntitySet Name="REASON_ACCOUNT_OPENING" EntityType="Self.REASON_ACCOUNT_OPENING" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [REASON_ACCOUNT_OPENING].[ID] AS [ID], 
+    [REASON_ACCOUNT_OPENING].[Name] AS [Name]
+    FROM [dbo].[REASON_ACCOUNT_OPENING] AS [REASON_ACCOUNT_OPENING]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK__BRANCHES__REGION__14E61A24" Association="Self.FK__BRANCHES__REGION__14E61A24">
+            <End Role="REGIONS" EntitySet="REGIONS" />
+            <End Role="BRANCHES" EntitySet="BRANCHES" />
+          </AssociationSet>
+          <AssociationSet Name="FK__USERS_PER__USER___15DA3E5D" Association="Self.FK__USERS_PER__USER___15DA3E5D">
             <End Role="USERS" EntitySet="USERS" />
             <End Role="USERS_PERMISSIONS" EntitySet="USERS_PERMISSIONS" />
           </AssociationSet>
-          <AssociationSet Name="FK__USERS_ROL__USER___74AE54BC" Association="Self.FK__USERS_ROL__USER___74AE54BC">
+          <AssociationSet Name="FK__USERS_ROL__USER___16CE6296" Association="Self.FK__USERS_ROL__USER___16CE6296">
             <End Role="USERS" EntitySet="USERS" />
             <End Role="USERS_ROLES" EntitySet="USERS_ROLES" />
           </AssociationSet>
@@ -1863,6 +1956,7 @@ warning 6013: The table/view 'AOS.dbo.TEMP_SRVC' does not have a primary key def
           <Property Name="ACCOUNT_ENTRY_DATE" Type="DateTime" Precision="0" />
           <Property Name="CREATED_USER" Type="Int32" />
           <Property Name="DELETED_USER" Type="Int32" />
+          <Property Name="DELETE_DATETIME" Type="DateTime" Precision="3" />
         </EntityType>
         <EntityType Name="ACCOUNT_GROUP">
           <Key>
@@ -1900,6 +1994,7 @@ warning 6013: The table/view 'AOS.dbo.TEMP_SRVC' does not have a primary key def
           <Property Name="PROFILE_CREATION_DATE" Type="DateTime" Precision="3" />
           <Property Name="BRANCH_CODE" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
           <Property Name="IBAN" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="ACCOUNT_PURPOSE" Type="Int32" />
         </EntityType>
         <EntityType Name="ACCOUNT_OPEN_TYPE">
           <Key>
@@ -1928,16 +2023,6 @@ warning 6013: The table/view 'AOS.dbo.TEMP_SRVC' does not have a primary key def
           </Key>
           <Property Name="ID" Type="Int32" Nullable="false" />
           <Property Name="NAME" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
-        </EntityType>
-        <EntityType Name="ACCOUNT_TYPES">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="TYPE" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="CLS" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="GRP" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
         </EntityType>
         <EntityType Name="ADDRESS_INFORMATION">
           <Key>
@@ -2002,6 +2087,8 @@ warning 6013: The table/view 'AOS.dbo.TEMP_SRVC' does not have a primary key def
           <Property Name="APPLICANT_STATUS" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="CUSTOMER_NAME" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="CUSTOMER_IDENTITY" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="NEG_LIST" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="NEG_LIST1" Type="Int32" />
         </EntityType>
         <EntityType Name="APPLICANT_STATUSES">
           <Key>
@@ -2140,6 +2227,8 @@ warning 6013: The table/view 'AOS.dbo.TEMP_SRVC' does not have a primary key def
           <Property Name="GOV_TYPE" Type="Int32" />
           <Property Name="WHO_NAME" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
           <Property Name="WHO_DESIG" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="CIF_OFFICER_CODE" Type="Int32" />
+          <Property Name="ISSUING_AGENCY_OTHER" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="BRANCHES">
           <Key>
@@ -2152,6 +2241,7 @@ warning 6013: The table/view 'AOS.dbo.TEMP_SRVC' does not have a primary key def
           <Property Name="CATEGORY_ID" Type="Int32" />
           <Property Name="AREA" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="ServiceCenterCode" Type="String" MaxLength="3" FixedLength="true" Unicode="false" />
+          <NavigationProperty Name="REGIONS" Relationship="Self.FK__BRANCHES__REGION__14E61A24" FromRole="BRANCHES" ToRole="REGIONS" />
         </EntityType>
         <EntityType Name="BUSINESS_ACOUNTS">
           <Key>
@@ -2458,27 +2548,7 @@ warning 6013: The table/view 'AOS.dbo.TEMP_SRVC' does not have a primary key def
           </Key>
           <Property Name="ID" Type="Int32" Nullable="false" />
           <Property Name="NAME" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
-        </EntityType>
-        <EntityType Name="EMPLOYMENT_INFORMATIONS">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="BI_ID" Type="Int32" />
-          <Property Name="EMPLOYMENT_DETAIL" Type="Int32" />
-          <Property Name="DEPARTMENT" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="RETIRED" Type="Boolean" />
-          <Property Name="DESIGNATION" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="PF_NO" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="PPQ_NO" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="EMPLOYER_CODE" Type="Int32" />
-          <Property Name="EMPLOYER_BUSINESS_ADDRESS" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
-          <Property Name="ARMY_RANK_CODE" Type="Int32" />
-          <Property Name="COUNTRY_EMPLOYMENT" Type="Int32" />
-          <Property Name="UPDATED_TIME" Type="DateTime" Precision="3" />
-          <Property Name="CONSUMER_SEGMENT" Type="Int32" />
-          <Property Name="EMPLOYMENT_DETAIL_OTHER_DESCRIPTION" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
-          <Property Name="EMPLOYER_DESC" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+          <Property Name="EMP_SUBG_MAND" Type="Boolean" />
         </EntityType>
         <EntityType Name="FATCAS">
           <Key>
@@ -2671,9 +2741,9 @@ warning 6013: The table/view 'AOS.dbo.TEMP_SRVC' does not have a primary key def
           <Property Name="DESCRIPTION_IF_REFFERED" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="EDUCATION" Type="Int32" />
           <Property Name="PURPOSE_OF_ACCOUNT" Type="Int32" />
-          <Property Name="DESCRIPTION_IF_OTHER" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DESCRIPTION_IF_OTHER" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
           <Property Name="SOURCE_OF_FUNDS" Type="Int32" />
-          <Property Name="DESCRIPTION_OF_SOURCE" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DESCRIPTION_OF_SOURCE" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
           <Property Name="SERVICE_CHARGES_EXEMPTED" Type="Boolean" />
           <Property Name="SERVICE_CHARGES_EXEMPTED_CODE" Type="Int32" />
           <Property Name="REASON_IF_EXEMPTED" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
@@ -2709,6 +2779,8 @@ warning 6013: The table/view 'AOS.dbo.TEMP_SRVC' does not have a primary key def
           <Property Name="PECT" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
           <Property Name="RAC" Type="Int32" />
           <Property Name="RAC_DETAIL" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="ETCP_OTHER" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="GICP_OTHER" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="KNOW_YOUR_CUSTOMER_RELATIONSHIP">
           <Key>
@@ -2804,6 +2876,7 @@ warning 6013: The table/view 'AOS.dbo.TEMP_SRVC' does not have a primary key def
           <Property Name="PEP_NATURE_SINGLE" Type="Boolean" />
           <Property Name="PEP_RELATIONSHIP" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="PEP_DESC" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="SOURCE_OF_FUND" Type="Int32" />
         </EntityType>
         <EntityType Name="MODE_OF_TRANSACTIONS">
           <Key>
@@ -3005,19 +3078,13 @@ warning 6013: The table/view 'AOS.dbo.TEMP_SRVC' does not have a primary key def
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
-        <EntityType Name="REASON_ACCOUNT_OPENING">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" />
-          <Property Name="Name" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
-        </EntityType>
         <EntityType Name="REGIONS">
           <Key>
             <PropertyRef Name="REGION_ID" />
           </Key>
           <Property Name="REGION_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="NAME" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="BRANCHES" Relationship="Self.FK__BRANCHES__REGION__14E61A24" FromRole="REGIONS" ToRole="BRANCHES" />
         </EntityType>
         <EntityType Name="RELATIONSHIP">
           <Key>
@@ -3225,8 +3292,8 @@ warning 6013: The table/view 'AOS.dbo.TEMP_SRVC' does not have a primary key def
           <Property Name="UPDATED_DATETIME" Type="DateTime" Precision="3" />
           <Property Name="FIRST_LOGIN" Type="Boolean" />
           <Property Name="ACTIVE" Type="Boolean" />
-          <NavigationProperty Name="USERS_PERMISSIONS" Relationship="Self.FK__USERS_PER__USER___73BA3083" FromRole="USERS" ToRole="USERS_PERMISSIONS" />
-          <NavigationProperty Name="USERS_ROLES" Relationship="Self.FK__USERS_ROL__USER___74AE54BC" FromRole="USERS" ToRole="USERS_ROLES" />
+          <NavigationProperty Name="USERS_PERMISSIONS" Relationship="Self.FK__USERS_PER__USER___15DA3E5D" FromRole="USERS" ToRole="USERS_PERMISSIONS" />
+          <NavigationProperty Name="USERS_ROLES" Relationship="Self.FK__USERS_ROL__USER___16CE6296" FromRole="USERS" ToRole="USERS_ROLES" />
         </EntityType>
         <EntityType Name="USERS_PERMISSIONS">
           <Key>
@@ -3235,7 +3302,7 @@ warning 6013: The table/view 'AOS.dbo.TEMP_SRVC' does not have a primary key def
           <Property Name="USER_PERMISSION_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="USER_ID" Type="Int32" Nullable="false" />
           <Property Name="PERMISSION_ID" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="USERS" Relationship="Self.FK__USERS_PER__USER___73BA3083" FromRole="USERS_PERMISSIONS" ToRole="USERS" />
+          <NavigationProperty Name="USERS" Relationship="Self.FK__USERS_PER__USER___15DA3E5D" FromRole="USERS_PERMISSIONS" ToRole="USERS" />
         </EntityType>
         <EntityType Name="USERS_ROLES">
           <Key>
@@ -3244,7 +3311,7 @@ warning 6013: The table/view 'AOS.dbo.TEMP_SRVC' does not have a primary key def
           <Property Name="USER_ROLE_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="USER_ID" Type="Int32" Nullable="false" />
           <Property Name="ROLE_ID" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="USERS" Relationship="Self.FK__USERS_ROL__USER___74AE54BC" FromRole="USERS_ROLES" ToRole="USERS" />
+          <NavigationProperty Name="USERS" Relationship="Self.FK__USERS_ROL__USER___16CE6296" FromRole="USERS_ROLES" ToRole="USERS" />
         </EntityType>
         <EntityType Name="WHO_AUTHORIZED">
           <Key>
@@ -3307,7 +3374,26 @@ warning 6013: The table/view 'AOS.dbo.TEMP_SRVC' does not have a primary key def
           <Property Name="ID" Type="Int32" Nullable="false" />
           <Property Name="NAME" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
         </EntityType>
-        <Association Name="FK__USERS_PER__USER___73BA3083">
+        <EntityType Name="REASON_ACCOUNT_OPENING">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <Association Name="FK__BRANCHES__REGION__14E61A24">
+          <End Role="REGIONS" Type="Self.REGIONS" Multiplicity="1" />
+          <End Role="BRANCHES" Type="Self.BRANCHES" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="REGIONS">
+              <PropertyRef Name="REGION_ID" />
+            </Principal>
+            <Dependent Role="BRANCHES">
+              <PropertyRef Name="REGION_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__USERS_PER__USER___15DA3E5D">
           <End Role="USERS" Type="Self.USERS" Multiplicity="1" />
           <End Role="USERS_PERMISSIONS" Type="Self.USERS_PERMISSIONS" Multiplicity="*" />
           <ReferentialConstraint>
@@ -3319,7 +3405,7 @@ warning 6013: The table/view 'AOS.dbo.TEMP_SRVC' does not have a primary key def
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__USERS_ROL__USER___74AE54BC">
+        <Association Name="FK__USERS_ROL__USER___16CE6296">
           <End Role="USERS" Type="Self.USERS" Multiplicity="1" />
           <End Role="USERS_ROLES" Type="Self.USERS_ROLES" Multiplicity="*" />
           <ReferentialConstraint>
@@ -3342,7 +3428,6 @@ warning 6013: The table/view 'AOS.dbo.TEMP_SRVC' does not have a primary key def
           <EntitySet Name="ACCOUNT_OPEN_TYPE" EntityType="Self.ACCOUNT_OPEN_TYPE" />
           <EntitySet Name="ACCOUNT_REVIEW" EntityType="Self.ACCOUNT_REVIEW" />
           <EntitySet Name="ACCOUNT_STATEMENT_FREQUENCY" EntityType="Self.ACCOUNT_STATEMENT_FREQUENCY" />
-          <EntitySet Name="ACCOUNT_TYPES" EntityType="Self.ACCOUNT_TYPES" />
           <EntitySet Name="ADDRESS_INFORMATION" EntityType="Self.ADDRESS_INFORMATION" />
           <EntitySet Name="ADDRESS_VERIFIED" EntityType="Self.ADDRESS_VERIFIED" />
           <EntitySet Name="APPLICANT_INFORMATION" EntityType="Self.APPLICANT_INFORMATION" />
@@ -3389,7 +3474,6 @@ warning 6013: The table/view 'AOS.dbo.TEMP_SRVC' does not have a primary key def
           <EntitySet Name="EMAILS" EntityType="Self.EMAILS" />
           <EntitySet Name="EMPLOYER_CODES" EntityType="Self.EMPLOYER_CODES" />
           <EntitySet Name="EMPLOYMENT_DETAILS" EntityType="Self.EMPLOYMENT_DETAILS" />
-          <EntitySet Name="EMPLOYMENT_INFORMATIONS" EntityType="Self.EMPLOYMENT_INFORMATIONS" />
           <EntitySet Name="FATCAS" EntityType="Self.FATCAS" />
           <EntitySet Name="FATCAS_TINS" EntityType="Self.FATCAS_TINS" />
           <EntitySet Name="FREQUENCY_GROSS_SALES" EntityType="Self.FREQUENCY_GROSS_SALES" />
@@ -3435,7 +3519,6 @@ warning 6013: The table/view 'AOS.dbo.TEMP_SRVC' does not have a primary key def
           <EntitySet Name="PROVINCES" EntityType="Self.PROVINCES" />
           <EntitySet Name="PURPOSE_OF_ACCOUNT" EntityType="Self.PURPOSE_OF_ACCOUNT" />
           <EntitySet Name="REAL_BENEFICIARY_ACCOUNT" EntityType="Self.REAL_BENEFICIARY_ACCOUNT" />
-          <EntitySet Name="REASON_ACCOUNT_OPENING" EntityType="Self.REASON_ACCOUNT_OPENING" />
           <EntitySet Name="REGIONS" EntityType="Self.REGIONS" />
           <EntitySet Name="RELATIONSHIP" EntityType="Self.RELATIONSHIP" />
           <EntitySet Name="RELIGIONS" EntityType="Self.RELIGIONS" />
@@ -3470,15 +3553,34 @@ warning 6013: The table/view 'AOS.dbo.TEMP_SRVC' does not have a primary key def
           <EntitySet Name="EXPECTED_COUNTER_PARTIES" EntityType="Self.EXPECTED_COUNTER_PARTIES" />
           <EntitySet Name="GEOGRAPHIES_COUNTER_PARTIES" EntityType="Self.GEOGRAPHIES_COUNTER_PARTIES" />
           <EntitySet Name="PURPOSE_OF_ACCOUNT_BUSINESS" EntityType="Self.PURPOSE_OF_ACCOUNT_BUSINESS" />
-          <AssociationSet Name="FK__USERS_PER__USER___73BA3083" Association="Self.FK__USERS_PER__USER___73BA3083">
+          <EntitySet Name="REASON_ACCOUNT_OPENING" EntityType="Self.REASON_ACCOUNT_OPENING" />
+          <AssociationSet Name="FK__BRANCHES__REGION__14E61A24" Association="Self.FK__BRANCHES__REGION__14E61A24">
+            <End Role="REGIONS" EntitySet="REGIONS" />
+            <End Role="BRANCHES" EntitySet="BRANCHES" />
+          </AssociationSet>
+          <AssociationSet Name="FK__USERS_PER__USER___15DA3E5D" Association="Self.FK__USERS_PER__USER___15DA3E5D">
             <End Role="USERS" EntitySet="USERS" />
             <End Role="USERS_PERMISSIONS" EntitySet="USERS_PERMISSIONS" />
           </AssociationSet>
-          <AssociationSet Name="FK__USERS_ROL__USER___74AE54BC" Association="Self.FK__USERS_ROL__USER___74AE54BC">
+          <AssociationSet Name="FK__USERS_ROL__USER___16CE6296" Association="Self.FK__USERS_ROL__USER___16CE6296">
             <End Role="USERS" EntitySet="USERS" />
             <End Role="USERS_ROLES" EntitySet="USERS_ROLES" />
           </AssociationSet>
           <EntitySet Name="ACCOUNT_MODES" EntityType="AOSModel.ACCOUNT_MODES" />
+          <EntitySet Name="EMPLOYER_CODE" EntityType="AOSModel.EMPLOYER_CODE" />
+          <EntitySet Name="EMPLOYER_GROUP" EntityType="AOSModel.EMPLOYER_GROUP" />
+          <EntitySet Name="EMPLOYER_SUB_GROUP" EntityType="AOSModel.EMPLOYER_SUB_GROUP" />
+          <EntitySet Name="ACCOUNT_TYPES" EntityType="AOSModel.ACCOUNT_TYPES" />
+          <EntitySet Name="ACCOUNT_MODES1Set" EntityType="AOSModel.ACCOUNT_MODES1" />
+          <EntitySet Name="EMPLOYER_CODE1Set" EntityType="AOSModel.EMPLOYER_CODE1" />
+          <EntitySet Name="EMPLOYER_GROUP1Set" EntityType="AOSModel.EMPLOYER_GROUP1" />
+          <EntitySet Name="EMPLOYER_SUB_GROUP1Set" EntityType="AOSModel.EMPLOYER_SUB_GROUP1" />
+          <EntitySet Name="EMPLOYMENT_INFORMATIONS" EntityType="AOSModel.EMPLOYMENT_INFORMATIONS" />
+          <EntitySet Name="ACCOUNT_DEL_LOG" EntityType="AOSModel.ACCOUNT_DEL_LOG" />
+          <EntitySet Name="CIF_DEL_LOG" EntityType="AOSModel.CIF_DEL_LOG" />
+          <EntitySet Name="OFFICE_CODES" EntityType="AOSModel.OFFICE_CODES" />
+          <EntitySet Name="ChangeLog" EntityType="AOSModel.ChangeLog" />
+          <EntitySet Name="ACCOUNT_PURPOSE" EntityType="AOSModel.ACCOUNT_PURPOSE" />
         </EntityContainer>
         <EntityType Name="ACCOUNT_MODES">
           <Key>
@@ -3490,6 +3592,163 @@ warning 6013: The table/view 'AOS.dbo.TEMP_SRVC' does not have a primary key def
           <Property Name="PROFILECODE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="TYPE" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Name="CATEGORY" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="EMPLOYER_CODE">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="ZEMPGRP" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="ZEMPSUBG" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="ZEMPNO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="EMPLOYER_GROUP">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="ZEMPGRP" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="EMPLOYER_SUB_GROUP">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="ZEMPGRP" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="ZEMPSUBG" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="ACCOUNT_TYPES">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="TYPE" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="CLS" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="GRP" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="CIFTypeAllowed" Type="Int32" />
+        </EntityType>
+        <EntityType Name="ACCOUNT_MODES1">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="NAME" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="GRP" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="PROFILECODE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="TYPE" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="CATEGORY" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="EMPLOYER_CODE1">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="ZEMPGRP" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="ZEMPSUBG" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="ZEMPNO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="EMPLOYER_GROUP1">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="ZEMPGRP" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="EMPLOYER_SUB_GROUP1">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="ZEMPGRP" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="ZEMPSUBG" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="EMPLOYMENT_INFORMATIONS">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BI_ID" Type="Int32" />
+          <Property Name="EMPLOYMENT_DETAIL" Type="Int32" />
+          <Property Name="DEPARTMENT" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="RETIRED" Type="Boolean" />
+          <Property Name="DESIGNATION" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="PF_NO" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="PPQ_NO" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="EMPLOYER_CODE" Type="Int32" />
+          <Property Name="EMPLOYER_BUSINESS_ADDRESS" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="ARMY_RANK_CODE" Type="Int32" />
+          <Property Name="COUNTRY_EMPLOYMENT" Type="Int32" />
+          <Property Name="UPDATED_TIME" Type="DateTime" Precision="3" />
+          <Property Name="CONSUMER_SEGMENT" Type="Int32" />
+          <Property Name="EMPLOYMENT_DETAIL_OTHER_DESCRIPTION" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Name="EMPLOYER_DESC" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+          <Property Name="EMPLOYER_GROUP" Type="Int32" />
+          <Property Name="EMPLOYER_SUB_GROUP" Type="Int32" />
+          <Property Name="EMPLOYER_NUMBER" Type="Int32" />
+        </EntityType>
+        <EntityType Name="ACCOUNT_DEL_LOG">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TEMPORARY_ACOUNTNO" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="ACCOUNT_TYPE" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="ACCOUNT_TITLE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ACCOUNT_NATURE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DELETED_BY" Type="Int32" />
+          <Property Name="DELETE_DATETIME" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="CIF_DEL_LOG">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CIF_TYPE" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="IDENTITY_TYPE" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="IDENTITY_NO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CUSTOMER_NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="OFFICE_NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DELETED_BY" Type="Int32" />
+          <Property Name="DELETE_DATETIME" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="OFFICE_CODES">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NAME" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="ChangeLog">
+          <Key>
+            <PropertyRef Name="ApplyTo" />
+            <PropertyRef Name="FieldName" />
+            <PropertyRef Name="OldValue" />
+            <PropertyRef Name="NewValue" />
+            <PropertyRef Name="ChangedBy" />
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ApplyTo" Type="Decimal" Nullable="false" Precision="5" Scale="0" />
+          <Property Name="FieldName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="OldValue" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="NewValue" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="ChangedBy" Type="Decimal" Nullable="false" Precision="5" Scale="0" />
+          <Property Name="Comments" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="ChangeDate" Type="DateTime" Precision="3" />
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <EntityType Name="ACCOUNT_PURPOSE">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -3568,6 +3827,7 @@ warning 6013: The table/view 'AOS.dbo.TEMP_SRVC' does not have a primary key def
           <EntitySetMapping Name="ACCOUNT_DELTE_LOG">
             <EntityTypeMapping TypeName="AOSModel.ACCOUNT_DELTE_LOG">
               <MappingFragment StoreEntitySet="ACCOUNT_DELTE_LOG">
+                <ScalarProperty Name="DELETE_DATETIME" ColumnName="DELETE_DATETIME" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="TEMP_AC_NO" ColumnName="TEMP_AC_NO" />
                 <ScalarProperty Name="BRANCH_CODE" ColumnName="BRANCH_CODE" />
@@ -3595,6 +3855,7 @@ warning 6013: The table/view 'AOS.dbo.TEMP_SRVC' does not have a primary key def
           <EntitySetMapping Name="ACCOUNT_NATURE_CURRENCY">
             <EntityTypeMapping TypeName="AOSModel.ACCOUNT_NATURE_CURRENCY">
               <MappingFragment StoreEntitySet="ACCOUNT_NATURE_CURRENCY">
+                <ScalarProperty Name="ACCOUNT_PURPOSE" ColumnName="ACCOUNT_PURPOSE" />
                 <ScalarProperty Name="CNIC_VERIFIED" ColumnName="CNIC_VERIFIED" />
                 <ScalarProperty Name="ACCOUNT_ENTRY_DATE" ColumnName="ACCOUNT_ENTRY_DATE" />
                 <ScalarProperty Name="GL_CODE" ColumnName="GL_CODE" />
@@ -3649,17 +3910,6 @@ warning 6013: The table/view 'AOS.dbo.TEMP_SRVC' does not have a primary key def
               <MappingFragment StoreEntitySet="ACCOUNT_STATEMENT_FREQUENCY">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="NAME" ColumnName="NAME" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="ACCOUNT_TYPES">
-            <EntityTypeMapping TypeName="AOSModel.ACCOUNT_TYPES">
-              <MappingFragment StoreEntitySet="ACCOUNT_TYPES">
-                <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="TYPE" ColumnName="TYPE" />
-                <ScalarProperty Name="CLS" ColumnName="CLS" />
-                <ScalarProperty Name="GRP" ColumnName="GRP" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -3718,6 +3968,7 @@ warning 6013: The table/view 'AOS.dbo.TEMP_SRVC' does not have a primary key def
           <EntitySetMapping Name="APPLICANT_INFORMATION_CIFS">
             <EntityTypeMapping TypeName="AOSModel.APPLICANT_INFORMATION_CIFS">
               <MappingFragment StoreEntitySet="APPLICANT_INFORMATION_CIFS">
+                <ScalarProperty Name="NEG_LIST1" ColumnName="NEG_LIST" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="BI_ID" ColumnName="BI_ID" />
                 <ScalarProperty Name="CUSTOMER_CIF_NO" ColumnName="CUSTOMER_CIF_NO" />
@@ -3810,6 +4061,8 @@ warning 6013: The table/view 'AOS.dbo.TEMP_SRVC' does not have a primary key def
           <EntitySetMapping Name="BASIC_INFORMATIONS">
             <EntityTypeMapping TypeName="AOSModel.BASIC_INFORMATIONS">
               <MappingFragment StoreEntitySet="BASIC_INFORMATIONS">
+                <ScalarProperty Name="ISSUING_AGENCY_OTHER" ColumnName="ISSUING_AGENCY_OTHER" />
+                <ScalarProperty Name="CIF_OFFICER_CODE" ColumnName="CIF_OFFICER_CODE" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="CIF_ENTRY_DATE" ColumnName="CIF_ENTRY_DATE" />
                 <ScalarProperty Name="CIF_TYPE" ColumnName="CIF_TYPE" />
@@ -4224,30 +4477,9 @@ warning 6013: The table/view 'AOS.dbo.TEMP_SRVC' does not have a primary key def
           <EntitySetMapping Name="EMPLOYMENT_DETAILS">
             <EntityTypeMapping TypeName="AOSModel.EMPLOYMENT_DETAILS">
               <MappingFragment StoreEntitySet="EMPLOYMENT_DETAILS">
+                <ScalarProperty Name="EMP_SUBG_MAND" ColumnName="EMP_SUBG_MAND" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="NAME" ColumnName="NAME" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="EMPLOYMENT_INFORMATIONS">
-            <EntityTypeMapping TypeName="AOSModel.EMPLOYMENT_INFORMATIONS">
-              <MappingFragment StoreEntitySet="EMPLOYMENT_INFORMATIONS">
-                <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="BI_ID" ColumnName="BI_ID" />
-                <ScalarProperty Name="EMPLOYMENT_DETAIL" ColumnName="EMPLOYMENT_DETAIL" />
-                <ScalarProperty Name="DEPARTMENT" ColumnName="DEPARTMENT" />
-                <ScalarProperty Name="RETIRED" ColumnName="RETIRED" />
-                <ScalarProperty Name="DESIGNATION" ColumnName="DESIGNATION" />
-                <ScalarProperty Name="PF_NO" ColumnName="PF_NO" />
-                <ScalarProperty Name="PPQ_NO" ColumnName="PPQ_NO" />
-                <ScalarProperty Name="EMPLOYER_CODE" ColumnName="EMPLOYER_CODE" />
-                <ScalarProperty Name="EMPLOYER_BUSINESS_ADDRESS" ColumnName="EMPLOYER_BUSINESS_ADDRESS" />
-                <ScalarProperty Name="ARMY_RANK_CODE" ColumnName="ARMY_RANK_CODE" />
-                <ScalarProperty Name="COUNTRY_EMPLOYMENT" ColumnName="COUNTRY_EMPLOYMENT" />
-                <ScalarProperty Name="UPDATED_TIME" ColumnName="UPDATED_TIME" />
-                <ScalarProperty Name="CONSUMER_SEGMENT" ColumnName="CONSUMER_SEGMENT" />
-                <ScalarProperty Name="EMPLOYMENT_DETAIL_OTHER_DESCRIPTION" ColumnName="EMPLOYMENT_DETAIL_OTHER_DESCRIPTION" />
-                <ScalarProperty Name="EMPLOYER_DESC" ColumnName="EMPLOYER_DESC" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -4494,6 +4726,8 @@ warning 6013: The table/view 'AOS.dbo.TEMP_SRVC' does not have a primary key def
                 <ScalarProperty Name="PECT" ColumnName="PECT" />
                 <ScalarProperty Name="RAC" ColumnName="RAC" />
                 <ScalarProperty Name="RAC_DETAIL" ColumnName="RAC_DETAIL" />
+                <ScalarProperty Name="ETCP_OTHER" ColumnName="ETCP_OTHER" />
+                <ScalarProperty Name="GICP_OTHER" ColumnName="GICP_OTHER" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -4575,6 +4809,7 @@ warning 6013: The table/view 'AOS.dbo.TEMP_SRVC' does not have a primary key def
           <EntitySetMapping Name="MISCELLANEOUS_INFORMATIONS">
             <EntityTypeMapping TypeName="AOSModel.MISCELLANEOUS_INFORMATIONS">
               <MappingFragment StoreEntitySet="MISCELLANEOUS_INFORMATIONS">
+                <ScalarProperty Name="SOURCE_OF_FUND" ColumnName="SOURCE_OF_FUND" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="BI_ID" ColumnName="BI_ID" />
                 <ScalarProperty Name="EDUCATION" ColumnName="EDUCATION" />
@@ -4818,14 +5053,6 @@ warning 6013: The table/view 'AOS.dbo.TEMP_SRVC' does not have a primary key def
               <MappingFragment StoreEntitySet="REAL_BENEFICIARY_ACCOUNT">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="NAME" ColumnName="NAME" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="REASON_ACCOUNT_OPENING">
-            <EntityTypeMapping TypeName="AOSModel.REASON_ACCOUNT_OPENING">
-              <MappingFragment StoreEntitySet="REASON_ACCOUNT_OPENING">
-                <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -5154,8 +5381,28 @@ warning 6013: The table/view 'AOS.dbo.TEMP_SRVC' does not have a primary key def
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="ACCOUNT_MODES">
-            <EntityTypeMapping TypeName="AOSModel.ACCOUNT_MODES">
+          <EntitySetMapping Name="REASON_ACCOUNT_OPENING">
+            <EntityTypeMapping TypeName="AOSModel.REASON_ACCOUNT_OPENING">
+              <MappingFragment StoreEntitySet="REASON_ACCOUNT_OPENING">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ACCOUNT_TYPES">
+            <EntityTypeMapping TypeName="AOSModel.ACCOUNT_TYPES">
+              <MappingFragment StoreEntitySet="ACCOUNT_TYPES">
+                <ScalarProperty Name="CIFTypeAllowed" ColumnName="CIFTypeAllowed" />
+                <ScalarProperty Name="GRP" ColumnName="GRP" />
+                <ScalarProperty Name="CLS" ColumnName="CLS" />
+                <ScalarProperty Name="TYPE" ColumnName="TYPE" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ACCOUNT_MODES1Set">
+            <EntityTypeMapping TypeName="AOSModel.ACCOUNT_MODES1">
               <MappingFragment StoreEntitySet="ACCOUNT_MODES">
                 <ScalarProperty Name="CATEGORY" ColumnName="CATEGORY" />
                 <ScalarProperty Name="TYPE" ColumnName="TYPE" />
@@ -5166,7 +5413,119 @@ warning 6013: The table/view 'AOS.dbo.TEMP_SRVC' does not have a primary key def
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-        </EntityContainerMapping>
+          <EntitySetMapping Name="EMPLOYER_CODE1Set">
+            <EntityTypeMapping TypeName="AOSModel.EMPLOYER_CODE1">
+              <MappingFragment StoreEntitySet="EMPLOYER_CODE">
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ZEMPNO" ColumnName="ZEMPNO" />
+                <ScalarProperty Name="ZEMPSUBG" ColumnName="ZEMPSUBG" />
+                <ScalarProperty Name="ZEMPGRP" ColumnName="ZEMPGRP" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EMPLOYER_GROUP1Set">
+            <EntityTypeMapping TypeName="AOSModel.EMPLOYER_GROUP1">
+              <MappingFragment StoreEntitySet="EMPLOYER_GROUP">
+                <ScalarProperty Name="ZEMPGRP" ColumnName="ZEMPGRP" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EMPLOYER_SUB_GROUP1Set">
+            <EntityTypeMapping TypeName="AOSModel.EMPLOYER_SUB_GROUP1">
+              <MappingFragment StoreEntitySet="EMPLOYER_SUB_GROUP">
+                <ScalarProperty Name="ZEMPSUBG" ColumnName="ZEMPSUBG" />
+                <ScalarProperty Name="ZEMPGRP" ColumnName="ZEMPGRP" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EMPLOYMENT_INFORMATIONS">
+            <EntityTypeMapping TypeName="AOSModel.EMPLOYMENT_INFORMATIONS">
+              <MappingFragment StoreEntitySet="EMPLOYMENT_INFORMATIONS">
+                <ScalarProperty Name="EMPLOYER_NUMBER" ColumnName="EMPLOYER_NUMBER" />
+                <ScalarProperty Name="EMPLOYER_SUB_GROUP" ColumnName="EMPLOYER_SUB_GROUP" />
+                <ScalarProperty Name="EMPLOYER_GROUP" ColumnName="EMPLOYER_GROUP" />
+                <ScalarProperty Name="EMPLOYER_DESC" ColumnName="EMPLOYER_DESC" />
+                <ScalarProperty Name="EMPLOYMENT_DETAIL_OTHER_DESCRIPTION" ColumnName="EMPLOYMENT_DETAIL_OTHER_DESCRIPTION" />
+                <ScalarProperty Name="CONSUMER_SEGMENT" ColumnName="CONSUMER_SEGMENT" />
+                <ScalarProperty Name="UPDATED_TIME" ColumnName="UPDATED_TIME" />
+                <ScalarProperty Name="COUNTRY_EMPLOYMENT" ColumnName="COUNTRY_EMPLOYMENT" />
+                <ScalarProperty Name="ARMY_RANK_CODE" ColumnName="ARMY_RANK_CODE" />
+                <ScalarProperty Name="EMPLOYER_BUSINESS_ADDRESS" ColumnName="EMPLOYER_BUSINESS_ADDRESS" />
+                <ScalarProperty Name="EMPLOYER_CODE" ColumnName="EMPLOYER_CODE" />
+                <ScalarProperty Name="PPQ_NO" ColumnName="PPQ_NO" />
+                <ScalarProperty Name="PF_NO" ColumnName="PF_NO" />
+                <ScalarProperty Name="DESIGNATION" ColumnName="DESIGNATION" />
+                <ScalarProperty Name="RETIRED" ColumnName="RETIRED" />
+                <ScalarProperty Name="DEPARTMENT" ColumnName="DEPARTMENT" />
+                <ScalarProperty Name="EMPLOYMENT_DETAIL" ColumnName="EMPLOYMENT_DETAIL" />
+                <ScalarProperty Name="BI_ID" ColumnName="BI_ID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ACCOUNT_DEL_LOG">
+            <EntityTypeMapping TypeName="AOSModel.ACCOUNT_DEL_LOG">
+              <MappingFragment StoreEntitySet="ACCOUNT_DEL_LOG">
+                <ScalarProperty Name="DELETE_DATETIME" ColumnName="DELETE_DATETIME" />
+                <ScalarProperty Name="DELETED_BY" ColumnName="DELETED_BY" />
+                <ScalarProperty Name="ACCOUNT_NATURE" ColumnName="ACCOUNT_NATURE" />
+                <ScalarProperty Name="ACCOUNT_TITLE" ColumnName="ACCOUNT_TITLE" />
+                <ScalarProperty Name="ACCOUNT_TYPE" ColumnName="ACCOUNT_TYPE" />
+                <ScalarProperty Name="TEMPORARY_ACOUNTNO" ColumnName="TEMPORARY_ACOUNTNO" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CIF_DEL_LOG">
+            <EntityTypeMapping TypeName="AOSModel.CIF_DEL_LOG">
+              <MappingFragment StoreEntitySet="CIF_DEL_LOG">
+                <ScalarProperty Name="DELETE_DATETIME" ColumnName="DELETE_DATETIME" />
+                <ScalarProperty Name="DELETED_BY" ColumnName="DELETED_BY" />
+                <ScalarProperty Name="OFFICE_NAME" ColumnName="OFFICE_NAME" />
+                <ScalarProperty Name="CUSTOMER_NAME" ColumnName="CUSTOMER_NAME" />
+                <ScalarProperty Name="IDENTITY_NO" ColumnName="IDENTITY_NO" />
+                <ScalarProperty Name="IDENTITY_TYPE" ColumnName="IDENTITY_TYPE" />
+                <ScalarProperty Name="CIF_TYPE" ColumnName="CIF_TYPE" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OFFICE_CODES">
+            <EntityTypeMapping TypeName="AOSModel.OFFICE_CODES">
+              <MappingFragment StoreEntitySet="OFFICE_CODES">
+                <ScalarProperty Name="NAME" ColumnName="NAME" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ChangeLog">
+            <EntityTypeMapping TypeName="AOSModel.ChangeLog">
+              <MappingFragment StoreEntitySet="ChangeLog">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="ChangeDate" ColumnName="ChangeDate" />
+                <ScalarProperty Name="Comments" ColumnName="Comments" />
+                <ScalarProperty Name="ChangedBy" ColumnName="ChangedBy" />
+                <ScalarProperty Name="NewValue" ColumnName="NewValue" />
+                <ScalarProperty Name="OldValue" ColumnName="OldValue" />
+                <ScalarProperty Name="FieldName" ColumnName="FieldName" />
+                <ScalarProperty Name="ApplyTo" ColumnName="ApplyTo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ACCOUNT_PURPOSE">
+            <EntityTypeMapping TypeName="AOSModel.ACCOUNT_PURPOSE">
+              <MappingFragment StoreEntitySet="ACCOUNT_PURPOSE">
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
   </edmx:Runtime>
@@ -5181,7 +5540,7 @@ warning 6013: The table/view 'AOS.dbo.TEMP_SRVC' does not have a primary key def
       <DesignerInfoPropertySet>
         <DesignerProperty Name="ValidateOnBuild" Value="true" />
         <DesignerProperty Name="EnablePluralization" Value="false" />
-        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="False" />
         <DesignerProperty Name="UseLegacyProvider" Value="false" />
         <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
       </DesignerInfoPropertySet>

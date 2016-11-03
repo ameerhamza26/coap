@@ -21,11 +21,15 @@ namespace BLL
         public string DESIGNATION { get; set; }
         public string PF_NO { get; set; }
         public string PPQ_NO { get; set; }
-        public EmployerCode EMPLOYER_CODE { get; set; }
+        public EmployerCodes EMPLOYER_CODE { get; set; }
         public string EMPLOYER_DESC { get; set; }
         public string EMPLOYER_BUSINESS_ADDRESS { get; set; }
         public ArmyRankCodes ARMY_RANK_CODE { get; set; }
         public Country COUNTRY_EMPLOYMENT { get; set; }
+
+        public Nullable<int> EMPLOYER_GROUP { get; set; }
+        public Nullable<int> EMPLOYER_SUB_GROUP { get; set; }
+        public Nullable<int> EMPLOYER_NUMBER { get; set; }
 
         #endregion 
 
@@ -49,6 +53,10 @@ namespace BLL
                 EmpInfo.EMPLOYER_BUSINESS_ADDRESS = this.EMPLOYER_BUSINESS_ADDRESS.ToUpper();
                 EmpInfo.ARMY_RANK_CODE = this.ARMY_RANK_CODE.ID;
                 EmpInfo.COUNTRY_EMPLOYMENT = this.COUNTRY_EMPLOYMENT.ID;
+                EmpInfo.EMPLOYER_GROUP = this.EMPLOYER_GROUP;
+                EmpInfo.EMPLOYER_SUB_GROUP = this.EMPLOYER_SUB_GROUP;
+                EmpInfo.EMPLOYER_NUMBER = this.EMPLOYER_NUMBER;
+
                 db.BASIC_INFORMATIONS.FirstOrDefault(b => b.ID == this.BI_ID).LAST_UPDATED = DateTime.Now;
 
                 db.EMPLOYMENT_INFORMATIONS.Add(EmpInfo);
@@ -77,6 +85,9 @@ namespace BLL
                 EmpInfo.EMPLOYER_BUSINESS_ADDRESS = this.EMPLOYER_BUSINESS_ADDRESS.ToUpper();
                 EmpInfo.ARMY_RANK_CODE = this.ARMY_RANK_CODE.ID;
                 EmpInfo.COUNTRY_EMPLOYMENT = this.COUNTRY_EMPLOYMENT.ID;
+                EmpInfo.EMPLOYER_GROUP = this.EMPLOYER_GROUP;
+                EmpInfo.EMPLOYER_SUB_GROUP = this.EMPLOYER_SUB_GROUP;
+                EmpInfo.EMPLOYER_NUMBER = this.EMPLOYER_NUMBER;
 
                 db.BASIC_INFORMATIONS.FirstOrDefault(b => b.ID == this.BI_ID).LAST_UPDATED = DateTime.Now;
 
@@ -111,10 +122,13 @@ namespace BLL
                     this.PF_NO = EInfo.PF_NO;
                     this.PPQ_NO = EInfo.PPQ_NO;
                     this.EMPLOYER_DESC = EInfo.EMPLOYER_DESC;
-                    this.EMPLOYER_CODE = new EmployerCode { ID = EInfo.EMPLOYER_CODE };
+                    this.EMPLOYER_CODE = new EmployerCodes { ID = EInfo.EMPLOYER_CODE };
                     this.EMPLOYER_BUSINESS_ADDRESS = EInfo.EMPLOYER_BUSINESS_ADDRESS;
                     this.ARMY_RANK_CODE = new ArmyRankCodes { ID =  EInfo.ARMY_RANK_CODE };
                     this.COUNTRY_EMPLOYMENT = new Country { ID =  EInfo.COUNTRY_EMPLOYMENT };
+                    this.EMPLOYER_GROUP = EInfo.EMPLOYER_GROUP;
+                    this.EMPLOYER_SUB_GROUP = EInfo.EMPLOYER_SUB_GROUP;
+                    this.EMPLOYER_NUMBER = EInfo.EMPLOYER_NUMBER;
 
                     return true;
                 }

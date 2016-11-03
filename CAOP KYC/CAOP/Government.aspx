@@ -93,8 +93,8 @@
                         </div>
 
                         <div class="form-group">
-                            <label  class="lblReview">Registration No: *</label>
-                            <asp:TextBox ID="BiRegistrationNo" ClientIDMode="Static" AutoPostBack="true" CssClass="form-control" runat="server" OnTextChanged="BiRegistrationNo_TextChanged"></asp:TextBox>                                                     
+                            <label  class="lblReview">Registration No:</label>
+                            <asp:TextBox MaxLength="15" ID="BiRegistrationNo" ClientIDMode="Static" AutoPostBack="true" CssClass="form-control" runat="server" OnTextChanged="BiRegistrationNo_TextChanged"></asp:TextBox>                                                     
 							<%-- <asp:RequiredFieldValidator  Display="Dynamic" ID="RequiredFieldValidatorReg" ValidationGroup="BiValidationGroup" runat="server" ControlToValidate="BiRegistrationNo" ForeColor="Red" Font-Bold="true" ErrorMessage="Registration No is Required"></asp:RequiredFieldValidator>--%>
 							</ContentTemplate>
                             <%--<Triggers>

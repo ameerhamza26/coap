@@ -9,7 +9,31 @@
 
 <asp:Content ID="Body" ContentPlaceHolderID="Body" runat="server">
 
+      <asp:ScriptManager runat="server"></asp:ScriptManager>
 
+     <asp:UpdatePanel ID="UpdatePaneSearch" UpdateMode="Conditional" runat="server">
+          <ContentTemplate>  
+    <div runat="server" id="SearchCriteria" visible="false">
+    <h3 style="margin-top: 105px">Search CIF</h3>
+    <div class="row" >
+            <div class="col-md-4">
+                <div class="form-group">
+                   
+                    <asp:RadioButton  ID="radioBCode" AutoPostBack="true" Text="BRANCH CODE" GroupName="CRITERIA" Checked="true" runat="server" OnCheckedChanged="radioCifSearch_CheckedChanged" />                    
+                    <asp:RadioButton  ID="radioCNIC" AutoPostBack="true" Text="CNIC" GroupName="CRITERIA"  runat="server" OnCheckedChanged="radioCifSearch_CheckedChanged" />                    
+                    <asp:RadioButton  ID="radioName" AutoPostBack="true" Text="NAME" GroupName="CRITERIA"  runat="server" OnCheckedChanged="radioCifSearch_CheckedChanged" />
+                    <asp:RadioButton  ID="radioCifType" AutoPostBack="true" Text="CIF Type" GroupName="CRITERIA"  runat="server" OnCheckedChanged="radioCifSearch_CheckedChanged" />
+                    <asp:TextBox ID="txtCif" ClientIDMode="Static" CssClass="form-control" runat="server"></asp:TextBox>
+                    <asp:DropDownList ID="ddlCifTypes" CssClass="form-control" Visible="false"  runat="server"></asp:DropDownList>
+                    <asp:Button ID="btnSearch" style="margin-top: 20px" runat="server"  CssClass="btn btn-primary" Text="Search" OnClick="btnSearch_Click"  />                 
+                 </div>
+             </div>
+        </div>
+    </div>
+
+          
+
+    
     <asp:GridView class="table" ShowHeaderWhenEmpty="true" Visible="true" PagerStyle-CssClass="bs-pagination" ID="grdPCif" runat="server" AllowPaging="true" PageSize="15" AutoGenerateColumns="false" OnPageIndexChanging="grdPCif_PageIndexChanging" OnRowDataBound="grdPCif_RowDataBound">
     
     <Columns>
@@ -95,6 +119,7 @@
     
     </asp:GridView>
 
-
+</ContentTemplate>
+     </asp:UpdatePanel>
 
 </asp:Content>

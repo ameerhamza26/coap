@@ -58,6 +58,15 @@ namespace CAOP {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidatorPrimaryDocumentType;
         
         /// <summary>
+        /// CustomValidatorNonResident control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CustomValidator CustomValidatorNonResident;
+        
+        /// <summary>
         /// txtCnic control.
         /// </summary>
         /// <remarks>
@@ -535,6 +544,15 @@ namespace CAOP {
         protected global::System.Web.UI.WebControls.DropDownList lstCustomerDeals;
         
         /// <summary>
+        /// lstOfficerCode control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList lstOfficerCode;
+        
+        /// <summary>
         /// chkDocument control.
         /// </summary>
         /// <remarks>
@@ -832,6 +850,15 @@ namespace CAOP {
         protected global::System.Web.UI.WebControls.Button btnSubmitCifb;
         
         /// <summary>
+        /// UpdatePanel2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel UpdatePanel2;
+        
+        /// <summary>
         /// CiListCountryCode control.
         /// </summary>
         /// <remarks>
@@ -1012,13 +1039,13 @@ namespace CAOP {
         protected global::System.Web.UI.WebControls.DropDownList CiListCityPre;
         
         /// <summary>
-        /// RequiredFieldValidator2 control.
+        /// RequiredFieldValidatorCityPresent control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator2;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidatorCityPresent;
         
         /// <summary>
         /// CiTxtBuildingPre control.
@@ -1165,6 +1192,15 @@ namespace CAOP {
         protected global::System.Web.UI.WebControls.Button btnSubmitCifc;
         
         /// <summary>
+        /// UpdatePanelEmpInfo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel UpdatePanelEmpInfo;
+        
+        /// <summary>
         /// EiListEmployDetail control.
         /// </summary>
         /// <remarks>
@@ -1190,6 +1226,60 @@ namespace CAOP {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtDescEmpDetail;
+        
+        /// <summary>
+        /// EiListEmpGrp control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList EiListEmpGrp;
+        
+        /// <summary>
+        /// EiReqValidatorEGrp control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator EiReqValidatorEGrp;
+        
+        /// <summary>
+        /// EiListEmpSubGrp control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList EiListEmpSubGrp;
+        
+        /// <summary>
+        /// EiReqValidatorESubGrp control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator EiReqValidatorESubGrp;
+        
+        /// <summary>
+        /// EiListEmpNum control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList EiListEmpNum;
+        
+        /// <summary>
+        /// EiReqValidatorENum control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator EiReqValidatorENum;
         
         /// <summary>
         /// EiListConsumer control.
@@ -1424,6 +1514,24 @@ namespace CAOP {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList MiListTransportType;
+        
+        /// <summary>
+        /// MiListSOF control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList MiListSOF;
+        
+        /// <summary>
+        /// RequiredFieldValidatorMISOF control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidatorMISOF;
         
         /// <summary>
         /// MiBlindVisualRadio2 control.

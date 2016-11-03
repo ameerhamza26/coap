@@ -517,6 +517,8 @@ namespace CAOP
                 KnPEDT.Text = a.PEDT;
                 KnNOCT.Text = a.NOCT;
                 KnPECT.Text = a.PECT;
+                KntxtDescETCP.Text = a.ETCP_OTHER;
+                KntxtDescGCP.Text = a.GICP_OTHER;
 
                 KnSubmitButton.Visible = false;
 
@@ -679,6 +681,12 @@ namespace CAOP
                 AuExpDateProfit.Text = o.EXPIRY_DATE_PROFIT;
                 SetRadioButton(o.WHT_DEDUCTED_ON_TRANSACTION, WhtTransactionRadio1, WhtTransactionRadio2);
                 AuExpDateTrans.Text = o.EXPIRY_DATE_TRANSACTION;
+
+                if (WhtProfitRadio1.Checked)
+                    RequiredFieldValidatorExpProfit.Enabled = false;
+
+                if (WhtTransactionRadio1.Checked)
+                    RequiredFieldValidatorExpTrans.Enabled = false;
 
                 AuSubmitButton.Visible = false;
 
@@ -1110,6 +1118,9 @@ namespace CAOP
             AuListProfitPayment.DataBind();
             AuListProfitPayment.Items.Insert(0, new ListItem("Select", "0"));
 
+            RequiredFieldValidatorExpProfit.Enabled = true;
+            RequiredFieldValidatorExpTrans.Enabled = true;
+
           //  AuExpDateExempted.Text = DateTime.Now.ToString("yyyy-MM-dd");
           //  AuExpDateProfit.Text = DateTime.Now.ToString("yyyy-MM-dd");
          //   AuExpDateTrans.Text = DateTime.Now.ToString("yyyy-MM-dd");
@@ -1522,6 +1533,8 @@ namespace CAOP
                 a.PEDT = KnPEDT.Text;
                 a.NOCT = KnNOCT.Text;
                 a.PECT = KnPECT.Text;
+                a.ETCP_OTHER = KntxtDescETCP.Text;
+                a.GICP_OTHER = KntxtDescGCP.Text;
 
                 a.KYC_EXPECTED_COUNTER_PARTIES = KnListECP.Items.Cast<ListItem>().Where(i => i.Selected == true).Select(i => Convert.ToInt32(i.Value)).ToList();
                 a.KYC_GEOGRAPHIES_COUNTER_PARTIES = KnListGCP.Items.Cast<ListItem>().Where(i => i.Selected == true).Select(i => Convert.ToInt32(i.Value)).ToList();
@@ -2207,6 +2220,8 @@ namespace CAOP
                 a.EXPECTED_MONTHLY_INCOME = KnExpectedMonthlyIncome.Text;
                 // BI.NATIONALITIES = lstNationality.Items.Cast<ListItem>().Where(i => i.Selected == true).Select(i => new Nationality { CountryID = Convert.ToInt32(i.Value), Country = i.Text }).ToList();
                 //a.MODE_OF_TRANSACTIONS = KnListModeOfTransaction.Items.Cast<ListItem>().Where(i => i.Selected == true).Select(i => new Know_Customer_Transaction_mode { BI_ID = Convert.ToInt32(Session["BID"]), MODE_OF_TRANSACTIONS = i.Value }).ToList();
+                Know_Customer_Transaction_mode kt = new Know_Customer_Transaction_mode();
+                kt.Clean(Convert.ToInt32(Session["BID"]));
 
                 List<ListItem> selected = new List<ListItem>();
                 int count = 0;
@@ -2219,7 +2234,7 @@ namespace CAOP
                         Know_Customer_Transaction_mode k = new Know_Customer_Transaction_mode();
                         k.BI_ID = Convert.ToInt32(Session["BID"]);
                         k.MODE_OF_TRANSACTIONS = new ModeOfTransactions() { ID = Convert.ToInt32(item.Value), NAME = item.Text };
-                        k.Update();
+                        k.Save();
                     }
                     else
                     {
@@ -2271,6 +2286,8 @@ namespace CAOP
                 a.PEDT = KnPEDT.Text;
                 a.NOCT = KnNOCT.Text;
                 a.PECT = KnPECT.Text;
+                a.ETCP_OTHER = KntxtDescETCP.Text;
+                a.GICP_OTHER = KntxtDescGCP.Text;
 
                 a.KYC_EXPECTED_COUNTER_PARTIES = KnListECP.Items.Cast<ListItem>().Where(i => i.Selected == true).Select(i => Convert.ToInt32(i.Value)).ToList();
                 a.KYC_GEOGRAPHIES_COUNTER_PARTIES = KnListGCP.Items.Cast<ListItem>().Where(i => i.Selected == true).Select(i => Convert.ToInt32(i.Value)).ToList();
@@ -2387,29 +2404,33 @@ namespace CAOP
 
         protected void Search_BusinessCIF_Click(object sender, EventArgs e)
         {
-            User LoggedUser = Session["User"] as User;
-            int checked_id = 0;
-            if (RadioButton1.Checked)
+            if (SearchBusinessCifText.Text.Length > 0)
             {
-                checked_id = 1;
-            }
-            else if (RadioButton2.Checked)
-            {
-                checked_id = 2;
-            }
-            else if (RadioButton3.Checked)
-            {
-                checked_id = 3;
-            }
-            else if (RadioButton4.Checked)
-            {
-                checked_id = 4;
-            }
+                User LoggedUser = Session["User"] as User;
+                int checked_id = 0;
+                if (RadioButton1.Checked)
+                {
+                    checked_id = 1;
+                }
+                else if (RadioButton2.Checked)
+                {
+                    checked_id = 2;
+                }
+                else if (RadioButton3.Checked)
+                {
+                    checked_id = 3;
+                }
+                else if (RadioButton4.Checked)
+                {
+                    checked_id = 4;
+                }
 
 
-            CIF cf = new CIF(LoggedUser.USER_ID);
-            SearchBusinessCif.DataSource = cf.GetCifsForAccounts3(SearchBusinessCifText.Text, Status.APPROVED_BY_BRANCH_MANAGER, checked_id);
-            SearchBusinessCif.DataBind();
+                CIF cf = new CIF(LoggedUser.USER_ID);
+                SearchBusinessCif.DataSource = cf.GetCifsForAccounts3(SearchBusinessCifText.Text, Status.APPROVED_BY_BRANCH_MANAGER, checked_id);
+                SearchBusinessCif.DataBind();
+            }
+       
 
         }
 
@@ -2507,6 +2528,7 @@ namespace CAOP
                 newCif.APPLICANT_STATUS = AuthListApplicantStatus.SelectedItem.Text;
                 newCif.CUSTOMER_NAME = AuthCustomerName.Text;
                 newCif.CUSTOMER_IDENTITY = AuthCustomerCNIC.Text;
+                newCif.NEG_LIST = Convert.ToInt32(AuthApplicantNegativeRadio1.Checked);
                 
 
                 CifsData.Add(newCif);
@@ -2561,7 +2583,7 @@ namespace CAOP
 
         protected void WhtProfitRadio1_CheckedChanged(object sender, EventArgs e)
         {
-            if (WhtProfitRadio1.Checked)
+            if (WhtProfitRadio2.Checked)
                 RequiredFieldValidatorExpProfit.Enabled = true;
             else
                 RequiredFieldValidatorExpProfit.Enabled = false;
@@ -2570,7 +2592,7 @@ namespace CAOP
 
         protected void WhtTransactionRadio1_CheckedChanged(object sender, EventArgs e)
         {
-            if (WhtTransactionRadio1.Checked)
+            if (WhtTransactionRadio2.Checked)
                 RequiredFieldValidatorExpTrans.Enabled = true;
             else
                 RequiredFieldValidatorExpTrans.Enabled = false;
@@ -2736,6 +2758,8 @@ namespace CAOP
                 AcListAccountType.DataTextField = "NAME";
                 AcListAccountType.DataBind();
                 AcListAccountType.Items.Insert(0, new ListItem("Select", "0"));
+
+                AcListAccountType.Items.Remove(AcListAccountType.Items.FindByText("4599 -- Branch Office Account"));
             }
         }
 
@@ -2869,6 +2893,44 @@ namespace CAOP
                 RequiredFieldValidatorRACDetail.Enabled = true;
             else
                 RequiredFieldValidatorRACDetail.Enabled = false;
+        }
+
+        protected void KnListECP_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (KnListECP.Items.Cast<ListItem>().Where(i => i.Text.Trim() == "Others (specify)" && i.Selected == true).Any())
+            {
+                RequiredFieldValidatorDescETCP.Enabled = true;
+            }
+            else
+            {
+                RequiredFieldValidatorDescETCP.Enabled = false;
+            }
+        }
+
+        protected void KnListGCP_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (KnListGCP.Items.Cast<ListItem>().Where(i => i.Text.Trim() == "Outside Pakistan" && i.Selected == true).Any())
+            {
+                RequiredFieldValidatorDescGCP.Enabled = true;
+            }
+            else
+            {
+                RequiredFieldValidatorDescGCP.Enabled = false;
+            }
+        }
+
+        protected void CiListCountry_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (CiListCountry.SelectedItem.Text.Trim() != "PAKISTAN")
+            {
+                RequiredFieldValidatorProvince.Enabled = false;
+                RequiredFieldValidatorCity.Enabled = false;
+            }
+            else
+            {
+                RequiredFieldValidatorProvince.Enabled = true;
+                RequiredFieldValidatorCity.Enabled = true;
+            }
         }
 
     }

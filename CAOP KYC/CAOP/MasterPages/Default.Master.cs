@@ -88,7 +88,14 @@ namespace CAOP.MasterPages
             {
                 LOTF.Visible = true;
                 AOF.Visible = true;
+                BV.Visible = true;
                 crmtagging.Visible = true;
+            }
+
+            if (LogedUser.Role.Name.ToLower() == Roles.BRANCH_MANAGER.ToString().ToLower())
+            {
+                DIPC.Visible = true;
+                DIPA.Visible = true;
             }
 
             if (LogedUser.Permissions.CheckAccess(Permissions.CIF, Rights.Read))

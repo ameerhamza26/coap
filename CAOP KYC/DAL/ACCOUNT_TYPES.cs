@@ -19,5 +19,6 @@ namespace DAL
         public string TYPE { get; set; }
         public string CLS { get; set; }
         public string GRP { get; set; }
+        public Nullable<int> CIFTypeAllowed { get; set; }
     }
 }

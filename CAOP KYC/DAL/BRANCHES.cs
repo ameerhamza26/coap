@@ -21,5 +21,7 @@ namespace DAL
         public Nullable<int> CATEGORY_ID { get; set; }
         public string AREA { get; set; }
         public string ServiceCenterCode { get; set; }
+    
+        public virtual REGIONS REGIONS { get; set; }
     }
 }

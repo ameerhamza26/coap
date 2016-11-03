@@ -30,5 +30,8 @@ namespace DAL
         public Nullable<int> CONSUMER_SEGMENT { get; set; }
         public string EMPLOYMENT_DETAIL_OTHER_DESCRIPTION { get; set; }
         public string EMPLOYER_DESC { get; set; }
+        public Nullable<int> EMPLOYER_GROUP { get; set; }
+        public Nullable<int> EMPLOYER_SUB_GROUP { get; set; }
+        public Nullable<int> EMPLOYER_NUMBER { get; set; }
     }
 }

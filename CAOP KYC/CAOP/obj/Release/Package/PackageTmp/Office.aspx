@@ -54,7 +54,7 @@
                       </div>
                        <div class="form-group">
                         <label class="lblReview">Designation:</label>    
-                        <asp:TextBox ID="OffDesignation" CssClass="form-control"  runat="server"></asp:TextBox>
+                        <asp:TextBox ID="OffDesignation" CssClass="form-control" MaxLength="20"  runat="server"></asp:TextBox>
                       </div>
 
                       <h3>Permanent Address</h3>

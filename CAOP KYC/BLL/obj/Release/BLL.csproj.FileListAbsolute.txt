@@ -142,3 +142,15 @@ E:\AOS\coap\CAOP KYC\BLL\bin\Release\EntityFramework.SqlServer.xml
 E:\AOS\coap\CAOP KYC\BLL\obj\Release\BLL.csprojResolveAssemblyReference.cache
 E:\AOS\coap\CAOP KYC\BLL\obj\Release\BLL.dll
 E:\AOS\coap\CAOP KYC\BLL\obj\Release\BLL.pdb
+E:\Projects\AOS\coap\CAOP KYC\BLL\bin\Release\BLL.dll.config
+E:\Projects\AOS\coap\CAOP KYC\BLL\bin\Release\BLL.dll
+E:\Projects\AOS\coap\CAOP KYC\BLL\bin\Release\BLL.pdb
+E:\Projects\AOS\coap\CAOP KYC\BLL\bin\Release\DAL.dll
+E:\Projects\AOS\coap\CAOP KYC\BLL\bin\Release\EntityFramework.dll
+E:\Projects\AOS\coap\CAOP KYC\BLL\bin\Release\EntityFramework.SqlServer.dll
+E:\Projects\AOS\coap\CAOP KYC\BLL\bin\Release\DAL.pdb
+E:\Projects\AOS\coap\CAOP KYC\BLL\bin\Release\EntityFramework.xml
+E:\Projects\AOS\coap\CAOP KYC\BLL\bin\Release\EntityFramework.SqlServer.xml
+E:\Projects\AOS\coap\CAOP KYC\BLL\obj\Release\BLL.csprojResolveAssemblyReference.cache
+E:\Projects\AOS\coap\CAOP KYC\BLL\obj\Release\BLL.dll
+E:\Projects\AOS\coap\CAOP KYC\BLL\obj\Release\BLL.pdb

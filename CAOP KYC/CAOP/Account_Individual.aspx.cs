@@ -354,7 +354,7 @@ namespace CAOP
             KnListPurposeOfAccount.DataBind();
          //   KnListPurposeOfAccount.Items.Insert(0, new ListItem("Select", "0"));
 
-            KnListSourceOfFunds.DataSource = s.GetAccountTypes();
+            KnListSourceOfFunds.DataSource = s.GetSouceOfFund();
             KnListSourceOfFunds.DataValueField = "ID";
             KnListSourceOfFunds.DataTextField = "NAME";
             KnListSourceOfFunds.DataBind();
@@ -425,7 +425,7 @@ namespace CAOP
             knListDocType.DataBind();
             knListDocType.Items.Insert(0, new ListItem("Select", "0"));
 
-            KnListSourceOfFund.DataSource = s.GetAccountTypes();
+            KnListSourceOfFund.DataSource = s.GetSouceOfFund();
             KnListSourceOfFund.DataValueField = "ID";
             KnListSourceOfFund.DataTextField = "NAME";
             KnListSourceOfFund.DataBind();
@@ -506,6 +506,9 @@ namespace CAOP
             AuListProfitPayment.DataTextField = "NAME";
             AuListProfitPayment.DataBind();
             AuListProfitPayment.Items.Insert(0, new ListItem("Select", "0"));
+
+            RequiredFieldValidatorWhtProfitExpiry.Enabled = true;
+            RequiredFieldValidatorWhtTrans.Enabled = true;
 
           //  AuExpDateExempted.Text = DateTime.Now.ToString("yyyy-MM-dd");
          //   AuExpDateProfit.Text = DateTime.Now.ToString("yyyy-MM-dd");
@@ -937,6 +940,8 @@ namespace CAOP
                 KnPEDT.Text = a.PEDT;
                 KnNOCT.Text = a.NOCT;
                 KnPECT.Text = a.PECT;
+                KntxtDescETCP.Text = a.ETCP_OTHER;
+                KntxtDescGCP.Text = a.GICP_OTHER;
 
                 if (KnListRealBenef.SelectedItem.Text == "OTHER")
                 {
@@ -1045,6 +1050,12 @@ namespace CAOP
                 AuExpDateProfit.Text = o.EXPIRY_DATE_PROFIT;
                 SetRadioButton(o.WHT_DEDUCTED_ON_TRANSACTION, WhtTransactionRadio1, WhtTransactionRadio2);
                 AuExpDateTrans.Text = o.EXPIRY_DATE_TRANSACTION;
+
+                if (WhtProfitRadio1.Checked)
+                    RequiredFieldValidatorWhtProfitExpiry.Enabled = false;
+
+                if (WhtTransactionRadio1.Checked)
+                    RequiredFieldValidatorWhtTrans.Enabled = false;
 
                 AuSubmitButton.Visible = false;
 
@@ -1295,6 +1306,7 @@ namespace CAOP
 
                     // Setting validation group to joint
                     ApSubmitButton.ValidationGroup = "JOINTACCOUNT";
+                    CustomValidatorAccountType.ValidationGroup = "JOINTACCOUNT";
                 }
 
                 //if (a.MINOR_ACCOUNT == true)
@@ -1306,7 +1318,16 @@ namespace CAOP
                 //    AcMinorAccountRadio2.Checked = true;
                 //}
 
+                if (AcListAccountGroup.SelectedItem.Text == "Certificates of Deposit")
+                {
+                    RequiredFieldValidatorCdMarkupRate.Enabled = true;
+                    RequiredFieldValidatorCdLstPrincipalRenewal.Enabled = true;
+                    RequiredFieldValidatorCdCertNumber.Enabled = true;
+                    RequiredFieldValidatorProfitAccNumber.Enabled = true;
+                }
+
                 AcSubmitButton.Visible = false;
+
             }
         }
 
@@ -1408,6 +1429,7 @@ namespace CAOP
 
                     // Setting Validation group according to joint account on grid add button
                     ApSubmitButton.ValidationGroup = "JOINTACCOUNT";
+                    CustomValidatorAccountType.ValidationGroup = "JOINTACCOUNT";
 
                     GridViewAccountCifs.Visible = true;
                     GridViewAccountCifs.Enabled = true;
@@ -1434,6 +1456,15 @@ namespace CAOP
                 AcSubmitButton.Visible = false;
                 AcListAccountClass.Enabled = false;
                 AcListAccountGroup.Enabled = false;
+
+                if (AcListAccountGroup.SelectedItem.Text == "Certificates of Deposit")
+                {
+                    RequiredFieldValidatorCdMarkupRate.Enabled = true;
+                    RequiredFieldValidatorCdLstPrincipalRenewal.Enabled = true;
+                    RequiredFieldValidatorCdCertNumber.Enabled = true;
+                    RequiredFieldValidatorProfitAccNumber.Enabled = true;
+                }
+                    
             }
            
         }
@@ -1586,8 +1617,10 @@ namespace CAOP
                 ApSubmitButton.Visible = false;
             }
 
-           
 
+            String meSsg = "null";
+            int Iid = Convert.ToInt32(Session["BID"]);
+            CheckAccountIndividualTab(Iid, meSsg);
 
         }
 
@@ -2002,6 +2035,8 @@ namespace CAOP
             a.PEDT = KnPEDT.Text;
             a.NOCT = KnNOCT.Text;
             a.PECT = KnPECT.Text;
+            a.ETCP_OTHER = KntxtDescETCP.Text;
+            a.GICP_OTHER = KntxtDescGCP.Text;
 
             a.KYC_EXPECTED_COUNTER_PARTIES = KnListECP.Items.Cast<ListItem>().Where(i => i.Selected == true).Select(i => Convert.ToInt32(i.Value)).ToList();
             a.KYC_GEOGRAPHIES_COUNTER_PARTIES = KnListGCP.Items.Cast<ListItem>().Where(i => i.Selected == true).Select(i => Convert.ToInt32(i.Value)).ToList();
@@ -2572,7 +2607,9 @@ namespace CAOP
             a.EXPECTED_MONTHLY_INCOME = KnExpectedMonthlyIncome.Text;
             // BI.NATIONALITIES = lstNationality.Items.Cast<ListItem>().Where(i => i.Selected == true).Select(i => new Nationality { CountryID = Convert.ToInt32(i.Value), Country = i.Text }).ToList();
             //a.MODE_OF_TRANSACTIONS = KnListModeOfTransaction.Items.Cast<ListItem>().Where(i => i.Selected == true).Select(i => new Know_Customer_Transaction_mode { BI_ID = Convert.ToInt32(Session["BID"]), MODE_OF_TRANSACTIONS = i.Value }).ToList();
-
+           
+            Know_Customer_Transaction_mode kt = new Know_Customer_Transaction_mode();
+            kt.Clean(Convert.ToInt32(Session["BID"]));
             List<ListItem> selected = new List<ListItem>();
             int count = 0;
             foreach (ListItem item in KnListModeOfTransaction.Items)
@@ -2584,7 +2621,7 @@ namespace CAOP
                     Know_Customer_Transaction_mode k = new Know_Customer_Transaction_mode();
                     k.BI_ID = Convert.ToInt32(Session["BID"]);
                     k.MODE_OF_TRANSACTIONS = new ModeOfTransactions() { ID = Convert.ToInt32(item.Value), NAME = item.Text };
-                    k.Update();
+                    k.Save();
                 }
                 else
                 {
@@ -2651,6 +2688,8 @@ namespace CAOP
             a.PEDT = KnPEDT.Text;
             a.NOCT = KnNOCT.Text;
             a.PECT = KnPECT.Text;
+            a.ETCP_OTHER = KntxtDescETCP.Text;
+            a.GICP_OTHER = KntxtDescGCP.Text;
 
             a.KYC_EXPECTED_COUNTER_PARTIES = KnListECP.Items.Cast<ListItem>().Where(i => i.Selected == true).Select(i => Convert.ToInt32(i.Value)).ToList();
             a.KYC_GEOGRAPHIES_COUNTER_PARTIES = KnListGCP.Items.Cast<ListItem>().Where(i => i.Selected == true).Select(i => Convert.ToInt32(i.Value)).ToList();
@@ -2895,7 +2934,11 @@ namespace CAOP
                     POWER_OF_ATTORNY = Convert.ToInt32(IsPower),
                     SIGNATURE_AUTHORITY = Convert.ToInt32(IsSignatry),
                     INVESTMENT_SHARE = Investment,
-                    APPLICANT_STATUS = App_Status
+                    APPLICANT_STATUS = App_Status,
+                    NEG_LIST = Convert.ToInt32(ApApplicantNegativeRadio1.Checked),
+                    CUSTOMER_NAME = ApCustomerName.Text,
+                    CUSTOMER_IDENTITY = ApCustomerCNIC.Text
+                    
                 };
 
                 CifsData.Add(newCif);
@@ -3026,7 +3069,7 @@ namespace CAOP
 
         protected void WhtProfitRadio1_CheckedChanged(object sender, EventArgs e)
         {
-            if (WhtProfitRadio1.Checked)
+            if (WhtProfitRadio2.Checked)
                 RequiredFieldValidatorWhtProfitExpiry.Enabled = true;
             else
                 RequiredFieldValidatorWhtProfitExpiry.Enabled = false;
@@ -3034,10 +3077,10 @@ namespace CAOP
 
         protected void WhtTransactionRadio1_CheckedChanged(object sender, EventArgs e)
         {
-            if (WhtTransactionRadio1.Checked)
-                RequiredFieldValidatorWhtTrans.Enabled = false;
-            else
+            if (WhtTransactionRadio2.Checked)
                 RequiredFieldValidatorWhtTrans.Enabled = true;
+            else
+                RequiredFieldValidatorWhtTrans.Enabled = false;
         }
 
 
@@ -3069,6 +3112,8 @@ namespace CAOP
                 AcListAccountType.DataTextField = "NAME";
                 AcListAccountType.DataBind();
                 AcListAccountType.Items.Insert(0, new ListItem("Select", "0"));
+
+                AcListAccountType.Items.Remove(AcListAccountType.Items.FindByText("4599 -- Branch Office Account"));
             }
         }
 
@@ -3413,6 +3458,101 @@ namespace CAOP
                 RequiredFieldValidatorRACDetail.Enabled = true;
             else
                 RequiredFieldValidatorRACDetail.Enabled = false;
+        }
+
+        protected void KnListECP_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (KnListECP.Items.Cast<ListItem>().Where(i => i.Text.Trim() == "Others (specify)" && i.Selected == true).Any())
+            {
+                RequiredFieldValidatorDescETCP.Enabled = true;
+            }
+            else
+            {
+                RequiredFieldValidatorDescETCP.Enabled = false;
+            }
+        }
+
+        protected void KnListGCP_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (KnListGCP.Items.Cast<ListItem>().Where(i => i.Text.Trim() == "Outside Pakistan" && i.Selected == true).Any())
+            {
+                RequiredFieldValidatorDescGCP.Enabled = true;
+            }
+            else
+            {
+                RequiredFieldValidatorDescGCP.Enabled = false;
+            }
+        }
+
+        protected void AdListCountry_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (AdListCountry.SelectedItem.Text.Trim() != "PAKISTAN")
+            {
+                RequiredFieldValidatorAdProvince.Enabled = false;
+                RequiredFieldValidatorCity.Enabled = false;
+            }
+            else
+            {
+                RequiredFieldValidatorAdProvince.Enabled = true;
+                RequiredFieldValidatorCity.Enabled = true;
+            }
+        }
+
+        protected void CustomValidatorAccountType_ServerValidate(object source, ServerValidateEventArgs args)
+        {
+          
+            if (GridViewAccountCifs.Rows.Count > 0)
+            {
+                List<ApplicantInformationCifs> CifsData = Session["GridCif"] as List<ApplicantInformationCifs>;
+                ApplicantInformationCifs SCifObj = new ApplicantInformationCifs();
+
+                foreach (var SCif in CifsData)
+                {
+                    bool flag = SCifObj.CheckAccountType(Convert.ToInt32(SCif.CUSTOMER_CIF_NO), Convert.ToInt32(AcListAccountType.SelectedItem.Value));
+                    int CID = SCifObj.GetCustomerType(Convert.ToInt32(SCif.CUSTOMER_CIF_NO));
+                    if (flag == false)
+                    {
+                        if (CID == 1)
+                        {
+                            CustomValidatorAccountType.Text = string.Format("CIF No {0} (Identity: {1}) is Conventional which is not permitted for this account type", SCif.CUSTOMER_CIF_NO, SCif.CUSTOMER_IDENTITY);
+                            args.IsValid = false;
+                            return;
+                        }
+                        else
+                        {
+                            CustomValidatorAccountType.Text = string.Format("CIF No {0} (Identity: {1}) is Asaan which is not permitted for this account type", SCif.CUSTOMER_CIF_NO, SCif.CUSTOMER_IDENTITY);
+                            args.IsValid = false;
+                            return;
+                        }
+                    }
+                }
+
+                args.IsValid = true;
+
+            }
+            else
+            {
+                ApplicantInformationCifs SCifObj = new ApplicantInformationCifs();
+
+                bool flag = SCifObj.CheckAccountType(Convert.ToInt32(ApCustomerCif.Text), Convert.ToInt32(AcListAccountType.SelectedItem.Value));
+                int CID = SCifObj.GetCustomerType(Convert.ToInt32(ApCustomerCif.Text));
+
+                if (flag == false)
+                {
+                    if (CID == 1)
+                    {
+                        CustomValidatorAccountType.Text = string.Format("CIF No {0} (Identity: {1}) is Conventional which is not permitted for this account type", ApCustomerCif.Text, ApCustomerCNIC.Text);
+                        args.IsValid = false;
+                    }
+                    else
+                    {
+                        CustomValidatorAccountType.Text = string.Format("CIF No {0} (Identity: {1}) is Asaan which is not permitted for this account type", ApCustomerCif.Text, ApCustomerCNIC.Text);
+                        args.IsValid = false;
+                    }
+                }
+                else
+                    args.IsValid = true;
+            }
         }
     }
 }

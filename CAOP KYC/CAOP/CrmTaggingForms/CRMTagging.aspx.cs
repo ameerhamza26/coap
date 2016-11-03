@@ -101,7 +101,13 @@ namespace CAOP.CrmTaggingForms
                     acn = acn.Trim(',');
 
 
-                    Sql = "select acn,odt,b.boo,cid,B.TYPE,TITLE1,IBAN,CRCD,DESC,CONVACN,'No Error' FROM ACN B,UTBLBRCD BR WHERE B.BOO=BR.BRCD  AND B.BOO=" + txtBranchCode.Text.Trim() + " AND STAT<>4 and ACN in (" + acn + ")  and CID in (" + txtAccount.Text.Trim() + " ) ";
+                    //Original Query
+                    //Sql = "select acn,odt,b.boo,cid,B.TYPE,TITLE1,IBAN,CRCD,DESC,CONVACN,'No Error' FROM ACN B,UTBLBRCD BR WHERE B.BOO=BR.BRCD  AND B.BOO=" + txtBranchCode.Text.Trim() + " AND STAT<>4 and ACN in (" + acn + ")  and CID in (" + txtAccount.Text.Trim() + " ) ";
+                    Sql = "select B.acn,B.odt,b.boo,B.cid,B.TYPE,B.TITLE1,B.IBAN,B.CRCD,BR.DESC,B.CONVACN,'No Error' FROM ACN B,UTBLBRCD BR WHERE B.BOO=BR.BRCD  AND B.BOO=" + txtBranchCode.Text.Trim() + " AND B.STAT<>4 and B.ACN in (" + acn + ")  and B.CID in (" + txtAccount.Text.Trim() + " ) ";
+
+                    //Changed Query for ALIAS
+                    //Sql = "select ACN.ACN,ACN.odt,ACN.boo,ACN.cid,ACN.TYPE,ACN.TITLE1,ACN.IBAN,ACN.CRCD,UTBLBRCD.DESC,ACN.CONVACN,'No Error' FROM ACN,UTBLBRCD WHERE ACN.BOO=UTBLBRCD.BRCD  AND ACN.BOO=1347 AND ACN.STAT<>4 and ACN.ACN in (" + acn + ")  and ACN.CID in (" + txtAccount.Text.Trim() + " ) ";
+
                     //and CID in (" +txtAccount.Text.Trim() + " )
 
                     //localhost.ProfileConnector moobjProfileCS = new localhost.ProfileConnector();
@@ -118,6 +124,12 @@ namespace CAOP.CrmTaggingForms
                     ds = new DataSet();
                     ds.ReadXml(sr);
 
+                    if (ds.Tables.Count <= 0)
+                    {
+                        lblMessage.ForeColor = Color.Red;
+                        lblMessage.Text = "Invalid Account Number...";
+                        return;
+                    }
 
                     dtACN = ds.Tables[0];
                     GC.Collect();
@@ -259,9 +271,15 @@ namespace CAOP.CrmTaggingForms
                     lblMessage.ForeColor = Color.Green;
                     lblMessage.Text = "Account Successfully tagged";
 
+                    // ORIGINAL LINES - COMMENTED AS PER NOMAN - 29-06-2016
+                    /*
                     Sql = "SELECT 'OK' as StatusTag, ZCNIC CNIC,      [NAM] NAME      ,isnull([MAD1],'')+' '+isnull([MAD2],'')+' '+isnull([MAD3],'')+' '+isnull([MAD4],'') ADDRESS1      ,[PCITY] CITY,      [MMNAME] [MOTHER NAME],      [DOB] [DATE OF BIRTH],      [SEX] [GENDER],      [ZMOBILE] [MOBILE NUMBER],      [ODT] [ACCOUNT OPEN DATE],      [BOO] [BR CODE]      ,[CID] [ACC NO]      ,[TYPE] [ACC TYPE]      ,[TITLE1] [ACCOUNT TITLE]      ,[IBAN] [IBAN]      ,[CRCD] [CURRENCY]      ,[DESC] [BRANCH ADDRESS]      ,[ZUPDCRMDT] [UPDATEDDATE]      ,[ZMOBILEREG] [REGISTEREDPNO]      ,[HPH] [HOME PHONE]      ,[BPH] [OFFICE PHONE]      ,[ZHOMEREG] [REGISTEREDHPNO]      ,[ZBUSINREG] [REGISTEREDBPNO]      ,[CONVACN] [CONVACN]      ,[TMP_26] [ERROR]  FROM [Profile].[dbo].[ProfileData] where CID in (" + txtAccount.Text.Trim() + ")" +
             "union all " +
             "SELECT (case b.Status when 'P' then 'Pending' when 'R' then 'Rejected' when 'O' then 'OK' else 'Failure' end) 'StatusTag', a.ZCNIC CNIC,     a.[NAM] NAME      ,isnull(a.[MAD1],'')+' '+isnull(a.[MAD2],'')+' '+isnull(a.[MAD3],'')+' '+isnull(a.[MAD4],'') ADDRESS1      ,a.[PCITY] CITY,      a.[MMNAME] [MOTHER NAME],      a.[DOB] [DATE OF BIRTH],      [SEX] [GENDER],      a.[ZMOBILE] [MOBILE NUMBER],      [ODT] [ACCOUNT OPEN DATE],      a.[BOO] [BR CODE]      ,a.[CID] [ACC NO]      ,a.[TYPE] [ACC TYPE]      ,a.[TITLE1] [ACCOUNT TITLE]      ,a.[IBAN] [IBAN]      ,a.[CRCD] [CURRENCY]      ,a.[DESC] [BRANCH ADDRESS]      ,[ZUPDCRMDT] [UPDATEDDATE]      ,[ZMOBILEREG] [REGISTEREDPNO]      ,a.[HPH] [HOME PHONE]      ,a.[BPH] [OFFICE PHONE]      ,[ZHOMEREG] [REGISTEREDHPNO]      ,[ZBUSINREG] [REGISTEREDBPNO]      ,[CONVACN] [CONVACN]      ,[TMP_26] [ERROR]  FROM [Profile].[dbo].[ProfileDataAassan] a, AassanPFData b where a.CID in  (" + txtAccount.Text.Trim() + ") and a.CID=b.CID";
+                    */
+                    // ORIGINAL LINES - COMMENTED AS PER NOMAN - 29-06-2016
+
+                    Sql = "SELECT ZCNIC CNIC,      [NAM] NAME      ,isnull([MAD1],'')+' '+isnull([MAD2],'')+' '+isnull([MAD3],'')+' '+isnull([MAD4],'') ADDRESS1      ,[PCITY] CITY,      [MMNAME] [MOTHER NAME],      [DOB] [DATE OF BIRTH],      [SEX] [GENDER],      [ZMOBILE] [MOBILE NUMBER],      [ODT] [ACCOUNT OPEN DATE],      [BOO] [BR CODE]      ,[CID] [ACC NO]      ,[TYPE] [ACC TYPE]      ,[TITLE1] [ACCOUNT TITLE]      ,[IBAN] [IBAN]      ,[CRCD] [CURRENCY]      ,[DESC] [BRANCH ADDRESS]      ,[ZUPDCRMDT] [UPDATEDDATE]      ,[ZMOBILEREG] [REGISTEREDPNO]      ,[HPH] [HOME PHONE]      ,[BPH] [OFFICE PHONE]      ,[ZHOMEREG] [REGISTEREDHPNO]      ,[ZBUSINREG] [REGISTEREDBPNO]      ,[CONVACN] [CONVACN]      ,[TMP_26] [ERROR]  FROM [Profile].[dbo].[ProfileData] where CID in (" + txtAccount.Text.Trim() + ")";
 
                     DataTable dtTagged = serv.GetTable(ConnectionStringSql, Sql);
                     gdTaggedAccounts.DataSource = dtTagged;
@@ -339,6 +357,12 @@ namespace CAOP.CrmTaggingForms
                     ds = new DataSet();
                     ds.ReadXml(sr);
 
+                    if (ds.Tables.Count <= 0)
+                    {
+                        lblMessage.ForeColor = Color.Red;
+                        lblMessage.Text = "Invalid Account Number...";
+                        return;
+                    }
 
                     dtACN = ds.Tables[0];
 
@@ -404,6 +428,7 @@ namespace CAOP.CrmTaggingForms
                 throw exc;
             }
         }
+
         public void TagAccountOLDCode()
         {
             String Sql = "", XMLDataToString = "";
@@ -495,9 +520,16 @@ namespace CAOP.CrmTaggingForms
 
                     //Sql = "SELECT ZCNIC CNIC,      [NAM] NAME      ,isnull([MAD1],'')+' '+isnull([MAD2],'')+' '+isnull([MAD3],'')+' '+isnull([MAD4],'') ADDRESS1      ,[PCITY] CITY,      [MMNAME] [MOTHER NAME],      [DOB] [DATE OF BIRTH],      [SEX] [GENDER],      [ZMOBILE] [MOBILE NUMBER],      [ODT] [ACCOUNT OPEN DATE],      [BOO] [BR CODE]      ,[CID] [ACC NO]      ,[TYPE] [ACC TYPE]      ,[TITLE1] [ACCOUNT TITLE]      ,[IBAN] [IBAN]      ,[CRCD] [CURRENCY]      ,[DESC] [BRANCH ADDRESS]      ,[ZUPDCRMDT] [UPDATEDDATE]      ,[ZMOBILEREG] [REGISTEREDPNO]      ,[HPH] [HOME PHONE]      ,[BPH] [OFFICE PHONE]      ,[ZHOMEREG] [REGISTEREDHPNO]      ,[ZBUSINREG] [REGISTEREDBPNO]      ,[CONVACN] [CONVACN]      ,[TMP_26] [ERROR]  FROM [Profile].[dbo].[ProfileData] where CID in (" + txtAccount.Text.Trim() + ")";
 
+
+                    // ORIGINAL LINES - COMMENTED AS PER NOMAN - 29-06-2016
+                    /*
                     Sql = "SELECT 'OK' as StatusTag, ZCNIC CNIC,      [NAM] NAME      ,isnull([MAD1],'')+' '+isnull([MAD2],'')+' '+isnull([MAD3],'')+' '+isnull([MAD4],'') ADDRESS1      ,[PCITY] CITY,      [MMNAME] [MOTHER NAME],      [DOB] [DATE OF BIRTH],      [SEX] [GENDER],      [ZMOBILE] [MOBILE NUMBER],      [ODT] [ACCOUNT OPEN DATE],      [BOO] [BR CODE]      ,[CID] [ACC NO]      ,[TYPE] [ACC TYPE]      ,[TITLE1] [ACCOUNT TITLE]      ,[IBAN] [IBAN]      ,[CRCD] [CURRENCY]      ,[DESC] [BRANCH ADDRESS]      ,[ZUPDCRMDT] [UPDATEDDATE]      ,[ZMOBILEREG] [REGISTEREDPNO]      ,[HPH] [HOME PHONE]      ,[BPH] [OFFICE PHONE]      ,[ZHOMEREG] [REGISTEREDHPNO]      ,[ZBUSINREG] [REGISTEREDBPNO]      ,[CONVACN] [CONVACN]      ,[TMP_26] [ERROR]  FROM [Profile].[dbo].[ProfileData] where CID in (" + txtAccount.Text.Trim() + ")" +
             "union all " +
             "SELECT (case b.Status when 'P' then 'Pending' when 'R' then 'Rejected' when 'O' then 'OK' else 'Failure' end) 'StatusTag', a.ZCNIC CNIC,     a.[NAM] NAME      ,isnull(a.[MAD1],'')+' '+isnull(a.[MAD2],'')+' '+isnull(a.[MAD3],'')+' '+isnull(a.[MAD4],'') ADDRESS1      ,a.[PCITY] CITY,      a.[MMNAME] [MOTHER NAME],      a.[DOB] [DATE OF BIRTH],      [SEX] [GENDER],      a.[ZMOBILE] [MOBILE NUMBER],      [ODT] [ACCOUNT OPEN DATE],      a.[BOO] [BR CODE]      ,a.[CID] [ACC NO]      ,a.[TYPE] [ACC TYPE]      ,a.[TITLE1] [ACCOUNT TITLE]      ,a.[IBAN] [IBAN]      ,a.[CRCD] [CURRENCY]      ,a.[DESC] [BRANCH ADDRESS]      ,[ZUPDCRMDT] [UPDATEDDATE]      ,[ZMOBILEREG] [REGISTEREDPNO]      ,a.[HPH] [HOME PHONE]      ,a.[BPH] [OFFICE PHONE]      ,[ZHOMEREG] [REGISTEREDHPNO]      ,[ZBUSINREG] [REGISTEREDBPNO]      ,[CONVACN] [CONVACN]      ,[TMP_26] [ERROR]  FROM [Profile].[dbo].[ProfileDataAassan] a, AassanPFData b where a.CID in  (" + txtAccount.Text.Trim() + ") and a.CID=b.CID";
+                    */
+                    // ORIGINAL LINES - COMMENTED AS PER NOMAN - 29-06-2016
+
+                    Sql = "SELECT ZCNIC CNIC,      [NAM] NAME      ,isnull([MAD1],'')+' '+isnull([MAD2],'')+' '+isnull([MAD3],'')+' '+isnull([MAD4],'') ADDRESS1      ,[PCITY] CITY,      [MMNAME] [MOTHER NAME],      [DOB] [DATE OF BIRTH],      [SEX] [GENDER],      [ZMOBILE] [MOBILE NUMBER],      [ODT] [ACCOUNT OPEN DATE],      [BOO] [BR CODE]      ,[CID] [ACC NO]      ,[TYPE] [ACC TYPE]      ,[TITLE1] [ACCOUNT TITLE]      ,[IBAN] [IBAN]      ,[CRCD] [CURRENCY]      ,[DESC] [BRANCH ADDRESS]      ,[ZUPDCRMDT] [UPDATEDDATE]      ,[ZMOBILEREG] [REGISTEREDPNO]      ,[HPH] [HOME PHONE]      ,[BPH] [OFFICE PHONE]      ,[ZHOMEREG] [REGISTEREDHPNO]      ,[ZBUSINREG] [REGISTEREDBPNO]      ,[CONVACN] [CONVACN]      ,[TMP_26] [ERROR]  FROM [Profile].[dbo].[ProfileData] where CID in (" + txtAccount.Text.Trim() + ")";
 
                     DataTable dtTagged = serv.GetTable(ConnectionStringSql, Sql);
                     gdTaggedAccounts.DataSource = dtTagged;
@@ -519,6 +551,7 @@ namespace CAOP.CrmTaggingForms
                 lblMessage.Text = ex.Message;
             }
         }
+       
 
     }
 }

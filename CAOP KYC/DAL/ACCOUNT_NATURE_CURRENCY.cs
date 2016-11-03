@@ -37,5 +37,6 @@ namespace DAL
         public Nullable<System.DateTime> PROFILE_CREATION_DATE { get; set; }
         public string BRANCH_CODE { get; set; }
         public string IBAN { get; set; }
+        public Nullable<int> ACCOUNT_PURPOSE { get; set; }
     }
 }

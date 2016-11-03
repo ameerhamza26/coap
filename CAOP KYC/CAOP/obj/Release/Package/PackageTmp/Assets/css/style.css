@@ -60,13 +60,12 @@ body#login-page #login {
 
 .login-wrapper {
     position: absolute;
-    top: 0px;
-    left: 0px;
-    right: 0px;
-    bottom: 0px;
-    max-width: 457px;
+    top: 50%;
+    left: 50%;
+    max-width: 456px;
     height: 500px;
-    margin: auto;
+    margin-top: -250px;
+    margin-left: -228px;
     background: url("../images/login-shadow.png") bottom center no-repeat;
 }
 

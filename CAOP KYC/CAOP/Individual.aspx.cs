@@ -40,6 +40,7 @@ namespace CAOP
                         SetData();
                         SetProfileCif();
                         SetBioMetric();
+                        
                     }
 
                 }
@@ -51,7 +52,7 @@ namespace CAOP
                         SetData();
                         SetDataOpen(queryid);
                         // temperory risk check
-                        //CalculateRisk();
+                      //  CalculateRisk();
 
                         CIF cif = new CIF(LoggedUser.USER_ID);
 
@@ -314,6 +315,8 @@ namespace CAOP
                 MiListAccomType.Items.FindByValue(m.ACCOMODATION_TYPE.ID.ToString()).Selected = true;
                 MiAccomTypeDescr.Text = m.ACCOMODATION_TYPE_DESCRIPTION;
                 ListExtensions.SetDropdownValue(m.TRANSPORTATION_TYPE.ID, MiListTransportType);
+                if (m.SOURCE_OF_FUND != null)
+                ListExtensions.SetDropdownValue(m.SOURCE_OF_FUND, MiListSOF);
 
                 MiBlindVisualRadio1.Checked = false;
                 MiBlindVisualRadio2.Checked = false;
@@ -494,6 +497,40 @@ namespace CAOP
                 EiEmpBusAddr.Text = e.EMPLOYER_BUSINESS_ADDRESS;
                 ListExtensions.SetDropdownValue(e.COUNTRY_EMPLOYMENT.ID, EiListCountryEmpBus);
                 ListExtensions.SetDropdownValue(e.ARMY_RANK_CODE.ID, EiListPakArmy);
+
+                ListExtensions.SetDropdownValue(e.EMPLOYER_GROUP, EiListEmpGrp);
+                try
+                {
+                    if (e.EMPLOYER_GROUP != null && e.EMPLOYER_GROUP != 0)
+                    {
+                        EmployerSubGroup ESG = new EmployerSubGroup();
+                        EmployerGroup EG = new EmployerGroup();
+
+                        EiListEmpSubGrp.DataSource = ESG.GetEmpoyerSubGroup(EG.GetZEMPGRP(Convert.ToInt32(EiListEmpGrp.SelectedItem.Value)));
+                        EiListEmpSubGrp.DataValueField = "ID";
+                        EiListEmpSubGrp.DataTextField = "Name";
+                        EiListEmpSubGrp.DataBind();
+                        EiListEmpSubGrp.Items.Insert(0, new ListItem("Select", "0"));
+                        ListExtensions.SetDropdownValue(e.EMPLOYER_SUB_GROUP, EiListEmpSubGrp);
+
+
+                        EmployerCode EC = new EmployerCode();
+
+                        EiListEmpNum.DataSource = EC.GetEmployerCode(ESG.GetZEMPGRP(Convert.ToInt32(EiListEmpSubGrp.SelectedItem.Value)), ESG.GetZEMPSUBG(Convert.ToInt32(EiListEmpSubGrp.SelectedItem.Value)));
+                        EiListEmpNum.DataValueField = "ID";
+                        EiListEmpNum.DataTextField = "Name";
+                        EiListEmpNum.DataBind();
+                        EiListEmpNum.Items.Insert(0, new ListItem("Select", "0"));
+                        ListExtensions.SetDropdownValue(e.EMPLOYER_NUMBER, EiListEmpNum);
+                    }
+                  
+                }
+                catch(Exception excep)
+                {
+
+                }
+              
+
                 // EiListPakArmy.Items.FindByValue(e.ARMY_RANK_CODE.ID.ToString()).Selected = true;
 
                 EiSubmitButton.Visible = false;
@@ -585,6 +622,9 @@ namespace CAOP
                 chkDocument.Checked = b1.DOCUMENT_VERIFIED;
 
                 ListExtensions.SetDropdownValue(b1.CUSTOMER_TYPE.ID, LstCustomerType);
+
+                if (b1.CIF_OFFICER_CODE != null)
+                    ListExtensions.SetDropdownValue(b1.CIF_OFFICER_CODE, lstOfficerCode);
 
                 foreach (var n in b1.NATIONALITIES)
                 {
@@ -1131,6 +1171,7 @@ namespace CAOP
             MonthlyTurnOverCredit mc = new MonthlyTurnOverCredit();
             AverageCashDeposit ad = new AverageCashDeposit();
             AverageNonCashDeposit an = new AverageNonCashDeposit();
+            SourceOfFunds sof = new SourceOfFunds();
 
             Country c1 = new Country();
 
@@ -1187,15 +1228,22 @@ namespace CAOP
             MiListCountryOfTax.DataTextField = "Name";
             MiListCountryOfTax.DataBind();
 
+            MiListSOF.DataSource = sof.GetSouceOfFund();
+            MiListSOF.DataValueField = "ID";
+            MiListSOF.DataTextField = "NAME";
+            MiListSOF.DataBind();
+            MiListSOF.Items.Insert(0, new ListItem("Select", "0"));
+
         }
 
         private void SetEmployementInformation()
         {
             EmploymentDetail ed = new EmploymentDetail();
-            EmployerCode ec = new EmployerCode();
+            EmployerCodes ec = new EmployerCodes();
             Country c1 = new Country();
             ArmyRankCodes ar = new ArmyRankCodes();
             ConsumerSegment cg = new ConsumerSegment();
+            EmployerGroup EG = new EmployerGroup();
 
 
             EiListEmployDetail.DataSource = ed.GetEmploymentDetail();
@@ -1227,6 +1275,15 @@ namespace CAOP
             EiListConsumer.DataTextField = "Name";
             EiListConsumer.DataBind();
             EiListConsumer.Items.Insert(0, new ListItem("Select", "0"));
+
+            EiListEmpGrp.DataSource = EG.GetEmpoyerGroup();
+            EiListEmpGrp.DataValueField = "ID";
+            EiListEmpGrp.DataTextField = "Name";
+            EiListEmpGrp.DataBind();
+            EiListEmpGrp.Items.Insert(0, new ListItem("Select", "0"));
+
+            EiListEmpSubGrp.Items.Insert(0, new ListItem("Select", "0"));
+            EiListEmpNum.Items.Insert(0, new ListItem("Select", "0"));
         }
 
         private void SetContactInfoData()
@@ -1344,6 +1401,8 @@ namespace CAOP
             ResidentType ResidentType = new ResidentType();
             CustomerDeal CustomerDeal = new CustomerDeal();
             CifCustomerType cct = new CifCustomerType();
+            OfficerCodes OC = new OfficerCodes();
+            
             BmData.Visible = true;
           //  txtDOB.Text = DateTime.Now.ToString("yyyy-MM-dd");
            // txtDOB.Text = "";
@@ -1425,6 +1484,12 @@ namespace CAOP
             LstCustomerType.DataTextField = "Name";
             LstCustomerType.DataBind();
             LstCustomerType.Items.Insert(0, new ListItem("Select", "0"));
+
+            lstOfficerCode.DataSource = OC.GetOfficerCodes();
+            lstOfficerCode.DataValueField = "ID";
+            lstOfficerCode.DataTextField = "Name";
+            lstOfficerCode.DataBind();
+            lstOfficerCode.Items.Insert(0, new ListItem("Select", "0"));
         }
 
         private void CheckPermissions(User LoggedUser)
@@ -1507,6 +1572,7 @@ namespace CAOP
             BI.UserId = LogedUser.USER_ID;
             BI.BRANCH_CODE = LogedUser.Branch.BRANCH_CODE;
             BI.CUSTOMER_TYPE = new CifCustomerType() { ID = Convert.ToInt32(LstCustomerType.SelectedItem.Value) };
+            BI.CIF_OFFICER_CODE = Convert.ToInt32(lstOfficerCode.SelectedItem.Value);
 
             Session["BID"] = BI.SaveIndividual();
             if (lstCOR.SelectedItem.Text.Trim() != "UNITED STATES")
@@ -1716,12 +1782,17 @@ namespace CAOP
                 e1.DESIGNATION = EiDesignation.Text;
                 e1.PF_NO = EiPFNo.Text;
                 e1.PPQ_NO = EiPPONo.Text;
-                e1.EMPLOYER_CODE = new EmployerCode() { ID = ListExtensions.getSelectedValue(EiListEmployerCode), Code = EiListEmployerCode.SelectedItem.Text };
+                e1.EMPLOYER_CODE = new EmployerCodes() { ID = ListExtensions.getSelectedValue(EiListEmployerCode), Code = EiListEmployerCode.SelectedItem.Text };
                 e1.EMPLOYER_DESC = EiTxtEmployer.Text;
                 e1.EMPLOYER_BUSINESS_ADDRESS = EiEmpBusAddr.Text;
                 e1.COUNTRY_EMPLOYMENT = new Country() { ID = ListExtensions.getSelectedValue(EiListCountryEmpBus), Name = EiListCountryEmpBus.SelectedItem.Text };
                 e1.ARMY_RANK_CODE = new ArmyRankCodes() { ID = ListExtensions.getSelectedValue(EiListPakArmy), Code = EiListPakArmy.SelectedItem.Text };
-
+                
+                e1.EMPLOYER_GROUP = Convert.ToInt32(EiListEmpGrp.SelectedItem.Value);
+                e1.EMPLOYER_SUB_GROUP = Convert.ToInt32(EiListEmpSubGrp.SelectedItem.Value);
+                e1.EMPLOYER_NUMBER = Convert.ToInt32(EiListEmpNum.SelectedItem.Value);
+               
+                
                 e1.SaveEmploymentInfo();
 
                 CIF cf = new CIF(Convert.ToInt32(Session["BID"]), CifType.INDIVIDUAL);
@@ -1809,6 +1880,7 @@ namespace CAOP
                 m.TOTAL_ASSET_VALUE = MiTotalAsset.Text;
                 m.LIABILITIES = MiLiabilities.Text;
                 m.NET_WORTH = MiNetWorth.Text;
+                m.SOURCE_OF_FUND = Convert.ToInt32(MiListSOF.SelectedItem.Value);
 
                 m.MiscellaneousInfoCountryTax = MiListCountryOfTax.Items.Cast<ListItem>().Where(i => i.Selected == true).Select(i => new Country { ID = Convert.ToInt32(i.Value), Name = i.Text }).ToList();
                 //            BI.NATIONALITIES = lstNationality.Items.Cast<ListItem>().Where(i => i.Selected == true).Select(i => new Nationality { CountryID = Convert.ToInt32(i.Value), Country = i.Text }).ToList();
@@ -1929,7 +2001,7 @@ namespace CAOP
             f.TYPE_TIN = new FatcasTin() { ID = ListExtensions.getSelectedValue(PiListTinType) };
             f.TIN = PiTxtTin.Text;
             if (PiTxtFatcaDocumentDate.Text.Length > 0)
-                 f.FATCA_DOCUMENTATION_DATE =  Convert.ToDateTime(PiTxtFatcaDocumentDate.Text);
+                 f.FATCA_DOCUMENTATION_DATE = DateTime.ParseExact(PiTxtFatcaDocumentDate.Text, "dd-MM-yyyy", CultureInfo.InvariantCulture);
             f.RESIDENCE_CARD = new UsaResidenceCard() { ID = ListExtensions.getSelectedValue(PiListResidenceCard), Name = PiListResidenceCard.SelectedItem.Text };
             f.FUND_TRANSFER = new UsaFund() { ID = ListExtensions.getSelectedValue(PiListTransferOfFundsUSA), Name = PiListTransferOfFundsUSA.SelectedItem.Text };
             f.FTCA_CLASSIFICATION = new FatcaClassification() { ID = ListExtensions.getSelectedValue(PiListFatcaClass), Name = PiListFatcaClass.SelectedItem.Text };
@@ -1987,6 +2059,8 @@ namespace CAOP
                 //CiListCityPresent.SelectedValue = CiListCity.SelectedValue.ToString();
                 //CiTxtPostalCodePresent.Text = CiTxtPostalCode.Text;
                 //CiListCountryPresent.SelectedValue = CiListCountry.SelectedValue.ToString();
+
+                CiListCountryCodePre_SelectedIndexChanged(null, null);
             }
             else
             {
@@ -2173,6 +2247,7 @@ namespace CAOP
             BI.CUSTOMER_DEAL = new CustomerDeal { ID = ListExtensions.getSelectedValue(lstCustomerDeals), Name = lstCustomerDeals.SelectedItem.Text };
             BI.DOCUMENT_VERIFIED = chkDocument.Checked;
             BI.CUSTOMER_TYPE = new CifCustomerType() { ID = Convert.ToInt32(LstCustomerType.SelectedItem.Value) };
+            BI.CIF_OFFICER_CODE = Convert.ToInt32(lstOfficerCode.SelectedItem.Value);
             BI.ID = BID;
             BI.UpdateIndividual();
 
@@ -2352,10 +2427,15 @@ namespace CAOP
             e1.PF_NO = EiPFNo.Text;
             e1.PPQ_NO = EiPPONo.Text;
             e1.EMPLOYER_DESC = EiTxtEmployer.Text;
-            e1.EMPLOYER_CODE = new EmployerCode() { ID = ListExtensions.getSelectedValue(EiListEmployerCode), Code = EiListEmployerCode.SelectedItem.Text };
+            e1.EMPLOYER_CODE = new EmployerCodes() { ID = ListExtensions.getSelectedValue(EiListEmployerCode), Code = EiListEmployerCode.SelectedItem.Text };
             e1.EMPLOYER_BUSINESS_ADDRESS = EiEmpBusAddr.Text;
             e1.COUNTRY_EMPLOYMENT = new Country() { ID = ListExtensions.getSelectedValue(EiListCountryEmpBus), Name = EiListCountryEmpBus.SelectedItem.Text };
             e1.ARMY_RANK_CODE = new ArmyRankCodes() { ID = ListExtensions.getSelectedValue(EiListPakArmy), Code = EiListPakArmy.SelectedItem.Text };
+            e1.EMPLOYER_GROUP = Convert.ToInt32(EiListEmpGrp.SelectedItem.Value);
+            e1.EMPLOYER_SUB_GROUP = Convert.ToInt32(EiListEmpSubGrp.SelectedItem.Value);
+            e1.EMPLOYER_NUMBER = Convert.ToInt32(EiListEmpNum.SelectedItem.Value);
+            
+            
             e1.UpdateEmploymentInfo();
         }
 
@@ -2426,6 +2506,7 @@ namespace CAOP
             m.TOTAL_ASSET_VALUE = MiTotalAsset.Text;
             m.LIABILITIES = MiLiabilities.Text;
             m.NET_WORTH = MiNetWorth.Text;
+            m.SOURCE_OF_FUND = Convert.ToInt32(MiListSOF.SelectedItem.Value);
             m.MiscellaneousInfoCountryTax = MiListCountryOfTax.Items.Cast<ListItem>().Where(i => i.Selected == true).Select(i => new Country { ID = Convert.ToInt32(i.Value), Name = i.Text }).ToList();
 
             m.UpdateIndividualMiscellaneousInfo();
@@ -2509,7 +2590,7 @@ namespace CAOP
             f.TYPE_TIN = new FatcasTin() { ID = ListExtensions.getSelectedValue(PiListTinType) };
             f.TIN = PiTxtTin.Text;
             if (PiTxtFatcaDocumentDate.Text.Length > 0)
-                f.FATCA_DOCUMENTATION_DATE = Convert.ToDateTime(PiTxtFatcaDocumentDate.Text);
+                f.FATCA_DOCUMENTATION_DATE = DateTime.ParseExact(PiTxtFatcaDocumentDate.Text, "dd-MM-yyyy", CultureInfo.InvariantCulture);
             else
                 f.FATCA_DOCUMENTATION_DATE = null;
             f.USA_PHONE = new UsaPhone() { ID = ListExtensions.getSelectedValue(PiListPhoneNoUsa), Name = PiListPhoneNoUsa.SelectedItem.Text };
@@ -2548,6 +2629,10 @@ namespace CAOP
             else if (b.IsCnicExists(txtCnic.Text))
             {
                 CustomValidatorCNIC.ErrorMessage = "CIF Already Exists With this CNIC. Proceed to Account Creation";
+
+                if (b.IsCnicExistsPArtially(txtCnic.Text))
+                    CustomValidatorCNIC.ErrorMessage = "CIF already created partially, Please complete it first";
+
                 args.IsValid = false;
             }                
             else
@@ -2596,7 +2681,7 @@ namespace CAOP
             }
             catch (Exception ex)
             {
-                return false;
+                return true;
             }
 
             try
@@ -2608,7 +2693,7 @@ namespace CAOP
             }
             catch (Exception ey)
             {
-                return false;
+                return true;
             }
 
             if (IsEmpty(ds))
@@ -2727,7 +2812,7 @@ namespace CAOP
                 string Industry = "";
                 string TaxIdentifierFormat = "";
                 string TaxIdentificationNumber = OiTxtNTN.Text;
-                string Occupation = EiListEmployDetail.SelectedItem.Text.Substring(0,17);
+                string Occupation = (EiListEmployDetail.SelectedItem.Text.Length > 17) ? EiListEmployDetail.SelectedItem.Text.Substring(0, 17) : EiListEmployDetail.SelectedItem.Text;
                 string CustomerCreationDate = DateTime.Now.ToString("yyyy-MM-dd");
                 string ResidenceCountry = c.GetCountryProfileCode(lstCOR.SelectedItem.Text);
                 string PrimaryCitznCountry = c.GetCountryProfileCode(lstCOR.SelectedItem.Text);
@@ -2777,7 +2862,8 @@ namespace CAOP
                 }
 
                 string PhoneExtension = "";
-                string SourceType = EiListConsumer.SelectedItem.Value;
+                SourceOfFunds sof = new SourceOfFunds();
+                string SourceType = sof.GetProfileCodeIndividual(Convert.ToInt32(MiListSOF.SelectedItem.Value));
                 string Currency = "PKR";
                 string Role = "OWNER";
                 string RelationDefn = "";
@@ -2961,6 +3047,110 @@ namespace CAOP
                 RequiredFieldValidatorFTaxNo.Enabled = false;
                  CustomValidatorFatcaDoc.Enabled = false;
                  PiListFatcaDocumentation.Enabled = false;
+            }
+        }
+
+        protected void CustomValidatorNonResident_ServerValidate(object source, ServerValidateEventArgs args)
+        {
+            if (lstResident.SelectedItem.Text.Trim() == "RESIDENT")
+                args.IsValid = true;
+            else
+            {
+                if (lstPrimaryDocumentType.SelectedItem.Text.Trim() == "Passport")
+                    args.IsValid = true;
+                else
+                    args.IsValid = false;
+            }
+        }
+
+        protected void CiListCountryCode_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (CiListCountryCode.SelectedItem.Text.Trim() != "PAKISTAN")
+            {
+                RequiredFieldValidatorPermanentProvice.Enabled = false;
+                RequiredFieldValidatorPermenentCity.Enabled = false;
+            }
+            else
+            {
+                RequiredFieldValidatorPermanentProvice.Enabled = true;
+                RequiredFieldValidatorPermenentCity.Enabled = true;
+            }
+        }
+
+        protected void CiListCountryCodePre_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (CiListCountryCode.SelectedItem.Text.Trim() != "PAKISTAN")
+            {
+                RequiredFieldValidatorProvicePreset.Enabled = false;
+                RequiredFieldValidatorCityPresent.Enabled = false;
+            }
+            else
+            {
+                RequiredFieldValidatorProvicePreset.Enabled = true;
+                RequiredFieldValidatorCityPresent.Enabled = true;
+            }
+        }
+
+        protected void EiListEmpGrp_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (EiListEmpGrp.SelectedIndex != 0)
+            {
+                EmployerSubGroup ESG = new EmployerSubGroup();
+                EmployerGroup EG = new EmployerGroup();
+
+                EiListEmpSubGrp.DataSource = ESG.GetEmpoyerSubGroup(EG.GetZEMPGRP(Convert.ToInt32(EiListEmpGrp.SelectedItem.Value)));
+                EiListEmpSubGrp.DataValueField = "ID";
+                EiListEmpSubGrp.DataTextField = "Name";
+                EiListEmpSubGrp.DataBind();
+                EiListEmpSubGrp.Items.Insert(0, new ListItem("Select", "0"));
+            }
+            else
+            {
+
+                EiListEmpSubGrp.DataSource = new List<EmployerSubGroup>();
+                EiListEmpSubGrp.DataValueField = "ID";
+                EiListEmpSubGrp.DataTextField = "Name";
+                EiListEmpSubGrp.DataBind();
+                EiListEmpSubGrp.Items.Insert(0, new ListItem("Select", "0"));
+
+                EiListEmpNum.DataSource = new List<EmployerCode>();
+                EiListEmpNum.DataValueField = "ID";
+                EiListEmpNum.DataTextField = "Name";
+                EiListEmpNum.DataBind();
+                EiListEmpNum.Items.Insert(0, new ListItem("Select", "0"));
+            }
+        }
+
+        protected void EiListEmpSubGrp_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (EiListEmpSubGrp.SelectedIndex != 0)
+            {
+                EmployerSubGroup ESG = new EmployerSubGroup();
+                EmployerCode EC = new EmployerCode();
+
+                EiListEmpNum.DataSource = EC.GetEmployerCode(ESG.GetZEMPGRP(Convert.ToInt32(EiListEmpSubGrp.SelectedItem.Value)), ESG.GetZEMPSUBG(Convert.ToInt32(EiListEmpSubGrp.SelectedItem.Value)));
+                EiListEmpNum.DataValueField = "ID";
+                EiListEmpNum.DataTextField = "Name";
+                EiListEmpNum.DataBind();
+                EiListEmpNum.Items.Insert(0, new ListItem("Select", "0"));
+            }
+        }
+
+        protected void EiListEmployDetail_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            EmploymentDetail ED = new EmploymentDetail();
+
+            if (ED.GetEmpSubgMand(Convert.ToInt32(EiListEmployDetail.SelectedItem.Value)))
+            {
+                EiReqValidatorEGrp.Enabled = true;
+                EiReqValidatorESubGrp.Enabled = true;
+                EiReqValidatorENum.Enabled = true;
+            }
+            else
+            {
+                EiReqValidatorEGrp.Enabled = false;
+                EiReqValidatorESubGrp.Enabled = false;
+                EiReqValidatorENum.Enabled = false;
             }
         }
 

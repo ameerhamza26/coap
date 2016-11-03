@@ -40,7 +40,8 @@ namespace BLL
     {
         INDIVIDUAL,
         BUSINESS,
-        GOVERNMENT
+        GOVERNMENT,
+        OFFICE
     }
 
     public enum CifType

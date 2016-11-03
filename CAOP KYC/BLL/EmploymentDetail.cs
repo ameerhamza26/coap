@@ -21,5 +21,13 @@ namespace BLL
                 return EmploymentDetailList;
             }
         }
+
+        public bool GetEmpSubgMand(int EmpDetId)
+        {
+            using (CAOPDbContext db = new CAOPDbContext())
+            {
+                return (bool) db.EMPLOYMENT_DETAILS.FirstOrDefault(e => e.ID == EmpDetId).EMP_SUBG_MAND;
+            }
+        }
     }
 }

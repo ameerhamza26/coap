@@ -14,7 +14,14 @@ namespace DAL
     
     public partial class REGIONS
     {
+        public REGIONS()
+        {
+            this.BRANCHES = new HashSet<BRANCHES>();
+        }
+    
         public int REGION_ID { get; set; }
         public string NAME { get; set; }
+    
+        public virtual ICollection<BRANCHES> BRANCHES { get; set; }
     }
 }

@@ -183,7 +183,7 @@ namespace Profile
                 Queries.Add("Delete from acn where Boo=" + BranchCode + " and acn in (" + acn + ")");
                 Queries.Add("Delete from cif where Boo=" + BranchCode + " and acn in (" + acn + ")");
                 ExecuteTransaction(ConnectionString, Queries);
-                
+
                 SqlBulkCopy bulkCopy = new SqlBulkCopy(ConnectionString, SqlBulkCopyOptions.TableLock);
                 // write acn
                 bulkCopy.DestinationTableName = strACNTableName;
@@ -197,13 +197,16 @@ namespace Profile
                 bulkCopy.BatchSize = 5000;
                 bulkCopy.WriteToServer(dtCIF);
 
-                for (int i = 0; i <= dtACN.Rows.Count - 1; i++)
-                {
-                    if ((dtACN.Rows[i]["TYPE"].ToString() == "3534") || (dtACN.Rows[i]["TYPE"].ToString() == "4559"))
-                        ExecuteSP(ConnectionString, "DataAssanComplain", lst);
-                    else
-                        ExecuteSP(ConnectionString, "UpdateSqlData", lst);
-                }
+
+                ExecuteSP(ConnectionString, "UpdateSqlData", lst);
+
+                //for (int i = 0; i <= dtACN.Rows.Count - 1; i++)
+                //{
+                //    if ((dtACN.Rows[i]["TYPE"].ToString() == "3534") || (dtACN.Rows[i]["TYPE"].ToString() == "4559"))
+                //        ExecuteSP(ConnectionString, "DataAssanComplain", lst);
+                //    else
+                //        ExecuteSP(ConnectionString, "UpdateSqlData", lst);
+                //}
 
                 Queries.Add("Delete from ProfileData_Temp where Boo=" + BranchCode + " and CID in (" + CID + ")");
                 ExecuteTransaction(ConnectionString, Queries);

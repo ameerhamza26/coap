@@ -79,6 +79,7 @@
                                     <label  class="lblReview">Primary ID Document Type: *</label>
                                     <asp:DropDownList ID="lstPrimaryDocumentType" AutoPostBack="true" ClientIDMode="Static" CssClass="form-control" runat="server" OnSelectedIndexChanged="lstPrimaryDocumentType_SelectedIndexChanged" ></asp:DropDownList>
                                     <asp:RequiredFieldValidator Display="Dynamic" ID="RequiredFieldValidatorPrimaryDocumentType" runat="server" ControlToValidate="lstPrimaryDocumentType" InitialValue="0" ErrorMessage="Primary Document Type is Required" ForeColor="Red" Font-Bold="true" ValidationGroup="BiValidationGroup" />
+                                     <asp:CustomValidator  ID="CustomValidatorNonResident" Display="Dynamic" ForeColor="Red" Font-Bold="true" runat="server"  ErrorMessage="Only Passport can be selected for Non-Resident." ValidationGroup="BiValidationGroup" OnServerValidate="CustomValidatorNonResident_ServerValidate" ></asp:CustomValidator>
                                 </div>
                             
                         
@@ -254,6 +255,10 @@
                             <label  class="lblReview">Does Customer Deal In: </label>
                             <asp:DropDownList ID="lstCustomerDeals" ClientIDMode="Static" CssClass="form-control" runat="server"></asp:DropDownList>
                         </div>
+                          <div class="form-group">
+                            <label  class="lblReview">LSO Officer Code: </label>
+                            <asp:DropDownList ID="lstOfficerCode" ClientIDMode="Static" CssClass="form-control" runat="server"></asp:DropDownList>
+                        </div>
 
                          <div class="form-group">
                              <label  class="lblReview">All Documents Verified: </label>
@@ -421,9 +426,11 @@
                     <div id="sectionc" class="tab-pane fade">
                         <h3>Permanent Address Information</h3>
 
-                        <div class="form-group">
+                        <asp:UpdatePanel ID="UpdatePanel2" runat="server" UpdateMode="Always">
+                         <ContentTemplate>
+			             <div class="form-group">
                             <label  class="lblReview">Country: *</label>
-                            <asp:DropDownList ID="CiListCountryCode" CssClass="form-control" runat="server"></asp:DropDownList>
+                            <asp:DropDownList ID="CiListCountryCode" CssClass="form-control" runat="server" AutoPostBack="true" OnSelectedIndexChanged="CiListCountryCode_SelectedIndexChanged"></asp:DropDownList>
                             <asp:RequiredFieldValidator Display="Dynamic" ID="CiRequiredFieldValidatorPermanentCountryCode" Enabled="true" runat="server" InitialValue="0" ControlToValidate="CiListCountryCode" ForeColor="Red" Font-Bold="true" ValidationGroup="CiValidationGroup" ErrorMessage="Country is Required"></asp:RequiredFieldValidator>                            
                         </div>
                          <div class="form-group">
@@ -436,6 +443,11 @@
                             <asp:DropDownList ID="CiListCity" CssClass="form-control" runat="server"></asp:DropDownList>
                              <asp:RequiredFieldValidator Display="Dynamic" ID="RequiredFieldValidatorPermenentCity" Enabled="true" runat="server" InitialValue="0" ControlToValidate="CiListCity" ForeColor="Red" Font-Bold="true" ValidationGroup="CiValidationGroup" ErrorMessage="City is Required"></asp:RequiredFieldValidator>
                         </div>
+			            </ContentTemplate>                              
+                           </asp:UpdatePanel>
+
+
+                       
                        
                          <div class="form-group">
                             <label  class="lblReview">Address Line 1: *</label>
@@ -484,7 +496,7 @@
                                 </div>
                           <div class="form-group">
                             <label  class="lblReview">Country Code: *</label>
-                            <asp:DropDownList ID="CiListCountryCodePre" CssClass="form-control" runat="server"></asp:DropDownList>
+                            <asp:DropDownList ID="CiListCountryCodePre" CssClass="form-control" runat="server" AutoPostBack="true" OnSelectedIndexChanged="CiListCountryCodePre_SelectedIndexChanged"></asp:DropDownList>
                              <asp:RequiredFieldValidator Display="Dynamic" ID="RequiredFieldValidator1" Enabled="true" runat="server" InitialValue="0" ControlToValidate="CiListCountryCodePre" ForeColor="Red" Font-Bold="true" ValidationGroup="CiValidationGroup" ErrorMessage="Country is Required"></asp:RequiredFieldValidator>
                         </div>
                          <div class="form-group">
@@ -495,7 +507,7 @@
                             <div class="form-group">
                             <label  class="lblReview">City: *</label>
                             <asp:DropDownList ID="CiListCityPre" CssClass="form-control" runat="server"></asp:DropDownList>
-                             <asp:RequiredFieldValidator Display="Dynamic" ID="RequiredFieldValidator2" Enabled="true" runat="server" InitialValue="0" ControlToValidate="CiListCityPre" ForeColor="Red" Font-Bold="true" ValidationGroup="CiValidationGroup" ErrorMessage="City is Required"></asp:RequiredFieldValidator>
+                             <asp:RequiredFieldValidator Display="Dynamic" ID="RequiredFieldValidatorCityPresent" Enabled="true" runat="server" InitialValue="0" ControlToValidate="CiListCityPre" ForeColor="Red" Font-Bold="true" ValidationGroup="CiValidationGroup" ErrorMessage="City is Required"></asp:RequiredFieldValidator>
                         </div>
                         
                          <div class="form-group">
@@ -579,9 +591,12 @@
                     </div>
                     <div id="sectiond" class="tab-pane fade">
 
+                        <asp:UpdatePanel ID="UpdatePanelEmpInfo" runat="server" UpdateMode="Always">
+                        <ContentTemplate>
+
                         <div class="form-group">
                             <label  class="lblReview">Employment Detail: *</label>
-                            <asp:DropDownList ID="EiListEmployDetail" CssClass="form-control" runat="server"></asp:DropDownList>
+                            <asp:DropDownList AutoPostBack="true" ID="EiListEmployDetail" CssClass="form-control" runat="server" OnSelectedIndexChanged="EiListEmployDetail_SelectedIndexChanged"></asp:DropDownList>
                             <asp:RequiredFieldValidator Display="Dynamic" ID="EiRequiredFieldValidatorListEmployDetail" InitialValue="0" runat="server" ControlToValidate="EiListEmployDetail" ForeColor="Red" Font-Bold="true" ValidationGroup="EiValidationGroup" ErrorMessage="Employment Detail is Required"></asp:RequiredFieldValidator>
                         </div>
                         <div class="form-group">
@@ -589,6 +604,21 @@
                             <asp:TextBox ID="txtDescEmpDetail" CssClass="form-control" runat="server"></asp:TextBox>
 
                         </div>
+                          <div class="form-group">
+                              <label  class="lblReview">Employer Group: </label>
+                              <asp:DropDownList AutoPostBack="true" ID="EiListEmpGrp" CssClass="form-control" runat="server" OnSelectedIndexChanged="EiListEmpGrp_SelectedIndexChanged"></asp:DropDownList>
+                              <asp:RequiredFieldValidator Enabled="false" Display="Dynamic" ID="EiReqValidatorEGrp" InitialValue="0" runat="server" ControlToValidate="EiListEmpGrp" ForeColor="Red" Font-Bold="true" ValidationGroup="EiValidationGroup" ErrorMessage="Employer Group is Required"></asp:RequiredFieldValidator>
+                          </div>
+                         <div class="form-group">
+                              <label  class="lblReview">Employer Sub-Group : </label>
+                              <asp:DropDownList AutoPostBack="true" ID="EiListEmpSubGrp" CssClass="form-control" runat="server" OnSelectedIndexChanged="EiListEmpSubGrp_SelectedIndexChanged"></asp:DropDownList>
+                              <asp:RequiredFieldValidator Enabled="false" Display="Dynamic" ID="EiReqValidatorESubGrp" InitialValue="0" runat="server" ControlToValidate="EiListEmpGrp" ForeColor="Red" Font-Bold="true" ValidationGroup="EiValidationGroup" ErrorMessage="Employer Sub-Group is Required"></asp:RequiredFieldValidator>
+                          </div>
+                          <div class="form-group">
+                              <label  class="lblReview">Employer Number: </label>
+                              <asp:DropDownList ID="EiListEmpNum" CssClass="form-control" runat="server"></asp:DropDownList>
+                              <asp:RequiredFieldValidator Enabled="false" Display="Dynamic" ID="EiReqValidatorENum" InitialValue="0" runat="server" ControlToValidate="EiListEmpNum" ForeColor="Red" Font-Bold="true" ValidationGroup="EiValidationGroup" ErrorMessage="Employer Number is Required"></asp:RequiredFieldValidator>
+                          </div>
                         <div class="form-group">
                              <label  class="lblReview">Consumer Segment: *</label>
                             <asp:DropDownList ID="EiListConsumer" CssClass="form-control" runat="server"></asp:DropDownList>
@@ -633,7 +663,7 @@
 
                         <div class="form-group">
                             <label  class="lblReview">Employer:</label>
-                           <asp:TextBox ID="EiTxtEmployer" CssClass="form-control" runat="server"></asp:TextBox>
+                           <asp:TextBox ID="EiTxtEmployer" CssClass="form-control" runat="server" MaxLength="40" ></asp:TextBox>
 
                         </div>
 
@@ -661,7 +691,8 @@
 
                         </div>
 
-
+                         </ContentTemplate>                           
+                        </asp:UpdatePanel>
 
                         <div class="form-group">
                             <asp:Button ID="EiSubmitButton" runat="server" Text="SAVE" CssClass="btn btn-primary" ValidationGroup="EiValidationGroup" OnClick="EiSubmitButton_Click" />
@@ -691,8 +722,6 @@
                             <label  class="lblReview">Accomodation Type: *</label>
                             <asp:DropDownList ID="MiListAccomType" CssClass="form-control" runat="server"></asp:DropDownList>
                             <asp:RequiredFieldValidator InitialValue="0"  ID="MiRequiredFieldValidatorListAccomType" Display="Dynamic" runat="server" ControlToValidate="MiListAccomType" ForeColor="Red" Font-Bold="true" ValidationGroup="MiValidationGroup" ErrorMessage="Accomodation Type is Required"></asp:RequiredFieldValidator>
-
-
                         </div>
 
                         <div class="form-group" style="display: none">
@@ -702,8 +731,11 @@
                         <div class="form-group">
                             <label  class="lblReview">Transportation Type:</label>
                             <asp:DropDownList ID="MiListTransportType" CssClass="form-control" runat="server"></asp:DropDownList>
-
-
+                        </div>
+                        <div class="form-group">
+                            <label  class="lblReview">Source of Fund: *</label>
+                            <asp:DropDownList ID="MiListSOF" CssClass="form-control" runat="server"></asp:DropDownList>
+                            <asp:RequiredFieldValidator InitialValue="0"  ID="RequiredFieldValidatorMISOF" Display="Dynamic" runat="server" ControlToValidate="MiListSOF" ForeColor="Red" Font-Bold="true" ValidationGroup="MiValidationGroup" ErrorMessage="Source of Fund is Required"></asp:RequiredFieldValidator>
                         </div>
 
                         <div class="control-group">

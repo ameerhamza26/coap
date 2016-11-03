@@ -79,5 +79,7 @@ namespace DAL
         public Nullable<int> GOV_TYPE { get; set; }
         public string WHO_NAME { get; set; }
         public string WHO_DESIG { get; set; }
+        public Nullable<int> CIF_OFFICER_CODE { get; set; }
+        public string ISSUING_AGENCY_OTHER { get; set; }
     }
 }

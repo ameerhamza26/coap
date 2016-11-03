@@ -112,6 +112,15 @@ namespace CAOP.MasterPages {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl PCif;
         
         /// <summary>
+        /// DIPC control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl DIPC;
+        
+        /// <summary>
         /// EC control.
         /// </summary>
         /// <remarks>
@@ -157,6 +166,15 @@ namespace CAOP.MasterPages {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl PendingAccount;
         
         /// <summary>
+        /// DIPA control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl DIPA;
+        
+        /// <summary>
         /// LOTF control.
         /// </summary>
         /// <remarks>
@@ -173,6 +191,15 @@ namespace CAOP.MasterPages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl AOF;
+        
+        /// <summary>
+        /// BV control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl BV;
         
         /// <summary>
         /// usermenu control.

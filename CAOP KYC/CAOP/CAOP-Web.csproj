@@ -95,11 +95,16 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="AccountForms\DeleteInProcessAccounts.aspx" />
+    <Content Include="AccountForms\InProcessAccounts.aspx" />
+    <Content Include="AccountForms\RejectedAccount.aspx" />
     <Content Include="AccountList.aspx" />
     <Content Include="Account_Business.aspx" />
     <Content Include="Account_Government.aspx" />
     <Content Include="Account_Individual.aspx" />
+    <Content Include="Account_office.aspx" />
     <Content Include="AOF\AccountReport.aspx" />
+    <Content Include="AOF\BioMetricReport.aspx" />
     <Content Include="Assets\css\bootstrap-theme.css.map" />
     <Content Include="Assets\css\bootstrap.css.map" />
     <Content Include="Assets\css\fonts.css" />
@@ -120,6 +125,9 @@
     <Content Include="BioMetric.aspx" />
     <Content Include="Business.aspx" />
     <Content Include="CifAccount.aspx" />
+    <Content Include="CifForms\DeleteInProcess.aspx" />
+    <Content Include="CifForms\InProcess.aspx" />
+    <Content Include="CifForms\RejectedCif.aspx" />
     <Content Include="CrmTaggingForms\CRMTagging.aspx" />
     <Content Include="ExistingCif\Existing.aspx" />
     <Content Include="Government.aspx" />
@@ -238,6 +246,27 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AccountForms\DeleteInProcessAccounts.aspx.cs">
+      <DependentUpon>DeleteInProcessAccounts.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AccountForms\DeleteInProcessAccounts.aspx.designer.cs">
+      <DependentUpon>DeleteInProcessAccounts.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AccountForms\InProcessAccounts.aspx.cs">
+      <DependentUpon>InProcessAccounts.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AccountForms\InProcessAccounts.aspx.designer.cs">
+      <DependentUpon>InProcessAccounts.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AccountForms\RejectedAccount.aspx.cs">
+      <DependentUpon>RejectedAccount.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AccountForms\RejectedAccount.aspx.designer.cs">
+      <DependentUpon>RejectedAccount.aspx</DependentUpon>
+    </Compile>
     <Compile Include="AccountList.aspx.cs">
       <DependentUpon>AccountList.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -266,6 +295,13 @@
     <Compile Include="Account_Individual.aspx.designer.cs">
       <DependentUpon>Account_Individual.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Account_office.aspx.cs">
+      <DependentUpon>Account_office.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account_office.aspx.designer.cs">
+      <DependentUpon>Account_office.aspx</DependentUpon>
+    </Compile>
     <Compile Include="AOF\AccountReport.aspx.cs">
       <DependentUpon>AccountReport.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -277,6 +313,13 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>AOFDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="AOF\BioMetricReport.aspx.cs">
+      <DependentUpon>BioMetricReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AOF\BioMetricReport.aspx.designer.cs">
+      <DependentUpon>BioMetricReport.aspx</DependentUpon>
     </Compile>
     <Compile Include="BioMetric.aspx.cs">
       <DependentUpon>BioMetric.aspx</DependentUpon>
@@ -298,6 +341,27 @@
     </Compile>
     <Compile Include="CifAccount.aspx.designer.cs">
       <DependentUpon>CifAccount.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CifForms\DeleteInProcess.aspx.cs">
+      <DependentUpon>DeleteInProcess.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CifForms\DeleteInProcess.aspx.designer.cs">
+      <DependentUpon>DeleteInProcess.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CifForms\InProcess.aspx.cs">
+      <DependentUpon>InProcess.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CifForms\InProcess.aspx.designer.cs">
+      <DependentUpon>InProcess.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CifForms\RejectedCif.aspx.cs">
+      <DependentUpon>RejectedCif.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CifForms\RejectedCif.aspx.designer.cs">
+      <DependentUpon>RejectedCif.aspx</DependentUpon>
     </Compile>
     <Compile Include="CrmTaggingForms\CRMTagging.aspx.cs">
       <DependentUpon>CRMTagging.aspx</DependentUpon>
@@ -524,6 +588,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="AOF\BioMetric.rdlc" />
     <EmbeddedResource Include="LOT\LOT.rdlc" />
   </ItemGroup>
   <ItemGroup>

@@ -69,6 +69,7 @@ namespace BLL
                     NCIF.APPLICANT_STATUS = Cif.APPLICANT_STATUS;
                     NCIF.CUSTOMER_NAME = Cif.CUSTOMER_NAME;
                     NCIF.CUSTOMER_IDENTITY = Cif.CUSTOMER_IDENTITY;
+                    NCIF.NEG_LIST = Cif.NEG_LIST;
                     db.APPLICANT_INFORMATION_CIFS.Add(NCIF);
                     db.ACCOUNT_AUTHORIZED_PERSONS.Add(a);
                 }
@@ -149,7 +150,8 @@ namespace BLL
                                     SIGNATURE_AUTHORITY = c.SIGNATURE_AUTHORITY,
                                     APPLICANT_STATUS = c.APPLICANT_STATUS,
                                     CUSTOMER_NAME = c.CUSTOMER_NAME,
-                                    CUSTOMER_IDENTITY = c.CUSTOMER_IDENTITY
+                                    CUSTOMER_IDENTITY = c.CUSTOMER_IDENTITY,
+                                    NEG_LIST = c.NEG_LIST
                                 }
                                 ).ToList();
 

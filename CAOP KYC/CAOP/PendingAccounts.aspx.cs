@@ -45,6 +45,11 @@ namespace CAOP
                     CIF_ID.PostBackUrl = "~/Account_Government.aspx?ID=" + CIF_ID.Text;
                     lbledit.PostBackUrl = "~/Account_Government.aspx?ID=" + CIF_ID.Text;
                 }
+                else if (type == AccountOpenTypes.OFFICE)
+                {
+                    CIF_ID.PostBackUrl = "~/Account_Office.aspx?ID=" + CIF_ID.Text;
+                    lbledit.PostBackUrl = "~/Account_Office.aspx?ID=" + CIF_ID.Text;
+                }
                 else
                 {
                     CIF_ID.PostBackUrl = "~/Account_Business.aspx?ID=" + CIF_ID.Text;
@@ -70,13 +75,14 @@ namespace CAOP
         protected void lbldel_Click(object sender, EventArgs e)
         {
             LinkButton btn = (LinkButton)sender;
+            User LogedUser = Session["User"] as User;
 
             //Get the row that contains this button
             GridViewRow gvr = (GridViewRow)btn.NamingContainer;
 
             int accountid = Convert.ToInt32(((LinkButton)gvr.FindControl("btnAccountID")).Text);
             AccOpen AOpen = new AccOpen(-1);
-            AOpen.DelAccount(accountid);
+            AOpen.DelAccount(accountid,LogedUser.USER_ID);
             
             loaddata();
         }

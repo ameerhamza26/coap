@@ -1186,7 +1186,7 @@ namespace CAOP
         private void SetEmployementInformation()
         {
             EmploymentDetail ed = new EmploymentDetail();
-            EmployerCode ec = new EmployerCode();
+            EmployerCodes ec = new EmployerCodes();
             Country c1 = new Country();
             ArmyRankCodes ar = new ArmyRankCodes();
             ConsumerSegment cg = new ConsumerSegment();
@@ -1711,7 +1711,7 @@ namespace CAOP
                 e1.DESIGNATION = EiDesignation.Text;
                 e1.PF_NO = EiPFNo.Text;
                 e1.PPQ_NO = EiPPONo.Text;
-                e1.EMPLOYER_CODE = new EmployerCode() { ID = ListExtensions.getSelectedValue(EiListEmployerCode), Code = EiListEmployerCode.SelectedItem.Text };
+                e1.EMPLOYER_CODE = new EmployerCodes() { ID = ListExtensions.getSelectedValue(EiListEmployerCode), Code = EiListEmployerCode.SelectedItem.Text };
                 e1.EMPLOYER_DESC = EiTxtEmployer.Text;
                 e1.EMPLOYER_BUSINESS_ADDRESS = EiEmpBusAddr.Text;
                 e1.COUNTRY_EMPLOYMENT = new Country() { ID = ListExtensions.getSelectedValue(EiListCountryEmpBus), Name = EiListCountryEmpBus.SelectedItem.Text };
@@ -2347,7 +2347,7 @@ namespace CAOP
             e1.PF_NO = EiPFNo.Text;
             e1.PPQ_NO = EiPPONo.Text;
             e1.EMPLOYER_DESC = EiTxtEmployer.Text;
-            e1.EMPLOYER_CODE = new EmployerCode() { ID = ListExtensions.getSelectedValue(EiListEmployerCode), Code = EiListEmployerCode.SelectedItem.Text };
+            e1.EMPLOYER_CODE = new EmployerCodes() { ID = ListExtensions.getSelectedValue(EiListEmployerCode), Code = EiListEmployerCode.SelectedItem.Text };
             e1.EMPLOYER_BUSINESS_ADDRESS = EiEmpBusAddr.Text;
             e1.COUNTRY_EMPLOYMENT = new Country() { ID = ListExtensions.getSelectedValue(EiListCountryEmpBus), Name = EiListCountryEmpBus.SelectedItem.Text };
             e1.ARMY_RANK_CODE = new ArmyRankCodes() { ID = ListExtensions.getSelectedValue(EiListPakArmy), Code = EiListPakArmy.SelectedItem.Text };

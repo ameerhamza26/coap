@@ -9,7 +9,26 @@
 
 
 <asp:Content ID="Body" ContentPlaceHolderID="Body" runat="server">
+    <asp:ScriptManager runat="server"></asp:ScriptManager>
 
+     <asp:UpdatePanel ID="UpdatePaneSearch" UpdateMode="Conditional" runat="server">
+          <ContentTemplate> 
+
+     <div runat="server" id="SearchCriteria" visible="false">
+    <h3 style="margin-top: 105px">Search Account</h3>
+    <div class="row" >
+            <div class="col-md-5">
+                <div class="form-group">
+                   
+                    <asp:RadioButton  ID="radioBCode" AutoPostBack="true" Text="BRANCH CODE" GroupName="CRITERIA" Checked="true" runat="server"  />                    
+                    <asp:RadioButton  ID="radioAno" AutoPostBack="true" Text="Temporary Account No" GroupName="CRITERIA"  runat="server" />                    
+                    <asp:RadioButton  ID="radioATitle" AutoPostBack="true" Text="Account Title" GroupName="CRITERIA"  runat="server"  />                   
+                    <asp:TextBox ID="txtAccount" ClientIDMode="Static" CssClass="form-control" runat="server"></asp:TextBox>                   
+                    <asp:Button ID="btnSearchCriteria" style="margin-top: 20px" runat="server"  CssClass="btn btn-primary" Text="Search" OnClick="btnSearchCriteria_Click" />                 
+                 </div>
+             </div>
+        </div>
+    </div>
 
     <asp:GridView class="table" ShowHeaderWhenEmpty="true" Visible="true" PagerStyle-CssClass="bs-pagination" ID="grdPCif" runat="server" AllowPaging="true" PageSize="15" AutoGenerateColumns="false" OnPageIndexChanging="grdPCif_PageIndexChanging" OnRowDataBound="grdPCif_RowDataBound">
     
@@ -62,6 +81,7 @@
     
     </asp:GridView>
 
-
+</ContentTemplate>
+     </asp:UpdatePanel>
 
 </asp:Content>

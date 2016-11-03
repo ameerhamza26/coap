@@ -351,7 +351,7 @@ namespace CAOP
 
                     ReportViewer1.LocalReport.Refresh();
                 }
-                else if (AccountType == 2)
+                else if (AccountType == 2 || AccountType == 4)
                 {
                     DataSet ds = SqlHelper.ExecuteDataset(dbCon, "spGetDataForForm", new SqlParameter[] { new SqlParameter("MODE", "2"), new SqlParameter("ACN", AccountId) });
                     ReportViewer1.ProcessingMode = ProcessingMode.Local;

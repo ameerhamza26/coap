@@ -58,5 +58,7 @@ namespace DAL
         public string PECT { get; set; }
         public Nullable<int> RAC { get; set; }
         public string RAC_DETAIL { get; set; }
+        public string ETCP_OTHER { get; set; }
+        public string GICP_OTHER { get; set; }
     }
 }

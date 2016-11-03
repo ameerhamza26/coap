@@ -159,6 +159,6 @@ E:\AOS\coap\CAOP KYC\DAL\bin\Debug\EntityFramework.dll
 E:\AOS\coap\CAOP KYC\DAL\bin\Debug\EntityFramework.SqlServer.dll
 E:\AOS\coap\CAOP KYC\DAL\bin\Debug\EntityFramework.xml
 E:\AOS\coap\CAOP KYC\DAL\bin\Debug\EntityFramework.SqlServer.xml
-E:\AOS\coap\CAOP KYC\DAL\obj\Debug\DAL.csprojResolveAssemblyReference.cache
 E:\AOS\coap\CAOP KYC\DAL\obj\Debug\DAL.dll
 E:\AOS\coap\CAOP KYC\DAL\obj\Debug\DAL.pdb
+E:\AOS\coap\CAOP KYC\DAL\obj\Debug\DAL.csprojResolveAssemblyReference.cache

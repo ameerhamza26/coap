@@ -41,7 +41,14 @@ namespace CAOP.UserForms
                     string WConfigSetting = ConfigurationManager.AppSettings[2];
                     string email = WConfigSetting.Split(',')[0];
                     string pass = WConfigSetting.Split(',')[1];
+
+                    ChangeLogUser UL = new ChangeLogUser();
+                    UL.MakePassLog(txtNewPass.Text, LoggedUser.USER_ID, USERID);
+
                     LoggedUser.ChangePasswordWithEmail(USERID, txtNewPass.Text,email,pass);
+
+                   
+
                     Response.Redirect("~/UserForms/Users.aspx");
                 }
                

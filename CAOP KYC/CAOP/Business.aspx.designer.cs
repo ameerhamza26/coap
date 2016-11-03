@@ -85,6 +85,24 @@ namespace CAOP {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidatorIssuingAgency;
         
         /// <summary>
+        /// BiIssueOther control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox BiIssueOther;
+        
+        /// <summary>
+        /// RequiredFieldValidatorOtherIssue control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidatorOtherIssue;
+        
+        /// <summary>
         /// BiRegistrationNo control.
         /// </summary>
         /// <remarks>
@@ -427,6 +445,15 @@ namespace CAOP {
         protected global::System.Web.UI.WebControls.Button BibtnSubmitBaisc;
         
         /// <summary>
+        /// UpdatePanel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel UpdatePanel;
+        
+        /// <summary>
         /// CiListCountry control.
         /// </summary>
         /// <remarks>
@@ -472,13 +499,13 @@ namespace CAOP {
         protected global::System.Web.UI.WebControls.DropDownList CiListCity;
         
         /// <summary>
-        /// RequiredFieldValidator3 control.
+        /// RequiredFieldValidatorPermanentCity control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator3;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidatorPermanentCity;
         
         /// <summary>
         /// CiTxtBuilding control.
@@ -1343,6 +1370,24 @@ namespace CAOP {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox FiNetWorth;
+        
+        /// <summary>
+        /// MiListSOF control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList MiListSOF;
+        
+        /// <summary>
+        /// RequiredFieldValidatorMISOF control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidatorMISOF;
         
         /// <summary>
         /// FiListMonthTurnOverDebit control.

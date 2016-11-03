@@ -21,6 +21,7 @@ namespace ExtensionMethods
 
         public static void SetDropdownValue(int? value,DropDownList ddl )
         {
+            ddl.ClearSelection();
             if (value == null)
             {
                 ddl.Items.FindByText("Select").Selected = true;

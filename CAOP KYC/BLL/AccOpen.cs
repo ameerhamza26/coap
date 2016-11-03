@@ -85,12 +85,55 @@ namespace BLL
                     return AccountOpenTypes.INDIVIDUAL;
                 else if (AccTypeNAme == "GOVERNMENT")
                     return AccountOpenTypes.GOVERNMENT;
+                else if (AccTypeNAme == "OFFICE")
+                    return AccountOpenTypes.OFFICE;
                 else
                     return AccountOpenTypes.BUSINESS;
             }
         }
 
-        public List<AccountNatureCurrency> GetAccountsByRole(string UserRole, bool Region)
+        public List<AccountNatureCurrency> GetAccountRegion(bool BCode, bool TANo, bool ATitle, string criteria, int RegionID)
+        {
+            using (CAOPDbContext db = new CAOPDbContext())
+            {
+                List<int> BranchUsers = new List<int>();
+                List<AccountNatureCurrency> SubmittedAccounts = new List<AccountNatureCurrency>();
+                int ANO  = -1;
+                var branches = db.BRANCHES.Where(b => (b.CATEGORY_ID == 1 || b.CATEGORY_ID == 2) && b.REGION_ID == RegionID).Select(b => b.BRANCH_ID).ToList();
+                BranchUsers = db.USERS.Where(u => branches.Contains(u.PARENT_ID) && u.USER_TYPE == "BRANCH").Select(u => u.USER_ID).ToList();
+
+                var Accounts = db.ACCOUNT_NATURE_CURRENCY.Where(b => b.STATUS != Status.SAVED.ToString() && BranchUsers.Contains((int)b.USERID));
+
+                if (BCode)
+                    Accounts = Accounts.Where(b => b.BRANCH_CODE == criteria);
+                else if (TANo)
+                {
+                    try
+                    {
+                        ANO = Convert.ToInt32(criteria);
+
+                    }
+                    catch (Exception e)
+                    {
+                        ANO = -1;
+                    }
+                    finally
+                    {
+                        Accounts = Accounts.Where(b => b.ID == ANO);
+                    }
+                }
+                else
+                {
+                    Accounts = Accounts.Where(b => b.ACCOUNT_TITLE.Contains(criteria));
+                }
+
+                SubmittedAccounts = Accounts.OrderByDescending(b => b.LAST_UPDATED).Select(b => new AccountNatureCurrency { ID = b.ID, ACCOUNT_NUMBER = b.ACCOUNT_NUMBER, ACCOUNT_TITLE = b.ACCOUNT_TITLE, STATUS = b.STATUS, LAST_UPDATED = b.LAST_UPDATED, ACCOUNT_OPEN_TYPE = new AccountOpenType { ID = (int)b.ACCOUNT_OPEN_TYPE, NAME = db.ACCOUNT_OPEN_TYPE.FirstOrDefault(t => t.ID == b.ACCOUNT_OPEN_TYPE).NAME }, PROFILE_ACCOUNT_NO = b.PROFILE_ACCOUNT_NO, BRANCH_CODE = b.BRANCH_CODE }).ToList();
+                return SubmittedAccounts;
+            }
+        }
+
+
+        public List<AccountNatureCurrency> GetRejectedAccountsByRole(string UserRole, bool Region)
         {
             using (CAOPDbContext db = new CAOPDbContext())
             {
@@ -101,8 +144,54 @@ namespace BLL
                 {
 
                     BranchUsers.Add(this.UserId);
-                    SubmittedCifs = db.ACCOUNT_NATURE_CURRENCY.Where(b => b.STATUS != Status.SAVED.ToString() && BranchUsers.Contains((int)b.USERID))
-                        .OrderByDescending(b => b.LAST_UPDATED).Select(b => new AccountNatureCurrency { ID = b.ID, ACCOUNT_NUMBER = b.ACCOUNT_NUMBER, ACCOUNT_TITLE = b.ACCOUNT_TITLE, LAST_UPDATED=b.LAST_UPDATED, STATUS = b.STATUS, ACCOUNT_OPEN_TYPE = new AccountOpenType { ID = (int)b.ACCOUNT_TYPE, NAME = db.ACCOUNT_OPEN_TYPE.FirstOrDefault(t => t.ID == b.ACCOUNT_OPEN_TYPE).NAME }, PROFILE_ACCOUNT_NO = b.PROFILE_ACCOUNT_NO }).ToList();
+                    SubmittedCifs = db.ACCOUNT_NATURE_CURRENCY.Where(b => b.STATUS == Status.REJECTEBY_COMPLIANCE_MANAGER.ToString() && BranchUsers.Contains((int)b.USERID))
+                        .OrderByDescending(b => b.LAST_UPDATED).Select(b => new AccountNatureCurrency { ID = b.ID, ACCOUNT_NUMBER = b.ACCOUNT_NUMBER, ACCOUNT_TITLE = b.ACCOUNT_TITLE, LAST_UPDATED = b.LAST_UPDATED, STATUS = b.STATUS, ACCOUNT_OPEN_TYPE = new AccountOpenType { ID = (int)b.ACCOUNT_TYPE, NAME = db.ACCOUNT_OPEN_TYPE.FirstOrDefault(t => t.ID == b.ACCOUNT_OPEN_TYPE).NAME }, PROFILE_ACCOUNT_NO = b.PROFILE_ACCOUNT_NO, BRANCH_CODE = b.BRANCH_CODE }).ToList();
+
+                }
+                else
+                {
+                    if (Region)
+                    {
+                        var branches = db.BRANCHES.Where(b => (b.CATEGORY_ID == 1 || b.CATEGORY_ID == 2) && b.REGION_ID == db.USERS.FirstOrDefault(u => u.USER_ID == this.UserId).PARENT_ID).Select(b => b.BRANCH_ID).ToList();
+                        BranchUsers = db.USERS.Where(u => branches.Contains(u.PARENT_ID) && u.USER_TYPE == "BRANCH").Select(u => u.USER_ID).ToList();
+                    }
+                    else
+                    {
+                        BranchUsers = db.USERS.Where(u => u.USER_TYPE == "BRANCH" && u.PARENT_ID == (db.USERS.FirstOrDefault(l => l.USER_ID == this.UserId).PARENT_ID)).Select(u => u.USER_ID).ToList();
+                    }
+
+
+
+                    if (UserRole == Roles.COMPLIANCE_OFFICER.ToString())
+                    {
+
+                        SubmittedCifs = db.ACCOUNT_NATURE_CURRENCY.Where(b => b.STATUS == Status.REJECTED_BY_BRANCH_MANAGER.ToString() && BranchUsers.Contains((int)b.USERID))
+                        .OrderByDescending(b => b.LAST_UPDATED).Select(b => new AccountNatureCurrency { ID = b.ID, ACCOUNT_NUMBER = b.ACCOUNT_NUMBER, ACCOUNT_TITLE = b.ACCOUNT_TITLE, STATUS = b.STATUS, LAST_UPDATED = b.LAST_UPDATED, ACCOUNT_OPEN_TYPE = new AccountOpenType { ID = (int)b.ACCOUNT_OPEN_TYPE, NAME = db.ACCOUNT_OPEN_TYPE.FirstOrDefault(t => t.ID == b.ACCOUNT_OPEN_TYPE).NAME }, PROFILE_ACCOUNT_NO = b.PROFILE_ACCOUNT_NO, BRANCH_CODE = b.BRANCH_CODE }).ToList();
+                    }
+                    else if (UserRole == Roles.BRANCH_MANAGER.ToString())
+                    {
+                        SubmittedCifs = db.ACCOUNT_NATURE_CURRENCY.Where(b => b.STATUS == Status.REJECTED_BY_BRANCH_MANAGER.ToString() && BranchUsers.Contains((int)b.USERID))
+                        .OrderByDescending(b => b.LAST_UPDATED).Select(b => new AccountNatureCurrency { ID = b.ID, ACCOUNT_NUMBER = b.ACCOUNT_NUMBER, ACCOUNT_TITLE = b.ACCOUNT_TITLE, STATUS = b.STATUS, LAST_UPDATED = b.LAST_UPDATED, ACCOUNT_OPEN_TYPE = new AccountOpenType { ID = (int)b.ACCOUNT_OPEN_TYPE, NAME = db.ACCOUNT_OPEN_TYPE.FirstOrDefault(t => t.ID == b.ACCOUNT_OPEN_TYPE).NAME }, PROFILE_ACCOUNT_NO = b.PROFILE_ACCOUNT_NO, BRANCH_CODE = b.BRANCH_CODE }).ToList();
+                    }
+                }
+
+                return SubmittedCifs;
+            }
+        }
+
+        public List<AccountNatureCurrency> GetInProcessAccountsByRole(string UserRole, bool Region)
+        {
+            using (CAOPDbContext db = new CAOPDbContext())
+            {
+                List<int> BranchUsers = new List<int>();
+                List<AccountNatureCurrency> SubmittedCifs = new List<AccountNatureCurrency>();
+
+                if (UserRole == Roles.BRANCH_OPERATOR.ToString())
+                {
+
+                    BranchUsers.Add(this.UserId);
+                    SubmittedCifs = db.ACCOUNT_NATURE_CURRENCY.Where(b => b.STATUS != Status.SAVED.ToString() && b.PROFILE_STATUS != "POSTED" && BranchUsers.Contains((int)b.USERID))
+                        .OrderByDescending(b => b.LAST_UPDATED).Select(b => new AccountNatureCurrency { ID = b.ID, ACCOUNT_NUMBER = b.ACCOUNT_NUMBER, ACCOUNT_TITLE = b.ACCOUNT_TITLE, LAST_UPDATED=b.LAST_UPDATED, STATUS = b.STATUS, ACCOUNT_OPEN_TYPE = new AccountOpenType { ID = (int)b.ACCOUNT_TYPE, NAME = db.ACCOUNT_OPEN_TYPE.FirstOrDefault(t => t.ID == b.ACCOUNT_OPEN_TYPE).NAME }, PROFILE_ACCOUNT_NO = b.PROFILE_ACCOUNT_NO, BRANCH_CODE = b.BRANCH_CODE }).ToList();
 
                 }
                 else
@@ -122,12 +211,58 @@ namespace BLL
                     if (UserRole == Roles.COMPLIANCE_OFFICER.ToString())
                     {
 
+                        SubmittedCifs = db.ACCOUNT_NATURE_CURRENCY.Where(b => b.STATUS != Status.SAVED.ToString() && b.PROFILE_STATUS != "POSTED" && BranchUsers.Contains((int)b.USERID))
+                        .OrderByDescending(b => b.LAST_UPDATED).Select(b => new AccountNatureCurrency { ID = b.ID, ACCOUNT_NUMBER = b.ACCOUNT_NUMBER, ACCOUNT_TITLE = b.ACCOUNT_TITLE, STATUS = b.STATUS, LAST_UPDATED = b.LAST_UPDATED, ACCOUNT_OPEN_TYPE = new AccountOpenType { ID = (int)b.ACCOUNT_OPEN_TYPE, NAME = db.ACCOUNT_OPEN_TYPE.FirstOrDefault(t => t.ID == b.ACCOUNT_OPEN_TYPE).NAME }, PROFILE_ACCOUNT_NO = b.PROFILE_ACCOUNT_NO, BRANCH_CODE = b.BRANCH_CODE }).ToList();
+                    }
+                    else if (UserRole == Roles.BRANCH_MANAGER.ToString())
+                    {
+                        SubmittedCifs = db.ACCOUNT_NATURE_CURRENCY.Where(b => b.STATUS != Status.SAVED.ToString() && b.STATUS != Status.SUBMITTED.ToString() && b.STATUS != Status.REJECTEBY_COMPLIANCE_MANAGER.ToString() && b.PROFILE_STATUS != "POSTED" && BranchUsers.Contains((int)b.USERID))
+                        .OrderByDescending(b => b.LAST_UPDATED).Select(b => new AccountNatureCurrency { ID = b.ID, ACCOUNT_NUMBER = b.ACCOUNT_NUMBER, ACCOUNT_TITLE = b.ACCOUNT_TITLE, STATUS = b.STATUS, LAST_UPDATED = b.LAST_UPDATED, ACCOUNT_OPEN_TYPE = new AccountOpenType { ID = (int)b.ACCOUNT_OPEN_TYPE, NAME = db.ACCOUNT_OPEN_TYPE.FirstOrDefault(t => t.ID == b.ACCOUNT_OPEN_TYPE).NAME }, PROFILE_ACCOUNT_NO = b.PROFILE_ACCOUNT_NO, BRANCH_CODE = b.BRANCH_CODE }).ToList();
+                    }
+                }
+
+                return SubmittedCifs;
+            }
+        }
+
+        public List<AccountNatureCurrency> GetAccountsByRole(string UserRole, bool Region)
+        {
+            using (CAOPDbContext db = new CAOPDbContext())
+            {
+                List<int> BranchUsers = new List<int>();
+                List<AccountNatureCurrency> SubmittedCifs = new List<AccountNatureCurrency>();
+
+                if (UserRole == Roles.BRANCH_OPERATOR.ToString())
+                {
+
+                    BranchUsers.Add(this.UserId);
+                    SubmittedCifs = db.ACCOUNT_NATURE_CURRENCY.Where(b => b.STATUS != Status.SAVED.ToString() &&  BranchUsers.Contains((int)b.USERID))
+                        .OrderByDescending(b => b.LAST_UPDATED).Select(b => new AccountNatureCurrency { ID = b.ID, ACCOUNT_NUMBER = b.ACCOUNT_NUMBER, ACCOUNT_TITLE = b.ACCOUNT_TITLE, LAST_UPDATED = b.LAST_UPDATED, STATUS = b.STATUS, ACCOUNT_OPEN_TYPE = new AccountOpenType { ID = (int)b.ACCOUNT_TYPE, NAME = db.ACCOUNT_OPEN_TYPE.FirstOrDefault(t => t.ID == b.ACCOUNT_OPEN_TYPE).NAME }, PROFILE_ACCOUNT_NO = b.PROFILE_ACCOUNT_NO }).ToList();
+
+                }
+                else
+                {
+                    if (Region)
+                    {
+                        var branches = db.BRANCHES.Where(b => (b.CATEGORY_ID == 1 || b.CATEGORY_ID == 2) && b.REGION_ID == db.USERS.FirstOrDefault(u => u.USER_ID == this.UserId).PARENT_ID).Select(b => b.BRANCH_ID).ToList();
+                        BranchUsers = db.USERS.Where(u => branches.Contains(u.PARENT_ID) && u.USER_TYPE == "BRANCH").Select(u => u.USER_ID).ToList();
+                    }
+                    else
+                    {
+                        BranchUsers = db.USERS.Where(u => u.USER_TYPE == "BRANCH" && u.PARENT_ID == (db.USERS.FirstOrDefault(l => l.USER_ID == this.UserId).PARENT_ID)).Select(u => u.USER_ID).ToList();
+                    }
+
+
+
+                    if (UserRole == Roles.COMPLIANCE_OFFICER.ToString())
+                    {
+
                         SubmittedCifs = db.ACCOUNT_NATURE_CURRENCY.Where(b => b.STATUS != Status.SAVED.ToString() && BranchUsers.Contains((int)b.USERID))
                         .OrderByDescending(b => b.LAST_UPDATED).Select(b => new AccountNatureCurrency { ID = b.ID, ACCOUNT_NUMBER = b.ACCOUNT_NUMBER, ACCOUNT_TITLE = b.ACCOUNT_TITLE, STATUS = b.STATUS, LAST_UPDATED = b.LAST_UPDATED, ACCOUNT_OPEN_TYPE = new AccountOpenType { ID = (int)b.ACCOUNT_OPEN_TYPE, NAME = db.ACCOUNT_OPEN_TYPE.FirstOrDefault(t => t.ID == b.ACCOUNT_OPEN_TYPE).NAME }, PROFILE_ACCOUNT_NO = b.PROFILE_ACCOUNT_NO }).ToList();
                     }
                     else if (UserRole == Roles.BRANCH_MANAGER.ToString())
                     {
-                        SubmittedCifs = db.ACCOUNT_NATURE_CURRENCY.Where(b => b.STATUS != Status.SAVED.ToString() && b.STATUS != Status.SUBMITTED.ToString() && BranchUsers.Contains((int)b.USERID))
+                        SubmittedCifs = db.ACCOUNT_NATURE_CURRENCY.Where(b => b.STATUS != Status.SAVED.ToString() && b.STATUS != Status.SUBMITTED.ToString() && b.STATUS != Status.REJECTEBY_COMPLIANCE_MANAGER.ToString() &&  BranchUsers.Contains((int)b.USERID))
                         .OrderByDescending(b => b.LAST_UPDATED).Select(b => new AccountNatureCurrency { ID = b.ID, ACCOUNT_NUMBER = b.ACCOUNT_NUMBER, ACCOUNT_TITLE = b.ACCOUNT_TITLE, STATUS = b.STATUS, LAST_UPDATED = b.LAST_UPDATED, ACCOUNT_OPEN_TYPE = new AccountOpenType { ID = (int)b.ACCOUNT_OPEN_TYPE, NAME = db.ACCOUNT_OPEN_TYPE.FirstOrDefault(t => t.ID == b.ACCOUNT_OPEN_TYPE).NAME }, PROFILE_ACCOUNT_NO = b.PROFILE_ACCOUNT_NO }).ToList();
                     }
                 }
@@ -184,7 +319,14 @@ namespace BLL
             }
         }
 
-        public void DelAccount(int AccountId)
+        public void DelAccountManager(int AccountId, int UserId)
+        {
+            using (CAOPDbContext db = new CAOPDbContext())
+            {
+ 
+            }
+        }
+        public void DelAccount(int AccountId,int UserID)
         {
             using (CAOPDbContext db = new CAOPDbContext())
             {
@@ -200,7 +342,8 @@ namespace BLL
                     AD.ACCOUNT_MODE = ANC.ACCOUNT_MODE_DETAIL;
                     AD.ACCOUNT_TYPE = ANC.ACCOUNT_TYPE;
                     AD.CREATED_USER = ANC.USERID;
-                    AD.DELETED_USER = ANC.USERID;
+                    AD.DELETED_USER = UserID;
+                    AD.DELETE_DATETIME = DateTime.Now;
 
                     db.ACCOUNT_NATURE_CURRENCY.Remove(ANC);
                 }
@@ -210,13 +353,15 @@ namespace BLL
                 if (AI != null)
                     db.APPLICANT_INFORMATION.Remove(AI);
 
-                var AIC = db.APPLICANT_INFORMATION_CIFS.Where(a => a.BI_ID == AccountId).ToList();
-                if (AIC.Count > 0)
-                {
-                    int CIFID = Convert.ToInt32(db.APPLICANT_INFORMATION_CIFS.FirstOrDefault(a => a.BI_ID == AccountId && a.IS_PRIMARY_ACCOUNT_HOLDER == 1).CUSTOMER_CIF_NO);
-                    AD.CNIC = db.BASIC_INFORMATIONS.FirstOrDefault(b => b.ID == CIFID).CNIC;
-                    db.APPLICANT_INFORMATION_CIFS.RemoveRange(AIC);
-                }
+                //var AIC = db.APPLICANT_INFORMATION_CIFS.Where(a => a.BI_ID == AccountId).ToList();
+                //if (AIC.Count > 0)
+                //{
+                //    int CIFID = Convert.ToInt32(db.APPLICANT_INFORMATION_CIFS.FirstOrDefault(a => a.BI_ID == AccountId && a.IS_PRIMARY_ACCOUNT_HOLDER == 1).CUSTOMER_CIF_NO);
+                //    AD.CNIC = db.BASIC_INFORMATIONS.FirstOrDefault(b => b.ID == CIFID).CNIC;
+                //    db.APPLICANT_INFORMATION_CIFS.RemoveRange(AIC);
+                //}
+
+                AD.CNIC = "";
                   
 
                 var ADD_INFO = db.ADDRESS_INFORMATION.FirstOrDefault(a => a.BI_ID == AccountId);

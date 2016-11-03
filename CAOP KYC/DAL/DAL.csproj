@@ -60,466 +60,500 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ACCOMODATION_TYPES.cs">
-      <DependentUpon>ModelCOAP.tt</DependentUpon>
+      <DependentUpon>CAOPModel.tt</DependentUpon>
     </Compile>
     <Compile Include="ACCOUNT_AUTHORIZED_PERSONS.cs">
-      <DependentUpon>ModelCOAP.tt</DependentUpon>
+      <DependentUpon>CAOPModel.tt</DependentUpon>
     </Compile>
     <Compile Include="ACCOUNT_CLASS.cs">
-      <DependentUpon>ModelCOAP.tt</DependentUpon>
+      <DependentUpon>CAOPModel.tt</DependentUpon>
     </Compile>
     <Compile Include="ACCOUNT_CONTACT_INFO.cs">
-      <DependentUpon>ModelCOAP.tt</DependentUpon>
+      <DependentUpon>CAOPModel.tt</DependentUpon>
     </Compile>
     <Compile Include="ACCOUNT_DELTE_LOG.cs">
-      <DependentUpon>ModelCOAP.tt</DependentUpon>
+      <DependentUpon>CAOPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ACCOUNT_DEL_LOG.cs">
+      <DependentUpon>CAOPModel.tt</DependentUpon>
     </Compile>
     <Compile Include="ACCOUNT_GROUP.cs">
-      <DependentUpon>ModelCOAP.tt</DependentUpon>
+      <DependentUpon>CAOPModel.tt</DependentUpon>
     </Compile>
     <Compile Include="ACCOUNT_MODES.cs">
-      <DependentUpon>ModelCOAP.tt</DependentUpon>
+      <DependentUpon>CAOPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ACCOUNT_MODES1.cs">
+      <DependentUpon>CAOPModel.tt</DependentUpon>
     </Compile>
     <Compile Include="ACCOUNT_NATURE_CURRENCY.cs">
-      <DependentUpon>ModelCOAP.tt</DependentUpon>
+      <DependentUpon>CAOPModel.tt</DependentUpon>
     </Compile>
     <Compile Include="ACCOUNT_OPEN_TYPE.cs">
-      <DependentUpon>ModelCOAP.tt</DependentUpon>
+      <DependentUpon>CAOPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ACCOUNT_PURPOSE.cs">
+      <DependentUpon>CAOPModel.tt</DependentUpon>
     </Compile>
     <Compile Include="ACCOUNT_REVIEW.cs">
-      <DependentUpon>ModelCOAP.tt</DependentUpon>
+      <DependentUpon>CAOPModel.tt</DependentUpon>
     </Compile>
     <Compile Include="ACCOUNT_STATEMENT_FREQUENCY.cs">
-      <DependentUpon>ModelCOAP.tt</DependentUpon>
+      <DependentUpon>CAOPModel.tt</DependentUpon>
     </Compile>
     <Compile Include="ACCOUNT_TYPES.cs">
-      <DependentUpon>ModelCOAP.tt</DependentUpon>
+      <DependentUpon>CAOPModel.tt</DependentUpon>
     </Compile>
     <Compile Include="ADDRESS_INFORMATION.cs">
-      <DependentUpon>ModelCOAP.tt</DependentUpon>
+      <DependentUpon>CAOPModel.tt</DependentUpon>
     </Compile>
     <Compile Include="ADDRESS_VERIFIED.cs">
-      <DependentUpon>ModelCOAP.tt</DependentUpon>
+      <DependentUpon>CAOPModel.tt</DependentUpon>
     </Compile>
     <Compile Include="APPLICANT_INFORMATION.cs">
-      <DependentUpon>ModelCOAP.tt</DependentUpon>
+      <DependentUpon>CAOPModel.tt</DependentUpon>
     </Compile>
     <Compile Include="APPLICANT_INFORMATION_CIFS.cs">
-      <DependentUpon>ModelCOAP.tt</DependentUpon>
+      <DependentUpon>CAOPModel.tt</DependentUpon>
     </Compile>
     <Compile Include="APPLICANT_STATUSES.cs">
-      <DependentUpon>ModelCOAP.tt</DependentUpon>
+      <DependentUpon>CAOPModel.tt</DependentUpon>
     </Compile>
     <Compile Include="APPLICANT_STATUSES_BUSINESS.cs">
-      <DependentUpon>ModelCOAP.tt</DependentUpon>
+      <DependentUpon>CAOPModel.tt</DependentUpon>
     </Compile>
     <Compile Include="ARMY_RANK_CODES.cs">
-      <DependentUpon>ModelCOAP.tt</DependentUpon>
+      <DependentUpon>CAOPModel.tt</DependentUpon>
     </Compile>
     <Compile Include="AUTHORITY_TO_OPERATE.cs">
-      <DependentUpon>ModelCOAP.tt</DependentUpon>
+      <DependentUpon>CAOPModel.tt</DependentUpon>
     </Compile>
     <Compile Include="AVERAGE_CASH_DEPOSITS.cs">
-      <DependentUpon>ModelCOAP.tt</DependentUpon>
+      <DependentUpon>CAOPModel.tt</DependentUpon>
     </Compile>
     <Compile Include="AVERAGE_NON_CASH_DEPOSITS.cs">
-      <DependentUpon>ModelCOAP.tt</DependentUpon>
+      <DependentUpon>CAOPModel.tt</DependentUpon>
     </Compile>
     <Compile Include="BANKING_RELATIONSHPS.cs">
-      <DependentUpon>ModelCOAP.tt</DependentUpon>
+      <DependentUpon>CAOPModel.tt</DependentUpon>
     </Compile>
     <Compile Include="BASE_CATEGORIES.cs">
-      <DependentUpon>ModelCOAP.tt</DependentUpon>
+      <DependentUpon>CAOPModel.tt</DependentUpon>
     </Compile>
     <Compile Include="BASIC_INFORMATIONS.cs">
-      <DependentUpon>ModelCOAP.tt</DependentUpon>
+      <DependentUpon>CAOPModel.tt</DependentUpon>
     </Compile>
     <Compile Include="BRANCHES.cs">
-      <DependentUpon>ModelCOAP.tt</DependentUpon>
+      <DependentUpon>CAOPModel.tt</DependentUpon>
     </Compile>
     <Compile Include="BUSINESS_ACOUNTS.cs">
-      <DependentUpon>ModelCOAP.tt</DependentUpon>
+      <DependentUpon>CAOPModel.tt</DependentUpon>
     </Compile>
     <Compile Include="BUSINESS_CUSTOMER_CLASSIFICATIONS.cs">
-      <DependentUpon>ModelCOAP.tt</DependentUpon>
+      <DependentUpon>CAOPModel.tt</DependentUpon>
     </Compile>
     <Compile Include="BUSINESS_DETAIL.cs">
-      <DependentUpon>ModelCOAP.tt</DependentUpon>
+      <DependentUpon>CAOPModel.tt</DependentUpon>
     </Compile>
     <Compile Include="BUSINESS_TYPE.cs">
-      <DependentUpon>ModelCOAP.tt</DependentUpon>
+      <DependentUpon>CAOPModel.tt</DependentUpon>
     </Compile>
     <Compile Include="CAOPDbContext.cs" />
+    <Compile Include="CAOPModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CAOPModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CAOPModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CAOPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CAOPModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CAOPModel.edmx</DependentUpon>
+    </Compile>
     <Compile Include="CERTIFICATE_DEPOSIT_INFO.cs">
-      <DependentUpon>ModelCOAP.tt</DependentUpon>
+      <DependentUpon>CAOPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ChangeLog.cs">
+      <DependentUpon>CAOPModel.tt</DependentUpon>
     </Compile>
     <Compile Include="CIF_CUSTOMER_TYPE.cs">
-      <DependentUpon>ModelCOAP.tt</DependentUpon>
+      <DependentUpon>CAOPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CIF_DEL_LOG.cs">
+      <DependentUpon>CAOPModel.tt</DependentUpon>
     </Compile>
     <Compile Include="CIF_REVIEW.cs">
-      <DependentUpon>ModelCOAP.tt</DependentUpon>
+      <DependentUpon>CAOPModel.tt</DependentUpon>
     </Compile>
     <Compile Include="CIF_TYPES.cs">
-      <DependentUpon>ModelCOAP.tt</DependentUpon>
+      <DependentUpon>CAOPModel.tt</DependentUpon>
     </Compile>
     <Compile Include="CITIES.cs">
-      <DependentUpon>ModelCOAP.tt</DependentUpon>
+      <DependentUpon>CAOPModel.tt</DependentUpon>
     </Compile>
     <Compile Include="CITIES_BUSINESS_DETAILS.cs">
-      <DependentUpon>ModelCOAP.tt</DependentUpon>
+      <DependentUpon>CAOPModel.tt</DependentUpon>
     </Compile>
     <Compile Include="CONSUMER_SEGMENTS.cs">
-      <DependentUpon>ModelCOAP.tt</DependentUpon>
+      <DependentUpon>CAOPModel.tt</DependentUpon>
     </Compile>
     <Compile Include="CONTACT_INFOS.cs">
-      <DependentUpon>ModelCOAP.tt</DependentUpon>
+      <DependentUpon>CAOPModel.tt</DependentUpon>
     </Compile>
     <Compile Include="COSTUMER_DEALINGS.cs">
-      <DependentUpon>ModelCOAP.tt</DependentUpon>
+      <DependentUpon>CAOPModel.tt</DependentUpon>
     </Compile>
     <Compile Include="COUNTRIES.cs">
-      <DependentUpon>ModelCOAP.tt</DependentUpon>
+      <DependentUpon>CAOPModel.tt</DependentUpon>
     </Compile>
     <Compile Include="COUNTRIES_BUSINESS_DETAILS.cs">
-      <DependentUpon>ModelCOAP.tt</DependentUpon>
+      <DependentUpon>CAOPModel.tt</DependentUpon>
     </Compile>
     <Compile Include="COUNTRIES_TAX_MISCELLANEOUS_INFORMATION.cs">
-      <DependentUpon>ModelCOAP.tt</DependentUpon>
+      <DependentUpon>CAOPModel.tt</DependentUpon>
     </Compile>
     <Compile Include="COUNTRY_CODES.cs">
-      <DependentUpon>ModelCOAP.tt</DependentUpon>
+      <DependentUpon>CAOPModel.tt</DependentUpon>
     </Compile>
     <Compile Include="CURRENCY.cs">
-      <DependentUpon>ModelCOAP.tt</DependentUpon>
+      <DependentUpon>CAOPModel.tt</DependentUpon>
     </Compile>
     <Compile Include="CUSTOMER_TYPE.cs">
-      <DependentUpon>ModelCOAP.tt</DependentUpon>
+      <DependentUpon>CAOPModel.tt</DependentUpon>
     </Compile>
     <Compile Include="CUSTOMER_TYPE_BUSINESS.cs">
-      <DependentUpon>ModelCOAP.tt</DependentUpon>
+      <DependentUpon>CAOPModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Description_Documents.cs">
-      <DependentUpon>ModelCOAP.tt</DependentUpon>
+      <DependentUpon>CAOPModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Description_Documents_Business.cs">
-      <DependentUpon>ModelCOAP.tt</DependentUpon>
+      <DependentUpon>CAOPModel.tt</DependentUpon>
     </Compile>
     <Compile Include="DIRECTOR_STATUS.cs">
-      <DependentUpon>ModelCOAP.tt</DependentUpon>
+      <DependentUpon>CAOPModel.tt</DependentUpon>
     </Compile>
     <Compile Include="DISTRICTS.cs">
-      <DependentUpon>ModelCOAP.tt</DependentUpon>
+      <DependentUpon>CAOPModel.tt</DependentUpon>
     </Compile>
     <Compile Include="DOCUMENTS.cs">
-      <DependentUpon>ModelCOAP.tt</DependentUpon>
+      <DependentUpon>CAOPModel.tt</DependentUpon>
     </Compile>
     <Compile Include="DOCUMENTS_FATCA.cs">
-      <DependentUpon>ModelCOAP.tt</DependentUpon>
+      <DependentUpon>CAOPModel.tt</DependentUpon>
     </Compile>
     <Compile Include="DOCUMENT_REQUIRED.cs">
-      <DependentUpon>ModelCOAP.tt</DependentUpon>
+      <DependentUpon>CAOPModel.tt</DependentUpon>
     </Compile>
     <Compile Include="DOCUMENT_TYPES.cs">
-      <DependentUpon>ModelCOAP.tt</DependentUpon>
+      <DependentUpon>CAOPModel.tt</DependentUpon>
     </Compile>
     <Compile Include="DOCUMENT_TYPES_PRIMARY.cs">
-      <DependentUpon>ModelCOAP.tt</DependentUpon>
+      <DependentUpon>CAOPModel.tt</DependentUpon>
     </Compile>
     <Compile Include="EDUCATION.cs">
-      <DependentUpon>ModelCOAP.tt</DependentUpon>
+      <DependentUpon>CAOPModel.tt</DependentUpon>
     </Compile>
     <Compile Include="EDUCATIONS.cs">
-      <DependentUpon>ModelCOAP.tt</DependentUpon>
+      <DependentUpon>CAOPModel.tt</DependentUpon>
     </Compile>
     <Compile Include="EMAILS.cs">
-      <DependentUpon>ModelCOAP.tt</DependentUpon>
+      <DependentUpon>CAOPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EMPLOYER_CODE.cs">
+      <DependentUpon>CAOPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EMPLOYER_CODE1.cs">
+      <DependentUpon>CAOPModel.tt</DependentUpon>
     </Compile>
     <Compile Include="EMPLOYER_CODES.cs">
-      <DependentUpon>ModelCOAP.tt</DependentUpon>
+      <DependentUpon>CAOPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EMPLOYER_GROUP.cs">
+      <DependentUpon>CAOPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EMPLOYER_GROUP1.cs">
+      <DependentUpon>CAOPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EMPLOYER_SUB_GROUP.cs">
+      <DependentUpon>CAOPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EMPLOYER_SUB_GROUP1.cs">
+      <DependentUpon>CAOPModel.tt</DependentUpon>
     </Compile>
     <Compile Include="EMPLOYMENT_DETAILS.cs">
-      <DependentUpon>ModelCOAP.tt</DependentUpon>
+      <DependentUpon>CAOPModel.tt</DependentUpon>
     </Compile>
     <Compile Include="EMPLOYMENT_INFORMATIONS.cs">
-      <DependentUpon>ModelCOAP.tt</DependentUpon>
+      <DependentUpon>CAOPModel.tt</DependentUpon>
     </Compile>
     <Compile Include="EXPECTED_COUNTER_PARTIES.cs">
-      <DependentUpon>ModelCOAP.tt</DependentUpon>
+      <DependentUpon>CAOPModel.tt</DependentUpon>
     </Compile>
     <Compile Include="E_STATEMENT_REQUIRED.cs">
-      <DependentUpon>ModelCOAP.tt</DependentUpon>
+      <DependentUpon>CAOPModel.tt</DependentUpon>
     </Compile>
     <Compile Include="FATCAS.cs">
-      <DependentUpon>ModelCOAP.tt</DependentUpon>
+      <DependentUpon>CAOPModel.tt</DependentUpon>
     </Compile>
     <Compile Include="FATCAS_TINS.cs">
-      <DependentUpon>ModelCOAP.tt</DependentUpon>
+      <DependentUpon>CAOPModel.tt</DependentUpon>
     </Compile>
     <Compile Include="FREQUENCY_GROSS_SALES.cs">
-      <DependentUpon>ModelCOAP.tt</DependentUpon>
+      <DependentUpon>CAOPModel.tt</DependentUpon>
     </Compile>
     <Compile Include="FTCA_CLASSIFICATIONS.cs">
-      <DependentUpon>ModelCOAP.tt</DependentUpon>
+      <DependentUpon>CAOPModel.tt</DependentUpon>
     </Compile>
     <Compile Include="FTCA_DOCUMENTATIONS.cs">
-      <DependentUpon>ModelCOAP.tt</DependentUpon>
+      <DependentUpon>CAOPModel.tt</DependentUpon>
     </Compile>
     <Compile Include="GENDERS.cs">
-      <DependentUpon>ModelCOAP.tt</DependentUpon>
+      <DependentUpon>CAOPModel.tt</DependentUpon>
     </Compile>
     <Compile Include="GEOGRAPHIES_COUNTER_PARTIES.cs">
-      <DependentUpon>ModelCOAP.tt</DependentUpon>
+      <DependentUpon>CAOPModel.tt</DependentUpon>
     </Compile>
     <Compile Include="GL_CODE.cs">
-      <DependentUpon>ModelCOAP.tt</DependentUpon>
+      <DependentUpon>CAOPModel.tt</DependentUpon>
     </Compile>
     <Compile Include="GOV_CIF_TYPE.cs">
-      <DependentUpon>ModelCOAP.tt</DependentUpon>
+      <DependentUpon>CAOPModel.tt</DependentUpon>
     </Compile>
     <Compile Include="HEAD_CONTACT_INFOS.cs">
-      <DependentUpon>ModelCOAP.tt</DependentUpon>
+      <DependentUpon>CAOPModel.tt</DependentUpon>
     </Compile>
     <Compile Include="IDENTITIES.cs">
-      <DependentUpon>ModelCOAP.tt</DependentUpon>
+      <DependentUpon>CAOPModel.tt</DependentUpon>
     </Compile>
     <Compile Include="IDENTITY_TYPES.cs">
-      <DependentUpon>ModelCOAP.tt</DependentUpon>
+      <DependentUpon>CAOPModel.tt</DependentUpon>
     </Compile>
     <Compile Include="INFO_TYPES_BDS.cs">
-      <DependentUpon>ModelCOAP.tt</DependentUpon>
+      <DependentUpon>CAOPModel.tt</DependentUpon>
     </Compile>
     <Compile Include="INSTITUTION_TYPE.cs">
-      <DependentUpon>ModelCOAP.tt</DependentUpon>
+      <DependentUpon>CAOPModel.tt</DependentUpon>
     </Compile>
     <Compile Include="ISSUING_AGENCY.cs">
-      <DependentUpon>ModelCOAP.tt</DependentUpon>
+      <DependentUpon>CAOPModel.tt</DependentUpon>
     </Compile>
     <Compile Include="KNOW_CUSTOMER_TRANSACTIONS_MODE.cs">
-      <DependentUpon>ModelCOAP.tt</DependentUpon>
+      <DependentUpon>CAOPModel.tt</DependentUpon>
     </Compile>
     <Compile Include="KNOW_YOUR_CUSTOMER.cs">
-      <DependentUpon>ModelCOAP.tt</DependentUpon>
+      <DependentUpon>CAOPModel.tt</DependentUpon>
     </Compile>
     <Compile Include="KNOW_YOUR_CUSTOMER_RELATIONSHIP.cs">
-      <DependentUpon>ModelCOAP.tt</DependentUpon>
+      <DependentUpon>CAOPModel.tt</DependentUpon>
     </Compile>
     <Compile Include="KYC_BENEFICIAL_ENTITY.cs">
-      <DependentUpon>ModelCOAP.tt</DependentUpon>
+      <DependentUpon>CAOPModel.tt</DependentUpon>
     </Compile>
     <Compile Include="KYC_EXPECTED_COUNTER_PARTIES.cs">
-      <DependentUpon>ModelCOAP.tt</DependentUpon>
+      <DependentUpon>CAOPModel.tt</DependentUpon>
     </Compile>
     <Compile Include="KYC_GEOGRAPHIES_COUNTER_PARTIES.cs">
-      <DependentUpon>ModelCOAP.tt</DependentUpon>
+      <DependentUpon>CAOPModel.tt</DependentUpon>
     </Compile>
     <Compile Include="KYC_PURPOSE_OF_AC.cs">
-      <DependentUpon>ModelCOAP.tt</DependentUpon>
+      <DependentUpon>CAOPModel.tt</DependentUpon>
     </Compile>
     <Compile Include="KYC_SOURCE_OF_FUND.cs">
-      <DependentUpon>ModelCOAP.tt</DependentUpon>
+      <DependentUpon>CAOPModel.tt</DependentUpon>
     </Compile>
     <Compile Include="MARTIAL_STATUSES.cs">
-      <DependentUpon>ModelCOAP.tt</DependentUpon>
+      <DependentUpon>CAOPModel.tt</DependentUpon>
     </Compile>
     <Compile Include="MEANS_OF_VERIFICATION.cs">
-      <DependentUpon>ModelCOAP.tt</DependentUpon>
+      <DependentUpon>CAOPModel.tt</DependentUpon>
     </Compile>
     <Compile Include="MetaData.cs" />
     <Compile Include="MISCELLANEOUS_INFORMATIONS.cs">
-      <DependentUpon>ModelCOAP.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ModelCOAP.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ModelCOAP.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ModelCOAP.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ModelCOAP.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ModelCOAP.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ModelCOAP.edmx</DependentUpon>
+      <DependentUpon>CAOPModel.tt</DependentUpon>
     </Compile>
     <Compile Include="MODE_OF_TRANSACTIONS.cs">
-      <DependentUpon>ModelCOAP.tt</DependentUpon>
+      <DependentUpon>CAOPModel.tt</DependentUpon>
     </Compile>
     <Compile Include="MONTHLY_TURNOVER_CREDITS.cs">
-      <DependentUpon>ModelCOAP.tt</DependentUpon>
+      <DependentUpon>CAOPModel.tt</DependentUpon>
     </Compile>
     <Compile Include="MONTHLY_TURNOVER_DEBITS.cs">
-      <DependentUpon>ModelCOAP.tt</DependentUpon>
+      <DependentUpon>CAOPModel.tt</DependentUpon>
     </Compile>
     <Compile Include="NADRA_INFO.cs">
-      <DependentUpon>ModelCOAP.tt</DependentUpon>
+      <DependentUpon>CAOPModel.tt</DependentUpon>
     </Compile>
     <Compile Include="NATIONALITIES_BASIC_INFORMATION.cs">
-      <DependentUpon>ModelCOAP.tt</DependentUpon>
+      <DependentUpon>CAOPModel.tt</DependentUpon>
     </Compile>
     <Compile Include="NATURE_BUSINESS.cs">
-      <DependentUpon>ModelCOAP.tt</DependentUpon>
+      <DependentUpon>CAOPModel.tt</DependentUpon>
     </Compile>
     <Compile Include="NATURE_BUSINESS_GOV.cs">
-      <DependentUpon>ModelCOAP.tt</DependentUpon>
+      <DependentUpon>CAOPModel.tt</DependentUpon>
     </Compile>
     <Compile Include="NBP_BRANCH_INFORMATIONS.cs">
-      <DependentUpon>ModelCOAP.tt</DependentUpon>
+      <DependentUpon>CAOPModel.tt</DependentUpon>
     </Compile>
     <Compile Include="NBP_CATEGORIES.cs">
-      <DependentUpon>ModelCOAP.tt</DependentUpon>
+      <DependentUpon>CAOPModel.tt</DependentUpon>
     </Compile>
     <Compile Include="NEXT_OF_KIN_INFO.cs">
-      <DependentUpon>ModelCOAP.tt</DependentUpon>
+      <DependentUpon>CAOPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OFFICE_CODES.cs">
+      <DependentUpon>CAOPModel.tt</DependentUpon>
     </Compile>
     <Compile Include="OPERATING_INSTRUCTIONS.cs">
-      <DependentUpon>ModelCOAP.tt</DependentUpon>
+      <DependentUpon>CAOPModel.tt</DependentUpon>
     </Compile>
     <Compile Include="OTHER_BANK_CODES.cs">
-      <DependentUpon>ModelCOAP.tt</DependentUpon>
+      <DependentUpon>CAOPModel.tt</DependentUpon>
     </Compile>
     <Compile Include="PEPS.cs">
-      <DependentUpon>ModelCOAP.tt</DependentUpon>
+      <DependentUpon>CAOPModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Permissions.cs">
-      <DependentUpon>ModelCOAP.tt</DependentUpon>
+      <DependentUpon>CAOPModel.tt</DependentUpon>
     </Compile>
     <Compile Include="PRINCIPAL_RENEWAL_OPTION.cs">
-      <DependentUpon>ModelCOAP.tt</DependentUpon>
+      <DependentUpon>CAOPModel.tt</DependentUpon>
     </Compile>
     <Compile Include="PRODUCTS.cs">
-      <DependentUpon>ModelCOAP.tt</DependentUpon>
+      <DependentUpon>CAOPModel.tt</DependentUpon>
     </Compile>
     <Compile Include="PROFIT_PAYMENT.cs">
-      <DependentUpon>ModelCOAP.tt</DependentUpon>
+      <DependentUpon>CAOPModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="PROVINCES.cs">
-      <DependentUpon>ModelCOAP.tt</DependentUpon>
+      <DependentUpon>CAOPModel.tt</DependentUpon>
     </Compile>
     <Compile Include="PURPOSE_OF_ACCOUNT.cs">
-      <DependentUpon>ModelCOAP.tt</DependentUpon>
+      <DependentUpon>CAOPModel.tt</DependentUpon>
     </Compile>
     <Compile Include="PURPOSE_OF_ACCOUNT_BUSINESS.cs">
-      <DependentUpon>ModelCOAP.tt</DependentUpon>
+      <DependentUpon>CAOPModel.tt</DependentUpon>
     </Compile>
     <Compile Include="REAL_BENEFICIARY_ACCOUNT.cs">
-      <DependentUpon>ModelCOAP.tt</DependentUpon>
+      <DependentUpon>CAOPModel.tt</DependentUpon>
     </Compile>
     <Compile Include="REASON_ACCOUNT_OPENING.cs">
-      <DependentUpon>ModelCOAP.tt</DependentUpon>
+      <DependentUpon>CAOPModel.tt</DependentUpon>
     </Compile>
     <Compile Include="REGIONS.cs">
-      <DependentUpon>ModelCOAP.tt</DependentUpon>
+      <DependentUpon>CAOPModel.tt</DependentUpon>
     </Compile>
     <Compile Include="RELATIONSHIP.cs">
-      <DependentUpon>ModelCOAP.tt</DependentUpon>
+      <DependentUpon>CAOPModel.tt</DependentUpon>
     </Compile>
     <Compile Include="RELIGIONS.cs">
-      <DependentUpon>ModelCOAP.tt</DependentUpon>
+      <DependentUpon>CAOPModel.tt</DependentUpon>
     </Compile>
     <Compile Include="RESIDENT_TYPES.cs">
-      <DependentUpon>ModelCOAP.tt</DependentUpon>
+      <DependentUpon>CAOPModel.tt</DependentUpon>
     </Compile>
     <Compile Include="ROLES.cs">
-      <DependentUpon>ModelCOAP.tt</DependentUpon>
+      <DependentUpon>CAOPModel.tt</DependentUpon>
     </Compile>
     <Compile Include="ROLE_PERMISSIONS.cs">
-      <DependentUpon>ModelCOAP.tt</DependentUpon>
+      <DependentUpon>CAOPModel.tt</DependentUpon>
     </Compile>
     <Compile Include="SBP_CATEGORIES.cs">
-      <DependentUpon>ModelCOAP.tt</DependentUpon>
+      <DependentUpon>CAOPModel.tt</DependentUpon>
     </Compile>
     <Compile Include="SERVICE_CHARGES_EXEMPTED_CODE.cs">
-      <DependentUpon>ModelCOAP.tt</DependentUpon>
+      <DependentUpon>CAOPModel.tt</DependentUpon>
     </Compile>
     <Compile Include="SHAREHOLDER_INFORMATION.cs">
-      <DependentUpon>ModelCOAP.tt</DependentUpon>
+      <DependentUpon>CAOPModel.tt</DependentUpon>
     </Compile>
     <Compile Include="SIC_CODES.cs">
-      <DependentUpon>ModelCOAP.tt</DependentUpon>
+      <DependentUpon>CAOPModel.tt</DependentUpon>
     </Compile>
     <Compile Include="SL_CODE.cs">
-      <DependentUpon>ModelCOAP.tt</DependentUpon>
+      <DependentUpon>CAOPModel.tt</DependentUpon>
     </Compile>
     <Compile Include="SMS_ALERT_REQUIRED.cs">
-      <DependentUpon>ModelCOAP.tt</DependentUpon>
+      <DependentUpon>CAOPModel.tt</DependentUpon>
     </Compile>
     <Compile Include="SOURCE_OF_FUNDS.cs">
-      <DependentUpon>ModelCOAP.tt</DependentUpon>
+      <DependentUpon>CAOPModel.tt</DependentUpon>
     </Compile>
     <Compile Include="SOURCE_OF_FUNDS_BUSINESS.cs">
-      <DependentUpon>ModelCOAP.tt</DependentUpon>
+      <DependentUpon>CAOPModel.tt</DependentUpon>
     </Compile>
     <Compile Include="STATUS_LOG.cs">
-      <DependentUpon>ModelCOAP.tt</DependentUpon>
+      <DependentUpon>CAOPModel.tt</DependentUpon>
     </Compile>
     <Compile Include="SUB_INDUSTRY.cs">
-      <DependentUpon>ModelCOAP.tt</DependentUpon>
+      <DependentUpon>CAOPModel.tt</DependentUpon>
     </Compile>
     <Compile Include="TITLES.cs">
-      <DependentUpon>ModelCOAP.tt</DependentUpon>
+      <DependentUpon>CAOPModel.tt</DependentUpon>
     </Compile>
     <Compile Include="TRANSACTIONS_TYPE.cs">
-      <DependentUpon>ModelCOAP.tt</DependentUpon>
+      <DependentUpon>CAOPModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Transportation_Types.cs">
-      <DependentUpon>ModelCOAP.tt</DependentUpon>
+      <DependentUpon>CAOPModel.tt</DependentUpon>
     </Compile>
     <Compile Include="USA_FUNDSTRANSFERS.cs">
-      <DependentUpon>ModelCOAP.tt</DependentUpon>
+      <DependentUpon>CAOPModel.tt</DependentUpon>
     </Compile>
     <Compile Include="USA_PHONE_NOS.cs">
-      <DependentUpon>ModelCOAP.tt</DependentUpon>
+      <DependentUpon>CAOPModel.tt</DependentUpon>
     </Compile>
     <Compile Include="USA_RESIDENCE_CARDS.cs">
-      <DependentUpon>ModelCOAP.tt</DependentUpon>
+      <DependentUpon>CAOPModel.tt</DependentUpon>
     </Compile>
     <Compile Include="USA_TAXID_TYPES.cs">
-      <DependentUpon>ModelCOAP.tt</DependentUpon>
+      <DependentUpon>CAOPModel.tt</DependentUpon>
     </Compile>
     <Compile Include="USERS.cs">
-      <DependentUpon>ModelCOAP.tt</DependentUpon>
+      <DependentUpon>CAOPModel.tt</DependentUpon>
     </Compile>
     <Compile Include="USERS_PERMISSIONS.cs">
-      <DependentUpon>ModelCOAP.tt</DependentUpon>
+      <DependentUpon>CAOPModel.tt</DependentUpon>
     </Compile>
     <Compile Include="USERS_ROLES.cs">
-      <DependentUpon>ModelCOAP.tt</DependentUpon>
+      <DependentUpon>CAOPModel.tt</DependentUpon>
     </Compile>
     <Compile Include="WHO_AUTHORIZED.cs">
-      <DependentUpon>ModelCOAP.tt</DependentUpon>
+      <DependentUpon>CAOPModel.tt</DependentUpon>
     </Compile>
     <Compile Include="ZAKAT_EXEMPTION_TYPE.cs">
-      <DependentUpon>ModelCOAP.tt</DependentUpon>
+      <DependentUpon>CAOPModel.tt</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.Config" />
-    <EntityDeploy Include="ModelCOAP.edmx">
+    <EntityDeploy Include="CAOPModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>ModelCOAP.Designer.cs</LastGenOutput>
+      <LastGenOutput>CAOPModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="ModelCOAP.edmx.diagram">
-      <DependentUpon>ModelCOAP.edmx</DependentUpon>
+    <None Include="CAOPModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>CAOPModel.edmx</DependentUpon>
+      <LastGenOutput>CAOPModel.Context.cs</LastGenOutput>
+    </None>
+    <None Include="CAOPModel.edmx.diagram">
+      <DependentUpon>CAOPModel.edmx</DependentUpon>
+    </None>
+    <None Include="CAOPModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>CAOPModel.edmx</DependentUpon>
+      <LastGenOutput>CAOPModel.cs</LastGenOutput>
     </None>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="ModelCOAP.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>ModelCOAP.edmx</DependentUpon>
-      <LastGenOutput>ModelCOAP.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="ModelCOAP.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>ModelCOAP.edmx</DependentUpon>
-      <LastGenOutput>ModelCOAP.cs</LastGenOutput>
-    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

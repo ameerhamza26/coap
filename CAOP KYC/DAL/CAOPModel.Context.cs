@@ -12,9 +12,10 @@ namespace DAL
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
-    
+
     public partial class CAOPDbContext : DbContext
     {
+       
     
         public virtual DbSet<ACCOMODATION_TYPES> ACCOMODATION_TYPES { get; set; }
         public virtual DbSet<ACCOUNT_AUTHORIZED_PERSONS> ACCOUNT_AUTHORIZED_PERSONS { get; set; }
@@ -26,7 +27,6 @@ namespace DAL
         public virtual DbSet<ACCOUNT_OPEN_TYPE> ACCOUNT_OPEN_TYPE { get; set; }
         public virtual DbSet<ACCOUNT_REVIEW> ACCOUNT_REVIEW { get; set; }
         public virtual DbSet<ACCOUNT_STATEMENT_FREQUENCY> ACCOUNT_STATEMENT_FREQUENCY { get; set; }
-        public virtual DbSet<ACCOUNT_TYPES> ACCOUNT_TYPES { get; set; }
         public virtual DbSet<ADDRESS_INFORMATION> ADDRESS_INFORMATION { get; set; }
         public virtual DbSet<ADDRESS_VERIFIED> ADDRESS_VERIFIED { get; set; }
         public virtual DbSet<APPLICANT_INFORMATION> APPLICANT_INFORMATION { get; set; }
@@ -73,7 +73,6 @@ namespace DAL
         public virtual DbSet<EMAILS> EMAILS { get; set; }
         public virtual DbSet<EMPLOYER_CODES> EMPLOYER_CODES { get; set; }
         public virtual DbSet<EMPLOYMENT_DETAILS> EMPLOYMENT_DETAILS { get; set; }
-        public virtual DbSet<EMPLOYMENT_INFORMATIONS> EMPLOYMENT_INFORMATIONS { get; set; }
         public virtual DbSet<FATCAS> FATCAS { get; set; }
         public virtual DbSet<FATCAS_TINS> FATCAS_TINS { get; set; }
         public virtual DbSet<FREQUENCY_GROSS_SALES> FREQUENCY_GROSS_SALES { get; set; }
@@ -119,7 +118,6 @@ namespace DAL
         public virtual DbSet<PROVINCES> PROVINCES { get; set; }
         public virtual DbSet<PURPOSE_OF_ACCOUNT> PURPOSE_OF_ACCOUNT { get; set; }
         public virtual DbSet<REAL_BENEFICIARY_ACCOUNT> REAL_BENEFICIARY_ACCOUNT { get; set; }
-        public virtual DbSet<REASON_ACCOUNT_OPENING> REASON_ACCOUNT_OPENING { get; set; }
         public virtual DbSet<REGIONS> REGIONS { get; set; }
         public virtual DbSet<RELATIONSHIP> RELATIONSHIP { get; set; }
         public virtual DbSet<RELIGIONS> RELIGIONS { get; set; }
@@ -154,6 +152,21 @@ namespace DAL
         public virtual DbSet<EXPECTED_COUNTER_PARTIES> EXPECTED_COUNTER_PARTIES { get; set; }
         public virtual DbSet<GEOGRAPHIES_COUNTER_PARTIES> GEOGRAPHIES_COUNTER_PARTIES { get; set; }
         public virtual DbSet<PURPOSE_OF_ACCOUNT_BUSINESS> PURPOSE_OF_ACCOUNT_BUSINESS { get; set; }
+        public virtual DbSet<REASON_ACCOUNT_OPENING> REASON_ACCOUNT_OPENING { get; set; }
         public virtual DbSet<ACCOUNT_MODES> ACCOUNT_MODES { get; set; }
+        public virtual DbSet<EMPLOYER_CODE> EMPLOYER_CODE { get; set; }
+        public virtual DbSet<EMPLOYER_GROUP> EMPLOYER_GROUP { get; set; }
+        public virtual DbSet<EMPLOYER_SUB_GROUP> EMPLOYER_SUB_GROUP { get; set; }
+        public virtual DbSet<ACCOUNT_TYPES> ACCOUNT_TYPES { get; set; }
+        public virtual DbSet<ACCOUNT_MODES1> ACCOUNT_MODES1Set { get; set; }
+        public virtual DbSet<EMPLOYER_CODE1> EMPLOYER_CODE1Set { get; set; }
+        public virtual DbSet<EMPLOYER_GROUP1> EMPLOYER_GROUP1Set { get; set; }
+        public virtual DbSet<EMPLOYER_SUB_GROUP1> EMPLOYER_SUB_GROUP1Set { get; set; }
+        public virtual DbSet<EMPLOYMENT_INFORMATIONS> EMPLOYMENT_INFORMATIONS { get; set; }
+        public virtual DbSet<ACCOUNT_DEL_LOG> ACCOUNT_DEL_LOG { get; set; }
+        public virtual DbSet<CIF_DEL_LOG> CIF_DEL_LOG { get; set; }
+        public virtual DbSet<OFFICE_CODES> OFFICE_CODES { get; set; }
+        public virtual DbSet<ChangeLog> ChangeLog { get; set; }
+        public virtual DbSet<ACCOUNT_PURPOSE> ACCOUNT_PURPOSE { get; set; }
     }
 }

@@ -17,7 +17,14 @@ namespace CAOP
             if (LogedUser == null)
                 Response.Redirect("Login.aspx");
             CheckPermissions(LogedUser);
-            loaddata();
+
+            if (!IsPostBack) { 
+                loaddata();
+                if (LogedUser.USER_TYPE == UserType.Region)
+                {
+                    SearchCriteria.Visible = true;
+                }
+            }
         }
 
         private void loaddata()
@@ -34,10 +41,28 @@ namespace CAOP
 
         }
 
+        private void loadDataRegion()
+        {
+            User LoggedUser = Session["User"] as User;
+
+            AccOpen ac = new AccOpen(LoggedUser.USER_ID);
+
+            if (radioBCode.Checked)
+                grdPCif.DataSource = ac.GetAccountRegion(true, false, false, txtAccount.Text, LoggedUser.PARENT_ID);
+            else if (radioAno.Checked)
+                grdPCif.DataSource = ac.GetAccountRegion(false, true, false, txtAccount.Text, LoggedUser.PARENT_ID);
+            else
+                grdPCif.DataSource = ac.GetAccountRegion(false, false, true, txtAccount.Text, LoggedUser.PARENT_ID);
+            grdPCif.DataBind();
+        }
+
         protected void grdPCif_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
             grdPCif.PageIndex = e.NewPageIndex;
-            loaddata();
+            if (Convert.ToBoolean(ViewState["isSearch"]) != true)
+                loaddata();
+            else
+                loadDataRegion();
         }
 
 
@@ -98,6 +123,15 @@ namespace CAOP
             {
                 if (!LoggedUser.Permissions.CheckAccess(Permissions.CIF, Rights.Read))
                     Response.Redirect("Main.aspx");
+            }
+        }
+
+        protected void btnSearchCriteria_Click(object sender, EventArgs e)
+        {
+            if (txtAccount.Text.Length > 0)
+            {
+                ViewState["isSearch"] = true;
+                loadDataRegion();
             }
         }
     }

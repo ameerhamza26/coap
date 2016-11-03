@@ -122,8 +122,16 @@ namespace CAOP.UserForms
                 else
                     userobj.ACTIVE = false;
 
+                userobj.USER_ID = Convert.ToInt32(Request.QueryString["ID"]);
                 int UserID = Convert.ToInt32(Request.QueryString["ID"]);
+
+                User LoggedUser = Session["User"] as User;
+                ChangeLogUser UL = new ChangeLogUser();
+                UL.MakeUserLog(userobj, LoggedUser.USER_ID);
+
                 userobj.UpdateUser(UserID);
+
+               
 
                 Response.Redirect("~/UserForms/Users.aspx");
             }
@@ -136,14 +144,16 @@ namespace CAOP.UserForms
         {
             int ID = Convert.ToInt32(Request.QueryString["ID"]);
             User userobj = new User();
-            args.IsValid = !userobj.CheckEmailExixts(txtemail.Text,ID);
+            args.IsValid = !userobj.CheckEmailExixts(txtemail.Text, ID);
+    
         }
 
         protected void CustomValidatorSapIdUnique_ServerValidate(object source, ServerValidateEventArgs args)
         {
             int ID = Convert.ToInt32(Request.QueryString["ID"]);
             User userobj = new User();
-            args.IsValid = !userobj.CheckSapIdExixts(Convert.ToDecimal(txtSap.Text),ID);
+            args.IsValid = !userobj.CheckSapIdExixts(Convert.ToDecimal(txtSap.Text), ID);
+          
         }
 
         protected void CustomValidatorBranchCode_ServerValidate(object source, ServerValidateEventArgs args)
@@ -238,6 +248,7 @@ namespace CAOP.UserForms
             string pass = WConfigSetting.Split(',')[1];
 
             args.IsValid = VerifyEmailUserID(txtemail.Text, email, pass);
+           
         }
 
         protected void chkRegion_CheckedChanged(object sender, EventArgs e)

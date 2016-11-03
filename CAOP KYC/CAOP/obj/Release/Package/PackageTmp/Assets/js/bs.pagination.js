@@ -8,11 +8,11 @@
     set gridview property: PagerStyle-CssClass="bs-pagination" 
 */
 
-$(document).ready(function () {
-  $('.bs-pagination td table').each(function (index, obj) {
-    convertToPagination(obj)
-  });
-});
+function pageLoad() {
+    $('.bs-pagination td table').each(function (index, obj) {
+        convertToPagination(obj)
+    });
+}
 
 function convertToPagination(obj) {
   var liststring = '<ul class="pagination">';

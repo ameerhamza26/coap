@@ -92,6 +92,12 @@
                              <asp:RequiredFieldValidator Display="Dynamic" InitialValue="0"  ID="RequiredFieldValidatorIssuingAgency" ValidationGroup="BiValidationGroup" runat="server" ControlToValidate="BiListIssueAgency" ForeColor="Red" Font-Bold="true" ErrorMessage="Issuing Agency is Required"></asp:RequiredFieldValidator>
                         </div>
 
+                        <div  class="form-group">
+                             <label  class="lblReview">If Other: </label>
+                            <asp:TextBox ID="BiIssueOther" ClientIDMode="Static" CssClass="form-control" runat="server"></asp:TextBox> 
+                            <asp:RequiredFieldValidator Enabled="false" Display="Dynamic"  ID="RequiredFieldValidatorOtherIssue" ValidationGroup="BiValidationGroup" runat="server" ControlToValidate="BiIssueOther" ForeColor="Red" Font-Bold="true" ErrorMessage="Issuing Agency (if other) is Required"></asp:RequiredFieldValidator>
+                        </div>
+
                         <div class="form-group">
                             <label  class="lblReview">Registration No: *</label>
                             <asp:TextBox ID="BiRegistrationNo" MaxLength="15" ClientIDMode="Static" AutoPostBack="true" CssClass="form-control" runat="server" OnTextChanged="BiRegistrationNo_TextChanged"></asp:TextBox>                                                     
@@ -243,21 +249,28 @@
 
                     <div id="sectionb" class="tab-pane fade">
                         <h3>Mailing Adress</h3>
-                        <div class="form-group">
-                            <label  class="lblReview">Country: *</label>
-                            <asp:DropDownList ID="CiListCountry" ClientIDMode="Static" CssClass="form-control" runat="server"></asp:DropDownList>
-                             <asp:RequiredFieldValidator Display="Dynamic" InitialValue="0" ID="BrRequiredFieldValidatorListCountryA" runat="server" ControlToValidate="CiListCountry" ForeColor="Red" Font-Bold="true" ValidationGroup="CiValidationGroup" ErrorMessage="Country is Required"></asp:RequiredFieldValidator>
-                        </div>
-                         <div class="form-group">
-                            <label  class="lblReview">Province: *</label>
-                            <asp:DropDownList ID="CiListProvince" CssClass="form-control" runat="server"></asp:DropDownList>
-                             <asp:RequiredFieldValidator Display="Dynamic" ID="RequiredFieldValidatorPermanentProvice" Enabled="true" runat="server" InitialValue="0" ControlToValidate="CiListProvince" ForeColor="Red" Font-Bold="true" ValidationGroup="CiValidationGroup" ErrorMessage="Province is Required"></asp:RequiredFieldValidator>
-                        </div>
-                        <div class="form-group">
-                            <label  class="lblReview">City: *</label>
-                            <asp:DropDownList ID="CiListCity" ClientIDMode="Static" CssClass="form-control" runat="server"></asp:DropDownList>
-                            <asp:RequiredFieldValidator Display="Dynamic" InitialValue="0" ID="RequiredFieldValidator3" runat="server" ControlToValidate="CiListCity" ForeColor="Red" Font-Bold="true" ValidationGroup="CiValidationGroup" ErrorMessage="City is Required"></asp:RequiredFieldValidator>
-                        </div>                      
+
+                        <asp:UpdatePanel ID="UpdatePanel" runat="server" UpdateMode="Always">
+                         <ContentTemplate>
+			                <div class="form-group">
+                                        <label  class="lblReview">Country: *</label>
+                                        <asp:DropDownList ID="CiListCountry" ClientIDMode="Static" CssClass="form-control" runat="server" AutoPostBack="true" OnSelectedIndexChanged="CiListCountry_SelectedIndexChanged"></asp:DropDownList>
+                                         <asp:RequiredFieldValidator Display="Dynamic" InitialValue="0" ID="BrRequiredFieldValidatorListCountryA" runat="server" ControlToValidate="CiListCountry" ForeColor="Red" Font-Bold="true" ValidationGroup="CiValidationGroup" ErrorMessage="Country is Required"></asp:RequiredFieldValidator>
+                                    </div>
+                                     <div class="form-group">
+                                        <label  class="lblReview">Province: *</label>
+                                        <asp:DropDownList ID="CiListProvince" CssClass="form-control" runat="server"></asp:DropDownList>
+                                         <asp:RequiredFieldValidator Display="Dynamic" ID="RequiredFieldValidatorPermanentProvice" Enabled="true" runat="server" InitialValue="0" ControlToValidate="CiListProvince" ForeColor="Red" Font-Bold="true" ValidationGroup="CiValidationGroup" ErrorMessage="Province is Required"></asp:RequiredFieldValidator>
+                                    </div>
+                                    <div class="form-group">
+                                        <label  class="lblReview">City: *</label>
+                                        <asp:DropDownList ID="CiListCity" ClientIDMode="Static" CssClass="form-control" runat="server"></asp:DropDownList>
+                                        <asp:RequiredFieldValidator Display="Dynamic" InitialValue="0" ID="RequiredFieldValidatorPermanentCity" runat="server" ControlToValidate="CiListCity" ForeColor="Red" Font-Bold="true" ValidationGroup="CiValidationGroup" ErrorMessage="City is Required"></asp:RequiredFieldValidator>
+                                    </div>             
+			            </ContentTemplate>                              
+                           </asp:UpdatePanel>
+
+                                 
                          <div class="form-group">
                             <label  class="lblReview">Address Line 1: *</label>
                             <asp:TextBox ID="CiTxtBuilding" MaxLength="40" CssClass="form-control" runat="server"></asp:TextBox> 
@@ -683,11 +696,14 @@
                                     <asp:AsyncPostBackTrigger ControlID="FiLiabilities" EventName="TextChanged" />
                                 </Triggers>
                             </asp:UpdatePanel>
-
-                            
-
+                           
                         </div>
 
+                         <div class="form-group">
+                            <label  class="lblReview">Source of Fund: *</label>
+                            <asp:DropDownList ID="MiListSOF" CssClass="form-control" runat="server"></asp:DropDownList>
+                            <asp:RequiredFieldValidator InitialValue="0"  ID="RequiredFieldValidatorMISOF" Display="Dynamic" runat="server" ControlToValidate="MiListSOF" ForeColor="Red" Font-Bold="true" ValidationGroup="MiValidationGroup" ErrorMessage="Source of Fund is Required"></asp:RequiredFieldValidator>
+                        </div>
 
                         <div class="form-group" style="display: none">
                             <label class="lblReview">Monthly Turn Over (Debit): *</label>

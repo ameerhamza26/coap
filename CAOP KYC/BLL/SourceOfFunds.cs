@@ -13,7 +13,7 @@ namespace BLL
         public int ID { get; set; }
         public string NAME { get; set; }
 
-        public List<SourceOfFunds> GetAccountTypes()
+        public List<SourceOfFunds> GetSouceOfFund()
         {
             using (CAOPDbContext db = new CAOPDbContext())
             {
@@ -28,6 +28,22 @@ namespace BLL
             {
                 var AccountTypeList = db.SOURCE_OF_FUNDS_BUSINESS.Select(c => new SourceOfFunds { ID = c.ID, NAME = c.NAME.Trim() }).ToList();
                 return AccountTypeList;
+            }
+        }
+
+        public string GetProfileCodeIndividual(int id)
+        {
+            using (CAOPDbContext db = new CAOPDbContext())
+            {
+               return db.SOURCE_OF_FUNDS.FirstOrDefault(s => s.ID == id).ProfileCode.ToString();
+            }
+        }
+
+        public string GetProfileCodeBusiness(int id)
+        {
+            using (CAOPDbContext db = new CAOPDbContext())
+            {
+                return db.SOURCE_OF_FUNDS_BUSINESS.FirstOrDefault(s => s.ID == id).ProfileCode.ToString();
             }
         }
     }

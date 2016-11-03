@@ -14,7 +14,6 @@ namespace DAL
     
     public partial class USERS
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public USERS()
         {
             this.USERS_PERMISSIONS = new HashSet<USERS_PERMISSIONS>();
@@ -37,9 +36,7 @@ namespace DAL
         public Nullable<bool> FIRST_LOGIN { get; set; }
         public Nullable<bool> ACTIVE { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<USERS_PERMISSIONS> USERS_PERMISSIONS { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<USERS_ROLES> USERS_ROLES { get; set; }
     }
 }

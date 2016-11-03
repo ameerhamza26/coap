@@ -36,6 +36,7 @@ namespace BLL
         public List<Country> MiscellaneousInfoCountryTax { get; set; }
         public string GROSS_SALE { get; set; }
         public FrequencyGrossSale FREQUENCY_GROSS_SALE { get; set; }
+        public Nullable<int> SOURCE_OF_FUND { get; set; }
 
         #endregion 
 
@@ -64,6 +65,7 @@ namespace BLL
                 newMiscellaneousInfo.LIABILITIES = this.LIABILITIES;
                 newMiscellaneousInfo.NET_WORTH = this.NET_WORTH;
                 newMiscellaneousInfo.BLIND_VISUALLY_IMPAIRED = this.BLIND_VISUALLY_IMPARIED;
+                newMiscellaneousInfo.SOURCE_OF_FUND = this.SOURCE_OF_FUND;
                 newMiscellaneousInfo.BI_ID = this.BI_ID;
                 db.BASIC_INFORMATIONS.FirstOrDefault(b => b.ID == this.BI_ID).LAST_UPDATED = DateTime.Now;
 
@@ -113,6 +115,7 @@ namespace BLL
                 newMiscellaneousInfo.TOTAL_ASSET_VALUE = this.TOTAL_ASSET_VALUE;
                 newMiscellaneousInfo.LIABILITIES = this.LIABILITIES;
                 newMiscellaneousInfo.NET_WORTH = this.NET_WORTH;
+                newMiscellaneousInfo.SOURCE_OF_FUND = this.SOURCE_OF_FUND;
                 newMiscellaneousInfo.BLIND_VISUALLY_IMPAIRED = this.BLIND_VISUALLY_IMPARIED;
                 db.COUNTRIES_TAX_MISCELLANEOUS_INFORMATION.RemoveRange(db.COUNTRIES_TAX_MISCELLANEOUS_INFORMATION.Where(n => n.BI_ID == this.ID));
                 db.BASIC_INFORMATIONS.FirstOrDefault(b => b.ID == this.BI_ID).LAST_UPDATED = DateTime.Now;
@@ -156,6 +159,7 @@ namespace BLL
             //    newMiscellaneousInfo.MONTHLY_TURNOVER_CREDIT = this.MONTHLY_TURNOVER_CREDIT.ID;
             //    newMiscellaneousInfo.AVERAGE_CASH_DEPOSIT = this.AVERAGE_CASH_DEPOSIT.ID;
             //    newMiscellaneousInfo.AVERAGE_CASH_NON_DEPOSIT = this.AVERAGE_CASH_NON_DEPOSIT.ID;
+                newMiscellaneousInfo.SOURCE_OF_FUND = this.SOURCE_OF_FUND;
                 newMiscellaneousInfo.GROSS_SALE = this.GROSS_SALE.ToUpper(); 
                 newMiscellaneousInfo.FREQUENCY_GROSS_SALE = this.FREQUENCY_GROSS_SALE.ID;
                 db.BASIC_INFORMATIONS.FirstOrDefault(b => b.ID == this.BI_ID).LAST_UPDATED = DateTime.Now;
@@ -178,6 +182,7 @@ namespace BLL
             //    newMiscellaneousInfo.MONTHLY_TURNOVER_CREDIT = this.MONTHLY_TURNOVER_CREDIT.ID;
             //    newMiscellaneousInfo.AVERAGE_CASH_DEPOSIT = this.AVERAGE_CASH_DEPOSIT.ID;
             //    newMiscellaneousInfo.AVERAGE_CASH_NON_DEPOSIT = this.AVERAGE_CASH_NON_DEPOSIT.ID;
+                newMiscellaneousInfo.SOURCE_OF_FUND = this.SOURCE_OF_FUND;
                 newMiscellaneousInfo.GROSS_SALE = this.GROSS_SALE.ToUpper();
                 newMiscellaneousInfo.FREQUENCY_GROSS_SALE = this.FREQUENCY_GROSS_SALE.ID;
                 db.BASIC_INFORMATIONS.FirstOrDefault(b => b.ID == this.BI_ID).LAST_UPDATED = DateTime.Now;
@@ -214,6 +219,7 @@ namespace BLL
                     this.TOTAL_ASSET_VALUE = mInfo.TOTAL_ASSET_VALUE;
                     this.LIABILITIES = mInfo.LIABILITIES;
                     this.NET_WORTH = mInfo.NET_WORTH;
+                    this.SOURCE_OF_FUND = mInfo.SOURCE_OF_FUND;
                     this.BLIND_VISUALLY_IMPARIED = (bool) mInfo.BLIND_VISUALLY_IMPAIRED;
                     this.BI_ID = (int) mInfo.BI_ID;
 
@@ -238,12 +244,14 @@ namespace BLL
                     this.TOTAL_ASSET_VALUE = mInfo.TOTAL_ASSET_VALUE;
                     this.LIABILITIES = mInfo.LIABILITIES;
                     this.NET_WORTH = mInfo.NET_WORTH;
+                    this.SOURCE_OF_FUND = mInfo.SOURCE_OF_FUND;
                  //   this.MONTHLY_TURNOVER_DEBIT = new MonthlyTurnOverDebit { ID = (int) mInfo.MONTHLY_TURNOVER_DEBIT };
                  //   this.MONTHLY_TURNOVER_CREDIT = new MonthlyTurnOverCredit { ID = (int) mInfo.MONTHLY_TURNOVER_CREDIT };
                 //    this.AVERAGE_CASH_DEPOSIT = new AverageCashDeposit { ID = (int) mInfo.AVERAGE_CASH_DEPOSIT };
                 //    this.AVERAGE_CASH_NON_DEPOSIT = new AverageNonCashDeposit { ID = (int)mInfo.AVERAGE_CASH_NON_DEPOSIT } ;
                     this.GROSS_SALE = mInfo.GROSS_SALE;
                     this.FREQUENCY_GROSS_SALE = new FrequencyGrossSale { ID = (int)mInfo.FREQUENCY_GROSS_SALE };
+                   
 
                     return true;
                 }

@@ -70,7 +70,10 @@
                             </ul>
                         </li>
                         <li id="PCif" runat="server" visible="false"><a href="<%= Page.ResolveUrl("~")%>PendingCIF.aspx">PENDING CIF</a></li>
+                        <li><a href="<%= Page.ResolveUrl("~")%>CifForms/InProcess.aspx">IN PROCESS CIF</a></li>
                         <li><a href="<%= Page.ResolveUrl("~")%>CifAccount.aspx">SUBMITTED CIF</a></li>
+                        <li><a href="<%= Page.ResolveUrl("~")%>CifForms/RejectedCif.aspx">REJECTED CIF</a></li>
+                        <li id="DIPC" runat="server" visible="false"><a href="<%= Page.ResolveUrl("~")%>CifForms/DeleteInProcess.aspx">DELETE IN PROCESS CIF</a></li>
                         <li><a href="<%= Page.ResolveUrl("~")%>SearchCif.aspx">SEARCH CIF RECORD</a></li>
                         <li runat="server" id="EC" visible="false"><a href="<%= Page.ResolveUrl("~")%>ExistingCif/Existing.aspx">UPDATE EXISTING PROFILE CIF</a></li>
                         <li runat="server" id="crmtagging" visible="false"><a href="<%= Page.ResolveUrl("~")%>CrmTaggingForms/CRMTagging.aspx">CRM TAGGING</a></li>
@@ -84,13 +87,18 @@
                               <ul>
                                 <li><a href="<%= Page.ResolveUrl("~")%>Account_Individual.aspx">INDIVIDUAL</a></li>
                                 <li><a href="<%= Page.ResolveUrl("~")%>Account_Business.aspx">ENTITY</a></li>
+                                <li><a href="<%= Page.ResolveUrl("~")%>Account_office.aspx">OFFICE</a></li>
                                 <li style="display: none"><a href="<%= Page.ResolveUrl("~")%>Account_Government.aspx">GOVERNMENT</a></li>
                             </ul>
                         </li>
                         <li id="PendingAccount" runat="server" visible="false"><a href="<%= Page.ResolveUrl("~")%>PendingAccounts.aspx">PENDING ACCOUNTS</a></li>
+                        <li ><a href="<%= Page.ResolveUrl("~")%>AccountForms/InProcessAccounts.aspx">IN PROCESS ACCOUNTS</a></li>
                         <li ><a href="<%= Page.ResolveUrl("~")%>AccountList.aspx">SUBMITTED ACCOUNTS</a></li>
+                        <li ><a href="<%= Page.ResolveUrl("~")%>AccountForms/RejectedAccount.aspx">REJECTED ACCOUNTS</a></li>
+                        <li runat="server" id="DIPA" visible="false" ><a href="<%= Page.ResolveUrl("~")%>AccountForms/DeleteInProcessAccounts.aspx">DELETE IN PROCESS ACCOUNTS</a></li>
                         <li id="LOTF" runat="server" visible="false" ><a href="<%= Page.ResolveUrl("~")%>LOT/LOT.aspx">PRINT LETTER OF THANKS</a></li>
                         <li id="AOF" runat="server" visible="false" ><a href="<%= Page.ResolveUrl("~")%>AOF/AccountReport.aspx">PRINT ACCOUNT OPENING FORM</a></li>
+                        <li id="BV" runat="server" visible="false" ><a href="<%= Page.ResolveUrl("~")%>AOF/BioMetricReport.aspx">PRINT BIOMETRIC VERIFICATION</a></li>
                         
                     </ul>
                 </li>

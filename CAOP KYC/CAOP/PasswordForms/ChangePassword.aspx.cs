@@ -22,6 +22,8 @@ namespace CAOP.PasswordForms
             User LoggedUser = Session["User"] as User;
             if (Page.IsValid)
             {
+                ChangeLogUser UL = new ChangeLogUser();
+                UL.MakePassLog(txtNewPass.Text, LoggedUser.USER_ID, LoggedUser.USER_ID);
                 LoggedUser.ChangePassword(LoggedUser.USER_ID, txtNewPass.Text);
                 Response.Redirect("~/Main.aspx");
             }

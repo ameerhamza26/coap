@@ -80,6 +80,9 @@ namespace BLL
 
         public string WHO_NAME { get; set; }
         public string WHO_DESIG { get; set; }
+        public Nullable<int> CIF_OFFICER_CODE { get; set; }
+
+        public string ISSUING_AGENCY_OTHER { get; set; }
         #endregion
 
 
@@ -194,6 +197,7 @@ namespace BLL
                     BI.PROFILE_CIF_NO = this.PROFILE_CIF_NO;
                     BI.UserId = this.UserId;
                     BI.CUSTOMER_TYPE = this.CUSTOMER_TYPE.ID;
+                    BI.CIF_OFFICER_CODE = this.CIF_OFFICER_CODE;
                     BI.LAST_UPDATED = DateTime.Now;
                     db.BASIC_INFORMATIONS.Add(BI);
                     db.SaveChanges();
@@ -287,6 +291,7 @@ namespace BLL
                 BI.CNIC = CNIC;
                 BI.TITLE = (int)TITLE.ID;
                 BI.TITLE_FH = (int)TITLE_FH.ID;
+                BI.NAME_FH = NAME_FH.ToUpper();
                 BI.NAME = this.FIRST_NAME.ToUpper() + " " + this.MIDDLE_NAME.ToUpper() + " " + this.LAST_NAME.ToUpper();
                 BI.FIRST_NAME = this.FIRST_NAME.ToUpper();
                 BI.MIDDLE_NAME = this.MIDDLE_NAME.ToUpper();
@@ -308,7 +313,8 @@ namespace BLL
                 BI.COSTUMER_DEAL = CUSTOMER_DEAL.ID;
                 BI.DOCUMENT_VERIFIED = this.DOCUMENT_VERIFIED;
                 BI.CUSTOMER_TYPE = this.CUSTOMER_TYPE.ID;
-                BI.LAST_UPDATED = this.LAST_UPDATED;
+                BI.CIF_OFFICER_CODE = this.CIF_OFFICER_CODE;
+                BI.LAST_UPDATED = DateTime.Now;
 
                 db.NATIONALITIES_BASIC_INFORMATION.RemoveRange(db.NATIONALITIES_BASIC_INFORMATION.Where(n => n.BI_ID == this.ID));
                 db.SaveChanges();
@@ -436,6 +442,7 @@ namespace BLL
                 BI.SUB_INDUSTRY = this.SUB_INDUSTRY.ID;
                 BI.DOCUMENT_VERIFIED = this.DOCUMENT_VERIFIED;
                 BI.BRANCH_CODE = this.BRANCH_CODE;
+                BI.ISSUING_AGENCY_OTHER = this.ISSUING_AGENCY_OTHER;
                 if (this.GOV_TYPE != null)
                     BI.GOV_TYPE = this.GOV_TYPE;
                 db.BASIC_INFORMATIONS.Add(BI);
@@ -476,6 +483,7 @@ namespace BLL
                 BI.SIC_CODE = this.SIC_CODES.ID;
                 BI.SUB_INDUSTRY = this.SUB_INDUSTRY.ID;
                 BI.DOCUMENT_VERIFIED = this.DOCUMENT_VERIFIED;
+                BI.ISSUING_AGENCY_OTHER = this.ISSUING_AGENCY_OTHER;
                 if (this.GOV_TYPE != null)
                     BI.GOV_TYPE = this.GOV_TYPE;
                 db.SaveChanges();
@@ -526,6 +534,7 @@ namespace BLL
                     this.CUSTOMER_DEAL = new CustomerDeal { ID = (int?)BI.COSTUMER_DEAL };
                     this.DOCUMENT_VERIFIED = (bool) BI.DOCUMENT_VERIFIED;
                     this.CUSTOMER_TYPE = new CifCustomerType() { ID = BI.CUSTOMER_TYPE };
+                    this.CIF_OFFICER_CODE = BI.CIF_OFFICER_CODE;
                     this.STATUS = "SAVED";
                     this.UserId = (int)BI.UserId;
                     this.LAST_UPDATED = BI.LAST_UPDATED;
@@ -624,6 +633,7 @@ namespace BLL
                     this.SUB_INDUSTRY = new SubIndustry() { ID = (int)BI.SUB_INDUSTRY };
                     this.DOCUMENT_VERIFIED = (bool)BI.DOCUMENT_VERIFIED;
                     this.GOV_TYPE = BI.GOV_TYPE;
+                    this.ISSUING_AGENCY_OTHER = BI.ISSUING_AGENCY_OTHER;
                     return true;
                 }
                 else
@@ -696,6 +706,14 @@ namespace BLL
             using (CAOPDbContext db = new CAOPDbContext())
             {
                 return db.BASIC_INFORMATIONS.Where(b => b.CNIC == CNIC && b.DOCUMENT_TYPE_PRIMARY == db.DOCUMENT_TYPES_PRIMARY.FirstOrDefault(d => d.Name == "CNIC").ID).Any();
+            }
+        }
+
+        public bool IsCnicExistsPArtially(string CNIC)
+        {
+            using (CAOPDbContext db = new CAOPDbContext())
+            {
+                return db.BASIC_INFORMATIONS.Where(b => b.CNIC == CNIC && b.DOCUMENT_TYPE_PRIMARY == db.DOCUMENT_TYPES_PRIMARY.FirstOrDefault(d => d.Name == "CNIC").ID && b.STATUS == Status.SAVED.ToString()).Any();
             }
         }
 

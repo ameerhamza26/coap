@@ -69,23 +69,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="ACCOUNT_DELTE_LOG">
-      <EntityTypeMapping TypeName="AOSModel.ACCOUNT_DELTE_LOG">
-        <MappingFragment StoreEntitySet="ACCOUNT_DELTE_LOG">
-          <ScalarProperty Name="ID" ColumnName="ID" />
-          <ScalarProperty Name="TEMP_AC_NO" ColumnName="TEMP_AC_NO" />
-          <ScalarProperty Name="BRANCH_CODE" ColumnName="BRANCH_CODE" />
-          <ScalarProperty Name="CNIC" ColumnName="CNIC" />
-          <ScalarProperty Name="ACCOUNT_TITLE" ColumnName="ACCOUNT_TITLE" />
-          <ScalarProperty Name="INITIAL_DEPOSIT" ColumnName="INITIAL_DEPOSIT" />
-          <ScalarProperty Name="ACCOUNT_MODE" ColumnName="ACCOUNT_MODE" />
-          <ScalarProperty Name="ACCOUNT_TYPE" ColumnName="ACCOUNT_TYPE" />
-          <ScalarProperty Name="ACCOUNT_ENTRY_DATE" ColumnName="ACCOUNT_ENTRY_DATE" />
-          <ScalarProperty Name="CREATED_USER" ColumnName="CREATED_USER" />
-          <ScalarProperty Name="DELETED_USER" ColumnName="DELETED_USER" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="ACCOUNT_GROUP">
       <EntityTypeMapping TypeName="AOSModel.ACCOUNT_GROUP">
         <MappingFragment StoreEntitySet="ACCOUNT_GROUP">
@@ -99,6 +82,12 @@
     <EntitySetMapping Name="ACCOUNT_NATURE_CURRENCY">
       <EntityTypeMapping TypeName="AOSModel.ACCOUNT_NATURE_CURRENCY">
         <MappingFragment StoreEntitySet="ACCOUNT_NATURE_CURRENCY">
+          <ScalarProperty Name="IBAN1" ColumnName="IBAN" />
+          <ScalarProperty Name="BRANCH_CODE1" ColumnName="BRANCH_CODE" />
+          <ScalarProperty Name="PROFILE_CREATION_DATE1" ColumnName="PROFILE_CREATION_DATE" />
+          <ScalarProperty Name="PROFILE_STATUS1" ColumnName="PROFILE_STATUS" />
+          <ScalarProperty Name="ACCOUNT_MODE_DETAIL1" ColumnName="ACCOUNT_MODE_DETAIL" />
+          <ScalarProperty Name="PROFILE_ACCOUNT_NO1" ColumnName="PROFILE_ACCOUNT_NO" />
           <ScalarProperty Name="CNIC_VERIFIED" ColumnName="CNIC_VERIFIED" />
           <ScalarProperty Name="ACCOUNT_ENTRY_DATE" ColumnName="ACCOUNT_ENTRY_DATE" />
           <ScalarProperty Name="GL_CODE" ColumnName="GL_CODE" />
@@ -116,12 +105,6 @@
           <ScalarProperty Name="USERID" ColumnName="USERID" />
           <ScalarProperty Name="LAST_UPDATED" ColumnName="LAST_UPDATED" />
           <ScalarProperty Name="PRODUCT" ColumnName="PRODUCT" />
-          <ScalarProperty Name="PROFILE_ACCOUNT_NO" ColumnName="PROFILE_ACCOUNT_NO" />
-          <ScalarProperty Name="ACCOUNT_MODE_DETAIL" ColumnName="ACCOUNT_MODE_DETAIL" />
-          <ScalarProperty Name="PROFILE_STATUS" ColumnName="PROFILE_STATUS" />
-          <ScalarProperty Name="PROFILE_CREATION_DATE" ColumnName="PROFILE_CREATION_DATE" />
-          <ScalarProperty Name="BRANCH_CODE" ColumnName="BRANCH_CODE" />
-          <ScalarProperty Name="IBAN" ColumnName="IBAN" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -222,6 +205,8 @@
     <EntitySetMapping Name="APPLICANT_INFORMATION_CIFS">
       <EntityTypeMapping TypeName="AOSModel.APPLICANT_INFORMATION_CIFS">
         <MappingFragment StoreEntitySet="APPLICANT_INFORMATION_CIFS">
+          <ScalarProperty Name="CUSTOMER_IDENTITY1" ColumnName="CUSTOMER_IDENTITY" />
+          <ScalarProperty Name="CUSTOMER_NAME1" ColumnName="CUSTOMER_NAME" />
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="BI_ID" ColumnName="BI_ID" />
           <ScalarProperty Name="CUSTOMER_CIF_NO" ColumnName="CUSTOMER_CIF_NO" />
@@ -230,8 +215,6 @@
           <ScalarProperty Name="SIGNATURE_AUTHORITY" ColumnName="SIGNATURE_AUTHORITY" />
           <ScalarProperty Name="INVESTMENT_SHARE" ColumnName="INVESTMENT_SHARE" />
           <ScalarProperty Name="APPLICANT_STATUS" ColumnName="APPLICANT_STATUS" />
-          <ScalarProperty Name="CUSTOMER_NAME" ColumnName="CUSTOMER_NAME" />
-          <ScalarProperty Name="CUSTOMER_IDENTITY" ColumnName="CUSTOMER_IDENTITY" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -305,15 +288,26 @@
     <EntitySetMapping Name="BASE_CATEGORIES">
       <EntityTypeMapping TypeName="AOSModel.BASE_CATEGORIES">
         <MappingFragment StoreEntitySet="BASE_CATEGORIES">
+          <ScalarProperty Name="ProfileCode1" ColumnName="ProfileCode" />
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="NAME" ColumnName="NAME" />
-          <ScalarProperty Name="ProfileCode" ColumnName="ProfileCode" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="BASIC_INFORMATIONS">
       <EntityTypeMapping TypeName="AOSModel.BASIC_INFORMATIONS">
         <MappingFragment StoreEntitySet="BASIC_INFORMATIONS">
+          <ScalarProperty Name="WHO_DESIG1" ColumnName="WHO_DESIG" />
+          <ScalarProperty Name="WHO_NAME1" ColumnName="WHO_NAME" />
+          <ScalarProperty Name="GOV_TYPE1" ColumnName="GOV_TYPE" />
+          <ScalarProperty Name="CUSTOMER_TYPE1" ColumnName="CUSTOMER_TYPE" />
+          <ScalarProperty Name="BRANCH_CODE1" ColumnName="BRANCH_CODE" />
+          <ScalarProperty Name="PROFILE_CREATION_DATE1" ColumnName="PROFILE_CREATION_DATE" />
+          <ScalarProperty Name="PROFILE_STATUS1" ColumnName="PROFILE_STATUS" />
+          <ScalarProperty Name="PROFILE_CIF_NO1" ColumnName="PROFILE_CIF_NO" />
+          <ScalarProperty Name="RISK_SCORE1" ColumnName="RISK_SCORE" />
+          <ScalarProperty Name="RISK_CATEGORY1" ColumnName="RISK_CATEGORY" />
+          <ScalarProperty Name="DOCUMENT_VERIFIED1" ColumnName="DOCUMENT_VERIFIED" />
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="CIF_ENTRY_DATE" ColumnName="CIF_ENTRY_DATE" />
           <ScalarProperty Name="CIF_TYPE" ColumnName="CIF_TYPE" />
@@ -368,40 +362,29 @@
           <ScalarProperty Name="INSTITUTION_TYPE" ColumnName="INSTITUTION_TYPE" />
           <ScalarProperty Name="SIC_CODE" ColumnName="SIC_CODE" />
           <ScalarProperty Name="SUB_INDUSTRY" ColumnName="SUB_INDUSTRY" />
-          <ScalarProperty Name="DOCUMENT_VERIFIED" ColumnName="DOCUMENT_VERIFIED" />
-          <ScalarProperty Name="RISK_CATEGORY" ColumnName="RISK_CATEGORY" />
-          <ScalarProperty Name="RISK_SCORE" ColumnName="RISK_SCORE" />
-          <ScalarProperty Name="PROFILE_CIF_NO" ColumnName="PROFILE_CIF_NO" />
-          <ScalarProperty Name="PROFILE_STATUS" ColumnName="PROFILE_STATUS" />
-          <ScalarProperty Name="PROFILE_CREATION_DATE" ColumnName="PROFILE_CREATION_DATE" />
-          <ScalarProperty Name="BRANCH_CODE" ColumnName="BRANCH_CODE" />
-          <ScalarProperty Name="CUSTOMER_TYPE" ColumnName="CUSTOMER_TYPE" />
-          <ScalarProperty Name="GOV_TYPE" ColumnName="GOV_TYPE" />
-          <ScalarProperty Name="WHO_NAME" ColumnName="WHO_NAME" />
-          <ScalarProperty Name="WHO_DESIG" ColumnName="WHO_DESIG" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="BRANCHES">
       <EntityTypeMapping TypeName="AOSModel.BRANCHES">
         <MappingFragment StoreEntitySet="BRANCHES">
+          <ScalarProperty Name="ServiceCenterCode1" ColumnName="ServiceCenterCode" />
+          <ScalarProperty Name="AREA1" ColumnName="AREA" />
           <ScalarProperty Name="BRANCH_ID" ColumnName="BRANCH_ID" />
           <ScalarProperty Name="REGION_ID" ColumnName="REGION_ID" />
           <ScalarProperty Name="NAME" ColumnName="NAME" />
           <ScalarProperty Name="BRANCH_CODE" ColumnName="BRANCH_CODE" />
           <ScalarProperty Name="CATEGORY_ID" ColumnName="CATEGORY_ID" />
-          <ScalarProperty Name="AREA" ColumnName="AREA" />
-          <ScalarProperty Name="ServiceCenterCode" ColumnName="ServiceCenterCode" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="BUSINESS_ACOUNTS">
       <EntityTypeMapping TypeName="AOSModel.BUSINESS_ACOUNTS">
         <MappingFragment StoreEntitySet="BUSINESS_ACOUNTS">
+          <ScalarProperty Name="ProfileCode1" ColumnName="ProfileCode" />
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="NAME" ColumnName="NAME" />
           <ScalarProperty Name="UPDATED_DATE" ColumnName="UPDATED_DATE" />
-          <ScalarProperty Name="ProfileCode" ColumnName="ProfileCode" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -441,6 +424,8 @@
     <EntitySetMapping Name="CERTIFICATE_DEPOSIT_INFO">
       <EntityTypeMapping TypeName="AOSModel.CERTIFICATE_DEPOSIT_INFO">
         <MappingFragment StoreEntitySet="CERTIFICATE_DEPOSIT_INFO">
+          <ScalarProperty Name="MARK_UP_RATE1" ColumnName="MARK_UP_RATE" />
+          <ScalarProperty Name="PRINCIPAL_RENEWAL_OPTION1" ColumnName="PRINCIPAL_RENEWAL_OPTION" />
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="BI_ID" ColumnName="BI_ID" />
           <ScalarProperty Name="EXPIRY_DATE" ColumnName="EXPIRY_DATE" />
@@ -455,8 +440,6 @@
           <ScalarProperty Name="CERTIFCATE_AMOUNT" ColumnName="CERTIFCATE_AMOUNT" />
           <ScalarProperty Name="PROFIT_ACCOUNT_TYPE" ColumnName="PROFIT_ACCOUNT_TYPE" />
           <ScalarProperty Name="UPDATED_DATE" ColumnName="UPDATED_DATE" />
-          <ScalarProperty Name="PRINCIPAL_RENEWAL_OPTION" ColumnName="PRINCIPAL_RENEWAL_OPTION" />
-          <ScalarProperty Name="MARK_UP_RATE" ColumnName="MARK_UP_RATE" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -514,6 +497,11 @@
     <EntitySetMapping Name="CONTACT_INFOS">
       <EntityTypeMapping TypeName="AOSModel.CONTACT_INFOS">
         <MappingFragment StoreEntitySet="CONTACT_INFOS">
+          <ScalarProperty Name="CP_NTN1" ColumnName="CP_NTN" />
+          <ScalarProperty Name="CP_CNIC_EXPIRY1" ColumnName="CP_CNIC_EXPIRY" />
+          <ScalarProperty Name="CP_CNIC1" ColumnName="CP_CNIC" />
+          <ScalarProperty Name="CP_DESIGNATION1" ColumnName="CP_DESIGNATION" />
+          <ScalarProperty Name="CP_NAME1" ColumnName="CP_NAME" />
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="BI_ID" ColumnName="BI_ID" />
           <ScalarProperty Name="CITY_PERMANENT" ColumnName="CITY_PERMANENT" />
@@ -541,11 +529,6 @@
           <ScalarProperty Name="POSTAL_CODE_PRE" ColumnName="POSTAL_CODE_PRE" />
           <ScalarProperty Name="PROVINCE" ColumnName="PROVINCE" />
           <ScalarProperty Name="PROVINCE_PRE" ColumnName="PROVINCE_PRE" />
-          <ScalarProperty Name="CP_NAME" ColumnName="CP_NAME" />
-          <ScalarProperty Name="CP_DESIGNATION" ColumnName="CP_DESIGNATION" />
-          <ScalarProperty Name="CP_CNIC" ColumnName="CP_CNIC" />
-          <ScalarProperty Name="CP_CNIC_EXPIRY" ColumnName="CP_CNIC_EXPIRY" />
-          <ScalarProperty Name="CP_NTN" ColumnName="CP_NTN" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -614,15 +597,6 @@
     <EntitySetMapping Name="Description_Documents">
       <EntityTypeMapping TypeName="AOSModel.Description_Documents">
         <MappingFragment StoreEntitySet="Description_Documents">
-          <ScalarProperty Name="ID" ColumnName="ID" />
-          <ScalarProperty Name="SERIAL_NO" ColumnName="SERIAL_NO" />
-          <ScalarProperty Name="Descr" ColumnName="Descr" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Description_Documents_Business">
-      <EntityTypeMapping TypeName="AOSModel.Description_Documents_Business">
-        <MappingFragment StoreEntitySet="Description_Documents_Business">
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="SERIAL_NO" ColumnName="SERIAL_NO" />
           <ScalarProperty Name="Descr" ColumnName="Descr" />
@@ -736,6 +710,8 @@
     <EntitySetMapping Name="EMPLOYMENT_INFORMATIONS">
       <EntityTypeMapping TypeName="AOSModel.EMPLOYMENT_INFORMATIONS">
         <MappingFragment StoreEntitySet="EMPLOYMENT_INFORMATIONS">
+          <ScalarProperty Name="EMPLOYER_DESC1" ColumnName="EMPLOYER_DESC" />
+          <ScalarProperty Name="EMPLOYMENT_DETAIL_OTHER_DESCRIPTION1" ColumnName="EMPLOYMENT_DETAIL_OTHER_DESCRIPTION" />
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="BI_ID" ColumnName="BI_ID" />
           <ScalarProperty Name="EMPLOYMENT_DETAIL" ColumnName="EMPLOYMENT_DETAIL" />
@@ -750,14 +726,14 @@
           <ScalarProperty Name="COUNTRY_EMPLOYMENT" ColumnName="COUNTRY_EMPLOYMENT" />
           <ScalarProperty Name="UPDATED_TIME" ColumnName="UPDATED_TIME" />
           <ScalarProperty Name="CONSUMER_SEGMENT" ColumnName="CONSUMER_SEGMENT" />
-          <ScalarProperty Name="EMPLOYMENT_DETAIL_OTHER_DESCRIPTION" ColumnName="EMPLOYMENT_DETAIL_OTHER_DESCRIPTION" />
-          <ScalarProperty Name="EMPLOYER_DESC" ColumnName="EMPLOYER_DESC" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="FATCAS">
       <EntityTypeMapping TypeName="AOSModel.FATCAS">
         <MappingFragment StoreEntitySet="FATCAS">
+          <ScalarProperty Name="COUNTRY_BUSINESS1" ColumnName="COUNTRY_BUSINESS" />
+          <ScalarProperty Name="COUNTRY_INCORP1" ColumnName="COUNTRY_INCORP" />
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="BI_ID" ColumnName="BI_ID" />
           <ScalarProperty Name="RESIDENT" ColumnName="RESIDENT" />
@@ -787,8 +763,6 @@
           <ScalarProperty Name="POBOX" ColumnName="POBOX" />
           <ScalarProperty Name="POSTAL_CODE" ColumnName="POSTAL_CODE" />
           <ScalarProperty Name="CITY" ColumnName="CITY" />
-          <ScalarProperty Name="COUNTRY_INCORP" ColumnName="COUNTRY_INCORP" />
-          <ScalarProperty Name="COUNTRY_BUSINESS" ColumnName="COUNTRY_BUSINESS" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -838,14 +812,6 @@
         <MappingFragment StoreEntitySet="GL_CODE">
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="NAME" ColumnName="NAME" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="GOV_CIF_TYPE">
-      <EntityTypeMapping TypeName="AOSModel.GOV_CIF_TYPE">
-        <MappingFragment StoreEntitySet="GOV_CIF_TYPE">
-          <ScalarProperty Name="ID" ColumnName="ID" />
-          <ScalarProperty Name="Name" ColumnName="Name" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -936,9 +902,9 @@
     <EntitySetMapping Name="ISSUING_AGENCY">
       <EntityTypeMapping TypeName="AOSModel.ISSUING_AGENCY">
         <MappingFragment StoreEntitySet="ISSUING_AGENCY">
+          <ScalarProperty Name="ProfileCode1" ColumnName="ProfileCode" />
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="NAME" ColumnName="NAME" />
-          <ScalarProperty Name="ProfileCode" ColumnName="ProfileCode" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -951,112 +917,11 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="KNOW_YOUR_CUSTOMER">
-      <EntityTypeMapping TypeName="AOSModel.KNOW_YOUR_CUSTOMER">
-        <MappingFragment StoreEntitySet="KNOW_YOUR_CUSTOMER">
-          <ScalarProperty Name="ID" ColumnName="ID" />
-          <ScalarProperty Name="BI_ID" ColumnName="BI_ID" />
-          <ScalarProperty Name="CUSTOMER_TYPE" ColumnName="CUSTOMER_TYPE" />
-          <ScalarProperty Name="DESCRIPTION_IF_REFFERED" ColumnName="DESCRIPTION_IF_REFFERED" />
-          <ScalarProperty Name="EDUCATION" ColumnName="EDUCATION" />
-          <ScalarProperty Name="PURPOSE_OF_ACCOUNT" ColumnName="PURPOSE_OF_ACCOUNT" />
-          <ScalarProperty Name="DESCRIPTION_IF_OTHER" ColumnName="DESCRIPTION_IF_OTHER" />
-          <ScalarProperty Name="SOURCE_OF_FUNDS" ColumnName="SOURCE_OF_FUNDS" />
-          <ScalarProperty Name="DESCRIPTION_OF_SOURCE" ColumnName="DESCRIPTION_OF_SOURCE" />
-          <ScalarProperty Name="SERVICE_CHARGES_EXEMPTED" ColumnName="SERVICE_CHARGES_EXEMPTED" />
-          <ScalarProperty Name="SERVICE_CHARGES_EXEMPTED_CODE" ColumnName="SERVICE_CHARGES_EXEMPTED_CODE" />
-          <ScalarProperty Name="REASON_IF_EXEMPTED" ColumnName="REASON_IF_EXEMPTED" />
-          <ScalarProperty Name="EXPECTED_MONTHLY_INCOME" ColumnName="EXPECTED_MONTHLY_INCOME" />
-          <ScalarProperty Name="MODE_OF_TRANSACTIONS" ColumnName="MODE_OF_TRANSACTIONS" />
-          <ScalarProperty Name="OTHER_MODE_OF_TRANSACTIONS" ColumnName="OTHER_MODE_OF_TRANSACTIONS" />
-          <ScalarProperty Name="MAX_TRANS_AMOUNT_DR" ColumnName="MAX_TRANS_AMOUNT_DR" />
-          <ScalarProperty Name="MAX_TRANS_AMOUNT_CR" ColumnName="MAX_TRANS_AMOUNT_CR" />
-          <ScalarProperty Name="RELATIONSHIP_MANAGER" ColumnName="RELATIONSHIP_MANAGER" />
-          <ScalarProperty Name="OCCUPATION_VERIFIED" ColumnName="OCCUPATION_VERIFIED" />
-          <ScalarProperty Name="ADDRESS_VERIFIED" ColumnName="ADDRESS_VERIFIED" />
-          <ScalarProperty Name="MEANS_OF_VERIFICATION" ColumnName="MEANS_OF_VERIFICATION" />
-          <ScalarProperty Name="MEANS_OF_VERI_OTHER" ColumnName="MEANS_OF_VERI_OTHER" />
-          <ScalarProperty Name="IS_VERI_SATISFACTORY" ColumnName="IS_VERI_SATISFACTORY" />
-          <ScalarProperty Name="DETAIL_IF_NOT_SATISFACTORY" ColumnName="DETAIL_IF_NOT_SATISFACTORY" />
-          <ScalarProperty Name="COUNTRY_HOME_REMITTANCE" ColumnName="COUNTRY_HOME_REMITTANCE" />
-          <ScalarProperty Name="REAL_BENEFICIARY_ACCOUNT" ColumnName="REAL_BENEFICIARY_ACCOUNT" />
-          <ScalarProperty Name="NAME_OTHER" ColumnName="NAME_OTHER" />
-          <ScalarProperty Name="CNIC_OTHER" ColumnName="CNIC_OTHER" />
-          <ScalarProperty Name="RELATIONSHIP_WITH_ACCOUNTHOLDER" ColumnName="RELATIONSHIP_WITH_ACCOUNTHOLDER" />
-          <ScalarProperty Name="RELATIONSHIP_DETAIL_OTHER" ColumnName="RELATIONSHIP_DETAIL_OTHER" />
-          <ScalarProperty Name="UPDATED_DATE" ColumnName="UPDATED_DATE" />
-          <ScalarProperty Name="BENEFICIAL_ADDRESS" ColumnName="BENEFICIAL_ADDRESS" />
-          <ScalarProperty Name="BENEFICIAL_NATIONALITY" ColumnName="BENEFICIAL_NATIONALITY" />
-          <ScalarProperty Name="BENEFICIAL_RESIDENCE" ColumnName="BENEFICIAL_RESIDENCE" />
-          <ScalarProperty Name="BENEFICIAL_RESIDENCE_DESC" ColumnName="BENEFICIAL_RESIDENCE_DESC" />
-          <ScalarProperty Name="BENEFICIAL_IDENTITY" ColumnName="BENEFICIAL_IDENTITY" />
-          <ScalarProperty Name="BENEFICIAL_IDENTITY_EXPIRY" ColumnName="BENEFICIAL_IDENTITY_EXPIRY" />
-          <ScalarProperty Name="BENEFICIAL_SOURCE_OF_FUND" ColumnName="BENEFICIAL_SOURCE_OF_FUND" />
-          <ScalarProperty Name="NODT" ColumnName="NODT" />
-          <ScalarProperty Name="PEDT" ColumnName="PEDT" />
-          <ScalarProperty Name="NOCT" ColumnName="NOCT" />
-          <ScalarProperty Name="PECT" ColumnName="PECT" />
-          <ScalarProperty Name="RAC" ColumnName="RAC" />
-          <ScalarProperty Name="RAC_DETAIL" ColumnName="RAC_DETAIL" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="KNOW_YOUR_CUSTOMER_RELATIONSHIP">
       <EntityTypeMapping TypeName="AOSModel.KNOW_YOUR_CUSTOMER_RELATIONSHIP">
         <MappingFragment StoreEntitySet="KNOW_YOUR_CUSTOMER_RELATIONSHIP">
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="NAME" ColumnName="NAME" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="KYC_BENEFICIAL_ENTITY">
-      <EntityTypeMapping TypeName="AOSModel.KYC_BENEFICIAL_ENTITY">
-        <MappingFragment StoreEntitySet="KYC_BENEFICIAL_ENTITY">
-          <ScalarProperty Name="ID" ColumnName="ID" />
-          <ScalarProperty Name="BID" ColumnName="BID" />
-          <ScalarProperty Name="NAME" ColumnName="NAME" />
-          <ScalarProperty Name="IDENTITY_DOCUMENT" ColumnName="IDENTITY_DOCUMENT" />
-          <ScalarProperty Name="IDENTITY_NUMBER" ColumnName="IDENTITY_NUMBER" />
-          <ScalarProperty Name="EXPIRY_DATE" ColumnName="EXPIRY_DATE" />
-          <ScalarProperty Name="POB" ColumnName="POB" />
-          <ScalarProperty Name="US" ColumnName="US" />
-          <ScalarProperty Name="OWNERSHIP" ColumnName="OWNERSHIP" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="KYC_EXPECTED_COUNTER_PARTIES">
-      <EntityTypeMapping TypeName="AOSModel.KYC_EXPECTED_COUNTER_PARTIES">
-        <MappingFragment StoreEntitySet="KYC_EXPECTED_COUNTER_PARTIES">
-          <ScalarProperty Name="ID" ColumnName="ID" />
-          <ScalarProperty Name="EXPECTED_CP" ColumnName="EXPECTED_CP" />
-          <ScalarProperty Name="BID" ColumnName="BID" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="KYC_GEOGRAPHIES_COUNTER_PARTIES">
-      <EntityTypeMapping TypeName="AOSModel.KYC_GEOGRAPHIES_COUNTER_PARTIES">
-        <MappingFragment StoreEntitySet="KYC_GEOGRAPHIES_COUNTER_PARTIES">
-          <ScalarProperty Name="ID" ColumnName="ID" />
-          <ScalarProperty Name="GEOGRAPHIES_CP" ColumnName="GEOGRAPHIES_CP" />
-          <ScalarProperty Name="BID" ColumnName="BID" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="KYC_PURPOSE_OF_AC">
-      <EntityTypeMapping TypeName="AOSModel.KYC_PURPOSE_OF_AC">
-        <MappingFragment StoreEntitySet="KYC_PURPOSE_OF_AC">
-          <ScalarProperty Name="ID" ColumnName="ID" />
-          <ScalarProperty Name="BID" ColumnName="BID" />
-          <ScalarProperty Name="PURPOSE_OF_AC" ColumnName="PURPOSE_OF_AC" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="KYC_SOURCE_OF_FUND">
-      <EntityTypeMapping TypeName="AOSModel.KYC_SOURCE_OF_FUND">
-        <MappingFragment StoreEntitySet="KYC_SOURCE_OF_FUND">
-          <ScalarProperty Name="ID" ColumnName="ID" />
-          <ScalarProperty Name="BID" ColumnName="BID" />
-          <ScalarProperty Name="SOURCE_OF_FUND" ColumnName="SOURCE_OF_FUND" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -1079,6 +944,9 @@
     <EntitySetMapping Name="MISCELLANEOUS_INFORMATIONS">
       <EntityTypeMapping TypeName="AOSModel.MISCELLANEOUS_INFORMATIONS">
         <MappingFragment StoreEntitySet="MISCELLANEOUS_INFORMATIONS">
+          <ScalarProperty Name="PEP_DESC1" ColumnName="PEP_DESC" />
+          <ScalarProperty Name="PEP_RELATIONSHIP1" ColumnName="PEP_RELATIONSHIP" />
+          <ScalarProperty Name="PEP_NATURE_SINGLE1" ColumnName="PEP_NATURE_SINGLE" />
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="BI_ID" ColumnName="BI_ID" />
           <ScalarProperty Name="EDUCATION" ColumnName="EDUCATION" />
@@ -1099,9 +967,6 @@
           <ScalarProperty Name="FREQUENCY_GROSS_SALE" ColumnName="FREQUENCY_GROSS_SALE" />
           <ScalarProperty Name="BLIND_VISUALLY_IMPAIRED" ColumnName="BLIND_VISUALLY_IMPAIRED" />
           <ScalarProperty Name="UPDATED_TIME" ColumnName="UPDATED_TIME" />
-          <ScalarProperty Name="PEP_NATURE_SINGLE" ColumnName="PEP_NATURE_SINGLE" />
-          <ScalarProperty Name="PEP_RELATIONSHIP" ColumnName="PEP_RELATIONSHIP" />
-          <ScalarProperty Name="PEP_DESC" ColumnName="PEP_DESC" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -1126,30 +991,6 @@
         <MappingFragment StoreEntitySet="MONTHLY_TURNOVER_DEBITS">
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="Name" ColumnName="Name" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="NADRA_INFO">
-      <EntityTypeMapping TypeName="AOSModel.NADRA_INFO">
-        <MappingFragment StoreEntitySet="NADRA_INFO">
-          <ScalarProperty Name="ID" ColumnName="ID" />
-          <ScalarProperty Name="CNIC" ColumnName="CNIC" />
-          <ScalarProperty Name="DATETIME" ColumnName="DATETIME" />
-          <ScalarProperty Name="NAME" ColumnName="NAME" />
-          <ScalarProperty Name="FH_NAME" ColumnName="FH_NAME" />
-          <ScalarProperty Name="PRESENT_ADDRESS" ColumnName="PRESENT_ADDRESS" />
-          <ScalarProperty Name="PERMANENT_ADDRESS" ColumnName="PERMANENT_ADDRESS" />
-          <ScalarProperty Name="DOB" ColumnName="DOB" />
-          <ScalarProperty Name="BIRTH_PLACE" ColumnName="BIRTH_PLACE" />
-          <ScalarProperty Name="EXPIRYDATE" ColumnName="EXPIRYDATE" />
-          <ScalarProperty Name="STATUSCODE" ColumnName="STATUSCODE" />
-          <ScalarProperty Name="SESSION_ID" ColumnName="SESSION_ID" />
-          <ScalarProperty Name="PICTURE" ColumnName="PICTURE" />
-          <ScalarProperty Name="FINGER_INDEX" ColumnName="FINGER_INDEX" />
-          <ScalarProperty Name="CONTACTNO_PROVIDED" ColumnName="CONTACTNO_PROVIDED" />
-          <ScalarProperty Name="USERID" ColumnName="USERID" />
-          <ScalarProperty Name="BRANCH_CODE" ColumnName="BRANCH_CODE" />
-          <ScalarProperty Name="CARD_TYPE" ColumnName="CARD_TYPE" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -1190,9 +1031,9 @@
     <EntitySetMapping Name="NBP_CATEGORIES">
       <EntityTypeMapping TypeName="AOSModel.NBP_CATEGORIES">
         <MappingFragment StoreEntitySet="NBP_CATEGORIES">
+          <ScalarProperty Name="ProfileCode1" ColumnName="ProfileCode" />
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="NAME" ColumnName="NAME" />
-          <ScalarProperty Name="ProfileCode" ColumnName="ProfileCode" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -1277,14 +1118,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="PRINCIPAL_RENEWAL_OPTION">
-      <EntityTypeMapping TypeName="AOSModel.PRINCIPAL_RENEWAL_OPTION">
-        <MappingFragment StoreEntitySet="PRINCIPAL_RENEWAL_OPTION">
-          <ScalarProperty Name="ID" ColumnName="ID" />
-          <ScalarProperty Name="Name" ColumnName="Name" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="PRODUCTS">
       <EntityTypeMapping TypeName="AOSModel.PRODUCTS">
         <MappingFragment StoreEntitySet="PRODUCTS">
@@ -1322,14 +1155,6 @@
         <MappingFragment StoreEntitySet="REAL_BENEFICIARY_ACCOUNT">
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="NAME" ColumnName="NAME" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="REASON_ACCOUNT_OPENING">
-      <EntityTypeMapping TypeName="AOSModel.REASON_ACCOUNT_OPENING">
-        <MappingFragment StoreEntitySet="REASON_ACCOUNT_OPENING">
-          <ScalarProperty Name="ID" ColumnName="ID" />
-          <ScalarProperty Name="Name" ColumnName="Name" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -1389,9 +1214,9 @@
     <EntitySetMapping Name="SBP_CATEGORIES">
       <EntityTypeMapping TypeName="AOSModel.SBP_CATEGORIES">
         <MappingFragment StoreEntitySet="SBP_CATEGORIES">
+          <ScalarProperty Name="ProfileCode1" ColumnName="ProfileCode" />
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="NAME" ColumnName="NAME" />
-          <ScalarProperty Name="ProfileCode" ColumnName="ProfileCode" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -1400,31 +1225,6 @@
         <MappingFragment StoreEntitySet="SERVICE_CHARGES_EXEMPTED_CODE">
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="NAME" ColumnName="NAME" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="SHAREHOLDER_INFORMATION">
-      <EntityTypeMapping TypeName="AOSModel.SHAREHOLDER_INFORMATION">
-        <MappingFragment StoreEntitySet="SHAREHOLDER_INFORMATION">
-          <ScalarProperty Name="ID" ColumnName="ID" />
-          <ScalarProperty Name="BID" ColumnName="BID" />
-          <ScalarProperty Name="NAME" ColumnName="NAME" />
-          <ScalarProperty Name="ADDRESS" ColumnName="ADDRESS" />
-          <ScalarProperty Name="IDENTITY_TYPE" ColumnName="IDENTITY_TYPE" />
-          <ScalarProperty Name="IDENTITY_TYPE_VALUE" ColumnName="IDENTITY_TYPE_VALUE" />
-          <ScalarProperty Name="IDENTITY_NO" ColumnName="IDENTITY_NO" />
-          <ScalarProperty Name="IDENTITY_EXPIRY_DATE" ColumnName="IDENTITY_EXPIRY_DATE" />
-          <ScalarProperty Name="RESIDENCE_PHONE" ColumnName="RESIDENCE_PHONE" />
-          <ScalarProperty Name="OFFICE_PHONE" ColumnName="OFFICE_PHONE" />
-          <ScalarProperty Name="MOBILE_NO" ColumnName="MOBILE_NO" />
-          <ScalarProperty Name="FAX_NO" ColumnName="FAX_NO" />
-          <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
-          <ScalarProperty Name="NO_SHARES" ColumnName="NO_SHARES" />
-          <ScalarProperty Name="AMOUNT_SHARES" ColumnName="AMOUNT_SHARES" />
-          <ScalarProperty Name="SHAREHOLDER_PERCENTAGE" ColumnName="SHAREHOLDER_PERCENTAGE" />
-          <ScalarProperty Name="NET_WORTH" ColumnName="NET_WORTH" />
-          <ScalarProperty Name="DIRECTOR_STATUS" ColumnName="DIRECTOR_STATUS" />
-          <ScalarProperty Name="DIRECTOR_STATUS_VALUE" ColumnName="DIRECTOR_STATUS_VALUE" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -1456,31 +1256,18 @@
     <EntitySetMapping Name="SOURCE_OF_FUNDS">
       <EntityTypeMapping TypeName="AOSModel.SOURCE_OF_FUNDS">
         <MappingFragment StoreEntitySet="SOURCE_OF_FUNDS">
+          <ScalarProperty Name="ProfileCode1" ColumnName="ProfileCode" />
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="NAME" ColumnName="NAME" />
-          <ScalarProperty Name="ProfileCode" ColumnName="ProfileCode" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="SOURCE_OF_FUNDS_BUSINESS">
       <EntityTypeMapping TypeName="AOSModel.SOURCE_OF_FUNDS_BUSINESS">
         <MappingFragment StoreEntitySet="SOURCE_OF_FUNDS_BUSINESS">
+          <ScalarProperty Name="ProfileCode1" ColumnName="ProfileCode" />
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="NAME" ColumnName="NAME" />
-          <ScalarProperty Name="ProfileCode" ColumnName="ProfileCode" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="STATUS_LOG">
-      <EntityTypeMapping TypeName="AOSModel.STATUS_LOG">
-        <MappingFragment StoreEntitySet="STATUS_LOG">
-          <ScalarProperty Name="ID" ColumnName="ID" />
-          <ScalarProperty Name="USERID" ColumnName="USERID" />
-          <ScalarProperty Name="BID" ColumnName="BID" />
-          <ScalarProperty Name="LOG_TYPE" ColumnName="LOG_TYPE" />
-          <ScalarProperty Name="OLD_STATUS" ColumnName="OLD_STATUS" />
-          <ScalarProperty Name="NEW_STATUS" ColumnName="NEW_STATUS" />
-          <ScalarProperty Name="LOG_DATETIME" ColumnName="LOG_DATETIME" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -1553,6 +1340,13 @@
     <EntitySetMapping Name="USERS">
       <EntityTypeMapping TypeName="AOSModel.USERS">
         <MappingFragment StoreEntitySet="USERS">
+          <ScalarProperty Name="ACTIVE1" ColumnName="ACTIVE" />
+          <ScalarProperty Name="FIRST_LOGIN1" ColumnName="FIRST_LOGIN" />
+          <ScalarProperty Name="UPDATED_DATETIME1" ColumnName="UPDATED_DATETIME" />
+          <ScalarProperty Name="UPDATED_BY1" ColumnName="UPDATED_BY" />
+          <ScalarProperty Name="CREATED_DATETIME1" ColumnName="CREATED_DATETIME" />
+          <ScalarProperty Name="CREATED_BY1" ColumnName="CREATED_BY" />
+          <ScalarProperty Name="SAPID1" ColumnName="SAPID" />
           <ScalarProperty Name="USER_ID" ColumnName="USER_ID" />
           <ScalarProperty Name="PARENT_ID" ColumnName="PARENT_ID" />
           <ScalarProperty Name="USER_NAME" ColumnName="USER_NAME" />
@@ -1561,13 +1355,6 @@
           <ScalarProperty Name="PASSWORD" ColumnName="PASSWORD" />
           <ScalarProperty Name="DESIGNATION" ColumnName="DESIGNATION" />
           <ScalarProperty Name="USER_TYPE" ColumnName="USER_TYPE" />
-          <ScalarProperty Name="SAPID" ColumnName="SAPID" />
-          <ScalarProperty Name="CREATED_BY" ColumnName="CREATED_BY" />
-          <ScalarProperty Name="CREATED_DATETIME" ColumnName="CREATED_DATETIME" />
-          <ScalarProperty Name="UPDATED_BY" ColumnName="UPDATED_BY" />
-          <ScalarProperty Name="UPDATED_DATETIME" ColumnName="UPDATED_DATETIME" />
-          <ScalarProperty Name="FIRST_LOGIN" ColumnName="FIRST_LOGIN" />
-          <ScalarProperty Name="ACTIVE" ColumnName="ACTIVE" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -1592,13 +1379,13 @@
     <EntitySetMapping Name="WHO_AUTHORIZED">
       <EntityTypeMapping TypeName="AOSModel.WHO_AUTHORIZED">
         <MappingFragment StoreEntitySet="WHO_AUTHORIZED">
+          <ScalarProperty Name="IDENTITY_NO1" ColumnName="IDENTITY_NO" />
+          <ScalarProperty Name="NAME1" ColumnName="NAME" />
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="CIF_NO" ColumnName="CIF_NO" />
           <ScalarProperty Name="REFERENCE_DOCUMENT_NO" ColumnName="REFERENCE_DOCUMENT_NO" />
           <ScalarProperty Name="REFERENCE_DOCUMENT_DATE" ColumnName="REFERENCE_DOCUMENT_DATE" />
           <ScalarProperty Name="BI_ID" ColumnName="BI_ID" />
-          <ScalarProperty Name="NAME" ColumnName="NAME" />
-          <ScalarProperty Name="IDENTITY_NO" ColumnName="IDENTITY_NO" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -1610,62 +1397,62 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="CIF_CUSTOMER_TYPE">
-      <EntityTypeMapping TypeName="AOSModel.CIF_CUSTOMER_TYPE">
-        <MappingFragment StoreEntitySet="CIF_CUSTOMER_TYPE">
-          <ScalarProperty Name="ID" ColumnName="ID" />
-          <ScalarProperty Name="NAME" ColumnName="NAME" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="CUSTOMER_TYPE_BUSINESS">
-      <EntityTypeMapping TypeName="AOSModel.CUSTOMER_TYPE_BUSINESS">
-        <MappingFragment StoreEntitySet="CUSTOMER_TYPE_BUSINESS">
-          <ScalarProperty Name="ID" ColumnName="ID" />
-          <ScalarProperty Name="NAME" ColumnName="NAME" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="DIRECTOR_STATUS">
-      <EntityTypeMapping TypeName="AOSModel.DIRECTOR_STATUS">
-        <MappingFragment StoreEntitySet="DIRECTOR_STATUS">
-          <ScalarProperty Name="ID" ColumnName="ID" />
-          <ScalarProperty Name="NAME" ColumnName="NAME" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="EXPECTED_COUNTER_PARTIES">
-      <EntityTypeMapping TypeName="AOSModel.EXPECTED_COUNTER_PARTIES">
-        <MappingFragment StoreEntitySet="EXPECTED_COUNTER_PARTIES">
-          <ScalarProperty Name="ID" ColumnName="ID" />
-          <ScalarProperty Name="NAME" ColumnName="NAME" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="GEOGRAPHIES_COUNTER_PARTIES">
-      <EntityTypeMapping TypeName="AOSModel.GEOGRAPHIES_COUNTER_PARTIES">
-        <MappingFragment StoreEntitySet="GEOGRAPHIES_COUNTER_PARTIES">
-          <ScalarProperty Name="ID" ColumnName="ID" />
-          <ScalarProperty Name="NAME" ColumnName="NAME" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="PURPOSE_OF_ACCOUNT_BUSINESS">
-      <EntityTypeMapping TypeName="AOSModel.PURPOSE_OF_ACCOUNT_BUSINESS">
-        <MappingFragment StoreEntitySet="PURPOSE_OF_ACCOUNT_BUSINESS">
-          <ScalarProperty Name="ID" ColumnName="ID" />
-          <ScalarProperty Name="NAME" ColumnName="NAME" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="ACCOUNT_MODES">
-      <EntityTypeMapping TypeName="AOSModel.ACCOUNT_MODES">
-        <MappingFragment StoreEntitySet="ACCOUNT_MODES">
-          <ScalarProperty Name="CATEGORY" ColumnName="CATEGORY" />
-          <ScalarProperty Name="TYPE" ColumnName="TYPE" />
-          <ScalarProperty Name="PROFILECODE" ColumnName="PROFILECODE" />
-          <ScalarProperty Name="GRP" ColumnName="GRP" />
-          <ScalarProperty Name="NAME" ColumnName="NAME" />
+    <AssociationSetMapping Name="FK__BRANCHES__REGION__74794A92" TypeName="AOSModel.FK__BRANCHES__REGION__74794A92" StoreEntitySet="BRANCHES">
+      <EndProperty Name="BRANCHES">
+        <ScalarProperty Name="BRANCH_ID" ColumnName="BRANCH_ID" />
+      </EndProperty>
+      <EndProperty Name="REGIONS">
+        <ScalarProperty Name="REGION_ID" ColumnName="REGION_ID" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <EntitySetMapping Name="KNOW_YOUR_CUSTOMER">
+      <EntityTypeMapping TypeName="AOSModel.KNOW_YOUR_CUSTOMER">
+        <MappingFragment StoreEntitySet="KNOW_YOUR_CUSTOMER">
+          <ScalarProperty Name="GICP_OTHER" ColumnName="GICP_OTHER" />
+          <ScalarProperty Name="ETCP_OTHER" ColumnName="ETCP_OTHER" />
+          <ScalarProperty Name="RAC_DETAIL" ColumnName="RAC_DETAIL" />
+          <ScalarProperty Name="RAC" ColumnName="RAC" />
+          <ScalarProperty Name="PECT" ColumnName="PECT" />
+          <ScalarProperty Name="NOCT" ColumnName="NOCT" />
+          <ScalarProperty Name="PEDT" ColumnName="PEDT" />
+          <ScalarProperty Name="NODT" ColumnName="NODT" />
+          <ScalarProperty Name="BENEFICIAL_SOURCE_OF_FUND" ColumnName="BENEFICIAL_SOURCE_OF_FUND" />
+          <ScalarProperty Name="BENEFICIAL_IDENTITY_EXPIRY" ColumnName="BENEFICIAL_IDENTITY_EXPIRY" />
+          <ScalarProperty Name="BENEFICIAL_IDENTITY" ColumnName="BENEFICIAL_IDENTITY" />
+          <ScalarProperty Name="BENEFICIAL_RESIDENCE_DESC" ColumnName="BENEFICIAL_RESIDENCE_DESC" />
+          <ScalarProperty Name="BENEFICIAL_RESIDENCE" ColumnName="BENEFICIAL_RESIDENCE" />
+          <ScalarProperty Name="BENEFICIAL_NATIONALITY" ColumnName="BENEFICIAL_NATIONALITY" />
+          <ScalarProperty Name="BENEFICIAL_ADDRESS" ColumnName="BENEFICIAL_ADDRESS" />
+          <ScalarProperty Name="UPDATED_DATE" ColumnName="UPDATED_DATE" />
+          <ScalarProperty Name="RELATIONSHIP_DETAIL_OTHER" ColumnName="RELATIONSHIP_DETAIL_OTHER" />
+          <ScalarProperty Name="RELATIONSHIP_WITH_ACCOUNTHOLDER" ColumnName="RELATIONSHIP_WITH_ACCOUNTHOLDER" />
+          <ScalarProperty Name="CNIC_OTHER" ColumnName="CNIC_OTHER" />
+          <ScalarProperty Name="NAME_OTHER" ColumnName="NAME_OTHER" />
+          <ScalarProperty Name="REAL_BENEFICIARY_ACCOUNT" ColumnName="REAL_BENEFICIARY_ACCOUNT" />
+          <ScalarProperty Name="COUNTRY_HOME_REMITTANCE" ColumnName="COUNTRY_HOME_REMITTANCE" />
+          <ScalarProperty Name="DETAIL_IF_NOT_SATISFACTORY" ColumnName="DETAIL_IF_NOT_SATISFACTORY" />
+          <ScalarProperty Name="IS_VERI_SATISFACTORY" ColumnName="IS_VERI_SATISFACTORY" />
+          <ScalarProperty Name="MEANS_OF_VERI_OTHER" ColumnName="MEANS_OF_VERI_OTHER" />
+          <ScalarProperty Name="MEANS_OF_VERIFICATION" ColumnName="MEANS_OF_VERIFICATION" />
+          <ScalarProperty Name="ADDRESS_VERIFIED" ColumnName="ADDRESS_VERIFIED" />
+          <ScalarProperty Name="OCCUPATION_VERIFIED" ColumnName="OCCUPATION_VERIFIED" />
+          <ScalarProperty Name="RELATIONSHIP_MANAGER" ColumnName="RELATIONSHIP_MANAGER" />
+          <ScalarProperty Name="MAX_TRANS_AMOUNT_CR" ColumnName="MAX_TRANS_AMOUNT_CR" />
+          <ScalarProperty Name="MAX_TRANS_AMOUNT_DR" ColumnName="MAX_TRANS_AMOUNT_DR" />
+          <ScalarProperty Name="OTHER_MODE_OF_TRANSACTIONS" ColumnName="OTHER_MODE_OF_TRANSACTIONS" />
+          <ScalarProperty Name="MODE_OF_TRANSACTIONS" ColumnName="MODE_OF_TRANSACTIONS" />
+          <ScalarProperty Name="EXPECTED_MONTHLY_INCOME" ColumnName="EXPECTED_MONTHLY_INCOME" />
+          <ScalarProperty Name="REASON_IF_EXEMPTED" ColumnName="REASON_IF_EXEMPTED" />
+          <ScalarProperty Name="SERVICE_CHARGES_EXEMPTED_CODE" ColumnName="SERVICE_CHARGES_EXEMPTED_CODE" />
+          <ScalarProperty Name="SERVICE_CHARGES_EXEMPTED" ColumnName="SERVICE_CHARGES_EXEMPTED" />
+          <ScalarProperty Name="DESCRIPTION_OF_SOURCE" ColumnName="DESCRIPTION_OF_SOURCE" />
+          <ScalarProperty Name="SOURCE_OF_FUNDS" ColumnName="SOURCE_OF_FUNDS" />
+          <ScalarProperty Name="DESCRIPTION_IF_OTHER" ColumnName="DESCRIPTION_IF_OTHER" />
+          <ScalarProperty Name="PURPOSE_OF_ACCOUNT" ColumnName="PURPOSE_OF_ACCOUNT" />
+          <ScalarProperty Name="EDUCATION" ColumnName="EDUCATION" />
+          <ScalarProperty Name="DESCRIPTION_IF_REFFERED" ColumnName="DESCRIPTION_IF_REFFERED" />
+          <ScalarProperty Name="CUSTOMER_TYPE" ColumnName="CUSTOMER_TYPE" />
+          <ScalarProperty Name="BI_ID" ColumnName="BI_ID" />
           <ScalarProperty Name="ID" ColumnName="ID" />
         </MappingFragment>
       </EntityTypeMapping>

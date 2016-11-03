@@ -28,8 +28,8 @@ namespace BLL
         public string STATUS { get; set; }
         public Nullable<int> USERID { get; set; }
         public string BRANCH_CODE { get; set; }
-
         public Nullable<System.DateTime> LAST_UPDATED { get; set; }
+        public Nullable<int> ACCOUNT_PURPOSE { get; set; }
 
 
         public int SetAccountNatureIndividual()
@@ -86,6 +86,7 @@ namespace BLL
                // a.MINOR_ACCOUNT = this.MINOR_ACCOUNT;
                 a.ACCOUNT_OPEN_TYPE = this.ACCOUNT_OPEN_TYPE.ID;
                 a.BRANCH_CODE = this.BRANCH_CODE;
+                a.ACCOUNT_PURPOSE = this.ACCOUNT_PURPOSE;
                 a.STATUS = "SAVED";
                 a.PROFILE_STATUS = "PENDING";
                 a.USERID = this.USERID;
@@ -115,6 +116,7 @@ namespace BLL
                 a.INITIAL_DEPOSIT = this.INITIAL_DEPOSIT;
                 a.ACCOUNT_MODE = this.ACCOUNT_MODE;
                 a.ACCOUNT_MODE_DETAIL = this.ACCOUNT_MODE_DETAIL;
+                a.ACCOUNT_PURPOSE = this.ACCOUNT_PURPOSE;
               //  a.MINOR_ACCOUNT = this.MINOR_ACCOUNT;
                 a.LAST_UPDATED = DateTime.Now;
                 db.SaveChanges();
@@ -163,6 +165,7 @@ namespace BLL
                     this.INITIAL_DEPOSIT = a.INITIAL_DEPOSIT;
                     this.ACCOUNT_MODE = a.ACCOUNT_MODE;
                     this.ACCOUNT_MODE_DETAIL = (int) a.ACCOUNT_MODE_DETAIL;
+                    this.ACCOUNT_PURPOSE = a.ACCOUNT_PURPOSE;
                  //   this.MINOR_ACCOUNT = a.MINOR_ACCOUNT;
                     this.ACCOUNT_OPEN_TYPE = new AccountOpenType { ID = (int)a.ACCOUNT_OPEN_TYPE };
                     this.STATUS = a.STATUS;

@@ -23,6 +23,8 @@ namespace BLL
         public Relationship RELATIONSHIP_NOT_PRIMARY { get; set; }
         public string RELATIONSHIP_DETAIL { get; set; }
         public string INVESTMENT_SHARE { get; set; }
+
+
         public List<ApplicantInformationCifs> Cifs { get; set; }
 
 
@@ -46,6 +48,7 @@ namespace BLL
                     a.RELATIONSHIP_NOT_PRIMARY = this.RELATIONSHIP_NOT_PRIMARY.ID;
                     a.RELATIONSHIP_DETAIL = this.RELATIONSHIP_DETAIL;
                     a.INVESTMENT_SHARE = this.INVESTMENT_SHARE;
+                    
                     APPLICANT_INFORMATION_CIFS NCIF = new APPLICANT_INFORMATION_CIFS();
 
                     NCIF.BI_ID = (int)this.BI_ID;
@@ -55,6 +58,7 @@ namespace BLL
                     NCIF.POWER_OF_ATTORNY = (int)this.POWER_OF_ATTORNY;
                     NCIF.INVESTMENT_SHARE = this.INVESTMENT_SHARE;
                     NCIF.APPLICANT_STATUS = this.APPLICANT_STATUS.Name;
+                   
                     db.APPLICANT_INFORMATION_CIFS.Add(NCIF);
                 }
                 else
@@ -71,6 +75,7 @@ namespace BLL
                         NCIF.APPLICANT_STATUS = Cif.APPLICANT_STATUS;
                         NCIF.CUSTOMER_NAME = Cif.CUSTOMER_NAME;
                         NCIF.CUSTOMER_IDENTITY = Cif.CUSTOMER_IDENTITY;
+                        NCIF.NEG_LIST = Cif.NEG_LIST;
                         db.APPLICANT_INFORMATION_CIFS.Add(NCIF);
                     }
                 }
@@ -136,6 +141,7 @@ namespace BLL
                         NCIF.APPLICANT_STATUS = Cif.APPLICANT_STATUS;
                         NCIF.CUSTOMER_NAME = Cif.CUSTOMER_NAME;
                         NCIF.CUSTOMER_IDENTITY = Cif.CUSTOMER_IDENTITY;
+                        NCIF.NEG_LIST = Cif.NEG_LIST;
                         db.APPLICANT_INFORMATION_CIFS.Add(NCIF);
                     }
                 }
@@ -188,7 +194,8 @@ namespace BLL
                                     SIGNATURE_AUTHORITY = c.SIGNATURE_AUTHORITY,
                                     APPLICANT_STATUS = c.APPLICANT_STATUS,
                                     CUSTOMER_NAME = c.CUSTOMER_NAME,
-                                    CUSTOMER_IDENTITY = c.CUSTOMER_IDENTITY
+                                    CUSTOMER_IDENTITY = c.CUSTOMER_IDENTITY,
+                                    NEG_LIST = c.NEG_LIST
                                 }
                                 ).ToList();
 

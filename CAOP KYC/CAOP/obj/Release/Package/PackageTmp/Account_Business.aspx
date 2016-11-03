@@ -425,7 +425,7 @@
 
                         <asp:CheckBox runat="server" ID="AcCnicVerifiedCheck" Text="1. Are all CNIC of authorized person(s), Shareholder(s) and beneficial owner(s) of customer verified" />
                         <br />
-                        <div class="form-group">
+                        <div class="form-group" style="display: none">
                             <label class="lblReview">Account Opening Type</label>
                             <asp:DropDownList ID="AcListAccountOpen" Enabled="false" ClientIDMode="Static" AutoPostBack="true" OnSelectedIndexChanged="AcListAccountOpen_SelectedIndexChanged" CssClass="form-control" runat="server"></asp:DropDownList>
                         </div>
@@ -551,7 +551,7 @@
                         <div class="form-group">
                              <asp:Button ID="CiSearchCifButton" style="margin-bottom: 5px; float:right" runat="server" Text="Search Entity CIF" data-toggle="modal" OnClientClick="return false;" data-target="#SearchBusinessCIF" CssClass="btn btn-primary" OnClick="CiSearchCifButton_Click"/>
                             <label class="lblReview">ID No: *</label>
-                            <asp:TextBox ID="CiCustomerCif" ClientIDMode="Static"  CssClass="form-control col-md-3" runat="server"></asp:TextBox>
+                            <asp:TextBox ID="CiCustomerCif" Enabled="false" ClientIDMode="Static"  CssClass="form-control col-md-3" runat="server"></asp:TextBox>
                             <asp:RequiredFieldValidator Display="Dynamic" ID="CiCustomerCifValidator" runat="server" ForeColor="Red" Font-Bold="true" ValidationGroup="CiValidationGroup" ControlToValidate="CiCustomerCif" ErrorMessage="CIF No is Required"></asp:RequiredFieldValidator>
                            
 
@@ -560,30 +560,30 @@
 
                                    <div class="form-group">
                             <label class="lblReview">Name:</label>
-                            <asp:TextBox ID="CiName" ClientIDMode="Static" CssClass="form-control" runat="server"></asp:TextBox>
+                            <asp:TextBox ID="CiName" Enabled="false" ClientIDMode="Static" CssClass="form-control" runat="server"></asp:TextBox>
 
                         </div>
                                            <div class="form-group">
                             <label class="lblReview">National Tax No:</label>
-                            <asp:TextBox ID="CiNationTaxNo" ClientIDMode="Static" CssClass="form-control" runat="server"></asp:TextBox>
+                            <asp:TextBox ID="CiNationTaxNo"  ClientIDMode="Static" CssClass="form-control" runat="server"></asp:TextBox>
 
                         </div>
                         <div class="form-group">
                             <label class="lblReview">Sales Tax No:</label>
-                            <asp:TextBox ID="CiSalesTaxNo" ClientIDMode="Static" CssClass="form-control" runat="server"></asp:TextBox>
+                            <asp:TextBox ID="CiSalesTaxNo" Enabled="false" ClientIDMode="Static" CssClass="form-control" runat="server"></asp:TextBox>
 
                         </div>
 
                         <div class="form-group">
                             <label class="lblReview">Registration No:</label>
-                            <asp:TextBox ID="CiRegistrationNo" ClientIDMode="Static" CssClass="form-control" runat="server"></asp:TextBox>
+                            <asp:TextBox ID="CiRegistrationNo" Enabled="false" ClientIDMode="Static" CssClass="form-control" runat="server"></asp:TextBox>
 
                         </div>
                          <div class="form-group">
                             <label class="lblReview">Registration Issuing Agency:</label>
-                            <asp:DropDownList ID="CiListRegistrationIssueAgency" ClientIDMode="Static" CssClass="form-control" runat="server"></asp:DropDownList>
+                            <asp:DropDownList ID="CiListRegistrationIssueAgency" Enabled="false" ClientIDMode="Static" CssClass="form-control" runat="server"></asp:DropDownList>
                         </div>
-                         <div class="form-group">
+                         <div class="form-group" style="display: none">
                             <label class="lblReview">Natue of Business:</label>
                             <asp:DropDownList ID="CiListNatureOfBusiness" ClientIDMode="Static" CssClass="form-control" runat="server"></asp:DropDownList>
                         </div>
@@ -591,22 +591,26 @@
                         <h3>Address Information / Correspondence Address:</h3>
 
                         <br />
-
-                        <div class="form-group">
-                            <label class="lblReview">Country: *</label>
-                            <asp:DropDownList ID="CiListCountry" ClientIDMode="Static" CssClass="form-control" runat="server"></asp:DropDownList>
-                             <asp:RequiredFieldValidator Display="Dynamic" InitialValue="0" ID="CiRequiredFieldValidatorCountry" ValidationGroup="CiValidationGroup" runat="server" ControlToValidate="CiListCountry" ForeColor="Red" Font-Bold="true" ErrorMessage="Country is Required"></asp:RequiredFieldValidator>
-                        </div>
-                         <div class="form-group">
-                            <label class="lblReview">Provinces: *</label>
-                            <asp:DropDownList ID="CiListProvince" ClientIDMode="Static" CssClass="form-control" runat="server"></asp:DropDownList>
-                             <asp:RequiredFieldValidator Display="Dynamic" InitialValue="0" ID="RequiredFieldValidatorProvince" ValidationGroup="CiValidationGroup" runat="server" ControlToValidate="CiListProvince" ForeColor="Red" Font-Bold="true" ErrorMessage="Province is Required"></asp:RequiredFieldValidator>
-                        </div>
-                         <div class="form-group">
-                            <label class="lblReview">City: *</label>
-                            <asp:DropDownList ID="CiListCity" ClientIDMode="Static" CssClass="form-control" runat="server"></asp:DropDownList>
-                             <asp:RequiredFieldValidator Display="Dynamic" InitialValue="0" ID="RequiredFieldValidatorCity" ValidationGroup="CiValidationGroup" runat="server" ControlToValidate="CiListCity" ForeColor="Red" Font-Bold="true" ErrorMessage="City is Required"></asp:RequiredFieldValidator>
-                        </div>
+                        <asp:UpdatePanel ID="UpdatePanel5" runat="server" UpdateMode="Always">
+                             <ContentTemplate>
+			                    <div class="form-group">
+                                            <label class="lblReview">Country: *</label>
+                                            <asp:DropDownList ID="CiListCountry" ClientIDMode="Static" CssClass="form-control" runat="server" AutoPostBack="true" OnSelectedIndexChanged="CiListCountry_SelectedIndexChanged"></asp:DropDownList>
+                                             <asp:RequiredFieldValidator   Display="Dynamic" InitialValue="0" ID="CiRequiredFieldValidatorCountry" ValidationGroup="CiValidationGroup" runat="server" ControlToValidate="CiListCountry" ForeColor="Red" Font-Bold="true" ErrorMessage="Country is Required"></asp:RequiredFieldValidator>
+                                        </div>
+                                         <div class="form-group">
+                                            <label class="lblReview">Provinces: *</label>
+                                            <asp:DropDownList ID="CiListProvince" ClientIDMode="Static" CssClass="form-control" runat="server"></asp:DropDownList>
+                                             <asp:RequiredFieldValidator Display="Dynamic" InitialValue="0" ID="RequiredFieldValidatorProvince" ValidationGroup="CiValidationGroup" runat="server" ControlToValidate="CiListProvince" ForeColor="Red" Font-Bold="true" ErrorMessage="Province is Required"></asp:RequiredFieldValidator>
+                                        </div>
+                                         <div class="form-group">
+                                            <label class="lblReview">City: *</label>
+                                            <asp:DropDownList ID="CiListCity" ClientIDMode="Static" CssClass="form-control" runat="server"></asp:DropDownList>
+                                             <asp:RequiredFieldValidator Display="Dynamic" InitialValue="0" ID="RequiredFieldValidatorCity" ValidationGroup="CiValidationGroup" runat="server" ControlToValidate="CiListCity" ForeColor="Red" Font-Bold="true" ErrorMessage="City is Required"></asp:RequiredFieldValidator>
+                                        </div>
+			                </ContentTemplate>                              
+                               </asp:UpdatePanel>
+                        
                        
                         <div  class="form-group">
                             <label class="lblReview">Address Line 1: *</label>
@@ -798,6 +802,11 @@
                                         <asp:TemplateField HeaderText="Identity No">
                                             <ItemTemplate>
                                                  <asp:Label ID="CUSTOMER_IDENTITY" runat="server" Text='<%# Bind("CUSTOMER_IDENTITY") %>'></asp:Label>
+                                            </ItemTemplate>
+                                        </asp:TemplateField>
+                                         <asp:TemplateField HeaderText="NEGATIVE LIST">
+                                            <ItemTemplate>
+                                                <asp:Label ID="NEG_LIST" runat="server" Text='<%# Bind("NEG_LIST") %>'></asp:Label>
                                             </ItemTemplate>
                                         </asp:TemplateField>  
                                         <asp:TemplateField HeaderText="POWER OF ATTORNY">
@@ -1092,10 +1101,10 @@
 
                         </div>
 
-                        <div class="form-group">
+                        <div class="form-group" style="display: none">
                             <label class="lblReview">Profit Payment: *</label>
                             <asp:DropDownList ID="AuListProfitPayment" ClientIDMode="Static" CssClass="form-control" runat="server"></asp:DropDownList>
-                             <asp:RequiredFieldValidator  ID="RequiredFieldValidatorAuProfitPayment" InitialValue="0" runat="server" Display="Dynamic" ControlToValidate="AuListProfitPayment" ForeColor="Red" Font-Bold="true" ValidationGroup="AuValidationGroup" ErrorMessage="Profit Payment is Required"></asp:RequiredFieldValidator>
+                         <%--     <asp:RequiredFieldValidator  ID="RequiredFieldValidatorAuProfitPayment" InitialValue="0" runat="server" Display="Dynamic" ControlToValidate="AuListProfitPayment" ForeColor="Red" Font-Bold="true" ValidationGroup="AuValidationGroup" ErrorMessage="Profit Payment is Required"></asp:RequiredFieldValidator> --%>
                         </div>
 
 
@@ -1311,45 +1320,58 @@
                            <%-- <asp:RequiredFieldValidator  ID="RequiredFieldValidatorCountyHRemitance" ControlToValidate="KnListCountHomeRemit" InitialValue="0" ErrorMessage="Country  is Required" runat="server" Display="Dynamic"  ForeColor="Red" Font-Bold="true" ValidationGroup="KnValidationGroup" ></asp:RequiredFieldValidator>--%>
                         </div>
                          <div class="form-group">
-                            <label class="lblReview">No Of Debit Transactions: *</label>
+                            <label class="lblReview">Expected Monthly No Of Debit Transactions: *</label>
                             <asp:TextBox ID="KnNODT" TextMode="Number" ClientIDMode="Static" CssClass="form-control" runat="server"></asp:TextBox>
                             <asp:RequiredFieldValidator Display="Dynamic" ID="RequiredFieldValidatorNODT" ControlToValidate="KnNODT" Font-Bold="true" ForeColor="Red" runat="server" ValidationGroup="KnValidationGroup" ErrorMessage="No Of Debit Transactions is Required"></asp:RequiredFieldValidator> 
                         </div>
                         <div class="form-group">
-                            <label class="lblReview">PKR Equivalent Debit Transactions: *</label>
+                            <label class="lblReview">Expected Monthly Debit Amount – PKR Equivalent: *</label>
                             <asp:TextBox ID="KnPEDT" TextMode="Number" ClientIDMode="Static" CssClass="form-control" runat="server"></asp:TextBox>
                             <asp:RequiredFieldValidator Display="Dynamic" ID="RequiredFieldValidatorPEDT" ControlToValidate="KnPEDT" Font-Bold="true" ForeColor="Red" runat="server" ValidationGroup="KnValidationGroup" ErrorMessage="PKR Equivalent Debit Transactions is Required"></asp:RequiredFieldValidator> 
                         </div>
                         <div class="form-group">
-                            <label class="lblReview">No of Credit Transactions: *</label>
+                            <label class="lblReview">Expected Monthly No of Credit Transactions: **</label>
                             <asp:TextBox ID="KnNOCT" TextMode="Number" ClientIDMode="Static" CssClass="form-control" runat="server"></asp:TextBox>
                             <asp:RequiredFieldValidator Display="Dynamic" ID="RequiredFieldValidatorNOCT" ControlToValidate="KnNOCT" Font-Bold="true" ForeColor="Red" runat="server" ValidationGroup="KnValidationGroup" ErrorMessage="No of Credit Transactions is Required"></asp:RequiredFieldValidator> 
                         </div>
                         <div class="form-group">
-                            <label class="lblReview">PKR Equivalent Credit Transactions: *</label>
+                            <label class="lblReview">Expected Monthly Credit Amount – PKR Equivalent: *</label>
                             <asp:TextBox ID="KnPECT" TextMode="Number" ClientIDMode="Static" CssClass="form-control" runat="server"></asp:TextBox>
                             <asp:RequiredFieldValidator Display="Dynamic" ID="RequiredFieldValidatorPECT" ControlToValidate="KnPECT" Font-Bold="true" ForeColor="Red" runat="server" ValidationGroup="KnValidationGroup" ErrorMessage="PKR Equivalent Credit Transactions is Required"></asp:RequiredFieldValidator> 
                         </div>
                         <div class="form-group">
                             <label class="lblReview">Expected Types of Counter Parties: *</label>
                             <div style="overflow-x: hidden; overflow-y: auto; border: 1px #808080 solid; max-height: 215px; height: auto; height: 215px">
-                                <asp:CheckBoxList ID="KnListECP" runat="server" RepeatColumns="2" ></asp:CheckBoxList>
+                                <asp:CheckBoxList AutoPostBack="true" ID="KnListECP" runat="server" RepeatColumns="2" OnSelectedIndexChanged="KnListECP_SelectedIndexChanged" ></asp:CheckBoxList>
                             </div>
                              <asp:CustomValidator runat="server" ID="CustomValidatorECP"
                                     ClientValidationFunction="ValidateModuleListECP" 
                                      Display="Dynamic" ForeColor="Red" Font-Bold="true" ValidationGroup="KnValidationGroup"
                                     ErrorMessage="Expected Types of Counter Parties is Required"></asp:CustomValidator>
                         </div>
+
+                         <div class="form-group">
+                            <label class="lblReview">Description (if Other):</label>
+                                <asp:TextBox ID="KntxtDescETCP"  ClientIDMode="Static" CssClass="form-control" runat="server"></asp:TextBox>
+                               <asp:RequiredFieldValidator Display="Dynamic" ID="RequiredFieldValidatorDescETCP" Enabled="false" ControlToValidate="KntxtDescETCP" Font-Bold="true" ForeColor="Red" runat="server" ValidationGroup="KnValidationGroup" ErrorMessage="Description (if Other) is Required"></asp:RequiredFieldValidator> 
+                         </div>
+
                          <div class="form-group">
                             <label class="lblReview">Geographies Involved of Counter Parties: *</label>
                             <div style="overflow-x: hidden; overflow-y: auto; border: 1px #808080 solid; max-height: 215px; height: auto; height: 215px">
-                                <asp:CheckBoxList ID="KnListGCP" runat="server" RepeatColumns="2" ></asp:CheckBoxList>
+                                <asp:CheckBoxList ID="KnListGCP" AutoPostBack="true" runat="server" RepeatColumns="2" OnSelectedIndexChanged="KnListGCP_SelectedIndexChanged" ></asp:CheckBoxList>
                             </div>
                              <asp:CustomValidator runat="server" ID="CustomValidatorGCP"
                                     ClientValidationFunction="ValidateModuleListGCP" 
                                      Display="Dynamic" ForeColor="Red" Font-Bold="true" ValidationGroup="KnValidationGroup"
                                     ErrorMessage="Geographies Involved of Counter Parties is Required"></asp:CustomValidator>
                             </div>
+
+                         <div class="form-group">
+                            <label class="lblReview">Description (If Outside Pakistan):</label>
+                                <asp:TextBox ID="KntxtDescGCP"  ClientIDMode="Static" CssClass="form-control" runat="server"></asp:TextBox>
+                               <asp:RequiredFieldValidator Display="Dynamic" ID="RequiredFieldValidatorDescGCP" Enabled="false" ControlToValidate="KntxtDescGCP" Font-Bold="true" ForeColor="Red" runat="server" ValidationGroup="KnValidationGroup" ErrorMessage="Description (if Other) is Required"></asp:RequiredFieldValidator> 
+                         </div>
                         <div class="form-group">
                             <label class="lblReview">Real Beneficiery of A/C: *</label>
                             <asp:DropDownList ID="KnListRealBenef" ClientIDMode="Static" CssClass="form-control" runat="server" AutoPostBack="true" OnSelectedIndexChanged="KnListRealBenef_SelectedIndexChanged"></asp:DropDownList>

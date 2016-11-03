@@ -15,7 +15,28 @@ namespace CAOP
         {
             User LogedUser = Session["User"] as User;
             CheckPermissions(LogedUser);
-            loaddata();
+
+            if (!IsPostBack)
+            {
+                loaddata();
+                if (LogedUser.USER_TYPE == UserType.Region)
+                {
+                    CifTypes cType = new CifTypes();
+                    var cTypeList = cType.GetCifTypes();
+                    cTypeList.Remove(cTypeList.FirstOrDefault(c => c.Name.Trim() == "NEXT_OF_KIN"));
+
+                    ddlCifTypes.DataSource = cTypeList;
+                    ddlCifTypes.DataValueField = "ID";
+                    ddlCifTypes.DataTextField = "NAME";
+                    ddlCifTypes.DataBind();
+
+                    SearchCriteria.Visible = true;
+
+            }
+            
+
+            
+            }
         }
 
         private void loaddata()
@@ -33,10 +54,32 @@ namespace CAOP
 
         }
 
+        private void loaddataRegion()
+        {
+            User LoggedUser = Session["User"] as User;
+            if (LoggedUser == null)
+                Response.Redirect("Login.aspx");
+            CIF cf = new CIF(LoggedUser.USER_ID);
+
+            if (radioBCode.Checked)
+                grdPCif.DataSource = cf.GetCifRegion(true, false, false, false, txtCif.Text, LoggedUser.PARENT_ID);
+            else if (radioCNIC.Checked)
+                grdPCif.DataSource = cf.GetCifRegion(false, true, false, false, txtCif.Text, LoggedUser.PARENT_ID);
+            else if (radioName.Checked)
+                grdPCif.DataSource = cf.GetCifRegion(false, false, true, false, txtCif.Text, LoggedUser.PARENT_ID);
+            else
+                grdPCif.DataSource = cf.GetCifRegion(false, false, false, true, ddlCifTypes.SelectedItem.Value, LoggedUser.PARENT_ID);
+            grdPCif.DataBind();
+        }
+
         protected void grdPCif_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
             grdPCif.PageIndex = e.NewPageIndex;
-            loaddata();
+
+            if (Convert.ToBoolean(ViewState["isSearch"]) != true)
+                loaddata();
+            else
+                loaddataRegion();
         }
 
         protected void grdPCif_RowDataBound(object sender, GridViewRowEventArgs e)
@@ -115,6 +158,43 @@ namespace CAOP
                 if (!LoggedUser.Permissions.CheckAccess(Permissions.CIF, Rights.Read))
                     Response.Redirect("Main.aspx");
             }
+        }
+
+        protected void radioCifSearch_CheckedChanged(object sender, EventArgs e)
+        {
+            if (radioCifType.Checked)
+            {
+                txtCif.Visible = false;
+                ddlCifTypes.Visible = true;
+            }
+            else
+            {
+                txtCif.Visible = true;
+                ddlCifTypes.Visible = false;
+            }
+        }
+
+        protected void btnSearch_Click(object sender, EventArgs e)
+        {
+
+            if (radioBCode.Checked == true || radioName.Checked == true || radioCNIC.Checked == true)
+            {
+                if (txtCif.Text.Length > 0)
+                {
+                    ViewState["isSearch"] = true;
+
+                    //search
+                    loaddataRegion();
+                }
+            }
+            else
+            {
+                ViewState["isSearch"] = true;
+
+                //search
+                loaddataRegion();
+            }
+           
         }
     }
 }

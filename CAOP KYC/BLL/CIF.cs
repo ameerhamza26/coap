@@ -123,6 +123,127 @@ namespace BLL
            }
        }
 
+
+       public List<BasicInformations> GetCifRegion(bool BCode, bool CNIC, bool NAME, bool CifType, string Criteria, int RegionId)
+       {
+           using (CAOPDbContext db = new CAOPDbContext())
+           {
+               List<int> BranchUsers = new List<int>();
+               List<BasicInformations> SubmittedCifs = new List<BasicInformations>();
+
+               var branches = db.BRANCHES.Where(b => (b.CATEGORY_ID == 1 || b.CATEGORY_ID == 2) && b.REGION_ID == RegionId).Select(b => b.BRANCH_ID).ToList();
+               BranchUsers = db.USERS.Where(u => branches.Contains(u.PARENT_ID) && u.USER_TYPE == "BRANCH").Select(u => u.USER_ID).ToList();
+               var Cifs = db.BASIC_INFORMATIONS.Where(b => b.STATUS != Status.SAVED.ToString() && BranchUsers.Contains((int)b.UserId));
+               
+               if (BCode)
+                   Cifs = Cifs.Where(b => b.BRANCH_CODE == Criteria);
+               else if (CNIC)
+                   Cifs = Cifs.Where(b => b.CNIC == Criteria);
+               else if (NAME)
+                   Cifs = Cifs.Where(b => b.NAME.Contains(Criteria));
+               else
+               {
+                   int CifId = Convert.ToInt32(Criteria);
+                   Cifs = Cifs.Where(b => b.CIF_TYPE == CifId);
+               }
+
+               SubmittedCifs = Cifs
+                       .OrderByDescending(b => b.LAST_UPDATED).Select(b => new BasicInformations { ID = b.ID, CNIC = b.CNIC, NAME = b.NAME, NAME_OFFICE = b.NAME_OFFICE, STATUS = b.STATUS, LAST_UPDATED = b.LAST_UPDATED, NTN = b.NTN, CIF_TYPE = new CifTypes { ID = (int)b.CIF_TYPE, Name = db.CIF_TYPES.FirstOrDefault(t => t.ID == b.CIF_TYPE).Name }, RISK_SCORE = b.RISK_SCORE, RISK_CATEGORY = b.RISK_CATEGORY, PROFILE_CIF_NO = b.PROFILE_CIF_NO, BRANCH_CODE = b.BRANCH_CODE }).ToList();
+               return SubmittedCifs;
+           }
+       }
+
+       public List<BasicInformations> GetInProcessCifsByRole(string UserRole, bool Region)
+       {
+           using (CAOPDbContext db = new CAOPDbContext())
+           {
+               List<int> BranchUsers = new List<int>();
+               List<BasicInformations> SubmittedCifs = new List<BasicInformations>();
+
+               if (UserRole == Roles.BRANCH_OPERATOR.ToString())
+               {
+
+                   BranchUsers.Add(this.UserId);
+                   SubmittedCifs = db.BASIC_INFORMATIONS.Where(b => b.STATUS != Status.SAVED.ToString() && b.PROFILE_STATUS != "POSTED" && BranchUsers.Contains((int)b.UserId))
+                      .OrderByDescending(b => b.LAST_UPDATED).Select(b => new BasicInformations { ID = b.ID, CNIC = b.CNIC, NAME = b.NAME, NAME_OFFICE = b.NAME_OFFICE, LAST_UPDATED = b.LAST_UPDATED, STATUS = b.STATUS, NTN = b.NTN, CIF_TYPE = new CifTypes { ID = (int)b.CIF_TYPE, Name = db.CIF_TYPES.FirstOrDefault(t => t.ID == b.CIF_TYPE).Name }, RISK_SCORE = b.RISK_SCORE, RISK_CATEGORY = b.RISK_CATEGORY, PROFILE_CIF_NO = b.PROFILE_CIF_NO, BRANCH_CODE = b.BRANCH_CODE }).ToList();
+
+               }
+               else
+               {
+                   if (Region)
+                   {
+                       var branches = db.BRANCHES.Where(b => (b.CATEGORY_ID == 1 || b.CATEGORY_ID == 2) && b.REGION_ID == db.USERS.FirstOrDefault(u => u.USER_ID == this.UserId).PARENT_ID).Select(b => b.BRANCH_ID).ToList();
+                       BranchUsers = db.USERS.Where(u => branches.Contains(u.PARENT_ID) && u.USER_TYPE == "BRANCH").Select(u => u.USER_ID).ToList();
+                   }
+                   else
+                   {
+                       BranchUsers = db.USERS.Where(u => u.USER_TYPE == "BRANCH" && u.PARENT_ID == (db.USERS.FirstOrDefault(l => l.USER_ID == this.UserId).PARENT_ID)).Select(u => u.USER_ID).ToList();
+                   }
+
+
+
+                   if (UserRole == Roles.COMPLIANCE_OFFICER.ToString())
+                   {
+
+                       SubmittedCifs = db.BASIC_INFORMATIONS.Where(b => b.STATUS != Status.SAVED.ToString() && b.PROFILE_STATUS != "POSTED" && BranchUsers.Contains((int)b.UserId))
+                       .OrderByDescending(b => b.LAST_UPDATED).Select(b => new BasicInformations { ID = b.ID, CNIC = b.CNIC, NAME = b.NAME, NAME_OFFICE = b.NAME_OFFICE, STATUS = b.STATUS, LAST_UPDATED = b.LAST_UPDATED, NTN = b.NTN, CIF_TYPE = new CifTypes { ID = (int)b.CIF_TYPE, Name = db.CIF_TYPES.FirstOrDefault(t => t.ID == b.CIF_TYPE).Name }, RISK_SCORE = b.RISK_SCORE, RISK_CATEGORY = b.RISK_CATEGORY, PROFILE_CIF_NO = b.PROFILE_CIF_NO, BRANCH_CODE = b.BRANCH_CODE }).ToList();
+                   }
+                   else if (UserRole == Roles.BRANCH_MANAGER.ToString())
+                   {
+                       SubmittedCifs = db.BASIC_INFORMATIONS.Where(b => b.STATUS != Status.SAVED.ToString() && b.STATUS != Status.SUBMITTED.ToString() && b.STATUS != Status.REJECTEBY_COMPLIANCE_MANAGER.ToString() && b.PROFILE_STATUS != "POSTED" && BranchUsers.Contains((int)b.UserId))
+                       .OrderByDescending(b => b.LAST_UPDATED).Select(b => new BasicInformations { ID = b.ID, CNIC = b.CNIC, NAME = b.NAME, NAME_OFFICE = b.NAME_OFFICE, STATUS = b.STATUS, LAST_UPDATED = b.LAST_UPDATED, NTN = b.NTN, CIF_TYPE = new CifTypes { ID = (int)b.CIF_TYPE, Name = db.CIF_TYPES.FirstOrDefault(t => t.ID == b.CIF_TYPE).Name }, RISK_SCORE = b.RISK_SCORE, RISK_CATEGORY = b.RISK_CATEGORY, PROFILE_CIF_NO = b.PROFILE_CIF_NO, BRANCH_CODE = b.BRANCH_CODE }).ToList();
+                   }
+               }
+
+               return SubmittedCifs;
+           }
+       }
+
+       public List<BasicInformations> GetRejectedCifsByRole(string UserRole, bool Region)
+       {
+           using (CAOPDbContext db = new CAOPDbContext())
+           {
+               List<int> BranchUsers = new List<int>();
+               List<BasicInformations> SubmittedCifs = new List<BasicInformations>();
+
+               if (UserRole == Roles.BRANCH_OPERATOR.ToString())
+               {
+
+                   BranchUsers.Add(this.UserId);
+                   SubmittedCifs = db.BASIC_INFORMATIONS.Where(b => b.STATUS == Status.REJECTEBY_COMPLIANCE_MANAGER.ToString() && BranchUsers.Contains((int)b.UserId))
+                      .OrderByDescending(b => b.LAST_UPDATED).Select(b => new BasicInformations { ID = b.ID, CNIC = b.CNIC, NAME = b.NAME, NAME_OFFICE = b.NAME_OFFICE, LAST_UPDATED = b.LAST_UPDATED, STATUS = b.STATUS, NTN = b.NTN, CIF_TYPE = new CifTypes { ID = (int)b.CIF_TYPE, Name = db.CIF_TYPES.FirstOrDefault(t => t.ID == b.CIF_TYPE).Name }, RISK_SCORE = b.RISK_SCORE, RISK_CATEGORY = b.RISK_CATEGORY, PROFILE_CIF_NO = b.PROFILE_CIF_NO, BRANCH_CODE = b.BRANCH_CODE }).ToList();
+
+               }
+               else
+               {
+                   if (Region)
+                   {
+                       var branches = db.BRANCHES.Where(b => (b.CATEGORY_ID == 1 || b.CATEGORY_ID == 2) && b.REGION_ID == db.USERS.FirstOrDefault(u => u.USER_ID == this.UserId).PARENT_ID).Select(b => b.BRANCH_ID).ToList();
+                       BranchUsers = db.USERS.Where(u => branches.Contains(u.PARENT_ID) && u.USER_TYPE == "BRANCH").Select(u => u.USER_ID).ToList();
+                   }
+                   else
+                   {
+                       BranchUsers = db.USERS.Where(u => u.USER_TYPE == "BRANCH" && u.PARENT_ID == (db.USERS.FirstOrDefault(l => l.USER_ID == this.UserId).PARENT_ID)).Select(u => u.USER_ID).ToList();
+                   }
+
+
+
+                   if (UserRole == Roles.COMPLIANCE_OFFICER.ToString())
+                   {
+
+                       SubmittedCifs = db.BASIC_INFORMATIONS.Where(b => b.STATUS == Status.REJECTED_BY_BRANCH_MANAGER.ToString() && BranchUsers.Contains((int)b.UserId))
+                       .OrderByDescending(b => b.LAST_UPDATED).Select(b => new BasicInformations { ID = b.ID, CNIC = b.CNIC, NAME = b.NAME, NAME_OFFICE = b.NAME_OFFICE, STATUS = b.STATUS, LAST_UPDATED = b.LAST_UPDATED, NTN = b.NTN, CIF_TYPE = new CifTypes { ID = (int)b.CIF_TYPE, Name = db.CIF_TYPES.FirstOrDefault(t => t.ID == b.CIF_TYPE).Name }, RISK_SCORE = b.RISK_SCORE, RISK_CATEGORY = b.RISK_CATEGORY, PROFILE_CIF_NO = b.PROFILE_CIF_NO, BRANCH_CODE = b.BRANCH_CODE }).ToList();
+                   }
+                   else if (UserRole == Roles.BRANCH_MANAGER.ToString())
+                   {
+                       SubmittedCifs = db.BASIC_INFORMATIONS.Where(b => b.STATUS == Status.REJECTED_BY_BRANCH_MANAGER.ToString() && BranchUsers.Contains((int)b.UserId))
+                       .OrderByDescending(b => b.LAST_UPDATED).Select(b => new BasicInformations { ID = b.ID, CNIC = b.CNIC, NAME = b.NAME, NAME_OFFICE = b.NAME_OFFICE, STATUS = b.STATUS, LAST_UPDATED = b.LAST_UPDATED, NTN = b.NTN, CIF_TYPE = new CifTypes { ID = (int)b.CIF_TYPE, Name = db.CIF_TYPES.FirstOrDefault(t => t.ID == b.CIF_TYPE).Name }, RISK_SCORE = b.RISK_SCORE, RISK_CATEGORY = b.RISK_CATEGORY, PROFILE_CIF_NO = b.PROFILE_CIF_NO, BRANCH_CODE = b.BRANCH_CODE }).ToList();
+                   }
+               }
+
+               return SubmittedCifs;
+           }
+       }
        public List<BasicInformations> GeteCifsByRole(string UserRole,bool Region)
        {
            using (CAOPDbContext db = new CAOPDbContext())
@@ -269,6 +390,38 @@ namespace BLL
 
         }
 
+        public List<BasicInformations> GetOfficeCifsForAccounts(String str, Status str2, int id)
+        {
+            using (CAOPDbContext db = new CAOPDbContext())
+            {
+
+                List<BasicInformations> cifs = db.BASIC_INFORMATIONS.Where(b => b.NAME_OFFICE.Contains(str) && b.STATUS == str2.ToString() && b.CIF_TYPE == 5).Select(c => new BasicInformations { ID = c.ID, CIF_TYPE = new CifTypes { ID = (int)c.CIF_TYPE }, NAME_OFFICE = c.NAME_OFFICE, CNIC = c.CNIC, SALES_TAX_NO = c.SALES_TAX_NO, REG_NO = c.REG_NO, Issuing_Agency = new IssuingAgency() { ID = c.ISSUING_AGENCY, Name = db.ISSUING_AGENCY.FirstOrDefault(a => a.ID == c.ISSUING_AGENCY).NAME } }).ToList();
+
+                if (id == 1)
+                {
+                    cifs = db.BASIC_INFORMATIONS.Where(b => b.NAME_OFFICE.Contains(str) && b.STATUS == str2.ToString() &&  b.CIF_TYPE == 5).Select(c => new BasicInformations { ID = c.ID, CIF_TYPE = new CifTypes { ID = (int)c.CIF_TYPE }, NAME_OFFICE = c.NAME_OFFICE, CNIC = c.CNIC, SALES_TAX_NO = c.SALES_TAX_NO, REG_NO = c.REG_NO, Issuing_Agency = new IssuingAgency() { ID = c.ISSUING_AGENCY, Name = db.ISSUING_AGENCY.FirstOrDefault(a => a.ID == c.ISSUING_AGENCY).NAME } }).ToList();
+
+                }
+                else if (id == 2)
+                {
+                    cifs = db.BASIC_INFORMATIONS.Where(b => b.SALES_TAX_NO.Contains(str) && b.STATUS == str2.ToString() && b.CIF_TYPE == 5).Select(c => new BasicInformations { ID = c.ID, CIF_TYPE = new CifTypes { ID = (int)c.CIF_TYPE }, NAME_OFFICE = c.NAME_OFFICE, CNIC = c.CNIC, SALES_TAX_NO = c.SALES_TAX_NO, REG_NO = c.REG_NO, Issuing_Agency = new IssuingAgency() { ID = c.ISSUING_AGENCY, Name = db.ISSUING_AGENCY.FirstOrDefault(a => a.ID == c.ISSUING_AGENCY).NAME } }).ToList();
+                }
+                else if (id == 3)
+                {
+                    cifs = db.BASIC_INFORMATIONS.Where(b => b.NTN.Contains(str) && b.STATUS == str2.ToString() && b.CIF_TYPE == 5).Select(c => new BasicInformations { ID = c.ID, CIF_TYPE = new CifTypes { ID = (int)c.CIF_TYPE }, NAME_OFFICE = c.NAME_OFFICE, CNIC = c.CNIC, SALES_TAX_NO = c.SALES_TAX_NO, REG_NO = c.REG_NO, Issuing_Agency = new IssuingAgency() { ID = c.ISSUING_AGENCY, Name = db.ISSUING_AGENCY.FirstOrDefault(a => a.ID == c.ISSUING_AGENCY).NAME } }).ToList();
+
+                }
+                else
+                {
+                    cifs = db.BASIC_INFORMATIONS.Where(b => b.REG_NO.Contains(str) && b.STATUS == str2.ToString() && b.CIF_TYPE == 5).Select(c => new BasicInformations { ID = c.ID, CIF_TYPE = new CifTypes { ID = (int)c.CIF_TYPE }, NAME_OFFICE = c.NAME_OFFICE, CNIC = c.CNIC, SALES_TAX_NO = c.SALES_TAX_NO, REG_NO = c.REG_NO, Issuing_Agency = new IssuingAgency() { ID = c.ISSUING_AGENCY, Name = db.ISSUING_AGENCY.FirstOrDefault(a => a.ID == c.ISSUING_AGENCY).NAME } }).ToList();
+
+                }
+
+                return cifs;
+            }
+
+        }
+
 
         public List<BasicInformations> GetCifsForAccounts(Status status)
         {
@@ -356,6 +509,29 @@ namespace BLL
            }
        }
 
+
+       public void DeleteCifManager(int CIFID,int USERID)
+       {
+           using (CAOPDbContext db = new CAOPDbContext())
+           {
+               CIF_DEL_LOG CDL = new CIF_DEL_LOG();
+               var BI = db.BASIC_INFORMATIONS.FirstOrDefault(b =>  b.ID ==  CIFID);
+
+               CDL.CIF_TYPE = db.CIF_TYPES.FirstOrDefault(c => c.ID == (int) BI.CIF_TYPE).Name;
+               CDL.IDENTITY_TYPE = db.DOCUMENT_TYPES_PRIMARY.FirstOrDefault(c => c.ID == BI.DOCUMENT_TYPE_PRIMARY).Name;
+               CDL.IDENTITY_NO = BI.CNIC;
+               CDL.CUSTOMER_NAME = BI.NAME;
+               CDL.OFFICE_NAME = BI.NAME_OFFICE;
+               CDL.DELETED_BY = USERID;
+               CDL.DELETE_DATETIME = DateTime.Now;
+
+               db.CIF_DEL_LOG.Add(CDL);
+               db.SaveChanges();
+
+               DeleteCif(CIFID);
+
+           }
+       }
 
        public void DeleteCif(int CIFID)
        {

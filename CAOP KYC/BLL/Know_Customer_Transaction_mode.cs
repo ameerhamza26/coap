@@ -27,6 +27,14 @@ namespace BLL
             }
         }
 
+        public void Clean(int bid)
+        {
+            using (CAOPDbContext db = new CAOPDbContext())
+            {
+                db.KNOW_CUSTOMER_TRANSACTIONS_MODE.RemoveRange(db.KNOW_CUSTOMER_TRANSACTIONS_MODE.Where(b => b.BI_ID == bid));
+                db.SaveChanges();
+            }
+        }
 
         public void Update()
         {

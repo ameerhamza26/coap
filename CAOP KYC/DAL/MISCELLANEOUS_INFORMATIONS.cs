@@ -37,5 +37,6 @@ namespace DAL
         public Nullable<bool> PEP_NATURE_SINGLE { get; set; }
         public string PEP_RELATIONSHIP { get; set; }
         public string PEP_DESC { get; set; }
+        public Nullable<int> SOURCE_OF_FUND { get; set; }
     }
 }

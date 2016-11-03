@@ -32,7 +32,7 @@ namespace BLL
             {
                 string cls = ClsGrp.Split(',')[0];
                 string grp = ClsGrp.Split(',')[1];
-                var AccountTypeList = db.ACCOUNT_TYPES.Where(c => c.CLS == cls && c.GRP == grp).Select(c => new AccountType { ID = c.ID, Name = c.Name }).ToList();
+                var AccountTypeList = db.ACCOUNT_TYPES.Where(c => c.CLS == cls && c.GRP == grp).Select(c => new AccountType { ID = c.ID, Name = c.Name.Trim() }).ToList();
                 return AccountTypeList;
             }
         }

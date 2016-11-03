@@ -67,6 +67,8 @@ namespace BLL
 
         public List<int> KYC_EXPECTED_COUNTER_PARTIES = new List<int>();
         public List<int> KYC_GEOGRAPHIES_COUNTER_PARTIES = new List<int>();
+        public string ETCP_OTHER { get; set; }
+        public string GICP_OTHER { get; set; }
 
 
         public void SaveKnowYourCustomer()
@@ -118,6 +120,8 @@ namespace BLL
                 k.PEDT = this.PEDT;
                 k.NOCT = this.NOCT;
                 k.PECT = this.PECT;
+                k.ETCP_OTHER = this.ETCP_OTHER;
+                k.GICP_OTHER = this.GICP_OTHER;
 
                 db.ACCOUNT_NATURE_CURRENCY.FirstOrDefault(b => b.ID == this.BI_ID).LAST_UPDATED = DateTime.Now;
 
@@ -201,6 +205,8 @@ namespace BLL
                 k.PEDT = this.PEDT;
                 k.NOCT = this.NOCT;
                 k.PECT = this.PECT;
+                k.ETCP_OTHER = this.ETCP_OTHER;
+                k.GICP_OTHER = this.GICP_OTHER;
 
                 db.ACCOUNT_NATURE_CURRENCY.FirstOrDefault(b => b.ID == this.BI_ID).LAST_UPDATED = DateTime.Now;
 
@@ -318,6 +324,8 @@ namespace BLL
                 k.PEDT = this.PEDT;
                 k.NOCT = this.NOCT;
                 k.PECT = this.PECT;
+                k.ETCP_OTHER = this.ETCP_OTHER;
+                k.GICP_OTHER = this.GICP_OTHER;
 
                 db.ACCOUNT_NATURE_CURRENCY.FirstOrDefault(b => b.ID == this.BI_ID).LAST_UPDATED = DateTime.Now;
                 db.KYC_PURPOSE_OF_AC.RemoveRange(db.KYC_PURPOSE_OF_AC.Where(p => p.BID == this.BI_ID));
@@ -405,6 +413,8 @@ namespace BLL
                 k.PEDT = this.PEDT;
                 k.NOCT = this.NOCT;
                 k.PECT = this.PECT;
+                k.ETCP_OTHER = this.ETCP_OTHER;
+                k.GICP_OTHER = this.GICP_OTHER;
 
                 db.ACCOUNT_NATURE_CURRENCY.FirstOrDefault(b => b.ID == this.BI_ID).LAST_UPDATED = DateTime.Now;
                 db.KYC_PURPOSE_OF_AC.RemoveRange(db.KYC_PURPOSE_OF_AC.Where(p => p.BID == this.BI_ID));
@@ -549,6 +559,8 @@ namespace BLL
                     this.PEDT = a.PEDT;
                     this.NOCT = a.NOCT;
                     this.PECT = a.PECT;
+                    this.ETCP_OTHER = a.ETCP_OTHER;
+                    this.GICP_OTHER = a.GICP_OTHER;
 
                     List<KYC_BENEFICIAL_ENTITY> BE = db.KYC_BENEFICIAL_ENTITY.Where(b => b.BID == id).ToList();
                     foreach (var b in BE)

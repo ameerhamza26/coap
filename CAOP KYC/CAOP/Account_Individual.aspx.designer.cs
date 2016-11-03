@@ -526,6 +526,15 @@ namespace CAOP {
         protected global::System.Web.UI.WebControls.TextBox ApInvestmentShare;
         
         /// <summary>
+        /// CustomValidatorAccountType control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CustomValidator CustomValidatorAccountType;
+        
+        /// <summary>
         /// UpdatePanelGridCifs control.
         /// </summary>
         /// <remarks>
@@ -1993,6 +2002,24 @@ namespace CAOP {
         protected global::System.Web.UI.WebControls.CustomValidator CustomValidatorECP;
         
         /// <summary>
+        /// KntxtDescETCP control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox KntxtDescETCP;
+        
+        /// <summary>
+        /// RequiredFieldValidatorDescETCP control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidatorDescETCP;
+        
+        /// <summary>
         /// KnListGCP control.
         /// </summary>
         /// <remarks>
@@ -2009,6 +2036,24 @@ namespace CAOP {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.CustomValidator CustomValidatorGCP;
+        
+        /// <summary>
+        /// KntxtDescGCP control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox KntxtDescGCP;
+        
+        /// <summary>
+        /// RequiredFieldValidatorDescGCP control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidatorDescGCP;
         
         /// <summary>
         /// KnListRealBenef control.
@@ -2362,6 +2407,15 @@ namespace CAOP {
         protected global::System.Web.UI.WebControls.TextBox CdProfitAccountNumber;
         
         /// <summary>
+        /// RequiredFieldValidatorProfitAccNumber control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidatorProfitAccNumber;
+        
+        /// <summary>
         /// CdListTransactionType control.
         /// </summary>
         /// <remarks>
@@ -2398,6 +2452,15 @@ namespace CAOP {
         protected global::System.Web.UI.WebControls.TextBox CdCertNumber;
         
         /// <summary>
+        /// RequiredFieldValidatorCdCertNumber control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidatorCdCertNumber;
+        
+        /// <summary>
         /// CdCertAmount control.
         /// </summary>
         /// <remarks>
@@ -2416,6 +2479,15 @@ namespace CAOP {
         protected global::System.Web.UI.WebControls.TextBox CdMarkupRate;
         
         /// <summary>
+        /// RequiredFieldValidatorCdMarkupRate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidatorCdMarkupRate;
+        
+        /// <summary>
         /// MarkupRegex1 control.
         /// </summary>
         /// <remarks>
@@ -2432,6 +2504,15 @@ namespace CAOP {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList CdLstPrincipalRenewal;
+        
+        /// <summary>
+        /// RequiredFieldValidatorCdLstPrincipalRenewal control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidatorCdLstPrincipalRenewal;
         
         /// <summary>
         /// CdSubmitButton control.

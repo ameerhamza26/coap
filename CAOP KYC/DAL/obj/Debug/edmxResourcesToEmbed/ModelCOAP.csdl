@@ -19,7 +19,7 @@
     <Property Name="APPLICANT_IN_NEGATIVE_LIST" Type="Boolean" />
     <Property Name="POWER_OF_ATTORNY" Type="Boolean" />
     <Property Name="SIGNATURE_AUTHORITY" Type="Boolean" />
-    <Property Name="APPLICANT_STATUS" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="APPLICANT_STATUS" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
     <Property Name="UPDATED_DATE" Type="DateTime" Precision="3" />
   </EntityType>
   <EntityType Name="ACCOUNT_CLASS">
@@ -116,6 +116,12 @@
     <Property Name="PROFILE_CREATION_DATE" Type="DateTime" Precision="3" />
     <Property Name="BRANCH_CODE" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
     <Property Name="IBAN" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="PROFILE_ACCOUNT_NO1" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+    <Property Name="ACCOUNT_MODE_DETAIL1" Type="Int32" />
+    <Property Name="PROFILE_STATUS1" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="PROFILE_CREATION_DATE1" Type="DateTime" Precision="3" />
+    <Property Name="BRANCH_CODE1" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+    <Property Name="IBAN1" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
   </EntityType>
   <EntityType Name="ACCOUNT_OPEN_TYPE">
     <Key>
@@ -218,6 +224,8 @@
     <Property Name="APPLICANT_STATUS" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
     <Property Name="CUSTOMER_NAME" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
     <Property Name="CUSTOMER_IDENTITY" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="CUSTOMER_NAME1" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="CUSTOMER_IDENTITY1" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
   </EntityType>
   <EntityType Name="APPLICANT_STATUSES">
     <Key>
@@ -286,6 +294,7 @@
     <Property Name="ID" Type="Int32" Nullable="false" />
     <Property Name="NAME" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="ProfileCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ProfileCode1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
   </EntityType>
   <EntityType Name="BASIC_INFORMATIONS">
     <Key>
@@ -356,6 +365,17 @@
     <Property Name="GOV_TYPE" Type="Int32" />
     <Property Name="WHO_NAME" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
     <Property Name="WHO_DESIG" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="DOCUMENT_VERIFIED1" Type="Boolean" />
+    <Property Name="RISK_CATEGORY1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="RISK_SCORE1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PROFILE_CIF_NO1" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="PROFILE_STATUS1" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="PROFILE_CREATION_DATE1" Type="DateTime" Precision="3" />
+    <Property Name="BRANCH_CODE1" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+    <Property Name="CUSTOMER_TYPE1" Type="Int32" />
+    <Property Name="GOV_TYPE1" Type="Int32" />
+    <Property Name="WHO_NAME1" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="WHO_DESIG1" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
   </EntityType>
   <EntityType Name="BRANCHES">
     <Key>
@@ -368,6 +388,9 @@
     <Property Name="CATEGORY_ID" Type="Int32" />
     <Property Name="AREA" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="ServiceCenterCode" Type="String" MaxLength="3" FixedLength="true" Unicode="false" />
+    <NavigationProperty Name="REGIONS" Relationship="AOSModel.FK__BRANCHES__REGION__74794A92" FromRole="BRANCHES" ToRole="REGIONS" />
+    <Property Name="AREA1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ServiceCenterCode1" Type="String" MaxLength="3" FixedLength="true" Unicode="false" />
   </EntityType>
   <EntityType Name="BUSINESS_ACOUNTS">
     <Key>
@@ -377,6 +400,7 @@
     <Property Name="NAME" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="UPDATED_DATE" Type="DateTime" Precision="3" />
     <Property Name="ProfileCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ProfileCode1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
   </EntityType>
   <EntityType Name="BUSINESS_CUSTOMER_CLASSIFICATIONS">
     <Key>
@@ -428,6 +452,8 @@
     <Property Name="UPDATED_DATE" Type="DateTime" Precision="3" />
     <Property Name="PRINCIPAL_RENEWAL_OPTION" Type="Int32" />
     <Property Name="MARK_UP_RATE" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="PRINCIPAL_RENEWAL_OPTION1" Type="Int32" />
+    <Property Name="MARK_UP_RATE1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
   </EntityType>
   <EntityType Name="CIF_REVIEW">
     <Key>
@@ -511,6 +537,11 @@
     <Property Name="CP_CNIC" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
     <Property Name="CP_CNIC_EXPIRY" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
     <Property Name="CP_NTN" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="CP_NAME1" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="CP_DESIGNATION1" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="CP_CNIC1" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="CP_CNIC_EXPIRY1" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="CP_NTN1" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
   </EntityType>
   <EntityType Name="COSTUMER_DEALINGS">
     <Key>
@@ -695,6 +726,8 @@
     <Property Name="CONSUMER_SEGMENT" Type="Int32" />
     <Property Name="EMPLOYMENT_DETAIL_OTHER_DESCRIPTION" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
     <Property Name="EMPLOYER_DESC" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+    <Property Name="EMPLOYMENT_DETAIL_OTHER_DESCRIPTION1" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+    <Property Name="EMPLOYER_DESC1" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
   </EntityType>
   <EntityType Name="FATCAS">
     <Key>
@@ -731,6 +764,8 @@
     <Property Name="CITY" Type="Int32" />
     <Property Name="COUNTRY_INCORP" Type="Int32" />
     <Property Name="COUNTRY_BUSINESS" Type="Int32" />
+    <Property Name="COUNTRY_INCORP1" Type="Int32" />
+    <Property Name="COUNTRY_BUSINESS1" Type="Int32" />
   </EntityType>
   <EntityType Name="FATCAS_TINS">
     <Key>
@@ -868,6 +903,7 @@
     <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="NAME" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="ProfileCode" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="ProfileCode1" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
   </EntityType>
   <EntityType Name="KNOW_CUSTOMER_TRANSACTIONS_MODE">
     <Key>
@@ -876,55 +912,6 @@
     <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="BI_ID" Type="Int32" />
     <Property Name="MODE_OF_TRANSACTIONS" Type="Int32" />
-  </EntityType>
-  <EntityType Name="KNOW_YOUR_CUSTOMER">
-    <Key>
-      <PropertyRef Name="ID" />
-    </Key>
-    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="BI_ID" Type="Int32" />
-    <Property Name="CUSTOMER_TYPE" Type="Int32" />
-    <Property Name="DESCRIPTION_IF_REFFERED" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="EDUCATION" Type="Int32" />
-    <Property Name="PURPOSE_OF_ACCOUNT" Type="Int32" />
-    <Property Name="DESCRIPTION_IF_OTHER" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="SOURCE_OF_FUNDS" Type="Int32" />
-    <Property Name="DESCRIPTION_OF_SOURCE" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="SERVICE_CHARGES_EXEMPTED" Type="Boolean" />
-    <Property Name="SERVICE_CHARGES_EXEMPTED_CODE" Type="Int32" />
-    <Property Name="REASON_IF_EXEMPTED" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="EXPECTED_MONTHLY_INCOME" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="MODE_OF_TRANSACTIONS" Type="Boolean" />
-    <Property Name="OTHER_MODE_OF_TRANSACTIONS" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="MAX_TRANS_AMOUNT_DR" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="MAX_TRANS_AMOUNT_CR" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="RELATIONSHIP_MANAGER" Type="Int32" />
-    <Property Name="OCCUPATION_VERIFIED" Type="Boolean" />
-    <Property Name="ADDRESS_VERIFIED" Type="Int32" />
-    <Property Name="MEANS_OF_VERIFICATION" Type="Int32" />
-    <Property Name="MEANS_OF_VERI_OTHER" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="IS_VERI_SATISFACTORY" Type="Boolean" />
-    <Property Name="DETAIL_IF_NOT_SATISFACTORY" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="COUNTRY_HOME_REMITTANCE" Type="Int32" />
-    <Property Name="REAL_BENEFICIARY_ACCOUNT" Type="Int32" />
-    <Property Name="NAME_OTHER" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="CNIC_OTHER" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="RELATIONSHIP_WITH_ACCOUNTHOLDER" Type="Int32" />
-    <Property Name="RELATIONSHIP_DETAIL_OTHER" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="UPDATED_DATE" Type="DateTime" Precision="3" />
-    <Property Name="BENEFICIAL_ADDRESS" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
-    <Property Name="BENEFICIAL_NATIONALITY" Type="Int32" />
-    <Property Name="BENEFICIAL_RESIDENCE" Type="Int32" />
-    <Property Name="BENEFICIAL_RESIDENCE_DESC" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
-    <Property Name="BENEFICIAL_IDENTITY" Type="Int32" />
-    <Property Name="BENEFICIAL_IDENTITY_EXPIRY" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-    <Property Name="BENEFICIAL_SOURCE_OF_FUND" Type="Int32" />
-    <Property Name="NODT" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
-    <Property Name="PEDT" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
-    <Property Name="NOCT" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
-    <Property Name="PECT" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
-    <Property Name="RAC" Type="Int32" />
-    <Property Name="RAC_DETAIL" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
   </EntityType>
   <EntityType Name="KNOW_YOUR_CUSTOMER_RELATIONSHIP">
     <Key>
@@ -1020,6 +1007,9 @@
     <Property Name="PEP_NATURE_SINGLE" Type="Boolean" />
     <Property Name="PEP_RELATIONSHIP" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="PEP_DESC" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PEP_NATURE_SINGLE1" Type="Boolean" />
+    <Property Name="PEP_RELATIONSHIP1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PEP_DESC1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
   </EntityType>
   <EntityType Name="MODE_OF_TRANSACTIONS">
     <Key>
@@ -1102,6 +1092,7 @@
     <Property Name="ID" Type="Int32" Nullable="false" />
     <Property Name="NAME" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="ProfileCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ProfileCode1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
   </EntityType>
   <EntityType Name="NEXT_OF_KIN_INFO">
     <Key>
@@ -1234,6 +1225,7 @@
     </Key>
     <Property Name="REGION_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="NAME" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="BRANCHES" Relationship="AOSModel.FK__BRANCHES__REGION__74794A92" FromRole="REGIONS" ToRole="BRANCHES" />
   </EntityType>
   <EntityType Name="RELATIONSHIP">
     <Key>
@@ -1282,6 +1274,7 @@
     <Property Name="ID" Type="Int32" Nullable="false" />
     <Property Name="NAME" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="ProfileCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ProfileCode1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
   </EntityType>
   <EntityType Name="SERVICE_CHARGES_EXEMPTED_CODE">
     <Key>
@@ -1343,6 +1336,7 @@
     <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="ProfileCode" Type="Int32" />
+    <Property Name="ProfileCode1" Type="Int32" />
   </EntityType>
   <EntityType Name="SOURCE_OF_FUNDS_BUSINESS">
     <Key>
@@ -1351,6 +1345,7 @@
     <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="ProfileCode" Type="Int32" />
+    <Property Name="ProfileCode1" Type="Int32" />
   </EntityType>
   <EntityType Name="STATUS_LOG">
     <Key>
@@ -1443,6 +1438,13 @@
     <Property Name="ACTIVE" Type="Boolean" />
     <NavigationProperty Name="USERS_PERMISSIONS" Relationship="Self.FK__USERS_PER__USER___73BA3083" FromRole="USERS" ToRole="USERS_PERMISSIONS" />
     <NavigationProperty Name="USERS_ROLES" Relationship="Self.FK__USERS_ROL__USER___74AE54BC" FromRole="USERS" ToRole="USERS_ROLES" />
+    <Property Name="SAPID1" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="CREATED_BY1" Type="Int32" />
+    <Property Name="CREATED_DATETIME1" Type="DateTime" Precision="3" />
+    <Property Name="UPDATED_BY1" Type="Int32" />
+    <Property Name="UPDATED_DATETIME1" Type="DateTime" Precision="3" />
+    <Property Name="FIRST_LOGIN1" Type="Boolean" />
+    <Property Name="ACTIVE1" Type="Boolean" />
   </EntityType>
   <EntityType Name="USERS_PERMISSIONS">
     <Key>
@@ -1473,6 +1475,8 @@
     <Property Name="BI_ID" Type="Int32" />
     <Property Name="NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="IDENTITY_NO" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="NAME1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="IDENTITY_NO1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
   </EntityType>
   <EntityType Name="ZAKAT_EXEMPTION_TYPE">
     <Key>
@@ -1621,7 +1625,6 @@
     <EntitySet Name="INSTITUTION_TYPE" EntityType="Self.INSTITUTION_TYPE" />
     <EntitySet Name="ISSUING_AGENCY" EntityType="Self.ISSUING_AGENCY" />
     <EntitySet Name="KNOW_CUSTOMER_TRANSACTIONS_MODE" EntityType="Self.KNOW_CUSTOMER_TRANSACTIONS_MODE" />
-    <EntitySet Name="KNOW_YOUR_CUSTOMER" EntityType="Self.KNOW_YOUR_CUSTOMER" />
     <EntitySet Name="KNOW_YOUR_CUSTOMER_RELATIONSHIP" EntityType="Self.KNOW_YOUR_CUSTOMER_RELATIONSHIP" />
     <EntitySet Name="KYC_BENEFICIAL_ENTITY" EntityType="Self.KYC_BENEFICIAL_ENTITY" />
     <EntitySet Name="KYC_EXPECTED_COUNTER_PARTIES" EntityType="Self.KYC_EXPECTED_COUNTER_PARTIES" />
@@ -1695,6 +1698,11 @@
       <End Role="USERS_ROLES" EntitySet="USERS_ROLES" />
     </AssociationSet>
     <EntitySet Name="ACCOUNT_MODES" EntityType="AOSModel.ACCOUNT_MODES" />
+    <AssociationSet Name="FK__BRANCHES__REGION__74794A92" Association="AOSModel.FK__BRANCHES__REGION__74794A92">
+      <End Role="REGIONS" EntitySet="REGIONS" />
+      <End Role="BRANCHES" EntitySet="BRANCHES" />
+    </AssociationSet>
+    <EntitySet Name="KNOW_YOUR_CUSTOMER" EntityType="AOSModel.KNOW_YOUR_CUSTOMER" />
   </EntityContainer>
   <EntityType Name="ACCOUNT_MODES">
     <Key>
@@ -1706,5 +1714,60 @@
     <Property Name="PROFILECODE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="TYPE" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
     <Property Name="CATEGORY" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <Association Name="FK__BRANCHES__REGION__74794A92">
+    <End Type="AOSModel.REGIONS" Role="REGIONS" Multiplicity="1" />
+    <End Type="AOSModel.BRANCHES" Role="BRANCHES" Multiplicity="*" />
+  </Association>
+  <EntityType Name="KNOW_YOUR_CUSTOMER">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="BI_ID" Type="Int32" />
+    <Property Name="CUSTOMER_TYPE" Type="Int32" />
+    <Property Name="DESCRIPTION_IF_REFFERED" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="EDUCATION" Type="Int32" />
+    <Property Name="PURPOSE_OF_ACCOUNT" Type="Int32" />
+    <Property Name="DESCRIPTION_IF_OTHER" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="SOURCE_OF_FUNDS" Type="Int32" />
+    <Property Name="DESCRIPTION_OF_SOURCE" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="SERVICE_CHARGES_EXEMPTED" Type="Boolean" />
+    <Property Name="SERVICE_CHARGES_EXEMPTED_CODE" Type="Int32" />
+    <Property Name="REASON_IF_EXEMPTED" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="EXPECTED_MONTHLY_INCOME" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="MODE_OF_TRANSACTIONS" Type="Boolean" />
+    <Property Name="OTHER_MODE_OF_TRANSACTIONS" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="MAX_TRANS_AMOUNT_DR" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="MAX_TRANS_AMOUNT_CR" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="RELATIONSHIP_MANAGER" Type="Int32" />
+    <Property Name="OCCUPATION_VERIFIED" Type="Boolean" />
+    <Property Name="ADDRESS_VERIFIED" Type="Int32" />
+    <Property Name="MEANS_OF_VERIFICATION" Type="Int32" />
+    <Property Name="MEANS_OF_VERI_OTHER" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="IS_VERI_SATISFACTORY" Type="Boolean" />
+    <Property Name="DETAIL_IF_NOT_SATISFACTORY" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="COUNTRY_HOME_REMITTANCE" Type="Int32" />
+    <Property Name="REAL_BENEFICIARY_ACCOUNT" Type="Int32" />
+    <Property Name="NAME_OTHER" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CNIC_OTHER" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="RELATIONSHIP_WITH_ACCOUNTHOLDER" Type="Int32" />
+    <Property Name="RELATIONSHIP_DETAIL_OTHER" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="UPDATED_DATE" Type="DateTime" Precision="3" />
+    <Property Name="BENEFICIAL_ADDRESS" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+    <Property Name="BENEFICIAL_NATIONALITY" Type="Int32" />
+    <Property Name="BENEFICIAL_RESIDENCE" Type="Int32" />
+    <Property Name="BENEFICIAL_RESIDENCE_DESC" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+    <Property Name="BENEFICIAL_IDENTITY" Type="Int32" />
+    <Property Name="BENEFICIAL_IDENTITY_EXPIRY" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="BENEFICIAL_SOURCE_OF_FUND" Type="Int32" />
+    <Property Name="NODT" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="PEDT" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="NOCT" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="PECT" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="RAC" Type="Int32" />
+    <Property Name="RAC_DETAIL" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="ETCP_OTHER" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="GICP_OTHER" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
   </EntityType>
 </Schema>

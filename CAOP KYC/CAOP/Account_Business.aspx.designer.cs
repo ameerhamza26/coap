@@ -535,6 +535,15 @@ namespace CAOP {
         protected global::System.Web.UI.WebControls.DropDownList CiListNatureOfBusiness;
         
         /// <summary>
+        /// UpdatePanel5 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel UpdatePanel5;
+        
+        /// <summary>
         /// CiListCountry control.
         /// </summary>
         /// <remarks>
@@ -1480,15 +1489,6 @@ namespace CAOP {
         protected global::System.Web.UI.WebControls.DropDownList AuListProfitPayment;
         
         /// <summary>
-        /// RequiredFieldValidatorAuProfitPayment control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidatorAuProfitPayment;
-        
-        /// <summary>
         /// WhtProfitRadio1 control.
         /// </summary>
         /// <remarks>
@@ -2038,6 +2038,24 @@ namespace CAOP {
         protected global::System.Web.UI.WebControls.CustomValidator CustomValidatorECP;
         
         /// <summary>
+        /// KntxtDescETCP control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox KntxtDescETCP;
+        
+        /// <summary>
+        /// RequiredFieldValidatorDescETCP control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidatorDescETCP;
+        
+        /// <summary>
         /// KnListGCP control.
         /// </summary>
         /// <remarks>
@@ -2054,6 +2072,24 @@ namespace CAOP {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.CustomValidator CustomValidatorGCP;
+        
+        /// <summary>
+        /// KntxtDescGCP control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox KntxtDescGCP;
+        
+        /// <summary>
+        /// RequiredFieldValidatorDescGCP control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidatorDescGCP;
         
         /// <summary>
         /// KnListRealBenef control.

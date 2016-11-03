@@ -263,7 +263,7 @@ namespace CAOP
             ContactInfo c = new ContactInfo();
             c.BI_ID = BID;
             c.COUNTRY_CODE = new Country() { ID = Convert.ToInt32(OffListCountry.SelectedItem.Value) };
-            if (OffListCountry.SelectedItem.Text.Trim() == "PAKISTAN")
+            if (OffListCountry.SelectedItem.Text.Trim() != "PAKISTAN")
             {
                 c.PROVINCE = new Province() { ID = null };
                 c.CITY_PERMANENT = new City() { ID = null };
@@ -282,7 +282,7 @@ namespace CAOP
             c.POSTAL_CODE = OffPostalCode.Text;
 
             c.COUNTRY_CODE_PRE = new Country() { ID = Convert.ToInt32(OffListCountryPre.SelectedItem.Value) };
-            if (OffListCountryPre.SelectedItem.Text.Trim() == "PAKISTAN")
+            if (OffListCountryPre.SelectedItem.Text.Trim() != "PAKISTAN")
             {
                 c.PROVINCE_PRE = new Province() { ID = null };
                 c.CITY_PRESENT = new City() { ID = null };

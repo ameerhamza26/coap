@@ -177,6 +177,7 @@ namespace CAOP
                 BiNtn.Text =  ListExtensions.RemoveNull(b.NTN);
                 BiSalesTax.Text=  ListExtensions.RemoveNull(b.SALES_TAX_NO);
                 ListExtensions.SetDropdownValue(b.Issuing_Agency.ID, BiListIssueAgency);
+                BiIssueOther.Text = b.ISSUING_AGENCY_OTHER;
                 BiRegistrationNo.Text =  ListExtensions.RemoveNull(b.REG_NO);
                 try
                 {
@@ -223,6 +224,7 @@ namespace CAOP
                 BiListSubIndustry.Items.Insert(0, new ListItem("Select", "0"));
                 ListExtensions.SetDropdownValue(b.SUB_INDUSTRY.ID, BiListSubIndustry);
                 chkDocument.Checked = b.DOCUMENT_VERIFIED;
+
 
                 BibtnSubmitBaisc.Visible = false;
 
@@ -332,15 +334,43 @@ namespace CAOP
                  BdTextMC.Text = b.MAIN_CUSTOMERS;
                  BdTextMBLA.Text = b.MAIN_BUSINESS_ACTIVITY;
 
-                BdListBusinessInCities.Items
-                    .Cast<ListItem>()
-                    .Where(c => b.BusinessCities.Where(i => i.ID == Convert.ToInt32(c.Value)).Any())
-                    .Select(c => c.Selected = true);
+                 if (b.BusinessCities.Count > 0)
+                 {
+                     foreach (ListItem item in BdListBusinessInCities.Items)
+                     {
+                         foreach (var a in b.BusinessCities)
+                         {
+                             if (item.Value == a.ID.ToString())
+                             {
+                                 item.Selected = true;
+                             }
+                         }
 
-                BdListBusinessInCountry.Items
-                    .Cast<ListItem>()
-                    .Where(c => b.BusinessCountries.Where(i => i.ID == Convert.ToInt32(c.Value)).Any())
-                    .Select(c => c.Selected = true);
+                     }
+                 }
+
+                //BdListBusinessInCities.Items
+                //    .Cast<ListItem>()
+                //    .Where(c => b.BusinessCities.Where(i => i.ID == Convert.ToInt32(c.Value)).Any())
+                //    .Select(c => c.Selected = true);
+
+                 if (b.BusinessCountries.Count > 0)
+                 {
+                     foreach (ListItem item in BdListBusinessInCountry.Items)
+                     {
+                         foreach (var abc in b.BusinessCountries)
+                         {
+                             if (item.Value == abc.ID.ToString())
+                             {
+                                 item.Selected = true;
+                             }
+                         }
+                     }
+                 }
+                //BdListBusinessInCountry.Items
+                //    .Cast<ListItem>()
+                //    .Where(c => b.BusinessCountries.Where(i => i.ID == Convert.ToInt32(c.Value)).Any())
+                //    .Select(c => c.Selected = true);
 
                 BdSubmitButton.Visible = false;
 
@@ -382,6 +412,8 @@ namespace CAOP
                 FiTotalAssetValue.Text = m.TOTAL_ASSET_VALUE;
                 FiLiabilities.Text = m.LIABILITIES;
                 FiNetWorth.Text = m.NET_WORTH;
+                if (m.SOURCE_OF_FUND != null)
+                    ListExtensions.SetDropdownValue(m.SOURCE_OF_FUND,MiListSOF);
                // ListExtensions.SetDropdownValue(m.MONTHLY_TURNOVER_DEBIT.ID, FiListMonthTurnOverDebit);
               //  ListExtensions.SetDropdownValue(m.MONTHLY_TURNOVER_CREDIT.ID, FiListMonthTurnOverCredit);
               //  ListExtensions.SetDropdownValue(m.AVERAGE_CASH_DEPOSIT.ID, FiListAvgNoOfCashDeposits);
@@ -522,6 +554,7 @@ namespace CAOP
             AverageCashDeposit ac = new AverageCashDeposit();
             AverageNonCashDeposit ad = new AverageNonCashDeposit();
             FrequencyGrossSale fc = new FrequencyGrossSale();
+            SourceOfFunds sof = new SourceOfFunds();
 
             FiListMonthTurnOverDebit.DataSource = md.GetMonthlyTurnOverDebit();
             FiListMonthTurnOverDebit.DataValueField = "ID";
@@ -552,6 +585,12 @@ namespace CAOP
             FiListFrequencyOfSale.DataTextField = "Name";
             FiListFrequencyOfSale.DataBind();
             FiListFrequencyOfSale.Items.Insert(0, new ListItem("Select", "0"));
+
+            MiListSOF.DataSource = sof.GetSourceOfFundsBusiness();
+            MiListSOF.DataValueField = "ID";
+            MiListSOF.DataTextField = "NAME";
+            MiListSOF.DataBind();
+            MiListSOF.Items.Insert(0, new ListItem("Select", "0"));
         }
         private void SetBankingRelationship()
         {
@@ -839,6 +878,7 @@ namespace CAOP
                 {
                     b.Issuing_Agency = new IssuingAgency() { ID = Convert.ToInt32(BiListIssueAgency.SelectedItem.Value), Name = BiListIssueAgency.SelectedItem.Text };
                 }
+                b.ISSUING_AGENCY_OTHER = BiIssueOther.Text;
 
                 b.COUNTRY_INCORPORATION = new Country() { ID = Convert.ToInt32(BiListCountryIncorporation.SelectedValue) };
 
@@ -1224,6 +1264,7 @@ namespace CAOP
                 m.TOTAL_ASSET_VALUE = FiTotalAssetValue.Text;
                 m.LIABILITIES = FiLiabilities.Text;
                 m.NET_WORTH = FiNetWorth.Text;
+                m.SOURCE_OF_FUND = Convert.ToInt32(MiListSOF.SelectedItem.Value);
 
              //   m.MONTHLY_TURNOVER_DEBIT = new MonthlyTurnOverDebit() { ID = Convert.ToInt32(FiListMonthTurnOverDebit.SelectedItem.Value), Name = FiListMonthTurnOverDebit.SelectedItem.Text };
             //    m.MONTHLY_TURNOVER_CREDIT = new MonthlyTurnOverCredit() { ID = Convert.ToInt32(FiListMonthTurnOverCredit.SelectedItem.Value), Name = FiListMonthTurnOverCredit.SelectedItem.Text };
@@ -1353,6 +1394,7 @@ namespace CAOP
             {
                 b.Issuing_Agency = new IssuingAgency() { ID = Convert.ToInt32(BiListIssueAgency.SelectedItem.Value), Name = BiListIssueAgency.SelectedItem.Text };
             }
+            b.ISSUING_AGENCY_OTHER = BiIssueOther.Text;
 
             b.REG_NO = BiRegistrationNo.Text;
            // b.REG_DATE = BiDateOfRegistration.Text;
@@ -1614,6 +1656,7 @@ namespace CAOP
         //    m.AVERAGE_CASH_DEPOSIT = new AverageCashDeposit() { ID = Convert.ToInt32(FiListAvgNoOfCashDeposits.SelectedItem.Value), Name = FiListAvgNoOfCashDeposits.SelectedItem.Text };
          //   m.AVERAGE_CASH_NON_DEPOSIT = new AverageNonCashDeposit() { ID = Convert.ToInt32(FiListAvgNoOfNonCashDeposits.SelectedItem.Value), Name = FiListAvgNoOfNonCashDeposits.SelectedItem.Text };
             m.GROSS_SALE = FiGrossSale.Text;
+            m.SOURCE_OF_FUND = Convert.ToInt32(MiListSOF.SelectedItem.Value);
             m.FREQUENCY_GROSS_SALE = new FrequencyGrossSale() { ID = Convert.ToInt32(FiListFrequencyOfSale.SelectedItem.Value), Name = FiListFrequencyOfSale.SelectedItem.Text };
             m.UpdateBusinessMiscellaneousInfo();
         }
@@ -1671,6 +1714,11 @@ namespace CAOP
                 RequiredFieldValidatorReg.Enabled = true;
             else
                 RequiredFieldValidatorReg.Enabled = false;
+
+            if (BiListIssueAgency.SelectedItem.Text == "OTHER")
+                RequiredFieldValidatorOtherIssue.Enabled = true;
+            else
+                RequiredFieldValidatorOtherIssue.Enabled = false;
         }
 
         protected void FiTotalAssetValue_TextChanged(object sender, EventArgs e)
@@ -1822,7 +1870,8 @@ namespace CAOP
                 }
 
                 string PhoneExtension = "";
-                string SourceType = BiListNatureOfbusiness.SelectedItem.Value;
+                SourceOfFunds sof = new SourceOfFunds();
+                string SourceType = sof.GetProfileCodeBusiness(Convert.ToInt32(MiListSOF.SelectedItem.Value));
                 string Currency = "PKR";
                 string Role = "OWNER";
                 string RelationDefn = "";
@@ -2172,6 +2221,20 @@ namespace CAOP
 
             }
 
+        }
+
+        protected void CiListCountry_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (CiListCountry.SelectedItem.Text.Trim() != "PAKISTAN")
+            {
+                RequiredFieldValidatorPermanentProvice.Enabled = false;
+                RequiredFieldValidatorPermanentCity.Enabled = false;
+            }
+            else
+            {
+                RequiredFieldValidatorPermanentProvice.Enabled = true;
+                RequiredFieldValidatorPermanentCity.Enabled = true;
+            }
         }
 
 

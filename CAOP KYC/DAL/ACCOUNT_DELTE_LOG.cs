@@ -25,5 +25,6 @@ namespace DAL
         public Nullable<System.DateTime> ACCOUNT_ENTRY_DATE { get; set; }
         public Nullable<int> CREATED_USER { get; set; }
         public Nullable<int> DELETED_USER { get; set; }
+        public Nullable<System.DateTime> DELETE_DATETIME { get; set; }
     }
 }

@@ -20,6 +20,30 @@ namespace BLL
         public string CUSTOMER_NAME { get; set; }
         public string CUSTOMER_IDENTITY { get; set; }
 
+        public Nullable<int> NEG_LIST { get; set; }
         public List<ApplicantInformationCifs> APPLICANT_INFORMANTS { get; set; }
+
+        public bool CheckAccountType(int CifId, int AccountTypeId)
+        {
+            using (CAOPDbContext db = new CAOPDbContext())
+            {
+              int CustomerType = (int)  db.BASIC_INFORMATIONS.FirstOrDefault(b => b.ID == CifId).CUSTOMER_TYPE;
+
+              if (db.ACCOUNT_TYPES.Where(a => a.ID == AccountTypeId && a.CIFTypeAllowed == CustomerType).Any())
+                  return true;
+              else
+                  return false;
+              
+            }
+        }
+
+        public int GetCustomerType(int CifId)
+        {
+            using (CAOPDbContext db = new CAOPDbContext())
+            {
+                int CustomerType = (int)db.BASIC_INFORMATIONS.FirstOrDefault(b => b.ID == CifId).CUSTOMER_TYPE;
+                return CustomerType;
+            }
+        }
     }
 }

@@ -34,3 +34,15 @@ D:\New Projects\AOS Code\AOS Code\BLL\bin\Debug\EntityFramework.xml
 D:\New Projects\AOS Code\AOS Code\BLL\bin\Debug\EntityFramework.SqlServer.xml
 D:\New Projects\AOS Code\AOS Code\BLL\obj\Debug\BLL.dll
 D:\New Projects\AOS Code\AOS Code\BLL\obj\Debug\BLL.pdb
+F:\Projects\coap\CAOP KYC\BLL\bin\Debug\BLL.dll.config
+F:\Projects\coap\CAOP KYC\BLL\bin\Debug\BLL.dll
+F:\Projects\coap\CAOP KYC\BLL\bin\Debug\BLL.pdb
+F:\Projects\coap\CAOP KYC\BLL\bin\Debug\DAL.dll
+F:\Projects\coap\CAOP KYC\BLL\bin\Debug\EntityFramework.dll
+F:\Projects\coap\CAOP KYC\BLL\bin\Debug\EntityFramework.SqlServer.dll
+F:\Projects\coap\CAOP KYC\BLL\bin\Debug\DAL.pdb
+F:\Projects\coap\CAOP KYC\BLL\bin\Debug\EntityFramework.xml
+F:\Projects\coap\CAOP KYC\BLL\bin\Debug\EntityFramework.SqlServer.xml
+F:\Projects\coap\CAOP KYC\BLL\obj\Debug\BLL.csprojResolveAssemblyReference.cache
+F:\Projects\coap\CAOP KYC\BLL\obj\Debug\BLL.dll
+F:\Projects\coap\CAOP KYC\BLL\obj\Debug\BLL.pdb

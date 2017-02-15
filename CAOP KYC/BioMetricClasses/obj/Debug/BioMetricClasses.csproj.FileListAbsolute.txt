@@ -1,20 +1,14 @@
-E:\CAOP OFFICE\CAOP\BioMetricClasses\bin\Debug\BioMetricClasses.dll
-E:\CAOP OFFICE\CAOP\BioMetricClasses\bin\Debug\BioMetricClasses.pdb
-E:\CAOP OFFICE\CAOP\BioMetricClasses\obj\Debug\BioMetricClasses.csprojResolveAssemblyReference.cache
-E:\CAOP OFFICE\CAOP\BioMetricClasses\obj\Debug\BioMetricClasses.dll
-E:\CAOP OFFICE\CAOP\BioMetricClasses\obj\Debug\BioMetricClasses.pdb
-H:\CAOP KYC\BioMetricClasses\bin\Debug\BioMetricClasses.dll
-H:\CAOP KYC\BioMetricClasses\bin\Debug\BioMetricClasses.pdb
-H:\CAOP KYC\BioMetricClasses\obj\Debug\BioMetricClasses.csprojResolveAssemblyReference.cache
-H:\CAOP KYC\BioMetricClasses\obj\Debug\BioMetricClasses.dll
-H:\CAOP KYC\BioMetricClasses\obj\Debug\BioMetricClasses.pdb
-C:\Users\Ameer Hamza\Documents\GitHub\coap\CAOP KYC\BioMetricClasses\bin\Debug\BioMetricClasses.dll
-C:\Users\Ameer Hamza\Documents\GitHub\coap\CAOP KYC\BioMetricClasses\bin\Debug\BioMetricClasses.pdb
-C:\Users\Ameer Hamza\Documents\GitHub\coap\CAOP KYC\BioMetricClasses\obj\Debug\BioMetricClasses.csprojResolveAssemblyReference.cache
-C:\Users\Ameer Hamza\Documents\GitHub\coap\CAOP KYC\BioMetricClasses\obj\Debug\BioMetricClasses.dll
-C:\Users\Ameer Hamza\Documents\GitHub\coap\CAOP KYC\BioMetricClasses\obj\Debug\BioMetricClasses.pdb
-E:\AOS\coap\CAOP KYC\BioMetricClasses\bin\Debug\BioMetricClasses.dll
-E:\AOS\coap\CAOP KYC\BioMetricClasses\bin\Debug\BioMetricClasses.pdb
-E:\AOS\coap\CAOP KYC\BioMetricClasses\obj\Debug\BioMetricClasses.csprojResolveAssemblyReference.cache
-E:\AOS\coap\CAOP KYC\BioMetricClasses\obj\Debug\BioMetricClasses.dll
-E:\AOS\coap\CAOP KYC\BioMetricClasses\obj\Debug\BioMetricClasses.pdb
+D:\AOS\CAOP KYC\BioMetricClasses\bin\Debug\BioMetricClasses.dll
+D:\AOS\CAOP KYC\BioMetricClasses\bin\Debug\BioMetricClasses.pdb
+D:\AOS\CAOP KYC\BioMetricClasses\obj\Debug\BioMetricClasses.dll
+D:\AOS\CAOP KYC\BioMetricClasses\obj\Debug\BioMetricClasses.pdb
+D:\AOS\AOS Code\BioMetricClasses\bin\Debug\BioMetricClasses.dll
+D:\AOS\AOS Code\BioMetricClasses\bin\Debug\BioMetricClasses.pdb
+D:\AOS\AOS Code\BioMetricClasses\obj\Debug\BioMetricClasses.dll
+D:\AOS\AOS Code\BioMetricClasses\obj\Debug\BioMetricClasses.pdb
+D:\AOS\AOS Code\BioMetricClasses\obj\Debug\BioMetricClasses.csprojResolveAssemblyReference.cache
+D:\New Projects\AOS Code\AOS Code\BioMetricClasses\bin\Debug\BioMetricClasses.dll
+D:\New Projects\AOS Code\AOS Code\BioMetricClasses\bin\Debug\BioMetricClasses.pdb
+D:\New Projects\AOS Code\AOS Code\BioMetricClasses\obj\Debug\BioMetricClasses.csprojResolveAssemblyReference.cache
+D:\New Projects\AOS Code\AOS Code\BioMetricClasses\obj\Debug\BioMetricClasses.dll
+D:\New Projects\AOS Code\AOS Code\BioMetricClasses\obj\Debug\BioMetricClasses.pdb

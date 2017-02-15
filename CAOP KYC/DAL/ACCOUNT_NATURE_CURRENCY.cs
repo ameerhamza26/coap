@@ -38,5 +38,6 @@ namespace DAL
         public string BRANCH_CODE { get; set; }
         public string IBAN { get; set; }
         public Nullable<int> ACCOUNT_PURPOSE { get; set; }
+        public Nullable<int> LSO_CODE { get; set; }
     }
 }

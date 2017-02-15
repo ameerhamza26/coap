@@ -11,7 +11,6 @@
         <EntityTypeShape EntityType="AOSModel.ACCOUNT_CONTACT_INFO" Width="1.5" PointX="7.75" PointY="4.75" IsExpanded="true" />
         <EntityTypeShape EntityType="AOSModel.ACCOUNT_DELTE_LOG" Width="1.5" PointX="4.75" PointY="7.75" IsExpanded="true" />
         <EntityTypeShape EntityType="AOSModel.ACCOUNT_GROUP" Width="1.5" PointX="9.75" PointY="4.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="AOSModel.ACCOUNT_NATURE_CURRENCY" Width="1.5" PointX="9.75" PointY="7.75" IsExpanded="true" />
         <EntityTypeShape EntityType="AOSModel.ACCOUNT_OPEN_TYPE" Width="1.5" PointX="10.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="AOSModel.ACCOUNT_REVIEW" Width="1.5" PointX="0.75" PointY="10.75" IsExpanded="true" />
         <EntityTypeShape EntityType="AOSModel.ACCOUNT_STATEMENT_FREQUENCY" Width="1.5" PointX="2.75" PointY="11.75" IsExpanded="true" />
@@ -159,6 +158,10 @@
         <EntityTypeShape EntityType="AOSModel.OFFICE_CODES" Width="1.5" PointX="25.375" PointY="34.75" />
         <EntityTypeShape EntityType="AOSModel.ChangeLog" Width="1.5" PointX="27.375" PointY="34.75" />
         <EntityTypeShape EntityType="AOSModel.ACCOUNT_PURPOSE" Width="1.5" PointX="29.375" PointY="34.75" />
+        <EntityTypeShape EntityType="AOSModel.ACCOUNT_NATURE_CURRENCY" Width="1.5" PointX="10" PointY="8.5" />
+        <EntityTypeShape EntityType="AOSModel.ACCOUNT_MODES2" Width="1.5" PointX="5.375" PointY="35.75" />
+        <EntityTypeShape EntityType="AOSModel.MRPC_FAILURE_MESSAGES" Width="1.5" PointX="7.375" PointY="35.75" />
+        <EntityTypeShape EntityType="AOSModel.EMPLOYER_CODE2" Width="1.5" PointX="35.375" PointY="9.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

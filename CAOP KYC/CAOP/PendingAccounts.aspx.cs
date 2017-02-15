@@ -25,7 +25,8 @@ namespace CAOP
         {
             if (e.Row.RowType == DataControlRowType.DataRow)
             {
-                LinkButton CIF_ID = e.Row.FindControl("btnAccountID") as LinkButton;
+                //LinkButton CIF_ID = e.Row.FindControl("btnID") as LinkButton;
+                Label CIF_ID = e.Row.FindControl("btnID") as Label;
                 User LoggedUser = Session["User"] as User;
                 AccOpen a = new AccOpen(LoggedUser.USER_ID);
                 AccountOpenTypes type = a.GetAccountOpenType(Convert.ToInt32(CIF_ID.Text));
@@ -36,23 +37,23 @@ namespace CAOP
                 
                 if (type == AccountOpenTypes.INDIVIDUAL)
                 {
-                    CIF_ID.PostBackUrl = "~/Account_Individual.aspx?ID=" + CIF_ID.Text;
+                    //CIF_ID.PostBackUrl = "~/Account_Individual.aspx?ID=" + CIF_ID.Text;
                     lbledit.PostBackUrl = "~/Account_Individual.aspx?ID=" + CIF_ID.Text;
 
                 }
                 else if (type == AccountOpenTypes.GOVERNMENT)
                 {
-                    CIF_ID.PostBackUrl = "~/Account_Government.aspx?ID=" + CIF_ID.Text;
+                    //CIF_ID.PostBackUrl = "~/Account_Government.aspx?ID=" + CIF_ID.Text;
                     lbledit.PostBackUrl = "~/Account_Government.aspx?ID=" + CIF_ID.Text;
                 }
                 else if (type == AccountOpenTypes.OFFICE)
                 {
-                    CIF_ID.PostBackUrl = "~/Account_Office.aspx?ID=" + CIF_ID.Text;
+                    //CIF_ID.PostBackUrl = "~/Account_Office.aspx?ID=" + CIF_ID.Text;
                     lbledit.PostBackUrl = "~/Account_Office.aspx?ID=" + CIF_ID.Text;
                 }
                 else
                 {
-                    CIF_ID.PostBackUrl = "~/Account_Business.aspx?ID=" + CIF_ID.Text;
+                   // CIF_ID.PostBackUrl = "~/Account_Business.aspx?ID=" + CIF_ID.Text;
                     lbledit.PostBackUrl = "~/Account_Business.aspx?ID=" + CIF_ID.Text;
                 }
 
@@ -79,8 +80,8 @@ namespace CAOP
 
             //Get the row that contains this button
             GridViewRow gvr = (GridViewRow)btn.NamingContainer;
-
-            int accountid = Convert.ToInt32(((LinkButton)gvr.FindControl("btnAccountID")).Text);
+            //Label CIF_ID = e.Row.FindControl("btnID") as Label;
+            int accountid = Convert.ToInt32(((Label)gvr.FindControl("btnID")).Text);
             AccOpen AOpen = new AccOpen(-1);
             AOpen.DelAccount(accountid,LogedUser.USER_ID);
             

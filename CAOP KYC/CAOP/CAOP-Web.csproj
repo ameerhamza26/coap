@@ -165,6 +165,7 @@
     <Content Include="DataSets\dsAOF.xss">
       <DependentUpon>dsAOF.xsd</DependentUpon>
     </Content>
+    <None Include="Properties\PublishProfiles\Afnan.pubxml" />
     <None Include="Properties\PublishProfiles\Hamza.pubxml" />
     <None Include="Properties\PublishProfiles\MATEEN.pubxml" />
     <Content Include="PasswordForms\ChangePassword.aspx" />

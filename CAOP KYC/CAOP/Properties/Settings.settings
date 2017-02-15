@@ -2,17 +2,17 @@
 <SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="CAOP.Properties" GeneratedClassName="Settings">
   <Profiles />
   <Settings>
-    <Setting Name="CAOP_RISK_GetRisk" Type="(Web Service URL)" Scope="Application">
-      <Value Profile="(Default)">http://10.1.6.171/RiskRating/GetRisk.asmx</Value>
-    </Setting>
     <Setting Name="CAOP_JavaWebReferenceTagging_ProfileConnector" Type="(Web Service URL)" Scope="Application">
       <Value Profile="(Default)">http://10.11.5.205:9090/ProfileConnectorWS/ProfileConnector</Value>
     </Setting>
     <Setting Name="CAOP_JavaWebReferenceTaggingIslamic_ProfileConnectorIslamic" Type="(Web Service URL)" Scope="Application">
       <Value Profile="(Default)">http://10.11.5.205:9090/ProfileConnectorWS/ProfileConnectorIslamic</Value>
     </Setting>
+    <Setting Name="CAOP_RISK_GetRisk" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://10.10.101.52/RiskRating/GetRisk.asmx</Value>
+    </Setting>
     <Setting Name="CAOP_CustomerInquiry_ProfileConnectorTest" Type="(Web Service URL)" Scope="Application">
-      <Value Profile="(Default)">http://10.1.6.171:8080/ProfileConnectorWS/ProfileConnectorTest</Value>
+      <Value Profile="(Default)">http://10.10.101.52:8090/ProfileConnectorWS/AOS</Value>
     </Setting>
   </Settings>
 </SettingsFile>

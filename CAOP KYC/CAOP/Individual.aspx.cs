@@ -735,7 +735,7 @@ namespace CAOP
                     String[] ProfileCif = GetProfileCif(PCIF);
 
                     // Basic Information
-                    lstPrimaryDocumentType.Items.FindByText("CNIC").Selected = true;
+                    lstPrimaryDocumentType.Items.FindByText("CNIC/SNIC").Selected = true;
                     txtCnic.Text = ProfileCif[0];
 
                     if (lstTitle.Items.FindByText(ProfileCif[7]) != null)
@@ -907,7 +907,7 @@ namespace CAOP
                         success = "1";
                         Msg = "Nadra Information Successfully Integrated";
                         lstPrimaryDocumentType.ClearSelection();
-                        lstPrimaryDocumentType.Items.FindByText("CNIC").Selected = true;
+                        lstPrimaryDocumentType.Items.FindByText("CNIC/SNIC").Selected = true;
                         lstPrimaryDocumentType.Enabled = false;
 
                         txtCnic.Text = nadra.CNIC;
@@ -1514,6 +1514,34 @@ namespace CAOP
 
         protected void btnSubmitBaisc_Click(object sender, EventArgs e)
         {
+            if (lstPrimaryDocumentType.SelectedItem.Value == "1" || lstPrimaryDocumentType.SelectedItem.Value == "2")
+            {
+                if (Request.QueryString["PROFILECIF"] == null)
+                {
+                    if (IsCustomerExistsInProfile(txtCnic.Text))
+                    {
+                        CustomValidatorCNIC.ErrorMessage = "CIF Already Exists With this CNIC in Profile. Proceed to Incorporate Cif";
+                        return;
+                    }
+                }
+            }
+
+            BasicInformations b = new BasicInformations();
+
+            if (lstPrimaryDocumentType.SelectedItem.Text == "Passport")
+            {
+                //args.IsValid = true;
+            }
+            else if (b.IsCnicExists(txtCnic.Text))
+            {
+                CustomValidatorCNIC.ErrorMessage = "CIF Already Exists With this CNIC. Proceed to Account Creation";
+
+                if (b.IsCnicExistsPArtially(txtCnic.Text))
+                    CustomValidatorCNIC.ErrorMessage = "CIF already created partially, Please complete it first";
+
+                return;
+            }
+
             if (Page.IsValid)
             {
                 InsertBasicInformation();
@@ -2637,7 +2665,7 @@ namespace CAOP
             }                
             else
             {
-                if (lstPrimaryDocumentType.SelectedItem.Value == "1")
+                if (lstPrimaryDocumentType.SelectedItem.Value == "1" || lstPrimaryDocumentType.SelectedItem.Value == "2")
                 {
                     if (Request.QueryString["PROFILECIF"] == null)
                     {
@@ -2713,7 +2741,7 @@ namespace CAOP
 
         protected void lstPrimaryDocumentType_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (lstPrimaryDocumentType.SelectedItem.Text.Trim() == "CNIC" || lstPrimaryDocumentType.SelectedItem.Text.Trim() == "NICOP" || lstPrimaryDocumentType.SelectedItem.Text.Trim() == "POC")
+            if (lstPrimaryDocumentType.SelectedItem.Text.Trim() == "CNIC/SNIC" || lstPrimaryDocumentType.SelectedItem.Text.Trim() == "NICOP" || lstPrimaryDocumentType.SelectedItem.Text.Trim() == "POC")
             {
                 RegularExpressionValidatorCnic.Enabled = true;
                 
@@ -2724,7 +2752,7 @@ namespace CAOP
                 
             }
 
-            if (lstPrimaryDocumentType.SelectedItem.Text.Trim() == "CNIC" || lstPrimaryDocumentType.SelectedItem.Text.Trim() == "NICOP")
+            if (lstPrimaryDocumentType.SelectedItem.Text.Trim() == "CNIC/SNIC" || lstPrimaryDocumentType.SelectedItem.Text.Trim() == "NICOP")
             {
                 btnBioMetricVerify.Visible = true;
             }
@@ -2788,7 +2816,7 @@ namespace CAOP
                 string CustomerIdNumber = Convert.ToInt32(Session["BID"]).ToString(); // "2280829";
                 string BranchCode = LoggedUser.Branch.BRANCH_CODE;
                 string CNIC = "";
-                if (lstPrimaryDocumentType.SelectedItem.Text == "CNIC")
+                if (lstPrimaryDocumentType.SelectedItem.Text == "CNIC/SNIC")
                     CNIC = txtCnic.Text;
                 string CustomerType = "0";
                 string CustomerTitle = lstTitle.SelectedItem.Text;

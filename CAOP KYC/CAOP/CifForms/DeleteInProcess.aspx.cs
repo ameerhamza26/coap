@@ -57,8 +57,8 @@ namespace CAOP.CifForms
                 CIF cf = new CIF(LoggedUser.USER_ID);
                 CifType Type = cf.GetCifType(Convert.ToInt32(CIF_ID.Text));
 
-                if (lblProfile.Text.Length > 0 || lblStatus.Text == Status.APPROVED_BY_BRANCH_MANAGER.ToString())
-                    lblDel.Visible = false;
+                //if (lblProfile.Text.Length > 0 || lblStatus.Text == Status.APPROVED_BY_BRANCH_MANAGER.ToString())
+                    //lblDel.Visible = false;
 
                 if (LoggedUser.Role.Name == Roles.BRANCH_OPERATOR.ToString())
                 {

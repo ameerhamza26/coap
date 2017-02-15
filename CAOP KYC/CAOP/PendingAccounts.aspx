@@ -12,9 +12,10 @@
     
     <Columns>
        
-        <asp:TemplateField HeaderText="Account ID" Visible="false">
+        <asp:TemplateField HeaderText="Temporary Account Number">
             <ItemTemplate>
-                <asp:LinkButton ID="btnAccountID" runat="server" Text='<%# Bind("ID") %>'></asp:LinkButton>
+                
+                <asp:Label ID="btnID" runat="server" Text='<%# Bind("ID") %>'></asp:Label>
             </ItemTemplate>
         </asp:TemplateField>
 
@@ -34,7 +35,11 @@
                 <asp:Label ID="lblAccountType" runat="server" Text='<%# Bind("ACCOUNT_OPEN_TYPE") %>'></asp:Label>
             </ItemTemplate>
         </asp:TemplateField>
-
+        <asp:TemplateField HeaderText="STATUS">
+            <ItemTemplate>
+                <asp:Label ID="lblStatus" runat="server" Text='<%# Bind("STATUS") %>'></asp:Label>
+            </ItemTemplate>
+        </asp:TemplateField>
          <asp:TemplateField HeaderText="Last Updated">
             <ItemTemplate>
                 <asp:Label ID="lblLastUpdated" runat="server" Text='<%# Bind("LAST_UPDATED") %>'></asp:Label>

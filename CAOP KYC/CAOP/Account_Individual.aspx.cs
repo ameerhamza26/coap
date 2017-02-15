@@ -583,6 +583,7 @@ namespace CAOP
             Currency c = new Currency();
             AccountOpenType an = new AccountOpenType();
             AccountClass Ac = new AccountClass();
+            LSO lsoList = new LSO();
 
             //AcListGlCode.DataSource = g.GetGlCodeTypes();
             //AcListGlCode.DataValueField = "ID";
@@ -621,7 +622,11 @@ namespace CAOP
             AcListAccountClass.DataBind();
             AcListAccountClass.Items.Insert(0, new ListItem("Select", "0"));
 
-
+            LSOOfficerCode.DataSource = lsoList.GetLSOList();
+            LSOOfficerCode.DataValueField = "ID";
+            LSOOfficerCode.DataTextField = "NAME";
+            LSOOfficerCode.DataBind();
+            LSOOfficerCode.Items.Insert(0, new ListItem("Select", "0"));
 
             AcEntryDate.Text = DateTime.Now.ToString("yyyy-MM-dd");
         }
@@ -1204,7 +1209,7 @@ namespace CAOP
                 }
                 else
                     AcCnicVerifiedCheck.Checked = false;
-
+                
                 ListExtensions.SetDropdownValue(a.ACCOUNT_OPEN_TYPE.ID, AcListAccountOpen);
                 AcEntryDate.Text = a.ACCOUNT_ENTRY_DATE.ToString("yyyy-MM-dd");
               //  ListExtensions.SetDropdownValue(a.GL_CODE.ID, AcListGlCode);

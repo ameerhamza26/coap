@@ -327,9 +327,9 @@
                         </div>
 
                         <div class="form-group" >
-                            <label  class="lblReview">Family No: *</label>
+                            <label  class="lblReview">Family No: </label>
                             <asp:TextBox ID="OiTxtFamilyNo"  CssClass="form-control" runat="server" MaxLength="6"></asp:TextBox>
-                            <asp:RequiredFieldValidator  ID="OiRequiredFieldValidatorTxtFamilyNo" runat="server" ControlToValidate="OiTxtFamilyNo" ForeColor="Red" Font-Bold="true" ValidationGroup="OiValidationGroup" ErrorMessage="Family No is Required"></asp:RequiredFieldValidator>
+                            
                         </div>
                         <h3 style="display:none">CNIC Token Information (For Expired CNICs) *</h3>
                         <div class="form-group" style="display:none">
@@ -475,7 +475,7 @@
                         </div>
                         <div class="form-group">
                             <label  class="lblReview">Postal Code:</label>
-                            <asp:TextBox ID="CiTxtPotalCode" CssClass="form-control" runat="server"></asp:TextBox>                             
+                            <asp:TextBox ID="CiTxtPotalCode" CssClass="form-control" MaxLength="10" runat="server"></asp:TextBox>                             
                         </div>
                       
 
@@ -536,7 +536,7 @@
                         </div>
                         <div class="form-group">
                             <label  class="lblReview">Postal Code:</label>
-                            <asp:TextBox ID="CiTxtPotalCodePre" CssClass="form-control" runat="server"></asp:TextBox>                             
+                            <asp:TextBox ID="CiTxtPotalCodePre" CssClass="form-control" MaxLength="10" runat="server"></asp:TextBox>                             
                         </div>
                        
 

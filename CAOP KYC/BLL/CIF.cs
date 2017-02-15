@@ -112,13 +112,16 @@ namespace BLL
                return db.BASIC_INFORMATIONS.Where(b => b.ID == BId && Statuses.Contains(b.STATUS)).Any();
            }
        }
+
        public List<BasicInformations> GetPendingCifs()
        {
            using (CAOPDbContext db = new CAOPDbContext())
            {
-               List<BasicInformations> PendingCifs = db.BASIC_INFORMATIONS.Where(b => b.STATUS == "SAVED" && b.UserId == this.UserId)
+                USERS usr = db.USERS.FirstOrDefault(b => b.USER_ID == this.UserId);
+                BRANCHES br = db.BRANCHES.FirstOrDefault(b => b.BRANCH_ID == usr.PARENT_ID);
+                string parentid = db.USERS.Where(b => b.USER_ID == this.UserId).Select(b => new User { PARENT_ID = b.PARENT_ID }).ToString();
+                List<BasicInformations> PendingCifs = db.BASIC_INFORMATIONS.Where(b => b.STATUS == "SAVED" && b.UserId == this.UserId && b.BRANCH_CODE == br.BRANCH_CODE)
                      .OrderByDescending(b=> b.LAST_UPDATED).Select(b => new BasicInformations { ID = b.ID, CNIC = b.CNIC, NAME = b.NAME,NAME_OFFICE = b.NAME_OFFICE, STATUS = b.STATUS, LAST_UPDATED = b.LAST_UPDATED, NTN = b.NTN, CIF_TYPE = new CifTypes {ID  = (int) b.CIF_TYPE, Name = db.CIF_TYPES.FirstOrDefault(t => t.ID == b.CIF_TYPE).Name }  }).ToList();
-
                return PendingCifs;
            }
        }
@@ -164,7 +167,9 @@ namespace BLL
                {
 
                    BranchUsers.Add(this.UserId);
-                   SubmittedCifs = db.BASIC_INFORMATIONS.Where(b => b.STATUS != Status.SAVED.ToString() && b.PROFILE_STATUS != "POSTED" && BranchUsers.Contains((int)b.UserId))
+                    USERS usr = db.USERS.FirstOrDefault(b => b.USER_ID == this.UserId);
+                    BRANCHES br = db.BRANCHES.FirstOrDefault(b => b.BRANCH_ID == usr.PARENT_ID);
+                    SubmittedCifs = db.BASIC_INFORMATIONS.Where(b => b.STATUS != Status.SAVED.ToString() && b.PROFILE_STATUS != "POSTED" && BranchUsers.Contains((int)b.UserId) && b.BRANCH_CODE == br.BRANCH_CODE)
                       .OrderByDescending(b => b.LAST_UPDATED).Select(b => new BasicInformations { ID = b.ID, CNIC = b.CNIC, NAME = b.NAME, NAME_OFFICE = b.NAME_OFFICE, LAST_UPDATED = b.LAST_UPDATED, STATUS = b.STATUS, NTN = b.NTN, CIF_TYPE = new CifTypes { ID = (int)b.CIF_TYPE, Name = db.CIF_TYPES.FirstOrDefault(t => t.ID == b.CIF_TYPE).Name }, RISK_SCORE = b.RISK_SCORE, RISK_CATEGORY = b.RISK_CATEGORY, PROFILE_CIF_NO = b.PROFILE_CIF_NO, BRANCH_CODE = b.BRANCH_CODE }).ToList();
 
                }
@@ -190,7 +195,10 @@ namespace BLL
                    }
                    else if (UserRole == Roles.BRANCH_MANAGER.ToString())
                    {
-                       SubmittedCifs = db.BASIC_INFORMATIONS.Where(b => b.STATUS != Status.SAVED.ToString() && b.STATUS != Status.SUBMITTED.ToString() && b.STATUS != Status.REJECTEBY_COMPLIANCE_MANAGER.ToString() && b.PROFILE_STATUS != "POSTED" && BranchUsers.Contains((int)b.UserId))
+                       //SubmittedCifs = db.BASIC_INFORMATIONS.Where(b => b.STATUS != Status.SAVED.ToString() && b.STATUS != Status.SUBMITTED.ToString() && b.STATUS != Status.REJECTEBY_COMPLIANCE_MANAGER.ToString() && b.PROFILE_STATUS != "POSTED" && BranchUsers.Contains((int)b.UserId))
+                       //.OrderByDescending(b => b.LAST_UPDATED).Select(b => new BasicInformations { ID = b.ID, CNIC = b.CNIC, NAME = b.NAME, NAME_OFFICE = b.NAME_OFFICE, STATUS = b.STATUS, LAST_UPDATED = b.LAST_UPDATED, NTN = b.NTN, CIF_TYPE = new CifTypes { ID = (int)b.CIF_TYPE, Name = db.CIF_TYPES.FirstOrDefault(t => t.ID == b.CIF_TYPE).Name }, RISK_SCORE = b.RISK_SCORE, RISK_CATEGORY = b.RISK_CATEGORY, PROFILE_CIF_NO = b.PROFILE_CIF_NO, BRANCH_CODE = b.BRANCH_CODE }).ToList();
+
+                       SubmittedCifs = db.BASIC_INFORMATIONS.Where(b => b.STATUS != Status.APPROVED_BY_BRANCH_MANAGER.ToString() && b.PROFILE_STATUS != "POSTED" && BranchUsers.Contains((int)b.UserId))
                        .OrderByDescending(b => b.LAST_UPDATED).Select(b => new BasicInformations { ID = b.ID, CNIC = b.CNIC, NAME = b.NAME, NAME_OFFICE = b.NAME_OFFICE, STATUS = b.STATUS, LAST_UPDATED = b.LAST_UPDATED, NTN = b.NTN, CIF_TYPE = new CifTypes { ID = (int)b.CIF_TYPE, Name = db.CIF_TYPES.FirstOrDefault(t => t.ID == b.CIF_TYPE).Name }, RISK_SCORE = b.RISK_SCORE, RISK_CATEGORY = b.RISK_CATEGORY, PROFILE_CIF_NO = b.PROFILE_CIF_NO, BRANCH_CODE = b.BRANCH_CODE }).ToList();
                    }
                }
@@ -210,7 +218,9 @@ namespace BLL
                {
 
                    BranchUsers.Add(this.UserId);
-                   SubmittedCifs = db.BASIC_INFORMATIONS.Where(b => b.STATUS == Status.REJECTEBY_COMPLIANCE_MANAGER.ToString() && BranchUsers.Contains((int)b.UserId))
+                    USERS usr = db.USERS.FirstOrDefault(b => b.USER_ID == this.UserId);
+                    BRANCHES br = db.BRANCHES.FirstOrDefault(b => b.BRANCH_ID == usr.PARENT_ID);
+                    SubmittedCifs = db.BASIC_INFORMATIONS.Where(b => b.STATUS == Status.REJECTEBY_COMPLIANCE_MANAGER.ToString() && BranchUsers.Contains((int)b.UserId) && b.BRANCH_CODE == br.BRANCH_CODE)
                       .OrderByDescending(b => b.LAST_UPDATED).Select(b => new BasicInformations { ID = b.ID, CNIC = b.CNIC, NAME = b.NAME, NAME_OFFICE = b.NAME_OFFICE, LAST_UPDATED = b.LAST_UPDATED, STATUS = b.STATUS, NTN = b.NTN, CIF_TYPE = new CifTypes { ID = (int)b.CIF_TYPE, Name = db.CIF_TYPES.FirstOrDefault(t => t.ID == b.CIF_TYPE).Name }, RISK_SCORE = b.RISK_SCORE, RISK_CATEGORY = b.RISK_CATEGORY, PROFILE_CIF_NO = b.PROFILE_CIF_NO, BRANCH_CODE = b.BRANCH_CODE }).ToList();
 
                }
@@ -254,8 +264,11 @@ namespace BLL
                if (UserRole == Roles.BRANCH_OPERATOR.ToString())
                {
                   
-                   BranchUsers.Add(this.UserId);
-                    SubmittedCifs = db.BASIC_INFORMATIONS.Where(b => b.STATUS != Status.SAVED.ToString() && BranchUsers.Contains((int)b.UserId))
+                    BranchUsers.Add(this.UserId);
+                    USERS usr = db.USERS.FirstOrDefault(b => b.USER_ID == this.UserId);
+                    BRANCHES br = db.BRANCHES.FirstOrDefault(b => b.BRANCH_ID == usr.PARENT_ID);
+                    string parentid = db.USERS.Where(b => b.USER_ID == this.UserId).Select(b => new User { PARENT_ID = b.PARENT_ID }).ToString();
+                    SubmittedCifs = db.BASIC_INFORMATIONS.Where(b => b.STATUS != Status.SAVED.ToString() && BranchUsers.Contains((int)b.UserId) && b.BRANCH_CODE == br.BRANCH_CODE)
                        .OrderByDescending(b => b.LAST_UPDATED ).Select(b => new BasicInformations { ID = b.ID, CNIC = b.CNIC, NAME = b.NAME,NAME_OFFICE = b.NAME_OFFICE,LAST_UPDATED = b.LAST_UPDATED ,STATUS = b.STATUS, NTN = b.NTN, CIF_TYPE = new CifTypes { ID = (int)b.CIF_TYPE, Name = db.CIF_TYPES.FirstOrDefault(t => t.ID == b.CIF_TYPE).Name },RISK_SCORE = b.RISK_SCORE, RISK_CATEGORY = b.RISK_CATEGORY, PROFILE_CIF_NO = b.PROFILE_CIF_NO , BRANCH_CODE = b.BRANCH_CODE}).ToList();
 
                 }

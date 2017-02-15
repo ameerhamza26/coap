@@ -421,6 +421,9 @@ namespace CAOP
                 FiGrossSale.Text = m.GROSS_SALE;
                 //ListExtensions.SetDropdownValue(m.AVERAGE_CASH_NON_DEPOSIT.ID, FiListAvgNoOfNonCashDeposits);
 
+                if (m.FREQUENCY_GROSS_SALE != null)
+                    ListExtensions.SetDropdownValue(m.FREQUENCY_GROSS_SALE.ID, FiListFrequencyOfSale);
+
                 FiSubmitButton.Visible = false;
             }
         }

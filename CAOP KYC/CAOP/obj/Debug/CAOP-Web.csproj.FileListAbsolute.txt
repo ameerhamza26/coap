@@ -169,27 +169,6 @@ D:\AOS\CAOP v5\CAOP\bin\DAL.pdb
 D:\AOS\CAOP v5\CAOP\obj\Debug\CAOP-Web.csprojResolveAssemblyReference.cache
 D:\AOS\CAOP v5\CAOP\obj\Debug\CAOP.dll
 D:\AOS\CAOP v5\CAOP\obj\Debug\CAOP.pdb
-D:\AOS\CAOP KYC\CAOP\bin\CAOP.dll.config
-D:\AOS\CAOP KYC\CAOP\bin\CAOP.dll
-D:\AOS\CAOP KYC\CAOP\bin\CAOP.pdb
-D:\AOS\CAOP KYC\CAOP\bin\BioMetricClasses.dll
-D:\AOS\CAOP KYC\CAOP\bin\BLL.dll
-D:\AOS\CAOP KYC\CAOP\bin\EntityFramework.dll
-D:\AOS\CAOP KYC\CAOP\bin\EntityFramework.SqlServer.dll
-D:\AOS\CAOP KYC\CAOP\bin\Microsoft.ReportViewer.Common.dll
-D:\AOS\CAOP KYC\CAOP\bin\Microsoft.ReportViewer.ProcessingObjectModel.DLL
-D:\AOS\CAOP KYC\CAOP\bin\Microsoft.ReportViewer.WebForms.DLL
-D:\AOS\CAOP KYC\CAOP\bin\DAL.dll
-D:\AOS\CAOP KYC\CAOP\bin\BioMetricClasses.pdb
-D:\AOS\CAOP KYC\CAOP\bin\BLL.pdb
-D:\AOS\CAOP KYC\CAOP\bin\EntityFramework.xml
-D:\AOS\CAOP KYC\CAOP\bin\EntityFramework.SqlServer.xml
-D:\AOS\CAOP KYC\CAOP\bin\DAL.pdb
-D:\AOS\CAOP KYC\CAOP\obj\Debug\CAOP-Web.csprojResolveAssemblyReference.cache
-D:\AOS\CAOP KYC\CAOP\obj\Debug\RdlCompile.cache
-D:\AOS\CAOP KYC\CAOP\obj\Debug\RdlCompile.compiled
-D:\AOS\CAOP KYC\CAOP\obj\Debug\CAOP.dll
-D:\AOS\CAOP KYC\CAOP\obj\Debug\CAOP.pdb
 H:\CAOP KYC\CAOP\obj\Debug\CAOP-Web.csprojResolveAssemblyReference.cache
 H:\CAOP KYC\CAOP\obj\Debug\CAOP.dll
 H:\CAOP KYC\CAOP\obj\Debug\CAOP.pdb
@@ -292,3 +271,64 @@ E:\Projects\AOS\coap\CAOP KYC\CAOP\obj\Debug\RdlCompile.cache
 E:\Projects\AOS\coap\CAOP KYC\CAOP\obj\Debug\RdlCompile.compiled
 E:\Projects\AOS\coap\CAOP KYC\CAOP\obj\Debug\CAOP.dll
 E:\Projects\AOS\coap\CAOP KYC\CAOP\obj\Debug\CAOP.pdb
+D:\AOS\CAOP KYC\CAOP\bin\CAOP.dll
+D:\AOS\CAOP KYC\CAOP\bin\CAOP.pdb
+D:\AOS\CAOP KYC\CAOP\bin\BioMetricClasses.dll
+D:\AOS\CAOP KYC\CAOP\bin\BLL.dll
+D:\AOS\CAOP KYC\CAOP\bin\EntityFramework.dll
+D:\AOS\CAOP KYC\CAOP\bin\EntityFramework.SqlServer.dll
+D:\AOS\CAOP KYC\CAOP\bin\Microsoft.ReportViewer.Common.dll
+D:\AOS\CAOP KYC\CAOP\bin\Microsoft.ReportViewer.ProcessingObjectModel.DLL
+D:\AOS\CAOP KYC\CAOP\bin\Microsoft.ReportViewer.WebForms.DLL
+D:\AOS\CAOP KYC\CAOP\bin\DAL.dll
+D:\AOS\CAOP KYC\CAOP\bin\BioMetricClasses.pdb
+D:\AOS\CAOP KYC\CAOP\bin\BLL.pdb
+D:\AOS\CAOP KYC\CAOP\bin\EntityFramework.xml
+D:\AOS\CAOP KYC\CAOP\bin\EntityFramework.SqlServer.xml
+D:\AOS\CAOP KYC\CAOP\bin\DAL.pdb
+D:\AOS\CAOP KYC\CAOP\obj\Debug\CAOP-Web.csprojResolveAssemblyReference.cache
+D:\AOS\CAOP KYC\CAOP\obj\Debug\RdlCompile.cache
+D:\AOS\CAOP KYC\CAOP\obj\Debug\RdlCompile.compiled
+D:\AOS\CAOP KYC\CAOP\obj\Debug\CAOP.dll
+D:\AOS\CAOP KYC\CAOP\obj\Debug\CAOP.pdb
+D:\AOS\AOS Code\CAOP\bin\CAOP.dll
+D:\AOS\AOS Code\CAOP\bin\CAOP.pdb
+D:\AOS\AOS Code\CAOP\bin\BioMetricClasses.dll
+D:\AOS\AOS Code\CAOP\bin\BLL.dll
+D:\AOS\AOS Code\CAOP\bin\EntityFramework.dll
+D:\AOS\AOS Code\CAOP\bin\EntityFramework.SqlServer.dll
+D:\AOS\AOS Code\CAOP\bin\Microsoft.ReportViewer.Common.dll
+D:\AOS\AOS Code\CAOP\bin\Microsoft.ReportViewer.ProcessingObjectModel.DLL
+D:\AOS\AOS Code\CAOP\bin\Microsoft.ReportViewer.WebForms.DLL
+D:\AOS\AOS Code\CAOP\bin\DAL.dll
+D:\AOS\AOS Code\CAOP\bin\BioMetricClasses.pdb
+D:\AOS\AOS Code\CAOP\bin\BLL.pdb
+D:\AOS\AOS Code\CAOP\bin\EntityFramework.xml
+D:\AOS\AOS Code\CAOP\bin\EntityFramework.SqlServer.xml
+D:\AOS\AOS Code\CAOP\bin\DAL.pdb
+D:\AOS\AOS Code\CAOP\obj\Debug\CAOP-Web.csprojResolveAssemblyReference.cache
+D:\AOS\AOS Code\CAOP\obj\Debug\RdlCompile.cache
+D:\AOS\AOS Code\CAOP\obj\Debug\RdlCompile.compiled
+D:\AOS\AOS Code\CAOP\obj\Debug\CAOP.dll
+D:\AOS\AOS Code\CAOP\obj\Debug\CAOP.pdb
+D:\New Projects\AOS Code\AOS Code\CAOP\obj\Debug\CAOP-Web.csprojResolveAssemblyReference.cache
+D:\New Projects\AOS Code\AOS Code\CAOP\obj\Debug\RdlCompile.cache
+D:\New Projects\AOS Code\AOS Code\CAOP\obj\Debug\RdlCompile.compiled
+D:\New Projects\AOS Code\AOS Code\CAOP\bin\CAOP.dll.config
+D:\New Projects\AOS Code\AOS Code\CAOP\bin\CAOP.dll
+D:\New Projects\AOS Code\AOS Code\CAOP\bin\CAOP.pdb
+D:\New Projects\AOS Code\AOS Code\CAOP\bin\BioMetricClasses.dll
+D:\New Projects\AOS Code\AOS Code\CAOP\bin\BLL.dll
+D:\New Projects\AOS Code\AOS Code\CAOP\bin\EntityFramework.dll
+D:\New Projects\AOS Code\AOS Code\CAOP\bin\EntityFramework.SqlServer.dll
+D:\New Projects\AOS Code\AOS Code\CAOP\bin\Microsoft.ReportViewer.Common.dll
+D:\New Projects\AOS Code\AOS Code\CAOP\bin\Microsoft.ReportViewer.ProcessingObjectModel.DLL
+D:\New Projects\AOS Code\AOS Code\CAOP\bin\Microsoft.ReportViewer.WebForms.DLL
+D:\New Projects\AOS Code\AOS Code\CAOP\bin\DAL.dll
+D:\New Projects\AOS Code\AOS Code\CAOP\bin\BioMetricClasses.pdb
+D:\New Projects\AOS Code\AOS Code\CAOP\bin\BLL.pdb
+D:\New Projects\AOS Code\AOS Code\CAOP\bin\EntityFramework.xml
+D:\New Projects\AOS Code\AOS Code\CAOP\bin\EntityFramework.SqlServer.xml
+D:\New Projects\AOS Code\AOS Code\CAOP\bin\DAL.pdb
+D:\New Projects\AOS Code\AOS Code\CAOP\obj\Debug\CAOP.dll
+D:\New Projects\AOS Code\AOS Code\CAOP\obj\Debug\CAOP.pdb

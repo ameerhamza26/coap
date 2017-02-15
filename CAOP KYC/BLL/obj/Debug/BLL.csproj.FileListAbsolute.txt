@@ -1,135 +1,3 @@
-C:\Users\Mateen\Documents\Visual Studio 2013\Projects\CAOP\BLL\obj\Debug\BLL.csprojResolveAssemblyReference.cache
-C:\Users\Mateen\Documents\Visual Studio 2013\Projects\CAOP\BLL\bin\Debug\BLL.dll.config
-C:\Users\Mateen\Documents\Visual Studio 2013\Projects\CAOP\BLL\bin\Debug\BLL.dll
-C:\Users\Mateen\Documents\Visual Studio 2013\Projects\CAOP\BLL\bin\Debug\BLL.pdb
-C:\Users\Mateen\Documents\Visual Studio 2013\Projects\CAOP\BLL\bin\Debug\DAL.dll
-C:\Users\Mateen\Documents\Visual Studio 2013\Projects\CAOP\BLL\bin\Debug\EntityFramework.dll
-C:\Users\Mateen\Documents\Visual Studio 2013\Projects\CAOP\BLL\bin\Debug\EntityFramework.SqlServer.dll
-C:\Users\Mateen\Documents\Visual Studio 2013\Projects\CAOP\BLL\bin\Debug\DAL.pdb
-C:\Users\Mateen\Documents\Visual Studio 2013\Projects\CAOP\BLL\bin\Debug\EntityFramework.xml
-C:\Users\Mateen\Documents\Visual Studio 2013\Projects\CAOP\BLL\bin\Debug\EntityFramework.SqlServer.xml
-C:\Users\Mateen\Documents\Visual Studio 2013\Projects\CAOP\BLL\obj\Debug\BLL.dll
-C:\Users\Mateen\Documents\Visual Studio 2013\Projects\CAOP\BLL\obj\Debug\BLL.pdb
-D:\Projects\CAOP\BLL\bin\Debug\BLL.dll.config
-D:\Projects\CAOP\BLL\bin\Debug\BLL.dll
-D:\Projects\CAOP\BLL\bin\Debug\BLL.pdb
-D:\Projects\CAOP\BLL\bin\Debug\DAL.dll
-D:\Projects\CAOP\BLL\bin\Debug\EntityFramework.dll
-D:\Projects\CAOP\BLL\bin\Debug\EntityFramework.SqlServer.dll
-D:\Projects\CAOP\BLL\bin\Debug\DAL.pdb
-D:\Projects\CAOP\BLL\bin\Debug\EntityFramework.xml
-D:\Projects\CAOP\BLL\bin\Debug\EntityFramework.SqlServer.xml
-D:\Projects\CAOP\BLL\obj\Debug\BLL.csprojResolveAssemblyReference.cache
-D:\Projects\CAOP\BLL\obj\Debug\BLL.dll
-D:\Projects\CAOP\BLL\obj\Debug\BLL.pdb
-C:\Users\Mateen\Documents\Visual Studio 2013\Projects\CAOP\NBP - Account Opening\CAOP\BLL\obj\Debug\BLL.csprojResolveAssemblyReference.cache
-C:\Users\Mateen\Documents\Visual Studio 2013\Projects\CAOP\NBP - Account Opening\CAOP\BLL\bin\Debug\BLL.dll.config
-C:\Users\Mateen\Documents\Visual Studio 2013\Projects\CAOP\NBP - Account Opening\CAOP\BLL\bin\Debug\BLL.dll
-C:\Users\Mateen\Documents\Visual Studio 2013\Projects\CAOP\NBP - Account Opening\CAOP\BLL\bin\Debug\BLL.pdb
-C:\Users\Mateen\Documents\Visual Studio 2013\Projects\CAOP\NBP - Account Opening\CAOP\BLL\bin\Debug\DAL.dll
-C:\Users\Mateen\Documents\Visual Studio 2013\Projects\CAOP\NBP - Account Opening\CAOP\BLL\bin\Debug\EntityFramework.dll
-C:\Users\Mateen\Documents\Visual Studio 2013\Projects\CAOP\NBP - Account Opening\CAOP\BLL\bin\Debug\EntityFramework.SqlServer.dll
-C:\Users\Mateen\Documents\Visual Studio 2013\Projects\CAOP\NBP - Account Opening\CAOP\BLL\bin\Debug\DAL.pdb
-C:\Users\Mateen\Documents\Visual Studio 2013\Projects\CAOP\NBP - Account Opening\CAOP\BLL\bin\Debug\EntityFramework.xml
-C:\Users\Mateen\Documents\Visual Studio 2013\Projects\CAOP\NBP - Account Opening\CAOP\BLL\bin\Debug\EntityFramework.SqlServer.xml
-C:\Users\Mateen\Documents\Visual Studio 2013\Projects\CAOP\NBP - Account Opening\CAOP\BLL\obj\Debug\BLL.dll
-C:\Users\Mateen\Documents\Visual Studio 2013\Projects\CAOP\NBP - Account Opening\CAOP\BLL\obj\Debug\BLL.pdb
-E:\Project\NBP - Account Opening\CAOP\BLL\bin\Debug\BLL.dll.config
-E:\Project\NBP - Account Opening\CAOP\BLL\bin\Debug\BLL.dll
-E:\Project\NBP - Account Opening\CAOP\BLL\bin\Debug\BLL.pdb
-E:\Project\NBP - Account Opening\CAOP\BLL\bin\Debug\DAL.dll
-E:\Project\NBP - Account Opening\CAOP\BLL\bin\Debug\EntityFramework.dll
-E:\Project\NBP - Account Opening\CAOP\BLL\bin\Debug\EntityFramework.SqlServer.dll
-E:\Project\NBP - Account Opening\CAOP\BLL\bin\Debug\DAL.pdb
-E:\Project\NBP - Account Opening\CAOP\BLL\bin\Debug\EntityFramework.xml
-E:\Project\NBP - Account Opening\CAOP\BLL\bin\Debug\EntityFramework.SqlServer.xml
-E:\Project\NBP - Account Opening\CAOP\BLL\obj\Debug\BLL.csprojResolveAssemblyReference.cache
-E:\Project\NBP - Account Opening\CAOP\BLL\obj\Debug\BLL.dll
-E:\Project\NBP - Account Opening\CAOP\BLL\obj\Debug\BLL.pdb
-C:\Users\Mateen\Desktop\IMP-DATA\NBP - Account Opening\CAOP\BLL\bin\Debug\BLL.dll.config
-C:\Users\Mateen\Desktop\IMP-DATA\NBP - Account Opening\CAOP\BLL\bin\Debug\BLL.dll
-C:\Users\Mateen\Desktop\IMP-DATA\NBP - Account Opening\CAOP\BLL\bin\Debug\BLL.pdb
-C:\Users\Mateen\Desktop\IMP-DATA\NBP - Account Opening\CAOP\BLL\bin\Debug\DAL.dll
-C:\Users\Mateen\Desktop\IMP-DATA\NBP - Account Opening\CAOP\BLL\bin\Debug\EntityFramework.dll
-C:\Users\Mateen\Desktop\IMP-DATA\NBP - Account Opening\CAOP\BLL\bin\Debug\EntityFramework.SqlServer.dll
-C:\Users\Mateen\Desktop\IMP-DATA\NBP - Account Opening\CAOP\BLL\bin\Debug\DAL.pdb
-C:\Users\Mateen\Desktop\IMP-DATA\NBP - Account Opening\CAOP\BLL\bin\Debug\EntityFramework.xml
-C:\Users\Mateen\Desktop\IMP-DATA\NBP - Account Opening\CAOP\BLL\bin\Debug\EntityFramework.SqlServer.xml
-C:\Users\Mateen\Desktop\IMP-DATA\NBP - Account Opening\CAOP\BLL\obj\Debug\BLL.csprojResolveAssemblyReference.cache
-C:\Users\Mateen\Desktop\IMP-DATA\NBP - Account Opening\CAOP\BLL\obj\Debug\BLL.dll
-C:\Users\Mateen\Desktop\IMP-DATA\NBP - Account Opening\CAOP\BLL\obj\Debug\BLL.pdb
-C:\Users\nbp\Desktop\IMP-DATA-Done\NBP - Account Opening\CAOP\BLL\bin\Debug\BLL.dll.config
-C:\Users\nbp\Desktop\IMP-DATA-Done\NBP - Account Opening\CAOP\BLL\bin\Debug\BLL.dll
-C:\Users\nbp\Desktop\IMP-DATA-Done\NBP - Account Opening\CAOP\BLL\bin\Debug\BLL.pdb
-C:\Users\nbp\Desktop\IMP-DATA-Done\NBP - Account Opening\CAOP\BLL\bin\Debug\DAL.dll
-C:\Users\nbp\Desktop\IMP-DATA-Done\NBP - Account Opening\CAOP\BLL\bin\Debug\EntityFramework.dll
-C:\Users\nbp\Desktop\IMP-DATA-Done\NBP - Account Opening\CAOP\BLL\bin\Debug\EntityFramework.SqlServer.dll
-C:\Users\nbp\Desktop\IMP-DATA-Done\NBP - Account Opening\CAOP\BLL\bin\Debug\DAL.pdb
-C:\Users\nbp\Desktop\IMP-DATA-Done\NBP - Account Opening\CAOP\BLL\bin\Debug\EntityFramework.xml
-C:\Users\nbp\Desktop\IMP-DATA-Done\NBP - Account Opening\CAOP\BLL\bin\Debug\EntityFramework.SqlServer.xml
-C:\Users\nbp\Desktop\IMP-DATA-Done\NBP - Account Opening\CAOP\BLL\obj\Debug\BLL.csprojResolveAssemblyReference.cache
-C:\Users\nbp\Desktop\IMP-DATA-Done\NBP - Account Opening\CAOP\BLL\obj\Debug\BLL.dll
-C:\Users\nbp\Desktop\IMP-DATA-Done\NBP - Account Opening\CAOP\BLL\obj\Debug\BLL.pdb
-C:\Users\Mateen\Desktop\NBP CAOP Working\NBP - Account Opening\CAOP\BLL\obj\Debug\BLL.csprojResolveAssemblyReference.cache
-C:\Users\Mateen\Desktop\NBP CAOP Working\NBP - Account Opening\CAOP\BLL\bin\Debug\BLL.dll.config
-C:\Users\Mateen\Desktop\NBP CAOP Working\NBP - Account Opening\CAOP\BLL\bin\Debug\BLL.dll
-C:\Users\Mateen\Desktop\NBP CAOP Working\NBP - Account Opening\CAOP\BLL\bin\Debug\BLL.pdb
-C:\Users\Mateen\Desktop\NBP CAOP Working\NBP - Account Opening\CAOP\BLL\bin\Debug\DAL.dll
-C:\Users\Mateen\Desktop\NBP CAOP Working\NBP - Account Opening\CAOP\BLL\bin\Debug\EntityFramework.dll
-C:\Users\Mateen\Desktop\NBP CAOP Working\NBP - Account Opening\CAOP\BLL\bin\Debug\EntityFramework.SqlServer.dll
-C:\Users\Mateen\Desktop\NBP CAOP Working\NBP - Account Opening\CAOP\BLL\bin\Debug\DAL.pdb
-C:\Users\Mateen\Desktop\NBP CAOP Working\NBP - Account Opening\CAOP\BLL\bin\Debug\EntityFramework.xml
-C:\Users\Mateen\Desktop\NBP CAOP Working\NBP - Account Opening\CAOP\BLL\bin\Debug\EntityFramework.SqlServer.xml
-C:\Users\Mateen\Desktop\NBP CAOP Working\NBP - Account Opening\CAOP\BLL\obj\Debug\BLL.dll
-C:\Users\Mateen\Desktop\NBP CAOP Working\NBP - Account Opening\CAOP\BLL\obj\Debug\BLL.pdb
-C:\Users\nbp\Desktop\CAOP OFFICE\CAOP\BLL\bin\Debug\BLL.dll.config
-C:\Users\nbp\Desktop\CAOP OFFICE\CAOP\BLL\bin\Debug\BLL.dll
-C:\Users\nbp\Desktop\CAOP OFFICE\CAOP\BLL\bin\Debug\BLL.pdb
-C:\Users\nbp\Desktop\CAOP OFFICE\CAOP\BLL\bin\Debug\DAL.dll
-C:\Users\nbp\Desktop\CAOP OFFICE\CAOP\BLL\bin\Debug\EntityFramework.dll
-C:\Users\nbp\Desktop\CAOP OFFICE\CAOP\BLL\bin\Debug\EntityFramework.SqlServer.dll
-C:\Users\nbp\Desktop\CAOP OFFICE\CAOP\BLL\bin\Debug\DAL.pdb
-C:\Users\nbp\Desktop\CAOP OFFICE\CAOP\BLL\bin\Debug\EntityFramework.xml
-C:\Users\nbp\Desktop\CAOP OFFICE\CAOP\BLL\bin\Debug\EntityFramework.SqlServer.xml
-C:\Users\nbp\Desktop\CAOP OFFICE\CAOP\BLL\obj\Debug\BLL.csprojResolveAssemblyReference.cache
-C:\Users\nbp\Desktop\CAOP OFFICE\CAOP\BLL\obj\Debug\BLL.dll
-C:\Users\nbp\Desktop\CAOP OFFICE\CAOP\BLL\obj\Debug\BLL.pdb
-E:\CAOP OFFICE\CAOP\BLL\bin\Debug\BLL.dll.config
-E:\CAOP OFFICE\CAOP\BLL\bin\Debug\BLL.dll
-E:\CAOP OFFICE\CAOP\BLL\bin\Debug\BLL.pdb
-E:\CAOP OFFICE\CAOP\BLL\bin\Debug\DAL.dll
-E:\CAOP OFFICE\CAOP\BLL\bin\Debug\EntityFramework.dll
-E:\CAOP OFFICE\CAOP\BLL\bin\Debug\EntityFramework.SqlServer.dll
-E:\CAOP OFFICE\CAOP\BLL\bin\Debug\DAL.pdb
-E:\CAOP OFFICE\CAOP\BLL\bin\Debug\EntityFramework.xml
-E:\CAOP OFFICE\CAOP\BLL\bin\Debug\EntityFramework.SqlServer.xml
-E:\CAOP OFFICE\CAOP\BLL\obj\Debug\BLL.csprojResolveAssemblyReference.cache
-E:\CAOP OFFICE\CAOP\BLL\obj\Debug\BLL.dll
-E:\CAOP OFFICE\CAOP\BLL\obj\Debug\BLL.pdb
-E:\CAOP OFFICE\CAOP\CAOP\BLL\bin\Debug\BLL.dll.config
-E:\CAOP OFFICE\CAOP\CAOP\BLL\bin\Debug\BLL.dll
-E:\CAOP OFFICE\CAOP\CAOP\BLL\bin\Debug\BLL.pdb
-E:\CAOP OFFICE\CAOP\CAOP\BLL\bin\Debug\DAL.dll
-E:\CAOP OFFICE\CAOP\CAOP\BLL\bin\Debug\EntityFramework.dll
-E:\CAOP OFFICE\CAOP\CAOP\BLL\bin\Debug\EntityFramework.SqlServer.dll
-E:\CAOP OFFICE\CAOP\CAOP\BLL\bin\Debug\DAL.pdb
-E:\CAOP OFFICE\CAOP\CAOP\BLL\bin\Debug\EntityFramework.xml
-E:\CAOP OFFICE\CAOP\CAOP\BLL\bin\Debug\EntityFramework.SqlServer.xml
-E:\CAOP OFFICE\CAOP\CAOP\BLL\obj\Debug\BLL.csprojResolveAssemblyReference.cache
-E:\CAOP OFFICE\CAOP\CAOP\BLL\obj\Debug\BLL.dll
-E:\CAOP OFFICE\CAOP\CAOP\BLL\obj\Debug\BLL.pdb
-D:\AOS\CAOP v5\BLL\bin\Debug\BLL.dll.config
-D:\AOS\CAOP v5\BLL\bin\Debug\BLL.dll
-D:\AOS\CAOP v5\BLL\bin\Debug\BLL.pdb
-D:\AOS\CAOP v5\BLL\bin\Debug\DAL.dll
-D:\AOS\CAOP v5\BLL\bin\Debug\EntityFramework.dll
-D:\AOS\CAOP v5\BLL\bin\Debug\EntityFramework.SqlServer.dll
-D:\AOS\CAOP v5\BLL\bin\Debug\DAL.pdb
-D:\AOS\CAOP v5\BLL\bin\Debug\EntityFramework.xml
-D:\AOS\CAOP v5\BLL\bin\Debug\EntityFramework.SqlServer.xml
-D:\AOS\CAOP v5\BLL\obj\Debug\BLL.csprojResolveAssemblyReference.cache
-D:\AOS\CAOP v5\BLL\obj\Debug\BLL.dll
-D:\AOS\CAOP v5\BLL\obj\Debug\BLL.pdb
 D:\AOS\CAOP KYC\BLL\bin\Debug\BLL.dll.config
 D:\AOS\CAOP KYC\BLL\bin\Debug\BLL.dll
 D:\AOS\CAOP KYC\BLL\bin\Debug\BLL.pdb
@@ -142,63 +10,27 @@ D:\AOS\CAOP KYC\BLL\bin\Debug\EntityFramework.SqlServer.xml
 D:\AOS\CAOP KYC\BLL\obj\Debug\BLL.csprojResolveAssemblyReference.cache
 D:\AOS\CAOP KYC\BLL\obj\Debug\BLL.dll
 D:\AOS\CAOP KYC\BLL\obj\Debug\BLL.pdb
-H:\CAOP KYC\BLL\bin\Debug\BLL.dll.config
-H:\CAOP KYC\BLL\bin\Debug\BLL.dll
-H:\CAOP KYC\BLL\bin\Debug\BLL.pdb
-H:\CAOP KYC\BLL\bin\Debug\DAL.dll
-H:\CAOP KYC\BLL\bin\Debug\EntityFramework.dll
-H:\CAOP KYC\BLL\bin\Debug\EntityFramework.SqlServer.dll
-H:\CAOP KYC\BLL\bin\Debug\DAL.pdb
-H:\CAOP KYC\BLL\bin\Debug\EntityFramework.xml
-H:\CAOP KYC\BLL\bin\Debug\EntityFramework.SqlServer.xml
-H:\CAOP KYC\BLL\obj\Debug\BLL.csprojResolveAssemblyReference.cache
-H:\CAOP KYC\BLL\obj\Debug\BLL.dll
-H:\CAOP KYC\BLL\obj\Debug\BLL.pdb
-E:\CAOP KYC\CAOP KYC\BLL\bin\Debug\BLL.dll.config
-E:\CAOP KYC\CAOP KYC\BLL\bin\Debug\BLL.dll
-E:\CAOP KYC\CAOP KYC\BLL\bin\Debug\BLL.pdb
-E:\CAOP KYC\CAOP KYC\BLL\bin\Debug\DAL.dll
-E:\CAOP KYC\CAOP KYC\BLL\bin\Debug\EntityFramework.dll
-E:\CAOP KYC\CAOP KYC\BLL\bin\Debug\EntityFramework.SqlServer.dll
-E:\CAOP KYC\CAOP KYC\BLL\bin\Debug\DAL.pdb
-E:\CAOP KYC\CAOP KYC\BLL\bin\Debug\EntityFramework.xml
-E:\CAOP KYC\CAOP KYC\BLL\bin\Debug\EntityFramework.SqlServer.xml
-E:\CAOP KYC\CAOP KYC\BLL\obj\Debug\BLL.csprojResolveAssemblyReference.cache
-E:\CAOP KYC\CAOP KYC\BLL\obj\Debug\BLL.dll
-E:\CAOP KYC\CAOP KYC\BLL\obj\Debug\BLL.pdb
-C:\Users\Ameer Hamza\Documents\GitHub\coap\CAOP KYC\BLL\bin\Debug\BLL.dll.config
-C:\Users\Ameer Hamza\Documents\GitHub\coap\CAOP KYC\BLL\bin\Debug\BLL.dll
-C:\Users\Ameer Hamza\Documents\GitHub\coap\CAOP KYC\BLL\bin\Debug\BLL.pdb
-C:\Users\Ameer Hamza\Documents\GitHub\coap\CAOP KYC\BLL\bin\Debug\DAL.dll
-C:\Users\Ameer Hamza\Documents\GitHub\coap\CAOP KYC\BLL\bin\Debug\EntityFramework.dll
-C:\Users\Ameer Hamza\Documents\GitHub\coap\CAOP KYC\BLL\bin\Debug\EntityFramework.SqlServer.dll
-C:\Users\Ameer Hamza\Documents\GitHub\coap\CAOP KYC\BLL\bin\Debug\DAL.pdb
-C:\Users\Ameer Hamza\Documents\GitHub\coap\CAOP KYC\BLL\bin\Debug\EntityFramework.xml
-C:\Users\Ameer Hamza\Documents\GitHub\coap\CAOP KYC\BLL\bin\Debug\EntityFramework.SqlServer.xml
-C:\Users\Ameer Hamza\Documents\GitHub\coap\CAOP KYC\BLL\obj\Debug\BLL.csprojResolveAssemblyReference.cache
-C:\Users\Ameer Hamza\Documents\GitHub\coap\CAOP KYC\BLL\obj\Debug\BLL.dll
-C:\Users\Ameer Hamza\Documents\GitHub\coap\CAOP KYC\BLL\obj\Debug\BLL.pdb
-E:\AOS\coap\CAOP KYC\BLL\obj\Debug\BLL.csprojResolveAssemblyReference.cache
-E:\AOS\coap\CAOP KYC\BLL\bin\Debug\BLL.dll.config
-E:\AOS\coap\CAOP KYC\BLL\bin\Debug\BLL.dll
-E:\AOS\coap\CAOP KYC\BLL\bin\Debug\BLL.pdb
-E:\AOS\coap\CAOP KYC\BLL\bin\Debug\DAL.dll
-E:\AOS\coap\CAOP KYC\BLL\bin\Debug\EntityFramework.dll
-E:\AOS\coap\CAOP KYC\BLL\bin\Debug\EntityFramework.SqlServer.dll
-E:\AOS\coap\CAOP KYC\BLL\bin\Debug\DAL.pdb
-E:\AOS\coap\CAOP KYC\BLL\bin\Debug\EntityFramework.xml
-E:\AOS\coap\CAOP KYC\BLL\bin\Debug\EntityFramework.SqlServer.xml
-E:\AOS\coap\CAOP KYC\BLL\obj\Debug\BLL.dll
-E:\AOS\coap\CAOP KYC\BLL\obj\Debug\BLL.pdb
-E:\Projects\AOS\coap\CAOP KYC\BLL\bin\Debug\BLL.dll.config
-E:\Projects\AOS\coap\CAOP KYC\BLL\bin\Debug\BLL.dll
-E:\Projects\AOS\coap\CAOP KYC\BLL\bin\Debug\BLL.pdb
-E:\Projects\AOS\coap\CAOP KYC\BLL\bin\Debug\DAL.dll
-E:\Projects\AOS\coap\CAOP KYC\BLL\bin\Debug\EntityFramework.dll
-E:\Projects\AOS\coap\CAOP KYC\BLL\bin\Debug\EntityFramework.SqlServer.dll
-E:\Projects\AOS\coap\CAOP KYC\BLL\bin\Debug\DAL.pdb
-E:\Projects\AOS\coap\CAOP KYC\BLL\bin\Debug\EntityFramework.xml
-E:\Projects\AOS\coap\CAOP KYC\BLL\bin\Debug\EntityFramework.SqlServer.xml
-E:\Projects\AOS\coap\CAOP KYC\BLL\obj\Debug\BLL.csprojResolveAssemblyReference.cache
-E:\Projects\AOS\coap\CAOP KYC\BLL\obj\Debug\BLL.dll
-E:\Projects\AOS\coap\CAOP KYC\BLL\obj\Debug\BLL.pdb
+D:\AOS\AOS Code\BLL\bin\Debug\BLL.dll.config
+D:\AOS\AOS Code\BLL\bin\Debug\BLL.dll
+D:\AOS\AOS Code\BLL\bin\Debug\BLL.pdb
+D:\AOS\AOS Code\BLL\bin\Debug\DAL.dll
+D:\AOS\AOS Code\BLL\bin\Debug\EntityFramework.dll
+D:\AOS\AOS Code\BLL\bin\Debug\EntityFramework.SqlServer.dll
+D:\AOS\AOS Code\BLL\bin\Debug\DAL.pdb
+D:\AOS\AOS Code\BLL\bin\Debug\EntityFramework.xml
+D:\AOS\AOS Code\BLL\bin\Debug\EntityFramework.SqlServer.xml
+D:\AOS\AOS Code\BLL\obj\Debug\BLL.csprojResolveAssemblyReference.cache
+D:\AOS\AOS Code\BLL\obj\Debug\BLL.dll
+D:\AOS\AOS Code\BLL\obj\Debug\BLL.pdb
+D:\New Projects\AOS Code\AOS Code\BLL\obj\Debug\BLL.csprojResolveAssemblyReference.cache
+D:\New Projects\AOS Code\AOS Code\BLL\bin\Debug\BLL.dll.config
+D:\New Projects\AOS Code\AOS Code\BLL\bin\Debug\BLL.dll
+D:\New Projects\AOS Code\AOS Code\BLL\bin\Debug\BLL.pdb
+D:\New Projects\AOS Code\AOS Code\BLL\bin\Debug\DAL.dll
+D:\New Projects\AOS Code\AOS Code\BLL\bin\Debug\EntityFramework.dll
+D:\New Projects\AOS Code\AOS Code\BLL\bin\Debug\EntityFramework.SqlServer.dll
+D:\New Projects\AOS Code\AOS Code\BLL\bin\Debug\DAL.pdb
+D:\New Projects\AOS Code\AOS Code\BLL\bin\Debug\EntityFramework.xml
+D:\New Projects\AOS Code\AOS Code\BLL\bin\Debug\EntityFramework.SqlServer.xml
+D:\New Projects\AOS Code\AOS Code\BLL\obj\Debug\BLL.dll
+D:\New Projects\AOS Code\AOS Code\BLL\obj\Debug\BLL.pdb

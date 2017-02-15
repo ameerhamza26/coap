@@ -397,7 +397,7 @@
 
 
 
-        <h3>ACCOUNT OPENING FORM - Business</h3>
+        <h3>ACCOUNT OPENING FORM - Entity</h3>
         <hr />
         <div class="row">
             <div class="col-md-3">

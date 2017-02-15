@@ -1,123 +1,3 @@
-C:\Users\Mateen\Documents\Visual Studio 2013\Projects\CAOP\DAL\bin\Debug\DAL.dll.config
-C:\Users\Mateen\Documents\Visual Studio 2013\Projects\CAOP\DAL\bin\Debug\DAL.dll
-C:\Users\Mateen\Documents\Visual Studio 2013\Projects\CAOP\DAL\bin\Debug\DAL.pdb
-C:\Users\Mateen\Documents\Visual Studio 2013\Projects\CAOP\DAL\bin\Debug\Blun.ConfigurationManager.dll
-C:\Users\Mateen\Documents\Visual Studio 2013\Projects\CAOP\DAL\bin\Debug\EntityFramework.dll
-C:\Users\Mateen\Documents\Visual Studio 2013\Projects\CAOP\DAL\bin\Debug\EntityFramework.SqlServer.dll
-C:\Users\Mateen\Documents\Visual Studio 2013\Projects\CAOP\DAL\bin\Debug\EntityFramework.xml
-C:\Users\Mateen\Documents\Visual Studio 2013\Projects\CAOP\DAL\bin\Debug\EntityFramework.SqlServer.xml
-C:\Users\Mateen\Documents\Visual Studio 2013\Projects\CAOP\DAL\obj\Debug\DAL.csprojResolveAssemblyReference.cache
-C:\Users\Mateen\Documents\Visual Studio 2013\Projects\CAOP\DAL\obj\Debug\DAL.dll
-C:\Users\Mateen\Documents\Visual Studio 2013\Projects\CAOP\DAL\obj\Debug\DAL.pdb
-D:\Projects\CAOP\DAL\bin\Debug\DAL.dll.config
-D:\Projects\CAOP\DAL\bin\Debug\DAL.dll
-D:\Projects\CAOP\DAL\bin\Debug\DAL.pdb
-D:\Projects\CAOP\DAL\bin\Debug\Blun.ConfigurationManager.dll
-D:\Projects\CAOP\DAL\bin\Debug\EntityFramework.dll
-D:\Projects\CAOP\DAL\bin\Debug\EntityFramework.SqlServer.dll
-D:\Projects\CAOP\DAL\bin\Debug\EntityFramework.xml
-D:\Projects\CAOP\DAL\bin\Debug\EntityFramework.SqlServer.xml
-D:\Projects\CAOP\DAL\obj\Debug\DAL.csprojResolveAssemblyReference.cache
-D:\Projects\CAOP\DAL\obj\Debug\DAL.dll
-D:\Projects\CAOP\DAL\obj\Debug\DAL.pdb
-C:\Users\Mateen\Documents\Visual Studio 2013\Projects\CAOP\NBP - Account Opening\CAOP\DAL\bin\Debug\DAL.dll.config
-C:\Users\Mateen\Documents\Visual Studio 2013\Projects\CAOP\NBP - Account Opening\CAOP\DAL\bin\Debug\DAL.dll
-C:\Users\Mateen\Documents\Visual Studio 2013\Projects\CAOP\NBP - Account Opening\CAOP\DAL\bin\Debug\DAL.pdb
-C:\Users\Mateen\Documents\Visual Studio 2013\Projects\CAOP\NBP - Account Opening\CAOP\DAL\bin\Debug\Blun.ConfigurationManager.dll
-C:\Users\Mateen\Documents\Visual Studio 2013\Projects\CAOP\NBP - Account Opening\CAOP\DAL\bin\Debug\EntityFramework.dll
-C:\Users\Mateen\Documents\Visual Studio 2013\Projects\CAOP\NBP - Account Opening\CAOP\DAL\bin\Debug\EntityFramework.SqlServer.dll
-C:\Users\Mateen\Documents\Visual Studio 2013\Projects\CAOP\NBP - Account Opening\CAOP\DAL\bin\Debug\EntityFramework.xml
-C:\Users\Mateen\Documents\Visual Studio 2013\Projects\CAOP\NBP - Account Opening\CAOP\DAL\bin\Debug\EntityFramework.SqlServer.xml
-C:\Users\Mateen\Documents\Visual Studio 2013\Projects\CAOP\NBP - Account Opening\CAOP\DAL\obj\Debug\DAL.dll
-C:\Users\Mateen\Documents\Visual Studio 2013\Projects\CAOP\NBP - Account Opening\CAOP\DAL\obj\Debug\DAL.pdb
-C:\Users\Mateen\Documents\Visual Studio 2013\Projects\CAOP\NBP - Account Opening\CAOP\DAL\obj\Debug\DAL.csprojResolveAssemblyReference.cache
-E:\Project\NBP - Account Opening\CAOP\DAL\bin\Debug\DAL.dll.config
-E:\Project\NBP - Account Opening\CAOP\DAL\bin\Debug\DAL.dll
-E:\Project\NBP - Account Opening\CAOP\DAL\bin\Debug\DAL.pdb
-E:\Project\NBP - Account Opening\CAOP\DAL\bin\Debug\Blun.ConfigurationManager.dll
-E:\Project\NBP - Account Opening\CAOP\DAL\bin\Debug\EntityFramework.dll
-E:\Project\NBP - Account Opening\CAOP\DAL\bin\Debug\EntityFramework.SqlServer.dll
-E:\Project\NBP - Account Opening\CAOP\DAL\bin\Debug\EntityFramework.xml
-E:\Project\NBP - Account Opening\CAOP\DAL\bin\Debug\EntityFramework.SqlServer.xml
-E:\Project\NBP - Account Opening\CAOP\DAL\obj\Debug\DAL.csprojResolveAssemblyReference.cache
-E:\Project\NBP - Account Opening\CAOP\DAL\obj\Debug\DAL.dll
-E:\Project\NBP - Account Opening\CAOP\DAL\obj\Debug\DAL.pdb
-C:\Users\Mateen\Desktop\IMP-DATA\NBP - Account Opening\CAOP\DAL\bin\Debug\DAL.dll.config
-C:\Users\Mateen\Desktop\IMP-DATA\NBP - Account Opening\CAOP\DAL\bin\Debug\DAL.dll
-C:\Users\Mateen\Desktop\IMP-DATA\NBP - Account Opening\CAOP\DAL\bin\Debug\DAL.pdb
-C:\Users\Mateen\Desktop\IMP-DATA\NBP - Account Opening\CAOP\DAL\bin\Debug\Blun.ConfigurationManager.dll
-C:\Users\Mateen\Desktop\IMP-DATA\NBP - Account Opening\CAOP\DAL\bin\Debug\EntityFramework.dll
-C:\Users\Mateen\Desktop\IMP-DATA\NBP - Account Opening\CAOP\DAL\bin\Debug\EntityFramework.SqlServer.dll
-C:\Users\Mateen\Desktop\IMP-DATA\NBP - Account Opening\CAOP\DAL\bin\Debug\EntityFramework.xml
-C:\Users\Mateen\Desktop\IMP-DATA\NBP - Account Opening\CAOP\DAL\bin\Debug\EntityFramework.SqlServer.xml
-C:\Users\Mateen\Desktop\IMP-DATA\NBP - Account Opening\CAOP\DAL\obj\Debug\DAL.csprojResolveAssemblyReference.cache
-C:\Users\Mateen\Desktop\IMP-DATA\NBP - Account Opening\CAOP\DAL\obj\Debug\DAL.dll
-C:\Users\Mateen\Desktop\IMP-DATA\NBP - Account Opening\CAOP\DAL\obj\Debug\DAL.pdb
-C:\Users\nbp\Desktop\IMP-DATA-Done\NBP - Account Opening\CAOP\DAL\bin\Debug\DAL.dll.config
-C:\Users\nbp\Desktop\IMP-DATA-Done\NBP - Account Opening\CAOP\DAL\bin\Debug\DAL.dll
-C:\Users\nbp\Desktop\IMP-DATA-Done\NBP - Account Opening\CAOP\DAL\bin\Debug\DAL.pdb
-C:\Users\nbp\Desktop\IMP-DATA-Done\NBP - Account Opening\CAOP\DAL\bin\Debug\Blun.ConfigurationManager.dll
-C:\Users\nbp\Desktop\IMP-DATA-Done\NBP - Account Opening\CAOP\DAL\bin\Debug\EntityFramework.dll
-C:\Users\nbp\Desktop\IMP-DATA-Done\NBP - Account Opening\CAOP\DAL\bin\Debug\EntityFramework.SqlServer.dll
-C:\Users\nbp\Desktop\IMP-DATA-Done\NBP - Account Opening\CAOP\DAL\bin\Debug\EntityFramework.xml
-C:\Users\nbp\Desktop\IMP-DATA-Done\NBP - Account Opening\CAOP\DAL\bin\Debug\EntityFramework.SqlServer.xml
-C:\Users\nbp\Desktop\IMP-DATA-Done\NBP - Account Opening\CAOP\DAL\obj\Debug\DAL.csprojResolveAssemblyReference.cache
-C:\Users\nbp\Desktop\IMP-DATA-Done\NBP - Account Opening\CAOP\DAL\obj\Debug\DAL.dll
-C:\Users\nbp\Desktop\IMP-DATA-Done\NBP - Account Opening\CAOP\DAL\obj\Debug\DAL.pdb
-C:\Users\Mateen\Desktop\NBP CAOP Working\NBP - Account Opening\CAOP\DAL\bin\Debug\DAL.dll.config
-C:\Users\Mateen\Desktop\NBP CAOP Working\NBP - Account Opening\CAOP\DAL\bin\Debug\DAL.dll
-C:\Users\Mateen\Desktop\NBP CAOP Working\NBP - Account Opening\CAOP\DAL\bin\Debug\DAL.pdb
-C:\Users\Mateen\Desktop\NBP CAOP Working\NBP - Account Opening\CAOP\DAL\bin\Debug\Blun.ConfigurationManager.dll
-C:\Users\Mateen\Desktop\NBP CAOP Working\NBP - Account Opening\CAOP\DAL\bin\Debug\EntityFramework.dll
-C:\Users\Mateen\Desktop\NBP CAOP Working\NBP - Account Opening\CAOP\DAL\bin\Debug\EntityFramework.SqlServer.dll
-C:\Users\Mateen\Desktop\NBP CAOP Working\NBP - Account Opening\CAOP\DAL\bin\Debug\EntityFramework.xml
-C:\Users\Mateen\Desktop\NBP CAOP Working\NBP - Account Opening\CAOP\DAL\bin\Debug\EntityFramework.SqlServer.xml
-C:\Users\Mateen\Desktop\NBP CAOP Working\NBP - Account Opening\CAOP\DAL\obj\Debug\DAL.dll
-C:\Users\Mateen\Desktop\NBP CAOP Working\NBP - Account Opening\CAOP\DAL\obj\Debug\DAL.pdb
-C:\Users\Mateen\Desktop\NBP CAOP Working\NBP - Account Opening\CAOP\DAL\obj\Debug\DAL.csprojResolveAssemblyReference.cache
-C:\Users\nbp\Desktop\CAOP OFFICE\CAOP\DAL\bin\Debug\DAL.dll.config
-C:\Users\nbp\Desktop\CAOP OFFICE\CAOP\DAL\bin\Debug\DAL.dll
-C:\Users\nbp\Desktop\CAOP OFFICE\CAOP\DAL\bin\Debug\DAL.pdb
-C:\Users\nbp\Desktop\CAOP OFFICE\CAOP\DAL\bin\Debug\Blun.ConfigurationManager.dll
-C:\Users\nbp\Desktop\CAOP OFFICE\CAOP\DAL\bin\Debug\EntityFramework.dll
-C:\Users\nbp\Desktop\CAOP OFFICE\CAOP\DAL\bin\Debug\EntityFramework.SqlServer.dll
-C:\Users\nbp\Desktop\CAOP OFFICE\CAOP\DAL\bin\Debug\EntityFramework.xml
-C:\Users\nbp\Desktop\CAOP OFFICE\CAOP\DAL\bin\Debug\EntityFramework.SqlServer.xml
-C:\Users\nbp\Desktop\CAOP OFFICE\CAOP\DAL\obj\Debug\DAL.csprojResolveAssemblyReference.cache
-C:\Users\nbp\Desktop\CAOP OFFICE\CAOP\DAL\obj\Debug\DAL.dll
-C:\Users\nbp\Desktop\CAOP OFFICE\CAOP\DAL\obj\Debug\DAL.pdb
-E:\CAOP OFFICE\CAOP\DAL\bin\Debug\DAL.dll.config
-E:\CAOP OFFICE\CAOP\DAL\bin\Debug\DAL.dll
-E:\CAOP OFFICE\CAOP\DAL\bin\Debug\DAL.pdb
-E:\CAOP OFFICE\CAOP\DAL\bin\Debug\Blun.ConfigurationManager.dll
-E:\CAOP OFFICE\CAOP\DAL\bin\Debug\EntityFramework.dll
-E:\CAOP OFFICE\CAOP\DAL\bin\Debug\EntityFramework.SqlServer.dll
-E:\CAOP OFFICE\CAOP\DAL\bin\Debug\EntityFramework.xml
-E:\CAOP OFFICE\CAOP\DAL\bin\Debug\EntityFramework.SqlServer.xml
-E:\CAOP OFFICE\CAOP\DAL\obj\Debug\DAL.csprojResolveAssemblyReference.cache
-E:\CAOP OFFICE\CAOP\DAL\obj\Debug\DAL.dll
-E:\CAOP OFFICE\CAOP\DAL\obj\Debug\DAL.pdb
-E:\CAOP OFFICE\CAOP\CAOP\DAL\bin\Debug\DAL.dll.config
-E:\CAOP OFFICE\CAOP\CAOP\DAL\bin\Debug\DAL.dll
-E:\CAOP OFFICE\CAOP\CAOP\DAL\bin\Debug\DAL.pdb
-E:\CAOP OFFICE\CAOP\CAOP\DAL\bin\Debug\Blun.ConfigurationManager.dll
-E:\CAOP OFFICE\CAOP\CAOP\DAL\bin\Debug\EntityFramework.dll
-E:\CAOP OFFICE\CAOP\CAOP\DAL\bin\Debug\EntityFramework.SqlServer.dll
-E:\CAOP OFFICE\CAOP\CAOP\DAL\bin\Debug\EntityFramework.xml
-E:\CAOP OFFICE\CAOP\CAOP\DAL\bin\Debug\EntityFramework.SqlServer.xml
-E:\CAOP OFFICE\CAOP\CAOP\DAL\obj\Debug\DAL.dll
-E:\CAOP OFFICE\CAOP\CAOP\DAL\obj\Debug\DAL.pdb
-D:\AOS\CAOP v5\DAL\bin\Debug\DAL.dll.config
-D:\AOS\CAOP v5\DAL\bin\Debug\DAL.dll
-D:\AOS\CAOP v5\DAL\bin\Debug\DAL.pdb
-D:\AOS\CAOP v5\DAL\bin\Debug\Blun.ConfigurationManager.dll
-D:\AOS\CAOP v5\DAL\bin\Debug\EntityFramework.dll
-D:\AOS\CAOP v5\DAL\bin\Debug\EntityFramework.SqlServer.dll
-D:\AOS\CAOP v5\DAL\bin\Debug\EntityFramework.xml
-D:\AOS\CAOP v5\DAL\bin\Debug\EntityFramework.SqlServer.xml
-D:\AOS\CAOP v5\DAL\obj\Debug\DAL.csprojResolveAssemblyReference.cache
-D:\AOS\CAOP v5\DAL\obj\Debug\DAL.dll
-D:\AOS\CAOP v5\DAL\obj\Debug\DAL.pdb
 D:\AOS\CAOP KYC\DAL\bin\Debug\DAL.dll.config
 D:\AOS\CAOP KYC\DAL\bin\Debug\DAL.dll
 D:\AOS\CAOP KYC\DAL\bin\Debug\DAL.pdb
@@ -126,39 +6,27 @@ D:\AOS\CAOP KYC\DAL\bin\Debug\EntityFramework.dll
 D:\AOS\CAOP KYC\DAL\bin\Debug\EntityFramework.SqlServer.dll
 D:\AOS\CAOP KYC\DAL\bin\Debug\EntityFramework.xml
 D:\AOS\CAOP KYC\DAL\bin\Debug\EntityFramework.SqlServer.xml
-D:\AOS\CAOP KYC\DAL\obj\Debug\DAL.csprojResolveAssemblyReference.cache
 D:\AOS\CAOP KYC\DAL\obj\Debug\DAL.dll
 D:\AOS\CAOP KYC\DAL\obj\Debug\DAL.pdb
-H:\CAOP KYC\DAL\bin\Debug\DAL.dll.config
-H:\CAOP KYC\DAL\bin\Debug\DAL.dll
-H:\CAOP KYC\DAL\bin\Debug\DAL.pdb
-H:\CAOP KYC\DAL\bin\Debug\Blun.ConfigurationManager.dll
-H:\CAOP KYC\DAL\bin\Debug\EntityFramework.dll
-H:\CAOP KYC\DAL\bin\Debug\EntityFramework.SqlServer.dll
-H:\CAOP KYC\DAL\bin\Debug\EntityFramework.xml
-H:\CAOP KYC\DAL\bin\Debug\EntityFramework.SqlServer.xml
-H:\CAOP KYC\DAL\obj\Debug\DAL.csprojResolveAssemblyReference.cache
-H:\CAOP KYC\DAL\obj\Debug\DAL.dll
-H:\CAOP KYC\DAL\obj\Debug\DAL.pdb
-C:\Users\Ameer Hamza\Documents\GitHub\coap\CAOP KYC\DAL\bin\Debug\DAL.dll.config
-C:\Users\Ameer Hamza\Documents\GitHub\coap\CAOP KYC\DAL\bin\Debug\DAL.dll
-C:\Users\Ameer Hamza\Documents\GitHub\coap\CAOP KYC\DAL\bin\Debug\DAL.pdb
-C:\Users\Ameer Hamza\Documents\GitHub\coap\CAOP KYC\DAL\bin\Debug\Blun.ConfigurationManager.dll
-C:\Users\Ameer Hamza\Documents\GitHub\coap\CAOP KYC\DAL\bin\Debug\EntityFramework.dll
-C:\Users\Ameer Hamza\Documents\GitHub\coap\CAOP KYC\DAL\bin\Debug\EntityFramework.SqlServer.dll
-C:\Users\Ameer Hamza\Documents\GitHub\coap\CAOP KYC\DAL\bin\Debug\EntityFramework.xml
-C:\Users\Ameer Hamza\Documents\GitHub\coap\CAOP KYC\DAL\bin\Debug\EntityFramework.SqlServer.xml
-C:\Users\Ameer Hamza\Documents\GitHub\coap\CAOP KYC\DAL\obj\Debug\DAL.csprojResolveAssemblyReference.cache
-C:\Users\Ameer Hamza\Documents\GitHub\coap\CAOP KYC\DAL\obj\Debug\DAL.dll
-C:\Users\Ameer Hamza\Documents\GitHub\coap\CAOP KYC\DAL\obj\Debug\DAL.pdb
-E:\AOS\coap\CAOP KYC\DAL\bin\Debug\DAL.dll.config
-E:\AOS\coap\CAOP KYC\DAL\bin\Debug\DAL.dll
-E:\AOS\coap\CAOP KYC\DAL\bin\Debug\DAL.pdb
-E:\AOS\coap\CAOP KYC\DAL\bin\Debug\Blun.ConfigurationManager.dll
-E:\AOS\coap\CAOP KYC\DAL\bin\Debug\EntityFramework.dll
-E:\AOS\coap\CAOP KYC\DAL\bin\Debug\EntityFramework.SqlServer.dll
-E:\AOS\coap\CAOP KYC\DAL\bin\Debug\EntityFramework.xml
-E:\AOS\coap\CAOP KYC\DAL\bin\Debug\EntityFramework.SqlServer.xml
-E:\AOS\coap\CAOP KYC\DAL\obj\Debug\DAL.dll
-E:\AOS\coap\CAOP KYC\DAL\obj\Debug\DAL.pdb
-E:\AOS\coap\CAOP KYC\DAL\obj\Debug\DAL.csprojResolveAssemblyReference.cache
+D:\AOS\AOS Code\DAL\bin\Debug\DAL.dll.config
+D:\AOS\AOS Code\DAL\bin\Debug\DAL.dll
+D:\AOS\AOS Code\DAL\bin\Debug\DAL.pdb
+D:\AOS\AOS Code\DAL\bin\Debug\Blun.ConfigurationManager.dll
+D:\AOS\AOS Code\DAL\bin\Debug\EntityFramework.dll
+D:\AOS\AOS Code\DAL\bin\Debug\EntityFramework.SqlServer.dll
+D:\AOS\AOS Code\DAL\bin\Debug\EntityFramework.xml
+D:\AOS\AOS Code\DAL\bin\Debug\EntityFramework.SqlServer.xml
+D:\AOS\AOS Code\DAL\obj\Debug\DAL.dll
+D:\AOS\AOS Code\DAL\obj\Debug\DAL.pdb
+D:\AOS\AOS Code\DAL\obj\Debug\DAL.csprojResolveAssemblyReference.cache
+D:\New Projects\AOS Code\AOS Code\DAL\obj\Debug\DAL.csprojResolveAssemblyReference.cache
+D:\New Projects\AOS Code\AOS Code\DAL\bin\Debug\DAL.dll.config
+D:\New Projects\AOS Code\AOS Code\DAL\bin\Debug\DAL.dll
+D:\New Projects\AOS Code\AOS Code\DAL\bin\Debug\DAL.pdb
+D:\New Projects\AOS Code\AOS Code\DAL\bin\Debug\Blun.ConfigurationManager.dll
+D:\New Projects\AOS Code\AOS Code\DAL\bin\Debug\EntityFramework.dll
+D:\New Projects\AOS Code\AOS Code\DAL\bin\Debug\EntityFramework.SqlServer.dll
+D:\New Projects\AOS Code\AOS Code\DAL\bin\Debug\EntityFramework.xml
+D:\New Projects\AOS Code\AOS Code\DAL\bin\Debug\EntityFramework.SqlServer.xml
+D:\New Projects\AOS Code\AOS Code\DAL\obj\Debug\DAL.dll
+D:\New Projects\AOS Code\AOS Code\DAL\obj\Debug\DAL.pdb

@@ -688,15 +688,6 @@ namespace CAOP {
         protected global::System.Web.UI.WebControls.TextBox OiTxtFamilyNo;
         
         /// <summary>
-        /// OiRequiredFieldValidatorTxtFamilyNo control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator OiRequiredFieldValidatorTxtFamilyNo;
-        
-        /// <summary>
         /// OiTxtTokenNo control.
         /// </summary>
         /// <remarks>

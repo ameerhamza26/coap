@@ -333,15 +333,43 @@ namespace CAOP
                 BdTextMC.Text = b.MAIN_CUSTOMERS;
                 BdTextMBLA.Text = b.MAIN_BUSINESS_ACTIVITY;
 
-                BdListBusinessInCities.Items
-                    .Cast<ListItem>()
-                    .Where(c => b.BusinessCities.Where(i => i.ID == Convert.ToInt32(c.Value)).Any())
-                    .Select(c => c.Selected = true);
+                if (b.BusinessCities.Count > 0)
+                {
+                    foreach (ListItem item in BdListBusinessInCities.Items)
+                    {
+                        foreach (var a in b.BusinessCities)
+                        {
+                            if (item.Value == a.ID.ToString())
+                            {
+                                item.Selected = true;
+                            }
+                        }
 
-                BdListBusinessInCountry.Items
-                    .Cast<ListItem>()
-                    .Where(c => b.BusinessCountries.Where(i => i.ID == Convert.ToInt32(c.Value)).Any())
-                    .Select(c => c.Selected = true);
+                    }
+                }
+
+                //BdListBusinessInCities.Items
+                //    .Cast<ListItem>()
+                //    .Where(c => b.BusinessCities.Where(i => i.ID == Convert.ToInt32(c.Value)).Any())
+                //    .Select(c => c.Selected = true);
+
+                if (b.BusinessCountries.Count > 0)
+                {
+                    foreach (ListItem item in BdListBusinessInCountry.Items)
+                    {
+                        foreach (var abc in b.BusinessCountries)
+                        {
+                            if (item.Value == abc.ID.ToString())
+                            {
+                                item.Selected = true;
+                            }
+                        }
+                    }
+                }
+                //BdListBusinessInCountry.Items
+                //    .Cast<ListItem>()
+                //    .Where(c => b.BusinessCountries.Where(i => i.ID == Convert.ToInt32(c.Value)).Any())
+                //    .Select(c => c.Selected = true);
 
                 BdSubmitButton.Visible = false;
 

@@ -292,6 +292,10 @@
 
                         </div>
 
+                        <div class="form-group" style="display: none">
+                            <label  class="lblReview">LSO Officer Code: </label>
+                            <asp:DropDownList ID="LSOOfficerCode" ClientIDMode="Static" CssClass="form-control" runat="server"></asp:DropDownList>
+                        </div>
 
                         <div class="form-group" style="display: none">
                             <label class="lblReview">Account Mode:</label>

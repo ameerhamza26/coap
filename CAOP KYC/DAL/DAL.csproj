@@ -86,6 +86,9 @@
     <Compile Include="ACCOUNT_MODES1.cs">
       <DependentUpon>CAOPModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="ACCOUNT_MODES2.cs">
+      <DependentUpon>CAOPModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="ACCOUNT_NATURE_CURRENCY.cs">
       <DependentUpon>CAOPModel.tt</DependentUpon>
     </Compile>
@@ -270,6 +273,9 @@
     <Compile Include="EMPLOYER_CODE1.cs">
       <DependentUpon>CAOPModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="EMPLOYER_CODE2.cs">
+      <DependentUpon>CAOPModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="EMPLOYER_CODES.cs">
       <DependentUpon>CAOPModel.tt</DependentUpon>
     </Compile>
@@ -383,6 +389,9 @@
       <DependentUpon>CAOPModel.tt</DependentUpon>
     </Compile>
     <Compile Include="MONTHLY_TURNOVER_DEBITS.cs">
+      <DependentUpon>CAOPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MRPC_FAILURE_MESSAGES.cs">
       <DependentUpon>CAOPModel.tt</DependentUpon>
     </Compile>
     <Compile Include="NADRA_INFO.cs">

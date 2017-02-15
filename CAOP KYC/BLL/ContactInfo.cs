@@ -383,7 +383,7 @@ namespace BLL
                     this.POST_OFFICE = Cinfo.POST_OFFICE;
                     this.POSTAL_CODE = Cinfo.POSTAL_CODE;
                     this.COUNTRY_CODE_PRE = new Country { ID = (int?)Cinfo.COUNTRY_CODE_PRE };
-                    this.STREET_PRE = Cinfo.STREET;
+                    this.STREET_PRE = Cinfo.STREET_PRE;
                     this.BIULDING_SUITE_PRE = Cinfo.BIULDING_SUITE_PRE;
                     this.FLOOR_PRE = Cinfo.FLOOR_PRE;
                     this.DISTRICT_PRE = Cinfo.DISTRICT_PRE;

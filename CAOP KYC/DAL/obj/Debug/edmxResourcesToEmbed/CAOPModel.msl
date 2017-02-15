@@ -1646,48 +1646,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="ACCOUNT_MODES1Set">
-      <EntityTypeMapping TypeName="AOSModel.ACCOUNT_MODES1">
-        <MappingFragment StoreEntitySet="ACCOUNT_MODES">
-          <ScalarProperty Name="CATEGORY" ColumnName="CATEGORY" />
-          <ScalarProperty Name="TYPE" ColumnName="TYPE" />
-          <ScalarProperty Name="PROFILECODE" ColumnName="PROFILECODE" />
-          <ScalarProperty Name="GRP" ColumnName="GRP" />
-          <ScalarProperty Name="NAME" ColumnName="NAME" />
-          <ScalarProperty Name="ID" ColumnName="ID" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="EMPLOYER_CODE1Set">
-      <EntityTypeMapping TypeName="AOSModel.EMPLOYER_CODE1">
-        <MappingFragment StoreEntitySet="EMPLOYER_CODE">
-          <ScalarProperty Name="Name" ColumnName="Name" />
-          <ScalarProperty Name="ZEMPNO" ColumnName="ZEMPNO" />
-          <ScalarProperty Name="ZEMPSUBG" ColumnName="ZEMPSUBG" />
-          <ScalarProperty Name="ZEMPGRP" ColumnName="ZEMPGRP" />
-          <ScalarProperty Name="ID" ColumnName="ID" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="EMPLOYER_GROUP1Set">
-      <EntityTypeMapping TypeName="AOSModel.EMPLOYER_GROUP1">
-        <MappingFragment StoreEntitySet="EMPLOYER_GROUP">
-          <ScalarProperty Name="ZEMPGRP" ColumnName="ZEMPGRP" />
-          <ScalarProperty Name="Name" ColumnName="Name" />
-          <ScalarProperty Name="ID" ColumnName="ID" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="EMPLOYER_SUB_GROUP1Set">
-      <EntityTypeMapping TypeName="AOSModel.EMPLOYER_SUB_GROUP1">
-        <MappingFragment StoreEntitySet="EMPLOYER_SUB_GROUP">
-          <ScalarProperty Name="ZEMPSUBG" ColumnName="ZEMPSUBG" />
-          <ScalarProperty Name="ZEMPGRP" ColumnName="ZEMPGRP" />
-          <ScalarProperty Name="Name" ColumnName="Name" />
-          <ScalarProperty Name="ID" ColumnName="ID" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="EMPLOYMENT_INFORMATIONS">
       <EntityTypeMapping TypeName="AOSModel.EMPLOYMENT_INFORMATIONS">
         <MappingFragment StoreEntitySet="EMPLOYMENT_INFORMATIONS">
@@ -1713,19 +1671,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="ACCOUNT_DEL_LOG">
-      <EntityTypeMapping TypeName="AOSModel.ACCOUNT_DEL_LOG">
-        <MappingFragment StoreEntitySet="ACCOUNT_DEL_LOG">
-          <ScalarProperty Name="DELETE_DATETIME" ColumnName="DELETE_DATETIME" />
-          <ScalarProperty Name="DELETED_BY" ColumnName="DELETED_BY" />
-          <ScalarProperty Name="ACCOUNT_NATURE" ColumnName="ACCOUNT_NATURE" />
-          <ScalarProperty Name="ACCOUNT_TITLE" ColumnName="ACCOUNT_TITLE" />
-          <ScalarProperty Name="ACCOUNT_TYPE" ColumnName="ACCOUNT_TYPE" />
-          <ScalarProperty Name="TEMPORARY_ACOUNTNO" ColumnName="TEMPORARY_ACOUNTNO" />
-          <ScalarProperty Name="ID" ColumnName="ID" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="CIF_DEL_LOG">
       <EntityTypeMapping TypeName="AOSModel.CIF_DEL_LOG">
         <MappingFragment StoreEntitySet="CIF_DEL_LOG">
@@ -1743,6 +1688,7 @@
     <EntitySetMapping Name="OFFICE_CODES">
       <EntityTypeMapping TypeName="AOSModel.OFFICE_CODES">
         <MappingFragment StoreEntitySet="OFFICE_CODES">
+          <ScalarProperty Name="ProfileCode" ColumnName="ProfileCode" />
           <ScalarProperty Name="NAME" ColumnName="NAME" />
           <ScalarProperty Name="ID" ColumnName="ID" />
         </MappingFragment>
@@ -1766,6 +1712,40 @@
       <EntityTypeMapping TypeName="AOSModel.ACCOUNT_PURPOSE">
         <MappingFragment StoreEntitySet="ACCOUNT_PURPOSE">
           <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ACCOUNT_MODES2Set">
+      <EntityTypeMapping TypeName="AOSModel.ACCOUNT_MODES2">
+        <MappingFragment StoreEntitySet="ACCOUNT_MODES">
+          <ScalarProperty Name="CATEGORY" ColumnName="CATEGORY" />
+          <ScalarProperty Name="TYPE" ColumnName="TYPE" />
+          <ScalarProperty Name="PROFILECODE" ColumnName="PROFILECODE" />
+          <ScalarProperty Name="GRP" ColumnName="GRP" />
+          <ScalarProperty Name="NAME" ColumnName="NAME" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MRPC_FAILURE_MESSAGES">
+      <EntityTypeMapping TypeName="AOSModel.MRPC_FAILURE_MESSAGES">
+        <MappingFragment StoreEntitySet="MRPC_FAILURE_MESSAGES">
+          <ScalarProperty Name="InsertDateTime" ColumnName="InsertDateTime" />
+          <ScalarProperty Name="FAILURE_MSG" ColumnName="FAILURE_MSG" />
+          <ScalarProperty Name="BI_ID" ColumnName="BI_ID" />
+          <ScalarProperty Name="TYPE" ColumnName="TYPE" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EMPLOYER_CODE2Set">
+      <EntityTypeMapping TypeName="AOSModel.EMPLOYER_CODE2">
+        <MappingFragment StoreEntitySet="EMPLOYER_CODE">
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ZEMPNO" ColumnName="ZEMPNO" />
+          <ScalarProperty Name="ZEMPSUBG" ColumnName="ZEMPSUBG" />
+          <ScalarProperty Name="ZEMPGRP" ColumnName="ZEMPGRP" />
           <ScalarProperty Name="ID" ColumnName="ID" />
         </MappingFragment>
       </EntityTypeMapping>

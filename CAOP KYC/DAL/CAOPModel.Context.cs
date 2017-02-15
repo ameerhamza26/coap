@@ -12,10 +12,9 @@ namespace DAL
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
-
+    
     public partial class CAOPDbContext : DbContext
     {
-       
     
         public virtual DbSet<ACCOMODATION_TYPES> ACCOMODATION_TYPES { get; set; }
         public virtual DbSet<ACCOUNT_AUTHORIZED_PERSONS> ACCOUNT_AUTHORIZED_PERSONS { get; set; }
@@ -168,5 +167,8 @@ namespace DAL
         public virtual DbSet<OFFICE_CODES> OFFICE_CODES { get; set; }
         public virtual DbSet<ChangeLog> ChangeLog { get; set; }
         public virtual DbSet<ACCOUNT_PURPOSE> ACCOUNT_PURPOSE { get; set; }
+        public virtual DbSet<ACCOUNT_MODES2> ACCOUNT_MODES2Set { get; set; }
+        public virtual DbSet<MRPC_FAILURE_MESSAGES> MRPC_FAILURE_MESSAGES { get; set; }
+        public virtual DbSet<EMPLOYER_CODE2> EMPLOYER_CODE2Set { get; set; }
     }
 }

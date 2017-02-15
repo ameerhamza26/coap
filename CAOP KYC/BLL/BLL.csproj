@@ -94,6 +94,7 @@
     <Compile Include="City.cs" />
     <Compile Include="ConsumerSegment.cs" />
     <Compile Include="ContactInfo.cs" />
+    <Compile Include="LSO.cs" />
     <Compile Include="Country.cs" />
     <Compile Include="CountryCode.cs" />
     <Compile Include="Currency.cs" />

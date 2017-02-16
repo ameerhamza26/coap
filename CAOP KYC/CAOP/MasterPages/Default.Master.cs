@@ -13,7 +13,7 @@ namespace CAOP.MasterPages
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+            UCif.Visible = false;
             User LogedUser =  Session["User"] as User;
             if (Session.Count < 1)
             {
@@ -89,6 +89,7 @@ namespace CAOP.MasterPages
                 LOTF.Visible = true;
                 AOF.Visible = true;
                 BV.Visible = true;
+                UCif.Visible = true;
                 crmtagging.Visible = true;
             }
 
@@ -96,6 +97,7 @@ namespace CAOP.MasterPages
             {
                 DIPC.Visible = true;
                 DIPA.Visible = true;
+                UCif.Visible = false;
             }
 
             if (LogedUser.Permissions.CheckAccess(Permissions.CIF, Rights.Read))

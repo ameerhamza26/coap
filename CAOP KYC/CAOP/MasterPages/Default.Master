@@ -72,7 +72,7 @@
                         <li id="PCif" runat="server" visible="false"><a href="<%= Page.ResolveUrl("~")%>PendingCIF.aspx">PENDING CIF</a></li>
                         <li><a href="<%= Page.ResolveUrl("~")%>CifForms/InProcess.aspx">IN PROCESS CIF</a></li>
                         <li><a href="<%= Page.ResolveUrl("~")%>CifAccount.aspx">SUBMITTED CIF</a></li>
-                        <li><a href="<%= Page.ResolveUrl("~")%>UpdateCIF.aspx">Update CIF</a></li>
+                        <li id="UCif" runat="server"><a href="<%= Page.ResolveUrl("~")%>UpdateCIF.aspx">UPDATE CIF</a></li>
                         <li><a href="<%= Page.ResolveUrl("~")%>CifForms/RejectedCif.aspx">REJECTED CIF</a></li>
                         <li id="DIPC" runat="server" visible="false"><a href="<%= Page.ResolveUrl("~")%>CifForms/DeleteInProcess.aspx">DELETE IN PROCESS CIF</a></li>
                         <li><a href="<%= Page.ResolveUrl("~")%>SearchCif.aspx">SEARCH CIF RECORD</a></li>

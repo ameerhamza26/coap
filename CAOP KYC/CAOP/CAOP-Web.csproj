@@ -179,7 +179,7 @@
     <Content Include="UpdateGovernment.aspx" />
     <Content Include="UpdateIndividual.aspx" />
     <Content Include="UpdateMinorCIF.aspx" />
-    <Content Include="UpdateNextOfKin.aspx" />
+    <Content Include="UpdateOffice.aspx" />
     <Content Include="UserForms\AddUser.aspx" />
     <Content Include="UserForms\ChangeUserPass.aspx" />
     <Content Include="UserForms\EditUser.aspx" />
@@ -562,12 +562,12 @@
     <Compile Include="UpdateMinorCIF.aspx.designer.cs">
       <DependentUpon>UpdateMinorCIF.aspx</DependentUpon>
     </Compile>
-    <Compile Include="UpdateNextOfKin.aspx.cs">
-      <DependentUpon>UpdateNextOfKin.aspx</DependentUpon>
+    <Compile Include="UpdateOffice.aspx.cs">
+      <DependentUpon>UpdateOffice.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="UpdateNextOfKin.aspx.designer.cs">
-      <DependentUpon>UpdateNextOfKin.aspx</DependentUpon>
+    <Compile Include="UpdateOffice.aspx.designer.cs">
+      <DependentUpon>UpdateOffice.aspx</DependentUpon>
     </Compile>
     <Compile Include="UserControls\ReviewControl.ascx.cs">
       <DependentUpon>ReviewControl.ascx</DependentUpon>

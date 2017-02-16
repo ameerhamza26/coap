@@ -41,8 +41,8 @@ namespace CAOP
 
                 if (Type == CifType.INDIVIDUAL)
                     lbledit.PostBackUrl = "~/UpdateIndividual.aspx?ID=" + CIF_ID.Text;
-                else if (Type == CifType.NEXT_OF_KIN)
-                    lbledit.PostBackUrl = "~/UpdateNextOfKin.aspx?ID=" + CIF_ID.Text;
+                else if (Type == CifType.OFFICE)
+                    lbledit.PostBackUrl = "~/UpdateOffice.aspx?ID=" + CIF_ID.Text;
                 else if (Type == CifType.GOVERNMENT)
                     lbledit.PostBackUrl = "~/UpdateGovernment.aspx?ID=" + CIF_ID.Text;
                 else if (Type == CifType.MINOR)

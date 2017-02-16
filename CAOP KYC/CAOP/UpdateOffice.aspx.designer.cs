@@ -10,376 +10,340 @@
 namespace CAOP {
     
     
-    public partial class UpdateNextOfKin {
+    public partial class UpdateOffice {
         
         /// <summary>
-        /// NKListIndividualCIF control.
+        /// OffListCifType control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList NKListIndividualCIF;
+        protected global::System.Web.UI.WebControls.DropDownList OffListCifType;
         
         /// <summary>
-        /// NKCnic control.
+        /// OfftxtName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox NKCnic;
+        protected global::System.Web.UI.WebControls.TextBox OfftxtName;
         
         /// <summary>
-        /// NKRequiredFieldValidatorCnic control.
+        /// Offtxt control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator NKRequiredFieldValidatorCnic;
+        protected global::System.Web.UI.WebControls.TextBox Offtxt;
         
         /// <summary>
-        /// RegularExpressionValidatorCnic control.
+        /// OffDesignation control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidatorCnic;
+        protected global::System.Web.UI.WebControls.TextBox OffDesignation;
         
         /// <summary>
-        /// NKListTitle control.
+        /// OffListCountry control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList NKListTitle;
+        protected global::System.Web.UI.WebControls.DropDownList OffListCountry;
         
         /// <summary>
-        /// NKRequiredFieldValidatorListTitle control.
+        /// RequiredFieldValidatorListCountry control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator NKRequiredFieldValidatorListTitle;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidatorListCountry;
         
         /// <summary>
-        /// NktxtFirstName control.
+        /// OffListCity control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox NktxtFirstName;
+        protected global::System.Web.UI.WebControls.DropDownList OffListCity;
         
         /// <summary>
-        /// RequiredFieldValidatorFirstName control.
+        /// RequiredFieldValidator3 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidatorFirstName;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator3;
         
         /// <summary>
-        /// NktxtMiddleName control.
+        /// OffListProvince control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox NktxtMiddleName;
+        protected global::System.Web.UI.WebControls.DropDownList OffListProvince;
         
         /// <summary>
-        /// NktxtLastName control.
+        /// RequiredFieldValidatorGovProvince control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox NktxtLastName;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidatorGovProvince;
         
         /// <summary>
-        /// NKListResident control.
+        /// OffTxtBuilding control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList NKListResident;
+        protected global::System.Web.UI.WebControls.TextBox OffTxtBuilding;
         
         /// <summary>
-        /// NKRequiredFieldValidatorListResident control.
+        /// RequiredFieldValidatorTxtBuildingt control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator NKRequiredFieldValidatorListResident;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidatorTxtBuildingt;
         
         /// <summary>
-        /// NKListNationality control.
+        /// OffTxtFloor control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList NKListNationality;
+        protected global::System.Web.UI.WebControls.TextBox OffTxtFloor;
         
         /// <summary>
-        /// NKRequiredFieldValidatorListNationality control.
+        /// OffTxtStreet control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator NKRequiredFieldValidatorListNationality;
+        protected global::System.Web.UI.WebControls.TextBox OffTxtStreet;
         
         /// <summary>
-        /// NKListIdentityType control.
+        /// OffTxtDistrict control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList NKListIdentityType;
+        protected global::System.Web.UI.WebControls.TextBox OffTxtDistrict;
         
         /// <summary>
-        /// NKIdentityNo control.
+        /// OffPoBox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox NKIdentityNo;
+        protected global::System.Web.UI.WebControls.TextBox OffPoBox;
         
         /// <summary>
-        /// NKListCountryIssue control.
+        /// OffPostalCode control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList NKListCountryIssue;
+        protected global::System.Web.UI.WebControls.TextBox OffPostalCode;
         
         /// <summary>
-        /// NKIssueDate control.
+        /// OffListCountryPre control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox NKIssueDate;
+        protected global::System.Web.UI.WebControls.DropDownList OffListCountryPre;
         
         /// <summary>
-        /// RegularExpressionValidatorIssueDate control.
+        /// RequiredFieldValidator1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidatorIssueDate;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator1;
         
         /// <summary>
-        /// NKPlaceOfIssue control.
+        /// OffListCityPre control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox NKPlaceOfIssue;
+        protected global::System.Web.UI.WebControls.DropDownList OffListCityPre;
         
         /// <summary>
-        /// NKExpDate control.
+        /// RequiredFieldValidator2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox NKExpDate;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator2;
         
         /// <summary>
-        /// RegularExpressionValidatorExpiry control.
+        /// OffListProvincePre control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidatorExpiry;
+        protected global::System.Web.UI.WebControls.DropDownList OffListProvincePre;
         
         /// <summary>
-        /// NKListCountry control.
+        /// RequiredFieldValidator4 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList NKListCountry;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator4;
         
         /// <summary>
-        /// NKRequiredFieldValidatorListCountry control.
+        /// OffTxtBuildingPre control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator NKRequiredFieldValidatorListCountry;
+        protected global::System.Web.UI.WebControls.TextBox OffTxtBuildingPre;
         
         /// <summary>
-        /// NKListCity control.
+        /// RequiredFieldValidator5 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList NKListCity;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator5;
         
         /// <summary>
-        /// NkTxtBuilding control.
+        /// OffTxtFloorPre control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox NkTxtBuilding;
+        protected global::System.Web.UI.WebControls.TextBox OffTxtFloorPre;
         
         /// <summary>
-        /// RequiredFieldValidatorBuilding control.
+        /// OffTxtStreetPre control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidatorBuilding;
+        protected global::System.Web.UI.WebControls.TextBox OffTxtStreetPre;
         
         /// <summary>
-        /// NktxtFloor control.
+        /// OffTxtDistrictPre control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox NktxtFloor;
+        protected global::System.Web.UI.WebControls.TextBox OffTxtDistrictPre;
         
         /// <summary>
-        /// NkTxtStreet control.
+        /// OffPoBoxPre control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox NkTxtStreet;
+        protected global::System.Web.UI.WebControls.TextBox OffPoBoxPre;
         
         /// <summary>
-        /// NkTxtDistrict control.
+        /// OffPostalCodePre control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox NkTxtDistrict;
+        protected global::System.Web.UI.WebControls.TextBox OffPostalCodePre;
         
         /// <summary>
-        /// NKPoBox control.
+        /// OfficeNo control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox NKPoBox;
+        protected global::System.Web.UI.WebControls.TextBox OfficeNo;
         
         /// <summary>
-        /// NKPostalCode control.
+        /// CustomValidator2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox NKPostalCode;
+        protected global::System.Web.UI.WebControls.CustomValidator CustomValidator2;
         
         /// <summary>
-        /// NKContactNoOffice control.
+        /// MobileNo control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox NKContactNoOffice;
+        protected global::System.Web.UI.WebControls.TextBox MobileNo;
         
         /// <summary>
-        /// CustomValidatorAnyContact control.
+        /// FaxNo control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CustomValidator CustomValidatorAnyContact;
+        protected global::System.Web.UI.WebControls.TextBox FaxNo;
         
         /// <summary>
-        /// NKContactNoResidence control.
+        /// btnUpdateOfc control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox NKContactNoResidence;
+        protected global::System.Web.UI.WebControls.Button btnUpdateOfc;
         
         /// <summary>
-        /// NKMobileNo control.
+        /// btnSubmitOfc control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox NKMobileNo;
+        protected global::System.Web.UI.WebControls.Button btnSubmitOfc;
         
         /// <summary>
-        /// NKFaxNo control.
+        /// btnSubmitSaveOfc control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox NKFaxNo;
-        
-        /// <summary>
-        /// NKEmail control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox NKEmail;
-        
-        /// <summary>
-        /// btnUpdateNK control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnUpdateNK;
-        
-        /// <summary>
-        /// btnSubmitCif control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnSubmitCif;
-        
-        /// <summary>
-        /// btnSubmitNKN control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnSubmitNKN;
+        protected global::System.Web.UI.WebControls.Button btnSubmitSaveOfc;
         
         /// <summary>
         /// rev control.

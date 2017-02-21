@@ -72,7 +72,7 @@
     <Property Name="TEMP_AC_NO" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
     <Property Name="BRANCH_CODE" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
     <Property Name="CNIC" Type="String" MaxLength="18" FixedLength="false" Unicode="false" />
-    <Property Name="ACCOUNT_TITLE" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="ACCOUNT_TITLE" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
     <Property Name="INITIAL_DEPOSIT" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
     <Property Name="ACCOUNT_MODE" Type="Int32" />
     <Property Name="ACCOUNT_TYPE" Type="Int32" />
@@ -118,6 +118,7 @@
     <Property Name="BRANCH_CODE" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
     <Property Name="IBAN" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
     <Property Name="ACCOUNT_PURPOSE" Type="Int32" />
+    <Property Type="Int32" Name="LSO_CODE" />
   </EntityType>
   <EntityType Name="ACCOUNT_OPEN_TYPE">
     <Key>
@@ -433,12 +434,12 @@
     <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="BID" Type="Int32" Nullable="false" />
     <Property Name="TAB" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="FNAME" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="FNAME" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
     <Property Name="FID" Type="String" MaxLength="60" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="DATEC" Type="DateTime" Nullable="false" Precision="3" />
     <Property Name="USERID" Type="Int32" Nullable="false" />
     <Property Name="ACTIVE" Type="Boolean" Nullable="false" />
-    <Property Name="COMMENT" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="COMMENT" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
   </EntityType>
   <EntityType Name="CIF_TYPES">
     <Key>
@@ -861,7 +862,7 @@
     <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="BI_ID" Type="Int32" />
     <Property Name="CUSTOMER_TYPE" Type="Int32" />
-    <Property Name="DESCRIPTION_IF_REFFERED" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DESCRIPTION_IF_REFFERED" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
     <Property Name="EDUCATION" Type="Int32" />
     <Property Name="PURPOSE_OF_ACCOUNT" Type="Int32" />
     <Property Name="DESCRIPTION_IF_OTHER" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
@@ -918,7 +919,7 @@
     </Key>
     <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="BID" Type="Int32" />
-    <Property Name="NAME" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="NAME" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
     <Property Name="IDENTITY_DOCUMENT" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
     <Property Name="IDENTITY_NUMBER" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
     <Property Name="EXPIRY_DATE" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
@@ -1704,6 +1705,9 @@
     <EntitySet Name="OFFICE_CODES" EntityType="AOSModel.OFFICE_CODES" />
     <EntitySet Name="ChangeLog" EntityType="AOSModel.ChangeLog" />
     <EntitySet Name="ACCOUNT_PURPOSE" EntityType="AOSModel.ACCOUNT_PURPOSE" />
+    <EntitySet Name="ACCOUNT_MODES2Set" EntityType="AOSModel.ACCOUNT_MODES2" />
+    <EntitySet Name="MRPC_FAILURE_MESSAGES" EntityType="AOSModel.MRPC_FAILURE_MESSAGES" />
+    <EntitySet Name="EMPLOYER_CODE2Set" EntityType="AOSModel.EMPLOYER_CODE2" />
   </EntityContainer>
   <EntityType Name="ACCOUNT_MODES">
     <Key>
@@ -1847,6 +1851,7 @@
     </Key>
     <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="NAME" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="ProfileCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
   </EntityType>
   <EntityType Name="ChangeLog">
     <Key>
@@ -1872,5 +1877,36 @@
     </Key>
     <Property Name="ID" Type="Int32" Nullable="false" />
     <Property Name="Name" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="ACCOUNT_MODES2">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="NAME" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="GRP" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="PROFILECODE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="TYPE" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="CATEGORY" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="MRPC_FAILURE_MESSAGES">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TYPE" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="BI_ID" Type="Int32" />
+    <Property Name="FAILURE_MSG" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="InsertDateTime" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="EMPLOYER_CODE2">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="ZEMPGRP" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="ZEMPSUBG" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="ZEMPNO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
   </EntityType>
 </Schema>

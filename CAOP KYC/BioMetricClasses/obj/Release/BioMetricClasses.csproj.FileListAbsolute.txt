@@ -3,3 +3,8 @@ D:\AOS\AOS Code\BioMetricClasses\bin\Release\BioMetricClasses.pdb
 D:\AOS\AOS Code\BioMetricClasses\obj\Release\BioMetricClasses.csprojResolveAssemblyReference.cache
 D:\AOS\AOS Code\BioMetricClasses\obj\Release\BioMetricClasses.dll
 D:\AOS\AOS Code\BioMetricClasses\obj\Release\BioMetricClasses.pdb
+D:\New Projects\coap\CAOP KYC\BioMetricClasses\bin\Release\BioMetricClasses.dll
+D:\New Projects\coap\CAOP KYC\BioMetricClasses\bin\Release\BioMetricClasses.pdb
+D:\New Projects\coap\CAOP KYC\BioMetricClasses\obj\Release\BioMetricClasses.csprojResolveAssemblyReference.cache
+D:\New Projects\coap\CAOP KYC\BioMetricClasses\obj\Release\BioMetricClasses.dll
+D:\New Projects\coap\CAOP KYC\BioMetricClasses\obj\Release\BioMetricClasses.pdb

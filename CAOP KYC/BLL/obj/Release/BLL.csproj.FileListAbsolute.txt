@@ -10,3 +10,15 @@ D:\AOS\AOS Code\BLL\bin\Release\EntityFramework.SqlServer.xml
 D:\AOS\AOS Code\BLL\obj\Release\BLL.csprojResolveAssemblyReference.cache
 D:\AOS\AOS Code\BLL\obj\Release\BLL.dll
 D:\AOS\AOS Code\BLL\obj\Release\BLL.pdb
+D:\New Projects\coap\CAOP KYC\BLL\bin\Release\BLL.dll.config
+D:\New Projects\coap\CAOP KYC\BLL\bin\Release\BLL.dll
+D:\New Projects\coap\CAOP KYC\BLL\bin\Release\BLL.pdb
+D:\New Projects\coap\CAOP KYC\BLL\bin\Release\DAL.dll
+D:\New Projects\coap\CAOP KYC\BLL\bin\Release\EntityFramework.dll
+D:\New Projects\coap\CAOP KYC\BLL\bin\Release\EntityFramework.SqlServer.dll
+D:\New Projects\coap\CAOP KYC\BLL\bin\Release\DAL.pdb
+D:\New Projects\coap\CAOP KYC\BLL\bin\Release\EntityFramework.xml
+D:\New Projects\coap\CAOP KYC\BLL\bin\Release\EntityFramework.SqlServer.xml
+D:\New Projects\coap\CAOP KYC\BLL\obj\Release\BLL.csprojResolveAssemblyReference.cache
+D:\New Projects\coap\CAOP KYC\BLL\obj\Release\BLL.dll
+D:\New Projects\coap\CAOP KYC\BLL\obj\Release\BLL.pdb

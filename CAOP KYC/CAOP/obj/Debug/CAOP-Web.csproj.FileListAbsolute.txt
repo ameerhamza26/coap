@@ -352,3 +352,24 @@ F:\Projects\coap\CAOP KYC\CAOP\bin\DAL.pdb
 F:\Projects\coap\CAOP KYC\CAOP\obj\Debug\CAOP-Web.csprojResolveAssemblyReference.cache
 F:\Projects\coap\CAOP KYC\CAOP\obj\Debug\CAOP.dll
 F:\Projects\coap\CAOP KYC\CAOP\obj\Debug\CAOP.pdb
+D:\New Projects\coap\CAOP KYC\CAOP\bin\CAOP.dll.config
+D:\New Projects\coap\CAOP KYC\CAOP\bin\CAOP.dll
+D:\New Projects\coap\CAOP KYC\CAOP\bin\CAOP.pdb
+D:\New Projects\coap\CAOP KYC\CAOP\bin\BioMetricClasses.dll
+D:\New Projects\coap\CAOP KYC\CAOP\bin\BLL.dll
+D:\New Projects\coap\CAOP KYC\CAOP\bin\EntityFramework.dll
+D:\New Projects\coap\CAOP KYC\CAOP\bin\EntityFramework.SqlServer.dll
+D:\New Projects\coap\CAOP KYC\CAOP\bin\Microsoft.ReportViewer.Common.dll
+D:\New Projects\coap\CAOP KYC\CAOP\bin\Microsoft.ReportViewer.ProcessingObjectModel.DLL
+D:\New Projects\coap\CAOP KYC\CAOP\bin\Microsoft.ReportViewer.WebForms.DLL
+D:\New Projects\coap\CAOP KYC\CAOP\bin\DAL.dll
+D:\New Projects\coap\CAOP KYC\CAOP\bin\BioMetricClasses.pdb
+D:\New Projects\coap\CAOP KYC\CAOP\bin\BLL.pdb
+D:\New Projects\coap\CAOP KYC\CAOP\bin\EntityFramework.xml
+D:\New Projects\coap\CAOP KYC\CAOP\bin\EntityFramework.SqlServer.xml
+D:\New Projects\coap\CAOP KYC\CAOP\bin\DAL.pdb
+D:\New Projects\coap\CAOP KYC\CAOP\obj\Debug\CAOP-Web.csprojResolveAssemblyReference.cache
+D:\New Projects\coap\CAOP KYC\CAOP\obj\Debug\RdlCompile.cache
+D:\New Projects\coap\CAOP KYC\CAOP\obj\Debug\RdlCompile.compiled
+D:\New Projects\coap\CAOP KYC\CAOP\obj\Debug\CAOP.dll
+D:\New Projects\coap\CAOP KYC\CAOP\obj\Debug\CAOP.pdb

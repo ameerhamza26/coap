@@ -46,3 +46,15 @@ F:\Projects\coap\CAOP KYC\BLL\bin\Debug\EntityFramework.SqlServer.xml
 F:\Projects\coap\CAOP KYC\BLL\obj\Debug\BLL.csprojResolveAssemblyReference.cache
 F:\Projects\coap\CAOP KYC\BLL\obj\Debug\BLL.dll
 F:\Projects\coap\CAOP KYC\BLL\obj\Debug\BLL.pdb
+D:\New Projects\coap\CAOP KYC\BLL\bin\Debug\BLL.dll.config
+D:\New Projects\coap\CAOP KYC\BLL\bin\Debug\BLL.dll
+D:\New Projects\coap\CAOP KYC\BLL\bin\Debug\BLL.pdb
+D:\New Projects\coap\CAOP KYC\BLL\bin\Debug\DAL.dll
+D:\New Projects\coap\CAOP KYC\BLL\bin\Debug\EntityFramework.dll
+D:\New Projects\coap\CAOP KYC\BLL\bin\Debug\EntityFramework.SqlServer.dll
+D:\New Projects\coap\CAOP KYC\BLL\bin\Debug\DAL.pdb
+D:\New Projects\coap\CAOP KYC\BLL\bin\Debug\EntityFramework.xml
+D:\New Projects\coap\CAOP KYC\BLL\bin\Debug\EntityFramework.SqlServer.xml
+D:\New Projects\coap\CAOP KYC\BLL\obj\Debug\BLL.csprojResolveAssemblyReference.cache
+D:\New Projects\coap\CAOP KYC\BLL\obj\Debug\BLL.dll
+D:\New Projects\coap\CAOP KYC\BLL\obj\Debug\BLL.pdb

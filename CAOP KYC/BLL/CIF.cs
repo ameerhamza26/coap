@@ -95,9 +95,46 @@ namespace BLL
                
            }
        }
+        public int? isCifUpdated()
+        {
+            using (CAOPDbContext db = new CAOPDbContext())
+            {
+                var BI = db.BASIC_INFORMATIONS.FirstOrDefault(b => b.ID == this.BI_ID);
+                return BI.isUpdated;
+            }
+        }
 
-       
-       public bool CheckStatus(int BId, string status)
+
+        public void ChangeStatusUpdate(Status status, User LogedUser)
+        {
+            using (CAOPDbContext db = new CAOPDbContext())
+            {
+                //USERS LoggedInUser = Session["User"] as User;
+                STATUS_LOG newSlog = new STATUS_LOG();
+                newSlog.USERID = LogedUser.USER_ID;
+                newSlog.BID = this.BI_ID;
+                newSlog.OLD_STATUS = db.BASIC_INFORMATIONS.FirstOrDefault(b => b.ID == this.BI_ID).STATUS;
+                newSlog.NEW_STATUS = status.ToString();
+                newSlog.LOG_DATETIME = DateTime.Now;
+                newSlog.LOG_TYPE = "CIF";
+                db.STATUS_LOG.Add(newSlog);
+                db.SaveChanges();
+                var BI = db.BASIC_INFORMATIONS.FirstOrDefault(b => b.ID == this.BI_ID);
+                BI.STATUS = status.ToString();
+                BI.LAST_UPDATED = DateTime.Now;
+                BI.LastUpdateUserID = LogedUser.USER_ID;
+                BI.isUpdated = 1;
+                int parent_id = db.USERS.FirstOrDefault(b => b.USER_ID == LogedUser.USER_ID).PARENT_ID;
+                BI.LAST_UPDATE_BRANCH_CODE =db.BRANCHES.FirstOrDefault(c => c.BRANCH_ID == parent_id).BRANCH_CODE;
+                db.SaveChanges();
+               
+
+
+            }
+        }
+
+
+        public bool CheckStatus(int BId, string status)
        {
            using (CAOPDbContext db = new CAOPDbContext())
            {
@@ -254,7 +291,55 @@ namespace BLL
                return SubmittedCifs;
            }
        }
-       public List<BasicInformations> GeteCifsByRole(string UserRole,bool Region)
+
+        public List<BasicInformations> GetPendingUpdatedCifsByRole(string UserRole, bool Region)
+        {
+            using (CAOPDbContext db = new CAOPDbContext())
+            {
+                List<int> BranchUsers = new List<int>();
+                List<BasicInformations> SubmittedCifs = new List<BasicInformations>();
+
+                if (UserRole == Roles.BRANCH_OPERATOR.ToString())
+                {
+
+                    BranchUsers.Add(this.UserId);
+                    USERS usr = db.USERS.FirstOrDefault(b => b.USER_ID == this.UserId);
+                    BRANCHES br = db.BRANCHES.FirstOrDefault(b => b.BRANCH_ID == usr.PARENT_ID);
+                    SubmittedCifs = db.BASIC_INFORMATIONS.Where(b => b.STATUS == Status.UPDATED_BY_BRANCH_OPERATOR.ToString() && BranchUsers.Contains((int)b.UserId) && b.BRANCH_CODE == br.BRANCH_CODE)
+                      .OrderByDescending(b => b.LAST_UPDATED).Select(b => new BasicInformations { ID = b.ID, CNIC = b.CNIC, NAME = b.NAME, NAME_OFFICE = b.NAME_OFFICE, LAST_UPDATED = b.LAST_UPDATED, STATUS = b.STATUS, NTN = b.NTN, CIF_TYPE = new CifTypes { ID = (int)b.CIF_TYPE, Name = db.CIF_TYPES.FirstOrDefault(t => t.ID == b.CIF_TYPE).Name }, RISK_SCORE = b.RISK_SCORE, RISK_CATEGORY = b.RISK_CATEGORY, PROFILE_CIF_NO = b.PROFILE_CIF_NO, BRANCH_CODE = b.BRANCH_CODE }).ToList();
+
+                }
+                else
+                {
+                    if (Region)
+                    {
+                        var branches = db.BRANCHES.Where(b => (b.CATEGORY_ID == 1 || b.CATEGORY_ID == 2) && b.REGION_ID == db.USERS.FirstOrDefault(u => u.USER_ID == this.UserId).PARENT_ID).Select(b => b.BRANCH_ID).ToList();
+                        BranchUsers = db.USERS.Where(u => branches.Contains(u.PARENT_ID) && u.USER_TYPE == "BRANCH").Select(u => u.USER_ID).ToList();
+                    }
+                    else
+                    {
+                        BranchUsers = db.USERS.Where(u => u.USER_TYPE == "BRANCH" && u.PARENT_ID == (db.USERS.FirstOrDefault(l => l.USER_ID == this.UserId).PARENT_ID)).Select(u => u.USER_ID).ToList();
+                    }
+
+
+
+                    if (UserRole == Roles.COMPLIANCE_OFFICER.ToString())
+                    {
+
+                        SubmittedCifs = db.BASIC_INFORMATIONS.Where(b => (b.STATUS == Status.SUBMITTED_BY_BRANCH_OPERATOR.ToString() || b.STATUS == Status.UPDATED_CIF_REJECTED_BY_BRANCH_MANAGER.ToString()) && BranchUsers.Contains((int)b.UserId))
+                        .OrderByDescending(b => b.LAST_UPDATED).Select(b => new BasicInformations { ID = b.ID, CNIC = b.CNIC, NAME = b.NAME, NAME_OFFICE = b.NAME_OFFICE, STATUS = b.STATUS, LAST_UPDATED = b.LAST_UPDATED, NTN = b.NTN, CIF_TYPE = new CifTypes { ID = (int)b.CIF_TYPE, Name = db.CIF_TYPES.FirstOrDefault(t => t.ID == b.CIF_TYPE).Name }, RISK_SCORE = b.RISK_SCORE, RISK_CATEGORY = b.RISK_CATEGORY, PROFILE_CIF_NO = b.PROFILE_CIF_NO, BRANCH_CODE = b.BRANCH_CODE }).ToList();
+                    }
+                    else if (UserRole == Roles.BRANCH_MANAGER.ToString())
+                    {
+                        SubmittedCifs = db.BASIC_INFORMATIONS.Where(b => b.STATUS == Status.UPDATED_CIF_APPROVED_BY_COMPAINCE_OFFICER.ToString() && BranchUsers.Contains((int)b.UserId))
+                        .OrderByDescending(b => b.LAST_UPDATED).Select(b => new BasicInformations { ID = b.ID, CNIC = b.CNIC, NAME = b.NAME, NAME_OFFICE = b.NAME_OFFICE, STATUS = b.STATUS, LAST_UPDATED = b.LAST_UPDATED, NTN = b.NTN, CIF_TYPE = new CifTypes { ID = (int)b.CIF_TYPE, Name = db.CIF_TYPES.FirstOrDefault(t => t.ID == b.CIF_TYPE).Name }, RISK_SCORE = b.RISK_SCORE, RISK_CATEGORY = b.RISK_CATEGORY, PROFILE_CIF_NO = b.PROFILE_CIF_NO, BRANCH_CODE = b.BRANCH_CODE }).ToList();
+                    }
+                }
+
+                return SubmittedCifs;
+            }
+        }
+        public List<BasicInformations> GeteCifsByRole(string UserRole,bool Region)
        {
            using (CAOPDbContext db = new CAOPDbContext())
            {

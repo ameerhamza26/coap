@@ -83,6 +83,10 @@ namespace BLL
         public Nullable<int> CIF_OFFICER_CODE { get; set; }
 
         public string ISSUING_AGENCY_OTHER { get; set; }
+
+        public Nullable<int> LastUpdateUserID { get; set; }
+        public Nullable<int> LAST_UPDATE_BRANCH_CODE { get; set; }
+        public Nullable<int> isUpdated { get; set; }
         #endregion
 
 
@@ -337,6 +341,61 @@ namespace BLL
 
 
 
+        public void UpdateIndividualNew()
+        {
+            using (CAOPDbContext db = new CAOPDbContext())
+            {
+                BASIC_INFORMATIONS BI = db.BASIC_INFORMATIONS.FirstOrDefault(b => b.ID == this.ID);
+                BI.STATUS = Status.UPDATED_BY_BRANCH_OPERATOR.ToString();
+                BI.DOCUMENT_TYPE_PRIMARY = (int?)PRIMARY_DOCUMENT_TYPE.ID;
+                BI.CNIC = CNIC;
+                BI.TITLE = (int)TITLE.ID;
+                BI.TITLE_FH = (int)TITLE_FH.ID;
+                BI.NAME_FH = NAME_FH.ToUpper();
+                BI.NAME = this.FIRST_NAME.ToUpper() + " " + this.MIDDLE_NAME.ToUpper() + " " + this.LAST_NAME.ToUpper();
+                BI.FIRST_NAME = this.FIRST_NAME.ToUpper();
+                BI.MIDDLE_NAME = this.MIDDLE_NAME.ToUpper();
+                BI.LAST_NAME = this.LAST_NAME.ToUpper();
+                BI.CNIC_FH = CNIC_FH;
+                BI.CIF_FH = CIF_FH;
+                BI.NAME_MOTHER = NAME_MOTHER.ToUpper();
+                BI.CNIC_MOTHER = CNIC_MOTHER;
+                BI.CNIC_MOTHER_OLD = CNIC_MOTHER_OLD;
+                BI.DOB = DATE_BIRTH;
+                BI.POB = PLACE_BIRTH;
+                BI.COB = (int)Country_Birth.ID;
+                BI.MARTIAL_STATUS = (int)MARTIAL_STATUS.ID;
+                BI.GENDER = (int)GENDER.ID;
+                BI.RELIGION = (int)RELIGION.ID;
+                BI.RESIDENT_TYPE = (int)RESIDENT_TYPE.ID;
+                BI.MONTHLY_INCOME = MONTHLY_INCOME;
+                BI.COUNTRY_RESIDENCE = COUNTRY_RESIDENCE.ID;
+                BI.COSTUMER_DEAL = CUSTOMER_DEAL.ID;
+                BI.DOCUMENT_VERIFIED = this.DOCUMENT_VERIFIED;
+                BI.CUSTOMER_TYPE = this.CUSTOMER_TYPE.ID;
+                BI.CIF_OFFICER_CODE = this.CIF_OFFICER_CODE;
+                BI.LAST_UPDATED = DateTime.Now;
+
+                db.NATIONALITIES_BASIC_INFORMATION.RemoveRange(db.NATIONALITIES_BASIC_INFORMATION.Where(n => n.BI_ID == this.ID));
+                db.SaveChanges();
+
+                foreach (Nationality n in NATIONALITIES)
+                {
+                    NATIONALITIES_BASIC_INFORMATION na = new NATIONALITIES_BASIC_INFORMATION();
+
+                    na.BI_ID = this.ID;
+                    na.COUNTRY_ID = n.CountryID;
+                    na.COUNTRY = n.Country;
+                    db.NATIONALITIES_BASIC_INFORMATION.Add(na);
+                }
+                db.SaveChanges();
+
+
+
+            }
+        }
+
+
         public int SaveNextOFKin()
         {
             using (CAOPDbContext db = new CAOPDbContext())
@@ -489,13 +548,48 @@ namespace BLL
                 db.SaveChanges();
             }
         }
+        //Process starts again
+        public void UpdateBusinessNew()
+        {
+            using (CAOPDbContext db = new CAOPDbContext())
+            {
+                BASIC_INFORMATIONS BI = db.BASIC_INFORMATIONS.FirstOrDefault(b => b.ID == this.ID);
+                BI.STATUS = Status.UPDATED_BY_BRANCH_OPERATOR.ToString();
+                BI.NAME_OFFICE = this.NAME_OFFICE.ToUpper();
+                BI.NTN = this.NTN.ToUpper();
+                BI.SALES_TAX_NO = this.SALES_TAX_NO.ToUpper();
+                BI.ISSUING_AGENCY = this.Issuing_Agency.ID;
+                BI.REG_NO = this.REG_NO.ToUpper();
+                BI.REG_DATE = this.REG_DATE;
+                BI.COMMENCEMENT_DATE = this.COMMENCEMENT_DATE;
+                BI.PAST_BUSS_EXP = this.PAST_BUSS_EXP.ToUpper();
+                BI.ACCOUNT_NATURE = this.ACCOUNT_NATURE.ID;
+                BI.CUSTOMER_CLASSIFICATION = this.CUSTOMER_CLASSIFICATION.ID;
+                BI.CIF_GROUP = this.CIF_GROUP.ToUpper();
+                BI.NATURE_BUSINESS = this.NATURE_BUSINESS.ID;
+                BI.NATURE_BUSINESS_DESCRP = this.NATURE_BUSINESS_DESCRP.ToUpper();
+                BI.CATERGORY_NBP = this.CATERGORY_NBP.ID;
+                BI.CATERGORY_SBP = this.CATERGORY_SBP.ID;
+                BI.CATERGORY_BASE = this.CATERGORY_BASE.ID;
+                BI.COSTUMER_DEAL = this.CUSTOMER_DEAL.ID;
+                BI.LAST_UPDATED = this.LAST_UPDATED;
+                BI.COUNTRY_INCORPORATION = this.COUNTRY_INCORPORATION.ID;
+                BI.BUSINESS_TYPE = this.BUSINESS_TYPE.ID;
+                BI.INSTITUTION_TYPE = this.INSTITUTION_TYPE.ID;
+                BI.SIC_CODE = this.SIC_CODES.ID;
+                BI.SUB_INDUSTRY = this.SUB_INDUSTRY.ID;
+                BI.DOCUMENT_VERIFIED = this.DOCUMENT_VERIFIED;
+                BI.ISSUING_AGENCY_OTHER = this.ISSUING_AGENCY_OTHER;
+                if (this.GOV_TYPE != null)
+                    BI.GOV_TYPE = this.GOV_TYPE;
+                db.SaveChanges();
+            }
+        }
 
-       
-      
 
-      
 
-     
+
+
 
 
         public bool GetIndividual(int BI_ID)
@@ -614,10 +708,10 @@ namespace BLL
                     this.REG_DATE = BI.REG_DATE;
                     this.COMMENCEMENT_DATE = BI.COMMENCEMENT_DATE;
                     this.PAST_BUSS_EXP = BI.PAST_BUSS_EXP;
-                    this.ACCOUNT_NATURE = new AccountNature { ID = (int)BI.ACCOUNT_NATURE };
-                    this.CUSTOMER_CLASSIFICATION = new BusinessCustomerClassification { ID = (int) BI.CUSTOMER_CLASSIFICATION };
+                    this.ACCOUNT_NATURE = new AccountNature { ID = (int?)BI.ACCOUNT_NATURE };
+                    this.CUSTOMER_CLASSIFICATION = new BusinessCustomerClassification { ID = (int?) BI.CUSTOMER_CLASSIFICATION };
                     this.CIF_GROUP = BI.CIF_GROUP;
-                    this.NATURE_BUSINESS = new NatureBusiness { ID = (int) BI.NATURE_BUSINESS };
+                    this.NATURE_BUSINESS = new NatureBusiness { ID = BI.NATURE_BUSINESS };
                     this.NATURE_BUSINESS_DESCRP = BI.NATURE_BUSINESS_DESCRP;
                     this.CATERGORY_NBP = new NbpCategories { ID = BI.CATERGORY_NBP };
                     this.CATERGORY_SBP = new SbpCategories { ID =  BI.CATERGORY_SBP };
@@ -627,10 +721,10 @@ namespace BLL
                     this.UserId = (int) BI.UserId;
                     this.LAST_UPDATED = BI.LAST_UPDATED;
                     this.COUNTRY_INCORPORATION = new Country() { ID = BI.COUNTRY_INCORPORATION };
-                    this.BUSINESS_TYPE = new BusinessType() { ID = (int) BI.BUSINESS_TYPE };
+                    this.BUSINESS_TYPE = new BusinessType() { ID = BI.BUSINESS_TYPE };
                     this.INSTITUTION_TYPE = new InstitutionType() { ID = (int?) BI.INSTITUTION_TYPE };
-                    this.SIC_CODES = new SicCode() { ID = (int)BI.SIC_CODE };
-                    this.SUB_INDUSTRY = new SubIndustry() { ID = (int)BI.SUB_INDUSTRY };
+                    this.SIC_CODES = new SicCode() { ID = BI.SIC_CODE };
+                    this.SUB_INDUSTRY = new SubIndustry() { ID = BI.SUB_INDUSTRY };
                     this.DOCUMENT_VERIFIED = (bool)BI.DOCUMENT_VERIFIED;
                     this.GOV_TYPE = BI.GOV_TYPE;
                     this.ISSUING_AGENCY_OTHER = BI.ISSUING_AGENCY_OTHER;

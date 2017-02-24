@@ -73,7 +73,31 @@ namespace BLL
                 db.SaveChanges();
             }
         }
+        //Process Starts Again
+        public void UpdateBankingRelationshipNew()
+        {
+            using (CAOPDbContext db = new CAOPDbContext())
+            {
+                BANKING_RELATIONSHPS newBR = db.BANKING_RELATIONSHPS.FirstOrDefault(b => b.BI_ID == this.BI_ID);
 
+                newBR.NBP_BRANCH_INFORMATION = this.NBP_BRANCH_INFORMATION.ID;
+                newBR.NBP_ACCOUNT_TYPE = this.NBP_ACCOUNT_TYPE.ID;
+                newBR.NBP_ACCOUNT_NUMBER = this.NBP_ACCOUNT_NUMBER.ToUpper();
+                newBR.NBP_ACCOUNT_TITLE = this.NBP_ACCOUNT_TITLE.ToUpper();
+                newBR.NBP_RELATIONSHIP_SINCE = this.NBP_RELATIONSHIP_SINCE.ToUpper();
+                newBR.OTHER_BANK_CODE = this.OTHER_BANK_CODE.ID;
+                newBR.OTHER_BRANCH_NAME = this.OTHER_BRANCH_NAME.ToUpper();
+                newBR.OTHER_ACCOUNT_NUMBER = this.OTHER_ACCOUNT_NUMBER.ToUpper();
+                newBR.OTHER_ACCOUNT_TITLE = this.OTHER_ACCOUNT_TITLE.ToUpper();
+                newBR.OTHER_RELATIONSHIP_SINCE = this.OTHER_RELATIONSHIP_SINCE;
+               db.BASIC_INFORMATIONS.FirstOrDefault(b => b.ID == this.BI_ID).STATUS = Status.UPDATED_BY_BRANCH_OPERATOR.ToString();
+
+
+                db.SaveChanges();
+            }
+        }
+
+ 
 
         public bool CheckBankingRelationship(int BID)
         {

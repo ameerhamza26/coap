@@ -135,8 +135,51 @@ namespace BLL
                 db.SaveChanges();
             }
         }
+        //Process starts again
+        public void UpdateHeadContactInfoNew()
+        {
+            using (CAOPDbContext db = new CAOPDbContext())
+            {
+                HEAD_CONTACT_INFOS HInfo = db.HEAD_CONTACT_INFOS.FirstOrDefault(h => h.BI_ID == this.BI_ID);
+                db.BASIC_INFORMATIONS.FirstOrDefault(b => b.ID == this.BI_ID).STATUS = Status.UPDATED_BY_BRANCH_OPERATOR.ToString();
+                HInfo.BI_ID = this.BI_ID;
+                //   HInfo.ADDRESS = this.ADDRESS;
+                //   HInfo.DISTRICT = this.DISTRICT.ID;
+                HInfo.COUNTRY = this.COUNTRY.ID;
+                HInfo.PROVINCE = this.PROVINCE.ID;
+                HInfo.CITY = this.CITY.ID;
+                HInfo.STREET = this.STREET.ToUpper();
+                HInfo.BIULDING_SUITE = this.BIULDING_SUITE.ToUpper();
+                HInfo.FLOOR = this.FLOOR.ToUpper();
+                HInfo.DISTRICT_HEAD = this.DISTRICT_HEAD.ToUpper();
+                HInfo.POBOX = this.POBOX.ToUpper();
+                HInfo.POSTAL_CODE = this.POSTAL_CODE.ToUpper();
 
-       
+                HInfo.PHONE_OFFICE = this.PHONE_OFFICE.ToUpper();
+                HInfo.MOBILE_NO = this.MOBILE_NO;
+                HInfo.FAX_NO = this.FAX_NO.ToUpper();
+                HInfo.EMAIL = this.EMAIL.ToUpper();
+                //  HInfo.WEB = Capital(this.WEB);
+
+
+                //  HInfo.STREET = this.STREET.ToUpper();
+
+                HInfo.COUNTRY_CODE_REG = this.COUNTRY_CODE_REG.ID;
+                HInfo.CITY_REG = this.CITY_REG.ID;
+                HInfo.PROVINCE_REG = this.PROVINCE.ID; ;
+                HInfo.STREET_REG = this.STREET_REG.ToUpper();
+                HInfo.BIULDING_SUITE_REG = this.BIULDING_SUITE_REG.ToUpper();
+                HInfo.FLOOR_REG = this.FLOOR_REG.ToUpper();
+                HInfo.DISTRICT_REG = this.DISTRICT_REG.ToUpper();
+                HInfo.POBOX_REG = this.POST_OFFICE_REG.ToUpper();
+                HInfo.POSTAL_REG_CODE = this.POSTAL_CODE_REG.ToUpper();
+
+
+                db.BASIC_INFORMATIONS.FirstOrDefault(b => b.ID == this.BI_ID).LAST_UPDATED = DateTime.Now;
+
+                db.SaveChanges();
+            }
+        }
 
         public bool CheckHeadContactCompleted(int BID)
         {

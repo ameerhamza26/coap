@@ -43,7 +43,8 @@ namespace CAOP
                         SetData();
                         SetDataOpen(queryid);
                         btnUpdateOfc.Visible = true;
-                        btnSubmitSaveOfc.Visible = true;
+                        btnSubmitOfc.Visible = true;
+                        btnSubmitSaveOfc.Visible = false;
                         // temp risk checking
                         // CalculateRisk();
 
@@ -316,7 +317,7 @@ namespace CAOP
             int BID = (int)Session["BID"];
             CIF cif = new CIF(BID, CifType.GOVERNMENT);
             User LoggedUser = Session["User"] as User;
-            cif.ChangeStatus(Status.SUBMITTED, LoggedUser);
+            cif.ChangeStatus(Status.SUBMITTED_BY_BRANCH_OPERATOR, LoggedUser);
             // CalculateRisk();
             Response.Redirect("CifAccount.aspx");
         }

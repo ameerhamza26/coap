@@ -116,6 +116,51 @@ namespace BLL
         }
 
 
+        public void UpdateBusinesDetailNew()
+        {
+            using (CAOPDbContext db = new CAOPDbContext())
+            {
+                BUSINESS_DETAIL BD = db.BUSINESS_DETAIL.FirstOrDefault(b => b.BI_ID == this.BI_ID);
+                db.BASIC_INFORMATIONS.FirstOrDefault(b => b.ID == this.BI_ID).STATUS = Status.UPDATED_BY_BRANCH_OPERATOR.ToString();
+                BD.INFO_TYPE = this.InfoType.ID;
+                BD.INFO_DESC = this.INFO_DESC.ToUpper();
+                BD.MAIN_BUSINESS_ACTIVITY = this.MAIN_BUSINESS_ACTIVITY.ToUpper();
+                BD.MAIN_CUSTOMERS = this.MAIN_CUSTOMERS.ToUpper();
+                BD.MOJOR_SUPPLIERS = this.MAJOR_SUPPLIERS.ToUpper();
+                db.CITIES_BUSINESS_DETAILS.RemoveRange(db.CITIES_BUSINESS_DETAILS.Where(c => c.BI_ID == this.BI_ID));
+                db.COUNTRIES_BUSINESS_DETAILS.RemoveRange(db.COUNTRIES_BUSINESS_DETAILS.Where(c => c.BI_ID == this.BI_ID));
+                db.SaveChanges();
+
+                foreach (var c in BusinessCities)
+                {
+                    CITIES_BUSINESS_DETAILS newCity = new CITIES_BUSINESS_DETAILS();
+
+                    newCity.BI_ID = BD.BI_ID;
+                    newCity.CITY_ID = c.ID;
+                    newCity.CITY_NAME = c.Name;
+
+                    db.CITIES_BUSINESS_DETAILS.Add(newCity);
+
+                }
+
+                foreach (var c in BusinessCountries)
+                {
+                    COUNTRIES_BUSINESS_DETAILS newCounry = new COUNTRIES_BUSINESS_DETAILS();
+
+                    newCounry.BI_ID = BD.BI_ID;
+                    newCounry.COUNTRY_ID = c.ID;
+                    newCounry.COUNTRY_NAME = c.Name;
+
+                    db.COUNTRIES_BUSINESS_DETAILS.Add(newCounry);
+
+                }
+                db.BASIC_INFORMATIONS.FirstOrDefault(b => b.ID == this.BI_ID).LAST_UPDATED = DateTime.Now;
+
+                db.SaveChanges();
+
+            }
+
+        }
         public bool CheckBusDetailCompleted(int BID)
         {
             using (CAOPDbContext db = new CAOPDbContext())

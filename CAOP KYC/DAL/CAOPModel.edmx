@@ -95,17 +95,16 @@
           <Property Name="GRP" Type="varchar" MaxLength="100" />
           <Property Name="DESCRIPTION" Type="varchar" MaxLength="100" />
         </EntityType>
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'AOS.dbo.ACCOUNT_MODES' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
         <EntityType Name="ACCOUNT_MODES">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="ID" Type="int" />
           <Property Name="NAME" Type="varchar" MaxLength="100" />
           <Property Name="GRP" Type="varchar" MaxLength="100" />
           <Property Name="PROFILECODE" Type="varchar" MaxLength="50" />
           <Property Name="TYPE" Type="varchar" MaxLength="20" />
           <Property Name="CATEGORY" Type="varchar" MaxLength="5" />
-        </EntityType>
+        </EntityType>-->
         <EntityType Name="ACCOUNT_NATURE_CURRENCY">
           <Key>
             <PropertyRef Name="ID" />
@@ -385,6 +384,9 @@
           <Property Name="WHO_DESIG" Type="varchar" MaxLength="30" />
           <Property Name="CIF_OFFICER_CODE" Type="int" />
           <Property Name="ISSUING_AGENCY_OTHER" Type="varchar" MaxLength="100" />
+          <Property Name="LastUpdateUserID" Type="int" />
+          <Property Name="isUpdated" Type="int" />
+          <Property Name="LAST_UPDATE_BRANCH_CODE" Type="nvarchar(max)" />
         </EntityType>
         <EntityType Name="BRANCHES">
           <Key>
@@ -743,16 +745,23 @@ warning 6002: The table/view 'AOS.dbo.DIRECTOR_STATUS' does not have a primary k
           <Property Name="REQUIRED_ESTATEMEN" Type="bit" />
           <Property Name="BI_ID" Type="int" />
         </EntityType>
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'AOS.dbo.EMPLOYER_CODE' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
         <EntityType Name="EMPLOYER_CODE">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="ID" Type="int" />
           <Property Name="ZEMPGRP" Type="varchar" MaxLength="10" />
           <Property Name="ZEMPSUBG" Type="varchar" MaxLength="10" />
           <Property Name="ZEMPNO" Type="varchar" MaxLength="50" />
           <Property Name="Name" Type="varchar(max)" />
-        </EntityType>
+        </EntityType>-->
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'AOS.dbo.EMPLOYER_CODE_TEMP' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="EMPLOYER_CODE_TEMP">
+          <Property Name="ZEMPGRP" Type="float" />
+          <Property Name="ZEMPSUBG" Type="float" />
+          <Property Name="ZEMPNO" Type="float" />
+          <Property Name="ZNAM" Type="nvarchar" MaxLength="255" />
+        </EntityType>-->
         <EntityType Name="EMPLOYER_CODES">
           <Key>
             <PropertyRef Name="ID" />
@@ -760,6 +769,29 @@ warning 6002: The table/view 'AOS.dbo.DIRECTOR_STATUS' does not have a primary k
           <Property Name="ID" Type="int" Nullable="false" />
           <Property Name="CODE" Type="varchar" MaxLength="100" />
         </EntityType>
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'AOS.dbo.EMPLOYER_GROUP' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="EMPLOYER_GROUP">
+          <Property Name="ID" Type="int" />
+          <Property Name="Name" Type="varchar" MaxLength="100" />
+          <Property Name="ZEMPGRP" Type="varchar" MaxLength="10" />
+        </EntityType>-->
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'AOS.dbo.EMPLOYER_SUB_GROUP' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="EMPLOYER_SUB_GROUP">
+          <Property Name="ID" Type="int" />
+          <Property Name="Name" Type="varchar" MaxLength="200" />
+          <Property Name="ZEMPGRP" Type="varchar" MaxLength="10" />
+          <Property Name="ZEMPSUBG" Type="varchar" MaxLength="10" />
+        </EntityType>-->
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'AOS.dbo.EMPLOYER_SUB_GROUP_TEMP' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="EMPLOYER_SUB_GROUP_TEMP">
+          <Property Name="ZEMPGRP" Type="float" />
+          <Property Name="ZEMPSUBG" Type="float" />
+          <Property Name="DESC" Type="nvarchar" MaxLength="255" />
+          <Property Name="FMDESC" Type="nvarchar" MaxLength="255" />
+        </EntityType>-->
         <EntityType Name="EMPLOYMENT_DETAILS">
           <Key>
             <PropertyRef Name="ID" />
@@ -1264,6 +1296,12 @@ warning 6002: The table/view 'AOS.dbo.MRPC_FAILURE_MESSAGES' does not have a pri
           <Property Name="NAME" Type="varchar" MaxLength="100" />
           <Property Name="ProfileCode" Type="varchar" MaxLength="50" />
         </EntityType>
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'AOS.dbo.OFFICE_CODES_TEMP' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="OFFICE_CODES_TEMP">
+          <Property Name="DESC" Type="varchar" MaxLength="200" />
+          <Property Name="OFF" Type="varchar" MaxLength="50" />
+        </EntityType>-->
         <EntityType Name="OPERATING_INSTRUCTIONS">
           <Key>
             <PropertyRef Name="ID" />
@@ -1508,8 +1546,8 @@ warning 6002: The table/view 'AOS.dbo.REASON_ACCOUNT_OPENING' does not have a pr
           <Property Name="USERID" Type="int" />
           <Property Name="BID" Type="int" />
           <Property Name="LOG_TYPE" Type="varchar" MaxLength="20" />
-          <Property Name="OLD_STATUS" Type="varchar" MaxLength="40" />
-          <Property Name="NEW_STATUS" Type="varchar" MaxLength="40" />
+          <Property Name="OLD_STATUS" Type="nvarchar(max)" />
+          <Property Name="NEW_STATUS" Type="nvarchar(max)" />
           <Property Name="LOG_DATETIME" Type="datetime" />
         </EntityType>
         <EntityType Name="SUB_INDUSTRY">
@@ -1521,6 +1559,12 @@ warning 6002: The table/view 'AOS.dbo.REASON_ACCOUNT_OPENING' does not have a pr
           <Property Name="SIC" Type="varchar" MaxLength="100" Nullable="false" />
           <Property Name="ZSICSUB" Type="varchar" MaxLength="100" Nullable="false" />
         </EntityType>
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'AOS.dbo.TEMP_SRVC' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="TEMP_SRVC">
+          <Property Name="BRANCH_CODE" Type="varchar" MaxLength="50" />
+          <Property Name="ServiceCenterCode" Type="char" MaxLength="3" />
+        </EntityType>-->
         <EntityType Name="TITLES">
           <Key>
             <PropertyRef Name="ID" />
@@ -1668,7 +1712,6 @@ warning 6002: The table/view 'AOS.dbo.REASON_ACCOUNT_OPENING' does not have a pr
           <EntitySet Name="ACCOUNT_CONTACT_INFO" EntityType="Self.ACCOUNT_CONTACT_INFO" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ACCOUNT_DELTE_LOG" EntityType="Self.ACCOUNT_DELTE_LOG" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ACCOUNT_GROUP" EntityType="Self.ACCOUNT_GROUP" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="ACCOUNT_MODES" EntityType="Self.ACCOUNT_MODES" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ACCOUNT_NATURE_CURRENCY" EntityType="Self.ACCOUNT_NATURE_CURRENCY" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ACCOUNT_OPEN_TYPE" EntityType="Self.ACCOUNT_OPEN_TYPE" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ACCOUNT_PURPOSE" EntityType="Self.ACCOUNT_PURPOSE" Schema="dbo" store:Type="Tables" />
@@ -1721,7 +1764,6 @@ warning 6002: The table/view 'AOS.dbo.REASON_ACCOUNT_OPENING' does not have a pr
           <EntitySet Name="EDUCATION" EntityType="Self.EDUCATION" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="EDUCATIONS" EntityType="Self.EDUCATIONS" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="EMAILS" EntityType="Self.EMAILS" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="EMPLOYER_CODE" EntityType="Self.EMPLOYER_CODE" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="EMPLOYER_CODES" EntityType="Self.EMPLOYER_CODES" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="EMPLOYMENT_DETAILS" EntityType="Self.EMPLOYMENT_DETAILS" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="EMPLOYMENT_INFORMATIONS" EntityType="Self.EMPLOYMENT_INFORMATIONS" Schema="dbo" store:Type="Tables" />
@@ -2220,6 +2262,10 @@ warning 6002: The table/view 'AOS.dbo.REASON_ACCOUNT_OPENING' does not have a pr
           <Property Name="WHO_DESIG" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
           <Property Name="CIF_OFFICER_CODE" Type="Int32" />
           <Property Name="ISSUING_AGENCY_OTHER" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="LastUpdateUserID" Type="Int32" />
+          <Property Name="LAST_UPDATE_BRANCH_CODE" Type="Int32" />
+          <Property Name="isUpdated" Type="Int32" />
+          <Property Name="LAST_UPDATE_BRANCH_CODE1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="BRANCHES">
           <Key>
@@ -3202,8 +3248,8 @@ warning 6002: The table/view 'AOS.dbo.REASON_ACCOUNT_OPENING' does not have a pr
           <Property Name="USERID" Type="Int32" />
           <Property Name="BID" Type="Int32" />
           <Property Name="LOG_TYPE" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="OLD_STATUS" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
-          <Property Name="NEW_STATUS" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="OLD_STATUS" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="NEW_STATUS" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="LOG_DATETIME" Type="DateTime" Precision="3" />
         </EntityType>
         <EntityType Name="SUB_INDUSTRY">
@@ -4087,6 +4133,9 @@ warning 6002: The table/view 'AOS.dbo.REASON_ACCOUNT_OPENING' does not have a pr
           <EntitySetMapping Name="BASIC_INFORMATIONS">
             <EntityTypeMapping TypeName="AOSModel.BASIC_INFORMATIONS">
               <MappingFragment StoreEntitySet="BASIC_INFORMATIONS">
+                <ScalarProperty Name="LAST_UPDATE_BRANCH_CODE1" ColumnName="LAST_UPDATE_BRANCH_CODE" />
+                <ScalarProperty Name="isUpdated" ColumnName="isUpdated" />
+                <ScalarProperty Name="LastUpdateUserID" ColumnName="LastUpdateUserID" />
                 <ScalarProperty Name="ISSUING_AGENCY_OTHER" ColumnName="ISSUING_AGENCY_OTHER" />
                 <ScalarProperty Name="CIF_OFFICER_CODE" ColumnName="CIF_OFFICER_CODE" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
@@ -5497,18 +5546,6 @@ warning 6002: The table/view 'AOS.dbo.REASON_ACCOUNT_OPENING' does not have a pr
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="ACCOUNT_MODES2Set">
-            <EntityTypeMapping TypeName="AOSModel.ACCOUNT_MODES2">
-              <MappingFragment StoreEntitySet="ACCOUNT_MODES">
-                <ScalarProperty Name="CATEGORY" ColumnName="CATEGORY" />
-                <ScalarProperty Name="TYPE" ColumnName="TYPE" />
-                <ScalarProperty Name="PROFILECODE" ColumnName="PROFILECODE" />
-                <ScalarProperty Name="GRP" ColumnName="GRP" />
-                <ScalarProperty Name="NAME" ColumnName="NAME" />
-                <ScalarProperty Name="ID" ColumnName="ID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="MRPC_FAILURE_MESSAGES">
             <EntityTypeMapping TypeName="AOSModel.MRPC_FAILURE_MESSAGES">
               <MappingFragment StoreEntitySet="MRPC_FAILURE_MESSAGES">
@@ -5516,17 +5553,6 @@ warning 6002: The table/view 'AOS.dbo.REASON_ACCOUNT_OPENING' does not have a pr
                 <ScalarProperty Name="FAILURE_MSG" ColumnName="FAILURE_MSG" />
                 <ScalarProperty Name="BI_ID" ColumnName="BI_ID" />
                 <ScalarProperty Name="TYPE" ColumnName="TYPE" />
-                <ScalarProperty Name="ID" ColumnName="ID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="EMPLOYER_CODE2Set">
-            <EntityTypeMapping TypeName="AOSModel.EMPLOYER_CODE2">
-              <MappingFragment StoreEntitySet="EMPLOYER_CODE">
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="ZEMPNO" ColumnName="ZEMPNO" />
-                <ScalarProperty Name="ZEMPSUBG" ColumnName="ZEMPSUBG" />
-                <ScalarProperty Name="ZEMPGRP" ColumnName="ZEMPGRP" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>

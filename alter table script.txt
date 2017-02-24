@@ -1,0 +1,4 @@
+alter table BASIC_INFORMATIONS
+add LastUpdateUserID int ,
+ LAST_UPDATE_BRANCH_CODE nvarchar(max),
+ isUpdated int

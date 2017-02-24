@@ -24,7 +24,7 @@ namespace DAL
         public string APPLICANT_STATUS { get; set; }
         public string CUSTOMER_NAME { get; set; }
         public string CUSTOMER_IDENTITY { get; set; }
-        //public string NEG_LIST { get; set; }
+       // public string NEG_LIST { get; set; }
         public Nullable<int> NEG_LIST { get; set; }
     }
 }

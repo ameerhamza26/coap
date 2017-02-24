@@ -81,5 +81,9 @@ namespace DAL
         public string WHO_DESIG { get; set; }
         public Nullable<int> CIF_OFFICER_CODE { get; set; }
         public string ISSUING_AGENCY_OTHER { get; set; }
+        public Nullable<int> LastUpdateUserID { get; set; }
+       // public Nullable<int> LAST_UPDATE_BRANCH_CODE { get; set; }
+        public Nullable<int> isUpdated { get; set; }
+        public string LAST_UPDATE_BRANCH_CODE { get; set; }
     }
 }

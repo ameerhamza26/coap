@@ -138,6 +138,53 @@ namespace BLL
         }
 
 
+        public void UpdateIndividualMiscellaneousInfoNew()
+        {
+            using (CAOPDbContext db = new CAOPDbContext())
+            {
+                MISCELLANEOUS_INFORMATIONS newMiscellaneousInfo = db.MISCELLANEOUS_INFORMATIONS.FirstOrDefault(m => m.BI_ID == this.BI_ID);
+
+                newMiscellaneousInfo.BI_ID = this.BI_ID;
+                newMiscellaneousInfo.EDUCATION = this.EDUCATION.ID;
+                newMiscellaneousInfo.SOCIAL_STATUS = this.SOCIAL_STATUS.ToUpper();
+                newMiscellaneousInfo.ACCOMODATION_TYPE = this.ACCOMODATION_TYPE.ID;
+                newMiscellaneousInfo.ACCOMODATION_TYPE_DESCRIPTION = this.ACCOMODATION_TYPE_DESCRIPTION.ToUpper();
+                newMiscellaneousInfo.TRANSPORTATION_TYPE = this.TRANSPORTATION_TYPE.ID;
+                newMiscellaneousInfo.PEP = this.PEP.ID;
+                newMiscellaneousInfo.PEP_NATURE_SINGLE = this.PEP_NATURE_SINGLE;
+                newMiscellaneousInfo.PEP_RELATIONSHIP = PEP_RELATIONSHIP;
+                newMiscellaneousInfo.PEP_DESC = PEP_DESC;
+                newMiscellaneousInfo.PARDA_NASHEEN = this.PARDA_NASHEEN;
+                //   newMiscellaneousInfo.MONTHLY_TURNOVER_DEBIT = this.MONTHLY_TURNOVER_DEBIT.ID;
+                //   newMiscellaneousInfo.MONTHLY_TURNOVER_CREDIT = this.MONTHLY_TURNOVER_CREDIT.ID;
+                //   newMiscellaneousInfo.AVERAGE_CASH_DEPOSIT = this.AVERAGE_CASH_DEPOSIT.ID;
+                //   newMiscellaneousInfo.AVERAGE_CASH_NON_DEPOSIT = this.AVERAGE_CASH_NON_DEPOSIT.ID;
+                newMiscellaneousInfo.TOTAL_ASSET_VALUE = this.TOTAL_ASSET_VALUE;
+                newMiscellaneousInfo.LIABILITIES = this.LIABILITIES;
+                newMiscellaneousInfo.NET_WORTH = this.NET_WORTH;
+                newMiscellaneousInfo.SOURCE_OF_FUND = this.SOURCE_OF_FUND;
+                newMiscellaneousInfo.BLIND_VISUALLY_IMPAIRED = this.BLIND_VISUALLY_IMPARIED;
+                db.COUNTRIES_TAX_MISCELLANEOUS_INFORMATION.RemoveRange(db.COUNTRIES_TAX_MISCELLANEOUS_INFORMATION.Where(n => n.BI_ID == this.ID));
+                db.BASIC_INFORMATIONS.FirstOrDefault(b => b.ID == this.BI_ID).LAST_UPDATED = DateTime.Now;
+                db.BASIC_INFORMATIONS.FirstOrDefault(b => b.ID == this.BI_ID).STATUS = Status.UPDATED_BY_BRANCH_OPERATOR.ToString();
+
+
+                db.SaveChanges();
+
+
+                foreach (var country in MiscellaneousInfoCountryTax)
+                {
+                    COUNTRIES_TAX_MISCELLANEOUS_INFORMATION ctax = new COUNTRIES_TAX_MISCELLANEOUS_INFORMATION();
+                    ctax.BI_ID = this.BI_ID;
+                    ctax.COUNTRY_ID = country.ID;
+                    ctax.COUNTRY_NAME = country.Name;
+                    db.COUNTRIES_TAX_MISCELLANEOUS_INFORMATION.Add(ctax);
+                }
+                db.SaveChanges();
+
+            }
+        }
+
         public bool CheckIndividualMiscInfo(int BID)
         {
             using (CAOPDbContext db = new CAOPDbContext())
@@ -186,6 +233,29 @@ namespace BLL
                 newMiscellaneousInfo.GROSS_SALE = this.GROSS_SALE.ToUpper();
                 newMiscellaneousInfo.FREQUENCY_GROSS_SALE = this.FREQUENCY_GROSS_SALE.ID;
                 db.BASIC_INFORMATIONS.FirstOrDefault(b => b.ID == this.BI_ID).LAST_UPDATED = DateTime.Now;
+
+                db.SaveChanges();
+
+            }
+        }
+
+        public void UpdateBusinessMiscellaneousInfoNew()
+        {
+            using (CAOPDbContext db = new CAOPDbContext())
+            {
+                MISCELLANEOUS_INFORMATIONS newMiscellaneousInfo = db.MISCELLANEOUS_INFORMATIONS.FirstOrDefault(m => m.BI_ID == this.BI_ID);
+                newMiscellaneousInfo.TOTAL_ASSET_VALUE = this.TOTAL_ASSET_VALUE;
+                newMiscellaneousInfo.LIABILITIES = this.LIABILITIES;
+                newMiscellaneousInfo.NET_WORTH = this.NET_WORTH;
+                //   newMiscellaneousInfo.MONTHLY_TURNOVER_DEBIT = this.MONTHLY_TURNOVER_DEBIT.ID;
+                //    newMiscellaneousInfo.MONTHLY_TURNOVER_CREDIT = this.MONTHLY_TURNOVER_CREDIT.ID;
+                //    newMiscellaneousInfo.AVERAGE_CASH_DEPOSIT = this.AVERAGE_CASH_DEPOSIT.ID;
+                //    newMiscellaneousInfo.AVERAGE_CASH_NON_DEPOSIT = this.AVERAGE_CASH_NON_DEPOSIT.ID;
+                newMiscellaneousInfo.SOURCE_OF_FUND = this.SOURCE_OF_FUND;
+                newMiscellaneousInfo.GROSS_SALE = this.GROSS_SALE.ToUpper();
+                newMiscellaneousInfo.FREQUENCY_GROSS_SALE = this.FREQUENCY_GROSS_SALE.ID;
+                db.BASIC_INFORMATIONS.FirstOrDefault(b => b.ID == this.BI_ID).LAST_UPDATED = DateTime.Now;
+                db.BASIC_INFORMATIONS.FirstOrDefault(b => b.ID == this.BI_ID).STATUS=Status.UPDATED_BY_BRANCH_OPERATOR.ToString();
 
                 db.SaveChanges();
 

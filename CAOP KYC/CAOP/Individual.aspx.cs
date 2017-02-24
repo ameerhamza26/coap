@@ -89,7 +89,7 @@ namespace CAOP
                         if (cif.CheckStatus(queryid, Status.APPROVED_BY_COMPLIANCE_MANAGER.ToString()))
                             rev.Visible = false;
 
-                        if (cif.CheckStatus(queryid, new string[] { Status.SUBMITTED.ToString(), Status.REJECTED_BY_BRANCH_MANAGER.ToString() }))
+                        if (cif.CheckStatus(queryid, new string[] { Status.SUBMITTED.ToString(), Status.REJECTED_BY_BRANCH_MANAGER.ToString(),Status.SUBMITTED_BY_BRANCH_OPERATOR.ToString() }))
                         {
                             rev.Reviewer = true;
                         }
@@ -122,6 +122,11 @@ namespace CAOP
                         {
                             rev.Reviewer = true;
                         }
+                       else if (cif.CheckStatus(queryid, Status.UPDATED_CIF_APPROVED_BY_COMPAINCE_OFFICER.ToString()))
+                        {
+                            rev.Reviewer = true;
+                        }
+
                     }
                     else
                     {

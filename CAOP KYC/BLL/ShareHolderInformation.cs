@@ -41,6 +41,7 @@ namespace BLL
                     foreach (var SH in this.SHARE_HOLDERS)
                     {
                         SHAREHOLDER_INFORMATION NSH = new SHAREHOLDER_INFORMATION();
+
                         NSH.BID = this.BID;
                         NSH.NAME = SH.NAME;
                         NSH.ADDRESS = SH.ADDRESS;
@@ -86,8 +87,20 @@ namespace BLL
                SAVE();
            }
        }
+        //Process Starts Again..
+        public void UPDATENew()
+        {
+            using (CAOPDbContext db = new CAOPDbContext())
+            {
+                db.BASIC_INFORMATIONS.FirstOrDefault(b => b.ID == this.BID).STATUS = Status.UPDATED_BY_BRANCH_OPERATOR.ToString();
+                db.SHAREHOLDER_INFORMATION.RemoveRange(db.SHAREHOLDER_INFORMATION.Where(s => s.BID == this.BID));
+                db.SaveChanges();
 
-       public bool GET()
+                SAVE();
+            }
+        }
+
+        public bool GET()
        {
            using (CAOPDbContext db = new CAOPDbContext())
            {

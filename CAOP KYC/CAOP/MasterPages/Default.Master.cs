@@ -14,6 +14,7 @@ namespace CAOP.MasterPages
         protected void Page_Load(object sender, EventArgs e)
         {
             UCif.Visible = false;
+            PUCif.Visible = true;
             User LogedUser =  Session["User"] as User;
             if (Session.Count < 1)
             {

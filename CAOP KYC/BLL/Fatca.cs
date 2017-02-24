@@ -173,6 +173,73 @@ namespace BLL
             }
         }
 
+       
+        public void UpdateFatcaNew()
+        {
+            using (CAOPDbContext db = new CAOPDbContext())
+            {
+                FATCAS newFatca = db.FATCAS.FirstOrDefault(f => f.BI_ID == this.BI_ID);
+
+                newFatca.BI_ID = this.BI_ID;
+                newFatca.RESIDENT = this.RESIDENT;
+                newFatca.CITIZEN = this.CITIZEN;
+                newFatca.BIRTH_USA = this.BIRTH_USA;
+                newFatca.ADDRESS_USA = this.ADDRESS_USA;
+                newFatca.CONTACT_OFFICE = this.CONTACT_OFFICE.ToUpper();
+                newFatca.CONTACT_RESIDENCE = this.CONTACT_RESIDENCE.ToUpper();
+                newFatca.MOBNO = this.MOBNO;
+                newFatca.FAXNO = this.FAXNO.ToUpper();
+                if (this.RESIDENCE_CARD != null)
+                    newFatca.RESIDENCE_CARD = this.RESIDENCE_CARD.ID;
+                newFatca.FUND_TRANSFER = this.FUND_TRANSFER.ID;
+                newFatca.FTCA_CLASSIFICATION = this.FTCA_CLASSIFICATION.ID;
+                newFatca.US_TAXID = this.US_TAXID.ID;
+                newFatca.TAXNO = this.TAXNO.ToUpper();
+                newFatca.USA_PHONE = this.USA_PHONE.ID;
+                if (this.TYPE_TIN != null)
+                    newFatca.TYPE_TIN = this.TYPE_TIN.ID;
+                if (this.TIN != null)
+                    newFatca.TIN = this.TIN.ToUpper();
+                newFatca.FATCA_DOCUMENTATION_DATE = this.FATCA_DOCUMENTATION_DATE;
+                if (COUNTRY_INCORP != null)
+                    newFatca.COUNTRY_INCORP = this.COUNTRY_INCORP;
+                if (COUNTRY_BUSINESS != null)
+                    newFatca.COUNTRY_BUSINESS = this.COUNTRY_BUSINESS;
+
+                db.BASIC_INFORMATIONS.FirstOrDefault(b => b.ID == this.BI_ID).LAST_UPDATED = DateTime.Now;
+                db.BASIC_INFORMATIONS.FirstOrDefault(b => b.ID == this.BI_ID).STATUS=Status.UPDATED_BY_BRANCH_OPERATOR.ToString();
+                db.DOCUMENTS_FATCA.RemoveRange(db.DOCUMENTS_FATCA.Where(d => d.BI_ID == this.BI_ID));
+                db.SaveChanges();
+
+                foreach (var doc in FATCA_DOCUMENTS)
+                {
+                    DOCUMENTS_FATCA newdoc = new DOCUMENTS_FATCA();
+
+                    newdoc.BI_ID = this.BI_ID;
+                    newdoc.DOCUMENT_ID = doc.ID;
+                    newdoc.DOCUMENT_NAME = doc.Name;
+
+                    db.DOCUMENTS_FATCA.Add(newdoc);
+                }
+
+                if (FATCA_DOCUMENTS.Count == 0)
+                {
+                    FTCA_DOCUMENTATIONS f = db.FTCA_DOCUMENTATIONS.FirstOrDefault(d => d.Name.Trim() == "N/A");
+
+                    DOCUMENTS_FATCA newdoc = new DOCUMENTS_FATCA();
+
+                    newdoc.BI_ID = this.BI_ID;
+                    newdoc.DOCUMENT_ID = f.ID;
+                    newdoc.DOCUMENT_NAME = f.Name;
+
+                    db.DOCUMENTS_FATCA.Add(newdoc);
+                }
+
+                db.SaveChanges();
+
+            }
+        }
+
         public bool CheckIndividualFatca(int BID)
         {
             using (CAOPDbContext db = new CAOPDbContext())

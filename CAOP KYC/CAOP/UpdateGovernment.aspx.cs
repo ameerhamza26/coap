@@ -1357,7 +1357,7 @@ namespace CAOP
             int BID = (int)Session["BID"];
             CIF cif = new CIF(BID, CifType.BUSINESS);
             User LoggedUser = Session["User"] as User;
-            cif.ChangeStatus(Status.SUBMITTED, LoggedUser);
+            cif.ChangeStatus(Status.SUBMITTED_BY_BRANCH_OPERATOR, LoggedUser);
             CalculateRisk();
             Response.Redirect("CifAccount.aspx");
         }
@@ -1452,7 +1452,7 @@ namespace CAOP
             b.SUB_INDUSTRY = new SubIndustry() { ID = (int)ListExtensions.getSelectedValue(BiListSubIndustry) };
             b.DOCUMENT_VERIFIED = chkDocument.Checked;
             b.GOV_TYPE = Convert.ToInt32(BiListGovType.SelectedItem.Value);
-            b.UpdateBusiness();
+            b.UpdateBusinessNew();
         }
 
 
@@ -1505,7 +1505,7 @@ namespace CAOP
             c.CP_CNIC = CiCnic.Text;
             c.CP_CNIC_EXPIRY = CiCnicEDate.Text;
             c.CP_NTN = CiPNtn.Text;
-            c.UpdateContactInfoBusiness();
+            c.UpdateContactInfoBusinessNew();
         }
 
         protected void btnUpdateHo_Click(object sender, EventArgs e)
@@ -1573,7 +1573,7 @@ namespace CAOP
             h.POST_OFFICE_REG = HoTxtPostBoxReg.Text;
             h.POSTAL_CODE_REG = HoTxtPotalCodeReg.Text;
 
-            h.UpdateHeadContactInfo();
+            h.UpdateHeadContactInfoNew();
 
         }
 
@@ -1602,7 +1602,7 @@ namespace CAOP
             b.BusinessCities = BdListBusinessInCities.Items.Cast<ListItem>().Where(i => i.Selected == true).Select(i => new City { ID = Convert.ToInt32(i.Value), Name = i.Text }).ToList();
             b.BusinessCountries = BdListBusinessInCountry.Items.Cast<ListItem>().Where(i => i.Selected == true).Select(i => new Country { ID = Convert.ToInt16(i.Value), Name = i.Text }).ToList();
 
-            b.UpdateBusinesDetail();
+            b.UpdateBusinesDetailNew();
         }
 
         protected void btnUpdateBr_Click(object sender, EventArgs e)
@@ -1632,7 +1632,7 @@ namespace CAOP
             b.OTHER_ACCOUNT_NUMBER = BrOtherAccountNumber.Text;
             b.OTHER_ACCOUNT_TITLE = BrOtherAccountTitle.Text;
             b.OTHER_RELATIONSHIP_SINCE = BrOtherRelationshipSince.Text;
-            b.UpdateBankingRelationship();
+            b.UpdateBankingRelationshipNew();
 
         }
 
@@ -1662,7 +1662,7 @@ namespace CAOP
             //   m.AVERAGE_CASH_NON_DEPOSIT = new AverageNonCashDeposit() { ID = Convert.ToInt32(FiListAvgNoOfNonCashDeposits.SelectedItem.Value), Name = FiListAvgNoOfNonCashDeposits.SelectedItem.Text };
             m.GROSS_SALE = FiGrossSale.Text;
             m.FREQUENCY_GROSS_SALE = new FrequencyGrossSale() { ID = Convert.ToInt32(FiListFrequencyOfSale.SelectedItem.Value), Name = FiListFrequencyOfSale.SelectedItem.Text };
-            m.UpdateBusinessMiscellaneousInfo();
+            m.UpdateBusinessMiscellaneousInfoNew();
         }
 
         protected void btnUpdateSh_Click(object sender, EventArgs e)
@@ -1679,7 +1679,7 @@ namespace CAOP
             var DATA = Session["SH"] as List<ShareHolderInformation>;
             b.BID = BID;
             b.SHARE_HOLDERS = DATA;
-            b.UPDATE();
+            b.UPDATENew();
         }
 
         #endregion
@@ -2163,7 +2163,7 @@ namespace CAOP
 
 
             f.FATCA_DOCUMENTS = PiListFatcaDocumentation.Items.Cast<ListItem>().Where(i => i.Selected == true).Select(i => new FatcaDocumentation { ID = Convert.ToInt32(i.Value), Name = i.Text }).ToList();
-            f.UpdateFatca();
+            f.UpdateFatcaNew();
 
             int BID = (int)Session["BID"];
             String mesg = "FATCA(U.S Person Identification) has been Updated";

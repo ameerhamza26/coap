@@ -95,8 +95,37 @@ namespace BLL
 
             }
         }
+        // Process start again
+        public void UpdateEmploymentInfoNew()
+        {
+            using (CAOPDbContext db = new CAOPDbContext())
+            {
+                EMPLOYMENT_INFORMATIONS EmpInfo = db.EMPLOYMENT_INFORMATIONS.FirstOrDefault(e => e.BI_ID == this.BI_ID);
 
+                EmpInfo.CONSUMER_SEGMENT = this.CONSUMER_SEGMENT.ID;
+                EmpInfo.EMPLOYMENT_DETAIL = this.EMPLOYMENT_DETAIL.ID;
+                EmpInfo.EMPLOYMENT_DETAIL_OTHER_DESCRIPTION = this.EMPLOYMENT_DETAIL_OTHER_DESCRIPTION;
+                EmpInfo.DEPARTMENT = this.DEPARTMENT.ToUpper();
+                EmpInfo.RETIRED = this.RETIRED;
+                EmpInfo.DESIGNATION = this.DESIGNATION.ToUpper();
+                EmpInfo.PF_NO = this.PF_NO.ToUpper();
+                EmpInfo.PPQ_NO = this.PPQ_NO.ToUpper();
+                EmpInfo.EMPLOYER_DESC = this.EMPLOYER_DESC;
+                EmpInfo.EMPLOYER_CODE = this.EMPLOYER_CODE.ID;
+                EmpInfo.EMPLOYER_BUSINESS_ADDRESS = this.EMPLOYER_BUSINESS_ADDRESS.ToUpper();
+                EmpInfo.ARMY_RANK_CODE = this.ARMY_RANK_CODE.ID;
+                EmpInfo.COUNTRY_EMPLOYMENT = this.COUNTRY_EMPLOYMENT.ID;
+                EmpInfo.EMPLOYER_GROUP = this.EMPLOYER_GROUP;
+                EmpInfo.EMPLOYER_SUB_GROUP = this.EMPLOYER_SUB_GROUP;
+                EmpInfo.EMPLOYER_NUMBER = this.EMPLOYER_NUMBER;
 
+                db.BASIC_INFORMATIONS.FirstOrDefault(b => b.ID == this.BI_ID).LAST_UPDATED = DateTime.Now;
+                db.BASIC_INFORMATIONS.FirstOrDefault(b => b.ID == this.BI_ID).STATUS = Status.UPDATED_BY_BRANCH_OPERATOR.ToString();
+
+                db.SaveChanges();
+
+            }
+        }
         public bool CheckIndividualEmploymentInfo(int BID)
         {
             using (CAOPDbContext db = new CAOPDbContext())

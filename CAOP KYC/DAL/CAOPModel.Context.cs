@@ -15,6 +15,7 @@ namespace DAL
     
     public partial class CAOPDbContext : DbContext
     {
+
     
         public virtual DbSet<ACCOMODATION_TYPES> ACCOMODATION_TYPES { get; set; }
         public virtual DbSet<ACCOUNT_AUTHORIZED_PERSONS> ACCOUNT_AUTHORIZED_PERSONS { get; set; }

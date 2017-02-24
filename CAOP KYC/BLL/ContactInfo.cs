@@ -133,6 +133,45 @@ namespace BLL
 
             }
         }
+        // Process Starts again
+        public void UpdateContactInfoNew()
+        {
+            using (CAOPDbContext db = new CAOPDbContext())
+            {
+                CONTACT_INFOS newInfo = db.CONTACT_INFOS.FirstOrDefault(c => c.BI_ID == this.BI_ID);
+
+                newInfo.COUNTRY_CODE = this.COUNTRY_CODE.ID;
+                newInfo.PROVINCE = this.PROVINCE.ID;
+                newInfo.PROVINCE_PRE = this.PROVINCE_PRE.ID;
+                newInfo.STREET = this.STREET.ToUpper();
+                newInfo.BIULDING_SUITE = this.BIULDING_SUITE.ToUpper();
+                newInfo.FLOOR = this.FLOOR.ToUpper();
+                newInfo.STREET = this.STREET.ToUpper();
+                newInfo.DISTRICT = this.DISTRICT.ToUpper();
+                newInfo.POST_OFFICE = this.POST_OFFICE.ToUpper();
+                newInfo.POSTAL_CODE = this.POSTAL_CODE.ToUpper();
+                newInfo.COUNTRY_CODE_PRE = this.COUNTRY_CODE_PRE.ID;
+                newInfo.STREET_PRE = this.STREET_PRE.ToUpper();
+                newInfo.BIULDING_SUITE_PRE = this.BIULDING_SUITE_PRE.ToUpper();
+                newInfo.FLOOR_PRE = this.FLOOR_PRE.ToUpper();
+                newInfo.STREET_PRE = this.STREET_PRE.ToUpper();
+                newInfo.DISTRICT_PRE = this.DISTRICT_PRE.ToUpper();
+                newInfo.POST_OFFICE_PRE = this.POST_OFFICE_PRE.ToUpper();
+                newInfo.POSTAL_CODE_PRE = this.POSTAL_CODE_PRE.ToUpper();
+                newInfo.CITY_PERMANENT = this.CITY_PERMANENT.ID;
+                newInfo.CITY_PRESENT = this.CITY_PRESENT.ID;
+                newInfo.OFFICE_CONTACT = this.OFFICE_CONTACT;
+                newInfo.RESIDENCE_CONTACT = this.RESIDENCE_CONTACT;
+                newInfo.MOBILE_NO = this.MOBILE_NO;
+                newInfo.FAX_NO = this.FAX_NO;
+                newInfo.EMAIL = this.EMAIL;
+                db.BASIC_INFORMATIONS.FirstOrDefault(b => b.ID == this.BI_ID).LAST_UPDATED = DateTime.Now;
+                db.BASIC_INFORMATIONS.FirstOrDefault(b => b.ID == this.BI_ID).STATUS=Status.UPDATED_BY_BRANCH_OPERATOR.ToString();
+
+                db.SaveChanges();
+
+            }
+        }
 
         public void SaveContactInfoGovernment()
         {
@@ -362,7 +401,39 @@ namespace BLL
 
             }
         }
+        //Process starts again
+        public void UpdateContactInfoBusinessNew()
+        {
+            using (CAOPDbContext db = new CAOPDbContext())
+            {
+                CONTACT_INFOS newInfo = db.CONTACT_INFOS.FirstOrDefault(c => c.BI_ID == this.BI_ID);
+                db.BASIC_INFORMATIONS.FirstOrDefault(b => b.ID == this.BI_ID).STATUS = Status.UPDATED_BY_BRANCH_OPERATOR.ToString();
+                newInfo.POST_OFFICE = this.POST_OFFICE.ToUpper();
+                newInfo.CITY_PERMANENT = this.CITY_PERMANENT.ID;
+                newInfo.POSTAL_CODE = this.POSTAL_CODE.ToUpper();
+                newInfo.COUNTRY_CODE = this.COUNTRY_CODE.ID;
+                newInfo.BIULDING_SUITE = this.BIULDING_SUITE.ToUpper();
+                newInfo.STREET = this.STREET.ToUpper();
+                newInfo.DISTRICT = this.DISTRICT.ToUpper();
+                newInfo.PROVINCE = this.PROVINCE.ID;
+                newInfo.FLOOR = this.FLOOR.ToUpper();
+                newInfo.OFFICE_CONTACT = this.OFFICE_CONTACT.ToUpper();
+                //  newInfo.RESIDENCE_CONTACT = this.RESIDENCE_CONTACT.ToUpper();
+                newInfo.MOBILE_NO = this.MOBILE_NO;
+                newInfo.FAX_NO = this.FAX_NO.ToUpper();
+                newInfo.EMAIL = this.EMAIL;
+                newInfo.WEB = this.WEB.ToUpper();
+                newInfo.CP_NAME = this.CP_NAME.ToUpper();
+                newInfo.CP_DESIGNATION = this.CP_DESIGNATION.ToUpper();
+                newInfo.CP_CNIC = this.CP_CNIC;
+                newInfo.CP_CNIC_EXPIRY = this.CP_CNIC_EXPIRY;
+                newInfo.CP_NTN = this.CP_NTN;
+                db.BASIC_INFORMATIONS.FirstOrDefault(b => b.ID == this.BI_ID).LAST_UPDATED = DateTime.Now;
 
+                db.SaveChanges();
+
+            }
+        }
         public bool GetIndividualContactInfo(int BI_ID)
         {
             using (CAOPDbContext db = new CAOPDbContext())

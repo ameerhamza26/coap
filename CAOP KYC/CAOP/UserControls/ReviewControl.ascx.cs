@@ -122,7 +122,6 @@ namespace CAOP.UserControls
         protected void btnAR_Click(object sender, EventArgs e)
         {
             gr = Session["ReviewGrid"] as List<ReviewGrid>;
-            
                 int BID = (int)Session["BID"];
                 User logedUser = Session["User"] as User;
                 CIF cif = new CIF(logedUser.USER_ID);
@@ -134,17 +133,39 @@ namespace CAOP.UserControls
                     {
                         if (logedUser.Role.Name == Roles.COMPLIANCE_OFFICER.ToString())
                         {
-                            if (!TypeAccount)
-                                cif.ChangeStatus(Status.APPROVED_BY_COMPLIANCE_MANAGER, logedUser);
-                            else
-                                account.ChangeStatus(Status.APPROVED_BY_COMPLIANCE_MANAGER, logedUser);
+                    if (cif.isCifUpdated() == 1)
+                    {
+                        if (!TypeAccount)
+                            cif.ChangeStatus(Status.UPDATED_CIF_APPROVED_BY_COMPAINCE_OFFICER, logedUser);
+                        else
+                            account.ChangeStatus(Status.UPDATED_CIF_APPROVED_BY_COMPAINCE_OFFICER, logedUser);
+                    }
+                    else
+                    {
+                        if (!TypeAccount)
+                            cif.ChangeStatus(Status.APPROVED_BY_COMPLIANCE_MANAGER, logedUser);
+                        else
+                            account.ChangeStatus(Status.APPROVED_BY_COMPLIANCE_MANAGER, logedUser);
+                    }
+                           
                         }
                         else if (logedUser.Role.Name == Roles.BRANCH_MANAGER.ToString())
                         {
-                            if (!TypeAccount)
-                                cif.ChangeStatus(Status.APPROVED_BY_BRANCH_MANAGER, logedUser);
+                            if (cif.isCifUpdated() == 1)
+                            {
+                                if (!TypeAccount)
+                                    cif.ChangeStatus(Status.UPDATED_CIF_APPROVED_BY_BRANCH_MANAGER, logedUser);
+                                else
+                                    account.ChangeStatus(Status.UPDATED_CIF_APPROVED_BY_BRANCH_MANAGER, logedUser);
+                            } 
                             else
-                                account.ChangeStatus(Status.APPROVED_BY_BRANCH_MANAGER, logedUser);
+                            {
+                                if (!TypeAccount)
+                                    cif.ChangeStatus(Status.APPROVED_BY_BRANCH_MANAGER, logedUser);
+                                else
+                                    account.ChangeStatus(Status.APPROVED_BY_BRANCH_MANAGER, logedUser);
+                            }
+                    
                         }
                         Redirect();
                     }
@@ -202,19 +223,40 @@ namespace CAOP.UserControls
 
                     if (logedUser.Role.Name == Roles.COMPLIANCE_OFFICER.ToString())
                     {
+                    if (cif.isCifUpdated()==1)
+                    {
+                        if (!TypeAccount)
+                            cif.ChangeStatus(Status.UPDATED_CIF_REJECTED_BY_COMPAINCE_OFFICER, logedUser);
+                        else
+                            account.ChangeStatus(Status.UPDATED_CIF_REJECTED_BY_COMPAINCE_OFFICER, logedUser);
+                    }
+                    else
+                    {
                         if (!TypeAccount)
                             cif.ChangeStatus(Status.REJECTEBY_COMPLIANCE_MANAGER, logedUser);
                         else
                             account.ChangeStatus(Status.REJECTEBY_COMPLIANCE_MANAGER, logedUser);
                     }
+                      
+                    }
                     else if (logedUser.Role.Name == Roles.BRANCH_MANAGER.ToString())
+                    {
+                    if (cif.isCifUpdated() == 1)
+                    {
+                        if (!TypeAccount)
+                            cif.ChangeStatus(Status.UPDATED_CIF_REJECTED_BY_BRANCH_MANAGER, logedUser);
+                        else
+                            account.ChangeStatus(Status.UPDATED_CIF_REJECTED_BY_BRANCH_MANAGER, logedUser);
+                    }
+                    else
                     {
                         if (!TypeAccount)
                             cif.ChangeStatus(Status.REJECTED_BY_BRANCH_MANAGER, logedUser);
                         else
                             account.ChangeStatus(Status.REJECTED_BY_BRANCH_MANAGER, logedUser);
                     }
-                      
+                }
+                 
 
                         Redirect();
                      }

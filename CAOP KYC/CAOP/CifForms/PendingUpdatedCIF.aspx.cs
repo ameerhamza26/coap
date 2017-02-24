@@ -9,7 +9,7 @@ using ExtensionMethods;
 
 namespace CAOP.CifForms
 {
-    public partial class RejectedCif : System.Web.UI.Page
+    public partial class PendingUpdatedCIF : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -19,10 +19,10 @@ namespace CAOP.CifForms
             if (!IsPostBack)
             {
                 loaddata();
-                
+
             }
         }
-         
+
         private void loaddata()
         {
             User LoggedUser = Session["User"] as User;
@@ -31,17 +31,17 @@ namespace CAOP.CifForms
 
             CIF cf = new CIF(LoggedUser.USER_ID);
             if (LoggedUser.USER_TYPE == UserType.Branch)
-                grdPCif.DataSource = cf.GetRejectedCifsByRole(LoggedUser.Role.Name, false);
+                grdPCif.DataSource = cf.GetPendingUpdatedCifsByRole(LoggedUser.Role.Name, false);
             else
-                grdPCif.DataSource = cf.GetRejectedCifsByRole(LoggedUser.Role.Name, true);
+                grdPCif.DataSource = cf.GetPendingUpdatedCifsByRole(LoggedUser.Role.Name, true);
             grdPCif.DataBind();
 
         }
 
         protected void grdPCif_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
-            grdPCif.PageIndex = e.NewPageIndex;          
-            loaddata();           
+            grdPCif.PageIndex = e.NewPageIndex;
+            loaddata();
         }
 
         protected void grdPCif_RowDataBound(object sender, GridViewRowEventArgs e)
@@ -56,7 +56,7 @@ namespace CAOP.CifForms
 
                 if (LoggedUser.Role.Name == Roles.BRANCH_OPERATOR.ToString())
                 {
-                    
+
                     if (Type == CifType.INDIVIDUAL)
                         lblEdit.PostBackUrl = "~/Individual.aspx?ID=" + CIF_ID.Text;
                     else if (Type == CifType.NEXT_OF_KIN)
@@ -72,7 +72,7 @@ namespace CAOP.CifForms
                 }
                 else
                 {
-                   
+
 
                     if (Type == CifType.INDIVIDUAL)
                         lblEdit.PostBackUrl = "~/Individual.aspx?ID=" + CIF_ID.Text + "&Action=review";

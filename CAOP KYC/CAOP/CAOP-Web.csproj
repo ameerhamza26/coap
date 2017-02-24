@@ -127,6 +127,7 @@
     <Content Include="CifAccount.aspx" />
     <Content Include="CifForms\DeleteInProcess.aspx" />
     <Content Include="CifForms\InProcess.aspx" />
+    <Content Include="CifForms\PendingUpdatedCIF.aspx" />
     <Content Include="CifForms\RejectedCif.aspx" />
     <Content Include="CrmTaggingForms\CRMTagging.aspx" />
     <Content Include="ExistingCif\Existing.aspx" />
@@ -362,6 +363,13 @@
     </Compile>
     <Compile Include="CifForms\InProcess.aspx.designer.cs">
       <DependentUpon>InProcess.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CifForms\PendingUpdatedCIF.aspx.cs">
+      <DependentUpon>PendingUpdatedCIF.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CifForms\PendingUpdatedCIF.aspx.designer.cs">
+      <DependentUpon>PendingUpdatedCIF.aspx</DependentUpon>
     </Compile>
     <Compile Include="CifForms\RejectedCif.aspx.cs">
       <DependentUpon>RejectedCif.aspx</DependentUpon>

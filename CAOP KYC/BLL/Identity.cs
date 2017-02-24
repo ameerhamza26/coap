@@ -96,6 +96,35 @@ namespace BLL
             }
         }
 
+
+        public void UpdateIdentityNew()
+        {
+            using (CAOPDbContext db = new CAOPDbContext())
+            {
+                IDENTITIES newIdentity = db.IDENTITIES.FirstOrDefault(i => i.BI_ID == this.BI_ID);
+                newIdentity.CNIC_DATE_ISSUE = this.CNIC_DATE_ISSUE;
+                newIdentity.EXPIRY_DATE = this.EXPIRY_DATE;
+                newIdentity.IDENTIFICATION_MARK = this.IDENTIFICATION_MARK.ToUpper();
+                newIdentity.FAMILY_NO = this.FAMILY_NO.ToUpper();
+                newIdentity.TOKEN_NO = this.TOKEN_NO.ToUpper();
+                newIdentity.TOKEN_ISSUE_DATE = this.TOKEN_ISSUE_DATE;
+                newIdentity.NTN = this.NTN.ToUpper();
+                newIdentity.NIC_OLD = this.NIC_OLD;
+                newIdentity.IDENTITY_TYPE = this.IDENTITY_TYPE.ID;
+                newIdentity.IDENTITY_NO = this.IDENTITY_NO.ToUpper();
+                newIdentity.COUNTRY_ISSUE = this.COUNTRY_ISSUE.ID;
+                newIdentity.OTHER_IDENTITY_ISSUE_DATE = this.OTHER_IDENTITY_ISSUE_DATE;
+                newIdentity.PLACE_ISSUE = this.PLACE_ISSUE.ToUpper();
+                newIdentity.EXPIRY_DATE = this.EXPIRY_DATE;
+                newIdentity.COUNTRY_ISSUE_CNIC = this.COUNTRY_ISSUE_CNIC.ID;
+                newIdentity.PLACE_ISSUE_CNIC = this.PLACE_ISSUE_CNIC.ToUpper();
+                newIdentity.OTHER_IDENTITY_EXPIRY_DATE = this.OTHER_IDENTITY_EXPIRY_DATE;
+                db.BASIC_INFORMATIONS.FirstOrDefault(b => b.ID == this.BI_ID).LAST_UPDATED = DateTime.Now;
+                db.BASIC_INFORMATIONS.FirstOrDefault(b => b.ID == this.BI_ID).STATUS = Status.UPDATED_BY_BRANCH_OPERATOR.ToString();
+
+                db.SaveChanges();
+            }
+        }
         public bool GetIndividualIdentity(int BI_ID)
         {
             using (CAOPDbContext db = new CAOPDbContext())

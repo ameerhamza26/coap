@@ -2170,7 +2170,7 @@ namespace CAOP
             BI.DOCUMENT_VERIFIED = chkDocument.Checked;
             BI.CUSTOMER_TYPE = new CifCustomerType() { ID = Convert.ToInt32(LstCustomerType.SelectedItem.Value) };
             BI.ID = BID;
-            BI.UpdateIndividual();
+            BI.UpdateIndividualNew();
 
             if (lstCOR.SelectedItem.Text.Trim() != "UNITED STATES")
             {
@@ -2237,7 +2237,7 @@ namespace CAOP
             I1.OTHER_IDENTITY_EXPIRY_DATE = OiExpDate2.Text;
             I1.COUNTRY_ISSUE_CNIC = new Country() { ID = Convert.ToInt32(I1.COUNTRY_ISSUE_CNIC) };
             I1.PLACE_ISSUE_CNIC = OiTxtPlaceIssueCnic.Text;
-            I1.UpdateIdentity();
+            I1.UpdateIdentityNew();
         }
 
         protected void btnUpdateContactInfo_Click(object sender, EventArgs e)
@@ -2300,7 +2300,7 @@ namespace CAOP
             ci.MOBILE_NO = CiMobileNo.Text;
             ci.FAX_NO = CiFaxNo.Text;
             ci.EMAIL = CiEmail.Text;
-            ci.UpdateContactInfo();
+            ci.UpdateContactInfoNew();
 
             if (CiListCountryCode.SelectedItem.Text == "UNITED STATES" || CiListCountryCodePre.SelectedItem.Text == "UNITED STATES")
             {
@@ -2352,7 +2352,7 @@ namespace CAOP
             e1.EMPLOYER_BUSINESS_ADDRESS = EiEmpBusAddr.Text;
             e1.COUNTRY_EMPLOYMENT = new Country() { ID = ListExtensions.getSelectedValue(EiListCountryEmpBus), Name = EiListCountryEmpBus.SelectedItem.Text };
             e1.ARMY_RANK_CODE = new ArmyRankCodes() { ID = ListExtensions.getSelectedValue(EiListPakArmy), Code = EiListPakArmy.SelectedItem.Text };
-            e1.UpdateEmploymentInfo();
+            e1.UpdateEmploymentInfoNew();
         }
 
         protected void btnUpdateMi_Click(object sender, EventArgs e)
@@ -2423,7 +2423,7 @@ namespace CAOP
             m.LIABILITIES = MiLiabilities.Text;
             m.NET_WORTH = MiNetWorth.Text;
             m.MiscellaneousInfoCountryTax = MiListCountryOfTax.Items.Cast<ListItem>().Where(i => i.Selected == true).Select(i => new Country { ID = Convert.ToInt32(i.Value), Name = i.Text }).ToList();
-            m.UpdateIndividualMiscellaneousInfo();
+            m.UpdateIndividualMiscellaneousInfoNew();
         }
 
         protected void btnUpdateBr_Click(object sender, EventArgs e)
@@ -2448,7 +2448,7 @@ namespace CAOP
             b.OTHER_ACCOUNT_NUMBER = BrOtherAccountNumber.Text;
             b.OTHER_ACCOUNT_TITLE = BrOtherAccountTitle.Text;
             b.OTHER_RELATIONSHIP_SINCE = BrOtherRelationshipSince.Text;
-            b.UpdateBankingRelationship();
+            b.UpdateBankingRelationshipNew();
 
         }
 
@@ -2518,7 +2518,7 @@ namespace CAOP
             f.US_TAXID = new UsaTaxType() { ID = Convert.ToInt32(PiListUsTaxIdType.SelectedItem.Value), Name = PiListUsTaxIdType.SelectedItem.Text };
             f.TAXNO = PiTaxNo.Text;
             f.FATCA_DOCUMENTS = PiListFatcaDocumentation.Items.Cast<ListItem>().Where(i => i.Selected == true).Select(i => new FatcaDocumentation { ID = Convert.ToInt32(i.Value), Name = i.Text }).ToList();
-            f.UpdateFatca();
+            f.UpdateFatcaNew();
         }
 
         protected void btnSubmitCif_Click(object sender, EventArgs e)
@@ -2526,7 +2526,7 @@ namespace CAOP
             int BID = (int)Session["BID"];
             CIF cif = new CIF(BID, CifType.INDIVIDUAL);
             User LoggedUser = Session["User"] as User;
-            cif.ChangeStatus(Status.SUBMITTED, LoggedUser);
+            cif.ChangeStatus(Status.SUBMITTED_BY_BRANCH_OPERATOR, LoggedUser);
             CalculateRisk();
             Response.Redirect("CifAccount.aspx");
         }

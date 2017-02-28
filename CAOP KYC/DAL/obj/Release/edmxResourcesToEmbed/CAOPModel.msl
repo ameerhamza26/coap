@@ -306,6 +306,9 @@
     <EntitySetMapping Name="BASIC_INFORMATIONS">
       <EntityTypeMapping TypeName="AOSModel.BASIC_INFORMATIONS">
         <MappingFragment StoreEntitySet="BASIC_INFORMATIONS">
+          <ScalarProperty Name="LAST_UPDATE_BRANCH_CODE1" ColumnName="LAST_UPDATE_BRANCH_CODE" />
+          <ScalarProperty Name="isUpdated" ColumnName="isUpdated" />
+          <ScalarProperty Name="LastUpdateUserID" ColumnName="LastUpdateUserID" />
           <ScalarProperty Name="ISSUING_AGENCY_OTHER" ColumnName="ISSUING_AGENCY_OTHER" />
           <ScalarProperty Name="CIF_OFFICER_CODE" ColumnName="CIF_OFFICER_CODE" />
           <ScalarProperty Name="ID" ColumnName="ID" />
@@ -1716,18 +1719,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="ACCOUNT_MODES2Set">
-      <EntityTypeMapping TypeName="AOSModel.ACCOUNT_MODES2">
-        <MappingFragment StoreEntitySet="ACCOUNT_MODES">
-          <ScalarProperty Name="CATEGORY" ColumnName="CATEGORY" />
-          <ScalarProperty Name="TYPE" ColumnName="TYPE" />
-          <ScalarProperty Name="PROFILECODE" ColumnName="PROFILECODE" />
-          <ScalarProperty Name="GRP" ColumnName="GRP" />
-          <ScalarProperty Name="NAME" ColumnName="NAME" />
-          <ScalarProperty Name="ID" ColumnName="ID" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="MRPC_FAILURE_MESSAGES">
       <EntityTypeMapping TypeName="AOSModel.MRPC_FAILURE_MESSAGES">
         <MappingFragment StoreEntitySet="MRPC_FAILURE_MESSAGES">
@@ -1735,17 +1726,6 @@
           <ScalarProperty Name="FAILURE_MSG" ColumnName="FAILURE_MSG" />
           <ScalarProperty Name="BI_ID" ColumnName="BI_ID" />
           <ScalarProperty Name="TYPE" ColumnName="TYPE" />
-          <ScalarProperty Name="ID" ColumnName="ID" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="EMPLOYER_CODE2Set">
-      <EntityTypeMapping TypeName="AOSModel.EMPLOYER_CODE2">
-        <MappingFragment StoreEntitySet="EMPLOYER_CODE">
-          <ScalarProperty Name="Name" ColumnName="Name" />
-          <ScalarProperty Name="ZEMPNO" ColumnName="ZEMPNO" />
-          <ScalarProperty Name="ZEMPSUBG" ColumnName="ZEMPSUBG" />
-          <ScalarProperty Name="ZEMPGRP" ColumnName="ZEMPGRP" />
           <ScalarProperty Name="ID" ColumnName="ID" />
         </MappingFragment>
       </EntityTypeMapping>

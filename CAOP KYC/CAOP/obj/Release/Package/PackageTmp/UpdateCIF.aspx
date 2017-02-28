@@ -3,6 +3,12 @@
 <asp:Content ID="Head" ContentPlaceHolderID="head" runat="server">
     <title>Search CIF's</title>
     <script src="Assets/js/bs.pagination.js"></script>
+        <style>
+       .lblDiv{
+           text-align:center;
+           margin-top:15px;
+       }
+        </style>
 </asp:Content>
 
 
@@ -87,8 +93,10 @@
     
    
     </asp:GridView>
-
-       </ContentTemplate>
+             <div class="lblDiv">
+                <asp:Label ID="updateCifNotFoundMsg" runat="server" Visible="false" Text="CIF must be incorporated in AOS and Approved by Branch Manager in order to update"></asp:Label>
+            </div>
+                 </ContentTemplate>
      </asp:UpdatePanel>
 
 </asp:Content>

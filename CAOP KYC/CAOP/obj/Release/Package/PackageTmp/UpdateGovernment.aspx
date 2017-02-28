@@ -999,8 +999,8 @@
                             <div class="form-group">
                                 <asp:Button ID="PiSubmitButton" ValidationGroup="IndiFAtca" runat="server" Text="SAVE" CssClass="btn btn-primary" OnClick="PiSubmitButton_Click" />
                                 <button id="InResetFatca" onclick="openModal()" type="button" class="btn btn-primary" value="Reset">Reset</button>
-                                <asp:Button ID="btnPiUpdate" ValidationGroup="IndiFAtca" Visible="false" ClientIDMode="Static" runat="server" Text="UPDATE" CssClass="btn btn-primary"  OnClick="btnPiUpdate_Click" />
-                                <asp:Button ID="Button1" Visible="false"  ClientIDMode="Static" runat="server" Text="Submit" CssClass="btn btn-primary" OnClick="btnSubmitCif_Click" />
+                                <asp:Button ID="btnPiUpdate" ValidationGroup="IndiFAtca" Visible="true" ClientIDMode="Static" runat="server" Text="UPDATE" CssClass="btn btn-primary"  OnClick="btnPiUpdate_Click" />
+                                <asp:Button ID="Button1" Visible="true"  ClientIDMode="Static" runat="server" Text="Submit" CssClass="btn btn-primary" OnClick="btnSubmitCif_Click" />
                             </div>
 
 	                         </ContentTemplate>                           

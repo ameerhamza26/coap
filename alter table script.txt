@@ -1,4 +1,16 @@
+Use AOS;
+
 alter table BASIC_INFORMATIONS
 add LastUpdateUserID int ,
  LAST_UPDATE_BRANCH_CODE nvarchar(max),
- isUpdated int
+ isUpdated int;
+
+alter table BASIC_INFORMATIONS
+alter column STATUS nvarchar(max);
+
+
+alter table STATUS_LOG
+alter column NEW_STATUS nvarchar(max);
+
+alter table STATUS_LOG
+alter column OLD_STATUS nvarchar(max);

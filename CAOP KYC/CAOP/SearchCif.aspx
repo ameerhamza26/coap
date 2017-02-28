@@ -3,6 +3,12 @@
 <asp:Content ID="Head" ContentPlaceHolderID="head" runat="server">
     <title>Search CIF's</title>
     <script src="Assets/js/bs.pagination.js"></script>
+    <style>
+       .lblDiv{
+           text-align:center;
+           margin-top:15px;
+       }
+        </style>
 </asp:Content>
 
 
@@ -16,12 +22,12 @@
             <div class="col-md-3">
                 <div class="form-group">
                    
-                    <asp:RadioButton  ID="radioCNIC" Text="CNIC" GroupName="CRITERIA" Checked="true" runat="server" />
-                    <asp:RadioButton  ID="radioNIC" Text="NIC" GroupName="CRITERIA" Checked="true" runat="server" />
+                     <asp:RadioButton  ID="radioCNIC" Text="CNIC" GroupName="CRITERIA" Checked="true" runat="server" />
+                     <asp:RadioButton  ID="radioNIC" Text="NIC" GroupName="CRITERIA" Checked="true" runat="server" />
                      <asp:RadioButton  ID="radioNTN" Text="NTN" GroupName="CRITERIA" Checked="true" runat="server" />
                      <asp:RadioButton  ID="radioName" Text="NAME" GroupName="CRITERIA" Checked="true" runat="server" />
                      <asp:TextBox ID="txtCif" ClientIDMode="Static" CssClass="form-control" runat="server"></asp:TextBox>
-                    <asp:Button ID="btnSearch" style="margin-top: 20px" runat="server"  CssClass="btn btn-primary" Text="Search" OnClick="btnSearch_Click" />                 
+                     <asp:Button ID="btnSearch" style="margin-top: 20px" runat="server"  CssClass="btn btn-primary" Text="Search" OnClick="btnSearch_Click" />                 
                  </div>
              </div>
         </div>
@@ -32,7 +38,6 @@
              </Triggers>
 
          <ContentTemplate>          
-
     <asp:GridView class="table" ShowHeaderWhenEmpty="true" PagerStyle-CssClass="bs-pagination" ID="grdPCif" runat="server" AllowPaging="true" PageSize="15" AutoGenerateColumns="false" OnPageIndexChanging="grdPCif_PageIndexChanging" OnRowDataBound="grdPCif_RowDataBound">
     
     <Columns>
@@ -87,8 +92,10 @@
     
    
     </asp:GridView>
-
-       </ContentTemplate>
+             <div class="lblDiv">
+          <asp:Label ID="CifNotFoundMsg" runat="server" Text="CIF must be incorporated in AOS and Approved by Branch Manager" Visible="false" CssClass="notFoundMsg"></asp:Label>
+            </div>
+                 </ContentTemplate>
      </asp:UpdatePanel>
 
 </asp:Content>

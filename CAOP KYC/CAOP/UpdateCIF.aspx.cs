@@ -68,7 +68,9 @@ namespace CAOP
                     grdPCif.DataSource = cf.SearchCif(txtCif.Text, false, false, false, true);
                 grdPCif.DataBind();
             }
-
+            if (grdPCif.Rows.Count <= 0) {
+                updateCifNotFoundMsg.Visible = true;
+            }
 
         }
 

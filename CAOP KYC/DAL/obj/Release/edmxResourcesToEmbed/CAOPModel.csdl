@@ -353,6 +353,10 @@
     <Property Name="WHO_DESIG" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
     <Property Name="CIF_OFFICER_CODE" Type="Int32" />
     <Property Name="ISSUING_AGENCY_OTHER" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="LastUpdateUserID" Type="Int32" />
+    <Property Name="LAST_UPDATE_BRANCH_CODE" Type="Int32" />
+    <Property Name="isUpdated" Type="Int32" />
+    <Property Name="LAST_UPDATE_BRANCH_CODE1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
   </EntityType>
   <EntityType Name="BRANCHES">
     <Key>
@@ -1335,8 +1339,8 @@
     <Property Name="USERID" Type="Int32" />
     <Property Name="BID" Type="Int32" />
     <Property Name="LOG_TYPE" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-    <Property Name="OLD_STATUS" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
-    <Property Name="NEW_STATUS" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="OLD_STATUS" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="NEW_STATUS" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="LOG_DATETIME" Type="DateTime" Precision="3" />
   </EntityType>
   <EntityType Name="SUB_INDUSTRY">

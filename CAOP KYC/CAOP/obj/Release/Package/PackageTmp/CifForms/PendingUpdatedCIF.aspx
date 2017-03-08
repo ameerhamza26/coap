@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/MasterPages/Default.Master" CodeBehind="RejectedCif.aspx.cs" Inherits="CAOP.CifForms.RejectedCif" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/MasterPages/Default.Master" CodeBehind="PendingUpdatedCIF.aspx.cs" Inherits="CAOP.CifForms.PendingUpdatedCIF" %>
 
 <asp:Content ID="Head" ContentPlaceHolderID="head" runat="server">
     <title>CAOP</title>

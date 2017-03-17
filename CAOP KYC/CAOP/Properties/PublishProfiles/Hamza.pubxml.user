@@ -170,13 +170,13 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>02/16/2017 02:36:31</publishTime>
     </File>
     <File Include="bin/BLL.dll">
-      <publishTime>02/28/2017 03:18:02</publishTime>
+      <publishTime>03/13/2017 02:46:14</publishTime>
     </File>
     <File Include="bin/CAOP.dll">
-      <publishTime>02/28/2017 03:18:08</publishTime>
+      <publishTime>03/13/2017 02:46:19</publishTime>
     </File>
     <File Include="bin/CAOP.XmlSerializers.dll">
-      <publishTime>02/28/2017 03:18:12</publishTime>
+      <publishTime>03/13/2017 02:46:21</publishTime>
     </File>
     <File Include="bin/DAL.dll">
       <publishTime>02/28/2017 03:17:59</publishTime>

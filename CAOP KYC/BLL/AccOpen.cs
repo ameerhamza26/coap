@@ -291,6 +291,16 @@ namespace BLL
             }
         }
 
+        public List<AccountNatureCurrency> SearchAccount(string AccountNumber, int userid)
+        {
+            using(CAOPDbContext db = new CAOPDbContext())
+            {
+                var ACCOUNTS = db.ACCOUNT_NATURE_CURRENCY.Where(b => b.PROFILE_ACCOUNT_NO == AccountNumber.ToString() && b.STATUS == Status.APPROVED_BY_BRANCH_MANAGER.ToString() && (db.USERS.FirstOrDefault(u=> u.USER_ID == b.USERID).PARENT_ID == db.USERS.FirstOrDefault(w=> w.USER_ID == userid).PARENT_ID) )
+                     .OrderByDescending(b => b.LAST_UPDATED).Select(b => new AccountNatureCurrency { ID = b.ID, ACCOUNT_NUMBER = b.ACCOUNT_NUMBER, ACCOUNT_TITLE = b.ACCOUNT_TITLE, LAST_UPDATED = b.LAST_UPDATED, STATUS = b.STATUS, ACCOUNT_OPEN_TYPE = new AccountOpenType { ID = (int)b.ACCOUNT_TYPE, NAME = db.ACCOUNT_OPEN_TYPE.FirstOrDefault(t => t.ID == b.ACCOUNT_OPEN_TYPE).NAME }, PROFILE_ACCOUNT_NO = b.PROFILE_ACCOUNT_NO }).ToList();
+                return ACCOUNTS; 
+            }
+        }
+
 
         public void ChangeStatus(Status status, User LogedUser)
         {

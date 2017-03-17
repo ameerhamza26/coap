@@ -41,3 +41,14 @@ F:\Projects\coap\CAOP KYC\DAL\bin\Debug\EntityFramework.SqlServer.xml
 F:\Projects\coap\CAOP KYC\DAL\obj\Debug\DAL.csprojResolveAssemblyReference.cache
 F:\Projects\coap\CAOP KYC\DAL\obj\Debug\DAL.dll
 F:\Projects\coap\CAOP KYC\DAL\obj\Debug\DAL.pdb
+D:\New Projects\coap\CAOP KYC\DAL\bin\Debug\DAL.dll.config
+D:\New Projects\coap\CAOP KYC\DAL\bin\Debug\DAL.dll
+D:\New Projects\coap\CAOP KYC\DAL\bin\Debug\DAL.pdb
+D:\New Projects\coap\CAOP KYC\DAL\bin\Debug\Blun.ConfigurationManager.dll
+D:\New Projects\coap\CAOP KYC\DAL\bin\Debug\EntityFramework.dll
+D:\New Projects\coap\CAOP KYC\DAL\bin\Debug\EntityFramework.SqlServer.dll
+D:\New Projects\coap\CAOP KYC\DAL\bin\Debug\EntityFramework.xml
+D:\New Projects\coap\CAOP KYC\DAL\bin\Debug\EntityFramework.SqlServer.xml
+D:\New Projects\coap\CAOP KYC\DAL\obj\Debug\DAL.csprojResolveAssemblyReference.cache
+D:\New Projects\coap\CAOP KYC\DAL\obj\Debug\DAL.dll
+D:\New Projects\coap\CAOP KYC\DAL\obj\Debug\DAL.pdb

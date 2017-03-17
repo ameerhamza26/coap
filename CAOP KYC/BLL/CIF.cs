@@ -298,6 +298,14 @@ namespace BLL
             {
                 List<int> BranchUsers = new List<int>();
                 List<BasicInformations> SubmittedCifs = new List<BasicInformations>();
+                List<String> cifstatus = new List<string>();
+               
+                cifstatus.Add(Status.SUBMITTED_BY_BRANCH_OPERATOR.ToString());
+                cifstatus.Add(Status.UPDATED_CIF_APPROVED_BY_BRANCH_MANAGER.ToString());
+                cifstatus.Add(Status.UPDATED_CIF_APPROVED_BY_COMPAINCE_OFFICER.ToString());
+                cifstatus.Add(Status.UPDATED_CIF_REJECTED_BY_BRANCH_MANAGER.ToString());
+                cifstatus.Add(Status.UPDATED_CIF_REJECTED_BY_COMPAINCE_OFFICER.ToString());
+                cifstatus.Add(Status.UPDATED_BY_BRANCH_OPERATOR.ToString());
 
                 if (UserRole == Roles.BRANCH_OPERATOR.ToString())
                 {
@@ -305,7 +313,7 @@ namespace BLL
                     BranchUsers.Add(this.UserId);
                     USERS usr = db.USERS.FirstOrDefault(b => b.USER_ID == this.UserId);
                     BRANCHES br = db.BRANCHES.FirstOrDefault(b => b.BRANCH_ID == usr.PARENT_ID);
-                    SubmittedCifs = db.BASIC_INFORMATIONS.Where(b => b.STATUS == Status.UPDATED_BY_BRANCH_OPERATOR.ToString() && BranchUsers.Contains((int)b.UserId) && b.BRANCH_CODE == br.BRANCH_CODE)
+                    SubmittedCifs = db.BASIC_INFORMATIONS.Where(b => cifstatus.Contains(b.STATUS) && (BranchUsers.Contains((int)b.UserId)|| BranchUsers.Contains((int)b.LastUpdateUserID)) && ( b.BRANCH_CODE == br.BRANCH_CODE || b.LAST_UPDATE_BRANCH_CODE == (db.BRANCHES.FirstOrDefault(ab=> ab.BRANCH_CODE== b.LAST_UPDATE_BRANCH_CODE)).BRANCH_CODE))
                       .OrderByDescending(b => b.LAST_UPDATED).Select(b => new BasicInformations { ID = b.ID, CNIC = b.CNIC, NAME = b.NAME, NAME_OFFICE = b.NAME_OFFICE, LAST_UPDATED = b.LAST_UPDATED, STATUS = b.STATUS, NTN = b.NTN, CIF_TYPE = new CifTypes { ID = (int)b.CIF_TYPE, Name = db.CIF_TYPES.FirstOrDefault(t => t.ID == b.CIF_TYPE).Name }, RISK_SCORE = b.RISK_SCORE, RISK_CATEGORY = b.RISK_CATEGORY, PROFILE_CIF_NO = b.PROFILE_CIF_NO, BRANCH_CODE = b.BRANCH_CODE }).ToList();
 
                 }
@@ -325,13 +333,19 @@ namespace BLL
 
                     if (UserRole == Roles.COMPLIANCE_OFFICER.ToString())
                     {
-
-                        SubmittedCifs = db.BASIC_INFORMATIONS.Where(b => (b.STATUS == Status.SUBMITTED_BY_BRANCH_OPERATOR.ToString() || b.STATUS == Status.UPDATED_CIF_REJECTED_BY_BRANCH_MANAGER.ToString()) && BranchUsers.Contains((int)b.UserId))
+                        cifstatus.Remove(Status.UPDATED_BY_BRANCH_OPERATOR.ToString());
+                        SubmittedCifs = db.BASIC_INFORMATIONS.Where(b => cifstatus.Contains(b.STATUS) && (BranchUsers.Contains((int)b.UserId) || BranchUsers.Contains((int)b.LastUpdateUserID) ))
                         .OrderByDescending(b => b.LAST_UPDATED).Select(b => new BasicInformations { ID = b.ID, CNIC = b.CNIC, NAME = b.NAME, NAME_OFFICE = b.NAME_OFFICE, STATUS = b.STATUS, LAST_UPDATED = b.LAST_UPDATED, NTN = b.NTN, CIF_TYPE = new CifTypes { ID = (int)b.CIF_TYPE, Name = db.CIF_TYPES.FirstOrDefault(t => t.ID == b.CIF_TYPE).Name }, RISK_SCORE = b.RISK_SCORE, RISK_CATEGORY = b.RISK_CATEGORY, PROFILE_CIF_NO = b.PROFILE_CIF_NO, BRANCH_CODE = b.BRANCH_CODE }).ToList();
                     }
                     else if (UserRole == Roles.BRANCH_MANAGER.ToString())
                     {
-                        SubmittedCifs = db.BASIC_INFORMATIONS.Where(b => b.STATUS == Status.UPDATED_CIF_APPROVED_BY_COMPAINCE_OFFICER.ToString() && BranchUsers.Contains((int)b.UserId))
+                        cifstatus.Remove(Status.SUBMITTED_BY_BRANCH_OPERATOR.ToString());
+                        cifstatus.Add(Status.UPDATED_CIF_APPROVED_BY_BRANCH_MANAGER.ToString());
+                        cifstatus.Add(Status.UPDATED_CIF_APPROVED_BY_COMPAINCE_OFFICER.ToString());
+                        cifstatus.Add(Status.UPDATED_CIF_REJECTED_BY_BRANCH_MANAGER.ToString());
+                        cifstatus.Remove(Status.UPDATED_CIF_REJECTED_BY_COMPAINCE_OFFICER.ToString());
+                        cifstatus.Remove(Status.UPDATED_BY_BRANCH_OPERATOR.ToString());
+                        SubmittedCifs = db.BASIC_INFORMATIONS.Where(b => cifstatus.Contains(b.STATUS) && (BranchUsers.Contains((int)b.UserId) || BranchUsers.Contains((int)b.LastUpdateUserID)))
                         .OrderByDescending(b => b.LAST_UPDATED).Select(b => new BasicInformations { ID = b.ID, CNIC = b.CNIC, NAME = b.NAME, NAME_OFFICE = b.NAME_OFFICE, STATUS = b.STATUS, LAST_UPDATED = b.LAST_UPDATED, NTN = b.NTN, CIF_TYPE = new CifTypes { ID = (int)b.CIF_TYPE, Name = db.CIF_TYPES.FirstOrDefault(t => t.ID == b.CIF_TYPE).Name }, RISK_SCORE = b.RISK_SCORE, RISK_CATEGORY = b.RISK_CATEGORY, PROFILE_CIF_NO = b.PROFILE_CIF_NO, BRANCH_CODE = b.BRANCH_CODE }).ToList();
                     }
                 }
@@ -345,15 +359,22 @@ namespace BLL
            {
                List<int> BranchUsers = new List<int>();
                 List<BasicInformations> SubmittedCifs = new List<BasicInformations>();
+                List<String> cifstatus = new List<string>();
+                cifstatus.Add(Status.SUBMITTED.ToString());
+                cifstatus.Add(Status.APPROVED_BY_BRANCH_MANAGER.ToString());
+                cifstatus.Add(Status.APPROVED_BY_COMPLIANCE_MANAGER.ToString());
+                cifstatus.Add(Status.REJECTEBY_COMPLIANCE_MANAGER.ToString());
+                cifstatus.Add(Status.REJECTED_BY_BRANCH_MANAGER.ToString());
 
                if (UserRole == Roles.BRANCH_OPERATOR.ToString())
                {
                   
                     BranchUsers.Add(this.UserId);
+                    
                     USERS usr = db.USERS.FirstOrDefault(b => b.USER_ID == this.UserId);
                     BRANCHES br = db.BRANCHES.FirstOrDefault(b => b.BRANCH_ID == usr.PARENT_ID);
                     string parentid = db.USERS.Where(b => b.USER_ID == this.UserId).Select(b => new User { PARENT_ID = b.PARENT_ID }).ToString();
-                    SubmittedCifs = db.BASIC_INFORMATIONS.Where(b => b.STATUS != Status.SAVED.ToString() && BranchUsers.Contains((int)b.UserId) && b.BRANCH_CODE == br.BRANCH_CODE)
+                    SubmittedCifs = db.BASIC_INFORMATIONS.Where(b => cifstatus.Contains(b.STATUS) && BranchUsers.Contains((int)b.UserId) && b.BRANCH_CODE == br.BRANCH_CODE)
                        .OrderByDescending(b => b.LAST_UPDATED ).Select(b => new BasicInformations { ID = b.ID, CNIC = b.CNIC, NAME = b.NAME,NAME_OFFICE = b.NAME_OFFICE,LAST_UPDATED = b.LAST_UPDATED ,STATUS = b.STATUS, NTN = b.NTN, CIF_TYPE = new CifTypes { ID = (int)b.CIF_TYPE, Name = db.CIF_TYPES.FirstOrDefault(t => t.ID == b.CIF_TYPE).Name },RISK_SCORE = b.RISK_SCORE, RISK_CATEGORY = b.RISK_CATEGORY, PROFILE_CIF_NO = b.PROFILE_CIF_NO , BRANCH_CODE = b.BRANCH_CODE}).ToList();
 
                 }
@@ -373,13 +394,14 @@ namespace BLL
 
                     if (UserRole == Roles.COMPLIANCE_OFFICER.ToString())
                     {
-                        
-                        SubmittedCifs = db.BASIC_INFORMATIONS.Where(b => b.STATUS != Status.SAVED.ToString() && BranchUsers.Contains((int)b.UserId))
+
+                        SubmittedCifs = db.BASIC_INFORMATIONS.Where(b => cifstatus.Contains(b.STATUS) && BranchUsers.Contains((int)b.UserId))
                         .OrderByDescending(b => b.LAST_UPDATED).Select(b => new BasicInformations { ID = b.ID, CNIC = b.CNIC, NAME = b.NAME, NAME_OFFICE = b.NAME_OFFICE, STATUS = b.STATUS, LAST_UPDATED = b.LAST_UPDATED, NTN = b.NTN, CIF_TYPE = new CifTypes { ID = (int)b.CIF_TYPE, Name = db.CIF_TYPES.FirstOrDefault(t => t.ID == b.CIF_TYPE).Name }, RISK_SCORE = b.RISK_SCORE, RISK_CATEGORY = b.RISK_CATEGORY, PROFILE_CIF_NO = b.PROFILE_CIF_NO, BRANCH_CODE = b.BRANCH_CODE }).ToList();
                     }
                     else if (UserRole == Roles.BRANCH_MANAGER.ToString())
                     {
-                        SubmittedCifs = db.BASIC_INFORMATIONS.Where(b => b.STATUS != Status.SAVED.ToString() && b.STATUS != Status.SUBMITTED.ToString() && BranchUsers.Contains((int)b.UserId))
+                        cifstatus.Remove(Status.SUBMITTED.ToString());
+                        SubmittedCifs = db.BASIC_INFORMATIONS.Where(b =>cifstatus.Contains(b.STATUS) && BranchUsers.Contains((int)b.UserId))
                         .OrderByDescending(b => b.LAST_UPDATED).Select(b => new BasicInformations { ID = b.ID, CNIC = b.CNIC, NAME = b.NAME, NAME_OFFICE = b.NAME_OFFICE, STATUS = b.STATUS, LAST_UPDATED = b.LAST_UPDATED, NTN = b.NTN, CIF_TYPE = new CifTypes { ID = (int)b.CIF_TYPE, Name = db.CIF_TYPES.FirstOrDefault(t => t.ID == b.CIF_TYPE).Name }, RISK_SCORE = b.RISK_SCORE, RISK_CATEGORY = b.RISK_CATEGORY, PROFILE_CIF_NO = b.PROFILE_CIF_NO, BRANCH_CODE = b.BRANCH_CODE }).ToList();
                     }
                }
@@ -554,6 +576,15 @@ namespace BLL
 
 
 
+
+        public String GetCifStatus(int ID)
+        {
+            using(CAOPDbContext db = new CAOPDbContext())
+            {
+               string status = (db.BASIC_INFORMATIONS.FirstOrDefault(b => b.ID == ID)).STATUS;
+               return status;
+            }
+        }
 
         public CifType GetCifType(int ID)
        {

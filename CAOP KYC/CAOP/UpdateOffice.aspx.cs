@@ -42,20 +42,39 @@ namespace CAOP
                         Session["BID"] = queryid;
                         SetData();
                         SetDataOpen(queryid);
-                        btnUpdateOfc.Visible = true;
-                        btnSubmitOfc.Visible = true;
-                        btnSubmitSaveOfc.Visible = false;
+                       
                         // temp risk checking
                         // CalculateRisk();
 
                         CIF cif = new CIF(LoggedUser.USER_ID);
 
-                        //if (cif.CheckStatus(queryid, Status.REJECTEBY_COMPLIANCE_MANAGER.ToString()))
-                        //{
-                           // rev.Visible = true;
+                        if (cif.CheckStatus(queryid, Status.UPDATED_CIF_REJECTED_BY_COMPAINCE_OFFICER.ToString()))
+                        {
+                            rev.Visible = true;
                             rev.Reviewer = false;
+                            btnUpdateOfc.Visible = true;
+                            btnSubmitOfc.Visible = true;
+                            btnSubmitSaveOfc.Visible = false;
                            
-                       // }
+                       }
+
+                        if (cif.CheckStatus(queryid, Status.UPDATED_BY_BRANCH_OPERATOR.ToString()))
+                        {
+
+                            rev.Reviewer = false;
+                            btnUpdateOfc.Visible = true;
+                            btnSubmitOfc.Visible = true;
+                            btnSubmitSaveOfc.Visible = false;
+                        }
+
+                        if (cif.CheckStatus(queryid, Status.APPROVED_BY_BRANCH_MANAGER.ToString()))
+                        {
+
+                            rev.Reviewer = false;
+                            btnUpdateOfc.Visible = true;
+                            btnSubmitOfc.Visible = true;
+                            btnSubmitSaveOfc.Visible = false;
+                        }
                     }
 
                 }
@@ -80,7 +99,10 @@ namespace CAOP
                         if (cif.CheckStatus(queryid, Status.APPROVED_BY_COMPLIANCE_MANAGER.ToString()))
                             rev.Visible = false;
 
-                        if (cif.CheckStatus(queryid, new string[] { Status.SUBMITTED.ToString(), Status.REJECTED_BY_BRANCH_MANAGER.ToString() }))
+                        if (cif.CheckStatus(queryid, Status.UPDATED_CIF_APPROVED_BY_COMPAINCE_OFFICER.ToString()))
+                            rev.Visible = false;
+
+                        if (cif.CheckStatus(queryid, new string[] { Status.SUBMITTED.ToString(), Status.REJECTED_BY_BRANCH_MANAGER.ToString(), Status.UPDATED_CIF_REJECTED_BY_BRANCH_MANAGER.ToString(), Status.SUBMITTED_BY_BRANCH_OPERATOR.ToString() }))
                         {
                             rev.Reviewer = true;
                         }
@@ -104,7 +126,7 @@ namespace CAOP
                         rev.Reviewer = false;
 
                         CIF cif = new CIF(LoggedUser.USER_ID);
-                        if (cif.CheckStatus(queryid, Status.APPROVED_BY_COMPLIANCE_MANAGER.ToString()))
+                        if (cif.CheckStatus(queryid, Status.UPDATED_CIF_APPROVED_BY_COMPAINCE_OFFICER.ToString()))
                         {
                             rev.Reviewer = true;
                         }
@@ -309,7 +331,7 @@ namespace CAOP
             c.EMAIL = "";
             c.SaveContactInfo();
 
-            Response.Redirect("CifAccount.aspx");
+            Response.Redirect("Main.aspx");
         }
 
         protected void btnSubmitOfc_Click(object sender, EventArgs e)
@@ -319,7 +341,7 @@ namespace CAOP
             User LoggedUser = Session["User"] as User;
             cif.ChangeStatus(Status.SUBMITTED_BY_BRANCH_OPERATOR, LoggedUser);
             // CalculateRisk();
-            Response.Redirect("CifAccount.aspx");
+            Response.Redirect("Main.aspx");
         }
 
         protected void btnUpdateOfc_Click(object sender, EventArgs e)

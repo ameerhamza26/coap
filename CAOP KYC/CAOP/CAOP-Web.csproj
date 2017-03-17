@@ -171,10 +171,15 @@
     <None Include="Properties\PublishProfiles\MATEEN.pubxml" />
     <Content Include="PasswordForms\ChangePassword.aspx" />
     <Content Include="PasswordForms\FirstLoginPassword.aspx" />
+    <Content Include="PendingUpdatedAccounts.aspx" />
     <Content Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </Content>
+    <Content Include="UpdateAccount.aspx" />
+    <Content Include="UpdateAccountBusiness.aspx" />
+    <Content Include="UpdateAccountIndividual.aspx" />
+    <Content Include="UpdateAccountOffice.aspx" />
     <Content Include="UpdateBusiness.aspx" />
     <Content Include="UpdateCIF.aspx" />
     <Content Include="UpdateGovernment.aspx" />
@@ -390,6 +395,7 @@
     <Compile Include="CrmTaggingForms\clsUtility.cs" />
     <Compile Include="DataSets\dsAOF.cs">
       <DependentUpon>dsAOF.xsd</DependentUpon>
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="DataSets\dsAOF.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -504,6 +510,13 @@
     <Compile Include="PendingCIF.aspx.designer.cs">
       <DependentUpon>PendingCIF.aspx</DependentUpon>
     </Compile>
+    <Compile Include="PendingUpdatedAccounts.aspx.cs">
+      <DependentUpon>PendingUpdatedAccounts.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PendingUpdatedAccounts.aspx.designer.cs">
+      <DependentUpon>PendingUpdatedAccounts.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -534,6 +547,34 @@
     <Compile Include="test.asmx.cs">
       <DependentUpon>test.asmx</DependentUpon>
       <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="UpdateAccount.aspx.cs">
+      <DependentUpon>UpdateAccount.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UpdateAccount.aspx.designer.cs">
+      <DependentUpon>UpdateAccount.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UpdateAccountBusiness.aspx.cs">
+      <DependentUpon>UpdateAccountBusiness.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UpdateAccountBusiness.aspx.designer.cs">
+      <DependentUpon>UpdateAccountBusiness.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UpdateAccountIndividual.aspx.cs">
+      <DependentUpon>UpdateAccountIndividual.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UpdateAccountIndividual.aspx.designer.cs">
+      <DependentUpon>UpdateAccountIndividual.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UpdateAccountOffice.aspx.cs">
+      <DependentUpon>UpdateAccountOffice.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UpdateAccountOffice.aspx.designer.cs">
+      <DependentUpon>UpdateAccountOffice.aspx</DependentUpon>
     </Compile>
     <Compile Include="UpdateBusiness.aspx.cs">
       <DependentUpon>UpdateBusiness.aspx</DependentUpon>

@@ -96,6 +96,8 @@
                         <li id="PendingAccount" runat="server" visible="false"><a href="<%= Page.ResolveUrl("~")%>PendingAccounts.aspx">PENDING ACCOUNTS</a></li>
                         <li ><a href="<%= Page.ResolveUrl("~")%>AccountForms/InProcessAccounts.aspx">IN PROCESS ACCOUNTS</a></li>
                         <li ><a href="<%= Page.ResolveUrl("~")%>AccountList.aspx">SUBMITTED ACCOUNTS</a></li>
+                        <li><a href="<%= Page.ResolveUrl("~")%>UpdateAccount.aspx">UPDATE ACCOUNTS</a></li>
+                        <li><a href="<%= Page.ResolveUrl("~")%>PendingUpdatedAccounts.aspx">PENDING UPDATED ACCOUNTS</a></li>
                         <li ><a href="<%= Page.ResolveUrl("~")%>AccountForms/RejectedAccount.aspx">REJECTED ACCOUNTS</a></li>
                         <li runat="server" id="DIPA" visible="false" ><a href="<%= Page.ResolveUrl("~")%>AccountForms/DeleteInProcessAccounts.aspx">DELETE IN PROCESS ACCOUNTS</a></li>
                         <li id="LOTF" runat="server" visible="false" ><a href="<%= Page.ResolveUrl("~")%>LOT/LOT.aspx">PRINT LETTER OF THANKS</a></li>

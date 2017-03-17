@@ -41,6 +41,8 @@ namespace CAOP.UserControls
 
 
         List<ReviewGrid> gr;
+
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -272,8 +274,28 @@ namespace CAOP.UserControls
 
         private void Redirect()
         {
+            User logedUserGlobal = Session["User"] as User;
+            CIF cifGlobal = new CIF(logedUserGlobal.USER_ID);
+            int BID = (int)Session["BID"];
+            string status = cifGlobal.GetCifStatus(BID);
+
+            List<String> cifstatus = new List<string>();
+
+            cifstatus.Add(Status.SUBMITTED_BY_BRANCH_OPERATOR.ToString());
+            cifstatus.Add(Status.UPDATED_CIF_APPROVED_BY_BRANCH_MANAGER.ToString());
+            cifstatus.Add(Status.UPDATED_CIF_APPROVED_BY_COMPAINCE_OFFICER.ToString());
+            cifstatus.Add(Status.UPDATED_CIF_REJECTED_BY_BRANCH_MANAGER.ToString());
+            cifstatus.Add(Status.UPDATED_CIF_REJECTED_BY_COMPAINCE_OFFICER.ToString());
+            cifstatus.Add(Status.UPDATED_BY_BRANCH_OPERATOR.ToString());
             if (!TypeAccount)
-                Response.Redirect("CifAccount.aspx");
+                if (cifstatus.Contains(status))
+                {
+                    Response.Redirect("CifForms/PendingUpdatedCIF.aspx");
+                }
+                else {
+                    Response.Redirect("CifAccount.aspx");
+                }
+                
             else
                 Response.Redirect("AccountList.aspx");
         }
@@ -297,6 +319,15 @@ namespace CAOP.UserControls
                         CifReview cifreview = new CifReview();
                         List<ReviewGrid> GRpREV;
                         GRpREV = ConvertToReviewGrid(cifreview.GetReviews(Convert.ToInt32(Session["BID"])));                       
+                        grdReviewPrev.DataSource = GRpREV;
+                        grdReviewPrev.DataBind();
+                        BMRH.Visible = true;
+                    }
+                    if (cif.CheckStatus(BID, Status.UPDATED_CIF_REJECTED_BY_BRANCH_MANAGER.ToString()))
+                    {
+                        CifReview cifreview = new CifReview();
+                        List<ReviewGrid> GRpREV;
+                        GRpREV = ConvertToReviewGrid(cifreview.GetReviews(Convert.ToInt32(Session["BID"])));
                         grdReviewPrev.DataSource = GRpREV;
                         grdReviewPrev.DataBind();
                         BMRH.Visible = true;
